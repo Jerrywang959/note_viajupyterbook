@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Packages &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Plotting" href="Plotting.html" />
+    <link rel="prev" title="Functions" href="Functions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="active">
+    <a href="../README.html">Julia学习笔记</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Basic_gammer.html">Basic Gammer</a>
+    </li>
+    <li class="">
+      <a href="String.html">String</a>
+    </li>
+    <li class="">
+      <a href="DataStructure.html">DataStructure</a>
+    </li>
+    <li class="">
+      <a href="Control_flow.html">Control flow</a>
+    </li>
+    <li class="">
+      <a href="Functions.html">Functions</a>
+    </li>
+    <li class="active">
+      <a href="">Packages</a>
+    </li>
+    <li class="">
+      <a href="Plotting.html">Plotting</a>
+    </li>
+    <li class="">
+      <a href="Multiple_Dispatch.html">Multiple Dispatch</a>
+    </li>
+    <li class="">
+      <a href="Factorizations.html">Factorizations</a>
+    </li>
+    <li class="">
+      <a href="../LinearAlgebra/Basic.html">Basic</a>
+    </li>
+    <li class="">
+      <a href="../Flux/Functions.html">Fuctions</a>
+    </li>
+  </ul>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../../Course_study/README.html">Introduction</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Base/Packages.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="packages">
+<h1>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h1>
+<p>julia有专门的包管理工具——Pkg，可以用 ]进入pkg管理页面，也可以使用<code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">Pkg</span></code> <code class="docutils literal notranslate"><span class="pre">Pkg.xxx</span></code>来管理Pkg</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nd">@v1</span><span class="o">.</span><span class="mi">4</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">Colors</span>
+   <span class="n">Updating</span> <span class="n">registry</span> <span class="n">at</span> <span class="sb">`~/.julia/registries/General`</span>
+   <span class="n">Updating</span> <span class="n">git</span><span class="o">-</span><span class="n">repo</span> <span class="sb">`https://github.com/JuliaRegistries/General.git`</span>
+  <span class="n">Resolving</span> <span class="n">package</span> <span class="n">versions</span><span class="o">...</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Project.toml`</span>
+ <span class="p">[</span><span class="n">no</span> <span class="n">changes</span><span class="p">]</span>
+   <span class="n">Updating</span> <span class="sb">`~/.julia/environments/v1.4/Manifest.toml`</span>
+ <span class="p">[</span><span class="n">no</span> <span class="n">changes</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Colors</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">palette</span> <span class="o">=</span> <span class="n">distinguishable_colors</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="mi">100</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">},</span><span class="mi">1</span><span class="p">}</span> <span class="n">with</span> <span class="n">eltype</span> <span class="n">RGB</span><span class="p">{</span><span class="n">FixedPointNumbers</span><span class="o">.</span><span class="n">Normed</span><span class="p">{</span><span class="kt">UInt8</span><span class="p">,</span><span class="mi">8</span><span class="p">}}</span><span class="o">:</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.455</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.608</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.827</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.886</span><span class="p">,</span><span class="mf">0.388</span><span class="p">,</span><span class="mf">0.051</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.494</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.314</span><span class="p">,</span><span class="mf">0.902</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.675</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.278</span><span class="p">)</span>
+ <span class="n">⋮</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.855</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.247</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.18</span><span class="p">,</span><span class="mf">0.129</span><span class="p">,</span><span class="mf">0.141</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.345</span><span class="p">,</span><span class="mf">0.082</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.557</span><span class="p">,</span><span class="mf">0.114</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.455</span><span class="p">,</span><span class="mf">0.694</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.804</span><span class="p">,</span><span class="mf">0.678</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.498</span><span class="p">,</span><span class="mf">0.388</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.435</span><span class="p">,</span><span class="mf">0.239</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">rand</span><span class="p">(</span><span class="n">palette</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">3</span><span class="n">×3</span> <span class="kt">Array</span><span class="p">{</span><span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">},</span><span class="mi">2</span><span class="p">}</span> <span class="n">with</span> <span class="n">eltype</span> <span class="n">RGB</span><span class="p">{</span><span class="n">FixedPointNumbers</span><span class="o">.</span><span class="n">Normed</span><span class="p">{</span><span class="kt">UInt8</span><span class="p">,</span><span class="mi">8</span><span class="p">}}</span><span class="o">:</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.196</span><span class="p">,</span><span class="mf">0.212</span><span class="p">,</span><span class="mf">0.024</span><span class="p">)</span>  <span class="n">…</span>  <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.62</span><span class="p">,</span><span class="mf">0.62</span><span class="p">,</span><span class="mf">0.467</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.498</span><span class="p">,</span><span class="mf">0.388</span><span class="p">)</span>       <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.655</span><span class="p">,</span><span class="mf">0.525</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+ <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">0.306</span><span class="p">,</span><span class="mf">0.427</span><span class="p">,</span><span class="mf">0.314</span><span class="p">)</span>     <span class="n">RGB</span><span class="p">{</span><span class="n">N0f8</span><span class="p">}(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.306</span><span class="p">,</span><span class="mf">0.78</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>RGB的向量在nteract中输出会自动渲染成颜色，而在repl不会。</p>
+<p><img alt="UTOOLS1587175869785.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587175869785.png" /></p>
+<p><img alt="UTOOLS1587175884467.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587175884467.png" /></p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Functions.html" title="previous page">Functions</a>
+    <a class='right-next' id="next-link" href="Plotting.html" title="next page">Plotting</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

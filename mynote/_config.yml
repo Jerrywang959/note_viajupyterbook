@@ -1,0 +1,8 @@
+# Book settings
+title: Jerrynote
+author: Jerrywang
+logo: logo.png
+
+latex:
+  latex_documents:
+    targetname: book.tex

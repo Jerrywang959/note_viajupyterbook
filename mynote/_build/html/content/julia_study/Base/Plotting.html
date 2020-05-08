@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Plotting &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Multiple Dispatch" href="Multiple_Dispatch.html" />
+    <link rel="prev" title="Packages" href="Packages.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="active">
+    <a href="../README.html">Julia学习笔记</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Basic_gammer.html">Basic Gammer</a>
+    </li>
+    <li class="">
+      <a href="String.html">String</a>
+    </li>
+    <li class="">
+      <a href="DataStructure.html">DataStructure</a>
+    </li>
+    <li class="">
+      <a href="Control_flow.html">Control flow</a>
+    </li>
+    <li class="">
+      <a href="Functions.html">Functions</a>
+    </li>
+    <li class="">
+      <a href="Packages.html">Packages</a>
+    </li>
+    <li class="active">
+      <a href="">Plotting</a>
+    </li>
+    <li class="">
+      <a href="Multiple_Dispatch.html">Multiple Dispatch</a>
+    </li>
+    <li class="">
+      <a href="Factorizations.html">Factorizations</a>
+    </li>
+    <li class="">
+      <a href="../LinearAlgebra/Basic.html">Basic</a>
+    </li>
+    <li class="">
+      <a href="../Flux/Functions.html">Fuctions</a>
+    </li>
+  </ul>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../../Course_study/README.html">Introduction</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Base/Plotting.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#plots" class="nav-link">Plots</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">后端程序</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#gr" class="nav-link">GR</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#plotlyjs" class="nav-link">PlotlyJS</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id2" class="nav-link">安装和配置</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id3" class="nav-link">使用PlotlyJS</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#unicodeplots" class="nav-link">UnicodePlots</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">画图命令</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#plot" class="nav-link">plot</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#scatter" class="nav-link">scatter</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#xflip" class="nav-link">xflip!</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id5" class="nav-link">多个子图</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h2>
+<p>使用“Plots”这一Packages画图，Plots本质上也只是一个前端的工具，真正渲染制作出图片的其实是后端的一些程序。</p>
+<div class="section" id="id1">
+<h3>后端程序<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gr">
+<h4>GR<a class="headerlink" href="#gr" title="Permalink to this headline">¶</a></h4>
+<p>输入以下的命令使用GR作为后端</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Plots</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">gr</span><span class="p">()</span>
+<span class="n">Plots</span><span class="o">.</span><span class="n">GRBackend</span><span class="p">()</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587193641664.png" /></p>
+<p>但GR对中文的图像标注并<a class="reference external" href="https://github.com/JuliaPlots/Plots.jl/issues/791">不友好</a>，我在deepin linux 15.11上无法解决这一问题，因此选择了其他的后端</p>
+</div>
+<div class="section" id="plotlyjs">
+<h4>PlotlyJS<a class="headerlink" href="#plotlyjs" title="Permalink to this headline">¶</a></h4>
+<p>这一后端支持中文输入，需要额外安装<code class="docutils literal notranslate"><span class="pre">PlotlyJS</span></code>、<code class="docutils literal notranslate"><span class="pre">WebIO</span></code>和<code class="docutils literal notranslate"><span class="pre">ORCA</span></code></p>
+<div class="section" id="id2">
+<h5>安装和配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">]</span><span class="n">add</span> <span class="n">PlotlyJS</span> <span class="n">ORCA</span> <span class="n">WebIO</span>
+</pre></div>
+</div>
+<p>若从repl中画图，会自动弹出jupyter的Blink窗口，不需要配置WebIO。</p>
+<p>若从jupyter中画图，则需要安装对应的插件</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">WebIO</span>
+<span class="n">WebIO</span><span class="o">.</span><span class="n">install_jupyter_nbextension</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>jupyterlab则使用以下的命令</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">WebIO</span>
+<span class="n">WebIO</span><span class="o">.</span><span class="n">install_jupyter_nbextension</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>以上命令最好在repl中进行，并杀死jupyter进程</p>
+<p>nteract(0.22.4)貌似还未适配WebIO.jl，但安装jupyter 的插件后，不影响画图结果。</p>
+</div>
+<div class="section" id="id3">
+<h5>使用PlotlyJS<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<p>使用如下命令把plotlyjs作为plots的后端</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>这会一些warning，不知道为什么，但不影响画图结果</p>
+<p><strong>举例</strong></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587193551486.png" /></p>
+</div>
+</div>
+<div class="section" id="unicodeplots">
+<h4>UnicodePlots<a class="headerlink" href="#unicodeplots" title="Permalink to this headline">¶</a></h4>
+<p>安装</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">add</span> <span class="n">UnicodePlots</span>
+</pre></div>
+</div>
+<p>使用</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unicodeplots</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>画出来效果如下</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">unicodeplots</span><span class="p">()</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">title!</span><span class="p">(</span><span class="s">&quot;你好&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587212238940.png" /></p>
+<p>这样的粗略的画图便于在命令行中展示，而且支持中文。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>画图命令<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="plot">
+<h4>plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h4>
+<p>折线图</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">14.4</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.8</span><span class="p">];</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587210550738.png" /></p>
+</div>
+<div class="section" id="scatter">
+<h4>scatter<a class="headerlink" href="#scatter" title="Permalink to this headline">¶</a></h4>
+<p>散点图</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">14.4</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.8</span><span class="p">];</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;points&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587210577608.png" /></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">14.4</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.8</span><span class="p">];</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="n">scatter!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;points&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>后面的<code class="docutils literal notranslate"><span class="pre">!</span></code>表示在原图的基础上继续画图，而非生成一个新的图像</p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587210843471.png" /></p>
+<p><strong>一些参数</strong></p>
+<p>参数可以直接在plot函数的内部加上，也可以在画图之后以<code class="docutils literal notranslate"><span class="pre">!</span></code>函数的形式加上</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">14.4</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.8</span><span class="p">];</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;这是x轴&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;这是y轴&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;这是标题&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587211334677.png" /></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">14.4</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.8</span><span class="p">];</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;这是x轴&quot;</span><span class="p">)</span>
+<span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;这是y轴&quot;</span><span class="p">)</span>
+<span class="n">title!</span><span class="p">(</span><span class="s">&quot;这是标题1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587211508127.png" /></p>
+</div>
+<div class="section" id="xflip">
+<h4>xflip!<a class="headerlink" href="#xflip" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">xflip!()</span></code>翻转x轴，<code class="docutils literal notranslate"><span class="pre">yflip!()</span></code>反转y轴</p>
+</div>
+<div class="section" id="id5">
+<h4>多个子图<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>用一个变量表示一个子图，最后用<code class="docutils literal notranslate"><span class="pre">plot</span></code>连接起来</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
+<span class="n">plotlyjs</span><span class="p">()</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.^</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587212809004.png" /></p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Packages.html" title="previous page">Packages</a>
+    <a class='right-next' id="next-link" href="Multiple_Dispatch.html" title="next page">Multiple Dispatch</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>
