@@ -1,0 +1,49 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "collapsed": true,
+        "outputExpanded": false,
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernel_info": {
+      "name": "ir"
+    },
+    "language_info": {
+      "name": "ir"
+    },
+    "kernelspec": {
+      "argv": [
+        "/usr/lib/R/bin/R",
+        "--slave",
+        "-e",
+        "IRkernel::main()",
+        "--args",
+        "{connection_file}"
+      ],
+      "display_name": "R",
+      "language": "R",
+      "name": "ir"
+    },
+    "nteract": {
+      "version": "0.23.1"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}

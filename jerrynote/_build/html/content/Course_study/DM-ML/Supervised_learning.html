@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Surpervised Learning Intro &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="线性回归" href="Linear_regression.html" />
+    <link rel="prev" title="函数求极值" href="Math_base_opt.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../../julia_study/README.html">Introduction</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="active">
+    <a href="../README.html">Introduction</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="README.html">Introduction</a>
+      <ul class="nav sidenav_l3">
+      <li class="">
+        <a href="Homework.html">2020-2-20</a>
+      </li>
+      <li class="">
+        <a href="Math_base_matrix.html">矩阵相关知识</a>
+      </li>
+      <li class="">
+        <a href="Math_base_opt.html">函数求极值</a>
+      </li>
+      <li class="active">
+        <a href="">Surpervised Learning Intro</a>
+      </li>
+      <li class="">
+        <a href="Linear_regression.html">线性回归</a>
+      </li>
+    </ul>
+    </li>
+    <li class="">
+      <a href="../Game_Thoery/README.html">Intruduction</a>
+    </li>
+    <li class="">
+      <a href="../Financial_Lecture/README.html">课程目标</a>
+    </li>
+    <li class="">
+      <a href="../International_Finance/Exchanges.html">外汇的概念</a>
+    </li>
+    <li class="">
+      <a href="../International_Finance/Exchanges_market.html">外汇市场</a>
+    </li>
+    <li class="">
+      <a href="../Random_process/README.html">参考教材</a>
+    </li>
+    <li class="">
+      <a href="../Times_series/README.html">课程介绍</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/DM-ML/Supervised_learning.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#discriminative-models" class="nav-link">Discriminative models</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#generative-models" class="nav-link">Generative models</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#ml-three-element" class="nav-link">ML THREE element</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#model" class="nav-link">Model</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#strategy" class="nav-link">Strategy</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id1" class="nav-link">泛化误差</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cross-validation" class="nav-link">Cross validation</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="surpervised-learning-intro">
+<h1>Surpervised Learning Intro<a class="headerlink" href="#surpervised-learning-intro" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="discriminative-models">
+<h2>Discriminative models<a class="headerlink" href="#discriminative-models" title="Permalink to this headline">¶</a></h2>
+<p>辨别模型</p>
+<p>描述无法观察到的变量对可以观察到的变量的依赖关系</p>
+<p>比如：<span class="math notranslate nohighlight">\(p_\theta(y|x)\)</span></p>
+</div>
+<div class="section" id="generative-models">
+<h2>Generative models<a class="headerlink" href="#generative-models" title="Permalink to this headline">¶</a></h2>
+<p>生成模型</p>
+<p>描述数据的联合概率分布的模型</p>
+<p>比如<span class="math notranslate nohighlight">\(p_\theta(x,y)\)</span></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587867372720.png" /></p>
+</div>
+<div class="section" id="ml-three-element">
+<h2>ML THREE element<a class="headerlink" href="#ml-three-element" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587867245727.png" /></p>
+<div class="section" id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p><strong>空间</strong></p>
+<ul class="simple">
+<li><p>输入空间X</p></li>
+<li><p>输出空间Y</p></li>
+</ul>
+<p><strong>训练数据</strong></p>
+<ul class="simple">
+<li><p>样本<span class="math notranslate nohighlight">\(S\)</span>，长度为<span class="math notranslate nohighlight">\(N\)</span>，每一个数据都是独立同分布的，服从$X\times Y <span class="math notranslate nohighlight">\(的联合分布\)</span>D$</p></li>
+<li><p><span class="math notranslate nohighlight">\(S=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{N}, y_{N}\right)\right\}\)</span></p></li>
+</ul>
+<p><strong>假设空间</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F\sube Y^X\)</span>(从<span class="math notranslate nohighlight">\(X\)</span>映射到<span class="math notranslate nohighlight">\(Y\)</span>)</p></li>
+<li><p>可能的模型空间，例如：所有的线性函数</p></li>
+<li><p>取决于特征结构和有关该问题的先验知识</p></li>
+</ul>
+</div>
+<div class="section" id="strategy">
+<h3>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h3>
+<p><strong>目标</strong></p>
+<p>找到一个较好的假设<span class="math notranslate nohighlight">\(f\sube F\)</span></p>
+<p>什么叫较好的假设？可以从以下三个角度来谈</p>
+<div class="section" id="id1">
+<h4>泛化误差<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><strong>损失函数</strong></p>
+<p><span class="math notranslate nohighlight">\(L: Y \times Y \rightarrow \mathbb{R}\)</span></p>
+<p><strong>泛化误差</strong>
+<span class="math notranslate nohighlight">\($
+R(f)=\mathbb{E}_{(x, y) \sim D}[L(f(x), y)]
+$\)</span>
+<strong>经验误差</strong>
+<span class="math notranslate nohighlight">\($
+\hat{R}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(f\left(x_{i}\right), y_{i}\right)
+$\)</span>
+对于有限的假设空间<span class="math notranslate nohighlight">\(F\)</span>,<span class="math notranslate nohighlight">\(\forall f \sube F\)</span>，有不超过<span class="math notranslate nohighlight">\(1-\delta\)</span>的概率，满足
+<span class="math notranslate nohighlight">\($
+R(f) \leq \hat{R}(f)+\epsilon(d, N, \delta)
+$\)</span>
+此处，<span class="math notranslate nohighlight">\(N\)</span>为训练次数，<span class="math notranslate nohighlight">\(d\)</span>为<span class="math notranslate nohighlight">\(F\)</span>中的函数个数，
+<span class="math notranslate nohighlight">\($
+\epsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\log d+\log \frac{1}{\delta}\right)}
+$\)</span>
+证明：</p>
+<p>由霍丁夫不等式</p>
+<p><strong>Hint: Hoeffding Inequality</strong></p>
+<p>霍夫丁不等式</p>
+<p>假设<span class="math notranslate nohighlight">\(X_1,X_2,...,X_n\)</span>是独立有界的随机变量，<span class="math notranslate nohighlight">\(X_i\in[a,b]\)</span>，随机变量<span class="math notranslate nohighlight">\(Z\)</span>为
+<span class="math notranslate nohighlight">\($
+Z=\frac{1}{n} \sum_{i=1}^{n} X_{i}
+$\)</span>
+那么下列的两个不等式成立
+<span class="math notranslate nohighlight">\($
+\begin{aligned}
+&amp;P(Z-\mathbb{E}[Z] \geq t) \leq \exp \left(\frac{-2 n t^{2}}{(b-a)^{2}}\right)\\
+&amp;P(\mathbb{E}[Z]-Z \geq t) \leq \exp \left(\frac{-2 n t^{2}}{(b-a)^{2}}\right)
+\end{aligned}
+$\)</span>
+<img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587867917749.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587868545478.png" /></p>
+<p>把先验知识加入</p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587869994763.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587870260064.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587870648546.png" /></p>
+<p>皮尔森相关系数：只能用于线性关系</p>
+<p>用 R-squared</p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587871334009.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587871761741.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="cross-validation">
+<h2>Cross validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Math_base_opt.html" title="previous page">函数求极值</a>
+    <a class='right-next' id="next-link" href="Linear_regression.html" title="next page">线性回归</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>
