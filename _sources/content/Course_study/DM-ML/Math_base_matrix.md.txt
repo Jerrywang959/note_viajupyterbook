@@ -1,10 +1,12 @@
 # 矩阵相关知识
 
 ## Orthogonal Matrices
-如果一个矩阵$$Q\in R^{n\times n} $$满足
+如果一个矩阵 $Q\in R^{n\times n}$ 满足
+
 $$
 Q^TQ=I
 $$
+
 则它为正交矩阵
 
 
@@ -30,17 +32,23 @@ $$
 ### p-范数诱导的矩阵范数
 
 向量$\mathbf{x}$的p-范数
+
 $$
 \|\mathbf{x}\|_{p}=\left(\left|x_{1}\right|^{p}+\left|x_{2}\right|^{p}+\cdots+\left|x_{n}\right|^{p}\right)^{1 / p}
 $$
+
 矩阵的p范数为
+
 $$
 \|\mathbf{A}\|_{p}=\max _{\mathbf{x} \neq 0} \frac{\|\mathbf{A} \mathbf{x}\|_{p}}{\|\mathbf{x}\|_{p}}
 $$
+
 例如，1-范数为
+
 $$
 \|\mathbf{A}\|_{1}=\max _{j} \sum_{i=1}^{n}\left|a_{i j}\right|
 $$
+
 这种由矢量范数诱导的矩阵范数称为 算子范数（operator norm）。
 
 ### **弗罗贝尼乌斯范数**(Frobenius norm)
@@ -52,14 +60,18 @@ $$
 $$
 
 一些性质
+
 $$
 \|\mathbf{A}\|_{F}^{2}=\operatorname{trace}\left(\mathbf{A}^{\top} \mathbf{A}\right) \\
 \|\mathbf{A B}\|_{F}=\|\mathbf{A}\|_{F}\|\mathbf{B}\|_{F}
 $$
+
 正交乘法下不变性
+
 $$
 \|\mathbf{Q A}\|_{2}=\|\mathbf{A}\|_{2} \quad\|\mathbf{Q A}\|_{F}=\|\mathbf{A}\|_{F}
 $$
+
 其中$Q$是一个正交矩阵
 
 ## Eigenvalue Decomposition
@@ -67,13 +79,17 @@ $$
 矩阵特征分解
 
 对于一个方阵$A\in\mathbb{R}^{m\times n}$，我们称非0向量$\mathbf{x}\in\mathbb{R^n}$是其特征值$\lambda$对应的一个特征向量，如果：
+
 $$
 \mathbf{A x}=\lambda \mathbf{x}
 $$
+
 方针$A$的特征值分解为
+
 $$
 A=X \Lambda X^{-1}
 $$
+
 其中，$\mathbf{X}$是一个非奇异矩阵，且由$A$矩阵的特征向量组成；$\mathbf{\Lambda}$是一个对角线上的值为$A$矩阵的特征值的对角矩阵。
 
 Note:
@@ -85,12 +101,15 @@ Note:
 奇异值分解 SVD
 
 每一个矩阵$\mathbf{A}\in\mathbb{R}$都有如下的奇异值分解形式
+
 $$
 \mathbf{A}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\top}
 $$
+
 其中，$\mathbf{U}\in\mathbb{R}^{m\times m}$和$\mathbf{V}\in\mathbb{R}^{n\times n}$为正交矩阵，$\boldsymbol{\Sigma} \in \mathbb{R}^{m \times n}$是一个对角线上的值为$\mathbf{A}$的奇异值的对角矩阵
 
 如果矩阵$\mathbf{A}$的秩为$r$，则$\mathbf{A}$的奇异值为
+
 $$
 \sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r} \geq \sigma_{r+1}=\ldots \sigma_{\min (m, n)}=0
 $$
@@ -112,6 +131,7 @@ $U$是$m\times n$矩阵，$\Sigma$是$n\times n $矩阵
 $$
 \mathbf{A}^{\top} \mathbf{A}=\left(\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\top}\right)^{\top}(\mathbf{U} \boldsymbol{\Sigma} \mathbf{V})=\mathbf{V} \boldsymbol{\Sigma}^{\top} \mathbf{U}^{\top} \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\top}=\mathbf{V}\left(\boldsymbol{\Sigma}^{\top} \boldsymbol{\Sigma}\right) \mathbf{V}^{\top}
 $$
+
 2. 如果$A=A^\top$，则$A$的奇异值即为$A$的特征值
 
 $$
@@ -141,12 +161,14 @@ $$
 $\mathbf{A}=\sum_{i=1}^{r} \sigma_{i} \mathbf{u}_{i} \mathbf{v}_{i}^{\top}$，我们设$\mathbf{A}_{k}=\sum_{i=1}^{k} \sigma_{i} \mathbf{u}_{i} \mathbf{v}_{i}^{\top},\quad 0<k<r$
 
 **Eckart-Young Theorem**(埃卡特-杨定理)
+
 $$
 \begin{array}{c}
 \min\limits _{\operatorname{rank}(\mathbf{B}) \leq k}\|\mathbf{A}-\mathbf{B}\|_{2}=\left\|\mathbf{A}-\mathbf{A}_{k}\right\|_{2}=\sigma_{k+1} \\
 \min\limits _{\operatorname{rank} k(\mathbf{B}) \leq k}\|\mathbf{A}-\mathbf{B}\|_{F}=\left\|\mathbf{A}-\mathbf{A}_{k}\right\|_{F}=\sqrt{\sigma_{k+1}^{2}+\cdots+\sigma_{r}^{2}}
 \end{array}
 $$
+
 $A_k$为秩为$k$的$A$的最佳近似
 
 
@@ -166,6 +188,7 @@ $A_k$为秩为$k$的$A$的最佳近似
 1. **一个对称矩阵是半正定的当且仅当它的特征值都是非负值。**
 
 证明如下，$x,\lambda$分别为$A$的特征向量和特征值
+
 $$
 0 \leq \mathbf{x}^{\top} \mathbf{A} \mathbf{x}=\mathbf{x}^{\top}(\lambda \mathbf{x})=\lambda \mathbf{x}^{\top} \mathbf{x}=\lambda\|\mathbf{x}\|_{2}^{2}
 $$
@@ -180,6 +203,7 @@ $$
 令$\mathbf{B}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}$
 
 有
+
 $$
 \mathbf{B}^{2}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}=\mathbf{A}
 $$

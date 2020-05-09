@@ -36,7 +36,7 @@ $\rho_{s,t}=\triangleq\frac{\gamma{t,s}}{\sqrt{\sigma_t^2}\sqrt{\sigma_s^2}}\equ
 ## 弱平稳序列
 
 1. $\forall t\in\mathscr{T},\mathrm{E}(X_t)=\mu$         
-2. $\forall t\in\mathscr{T},\mathrm{E}(X_t^2)<\infin$
+2. $\forall t\in\mathscr{T},\mathrm{E}(X_t^2)<\infty$
 3. $\forall t,s\in\mathscr{T},\gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{s}-\mu_{s}\right)\right]=\gamma_{t-s}$，$\forall t=s \in \mathscr{T}, \gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{t}-\mu_{t}\right)\right]=\gamma_{0}$
 
 ## 严平稳序列
@@ -70,18 +70,24 @@ $\left(X_{t+k_{1}}, X_{t+k_{2}}, \ldots, X_{t+k_{n}}\right)$的联合分布仅�
 假设$\mathrm{E}(X_t)=\mu,\mathrm{E}(X_t^2)=\sigma^2$
 
 均值遍历
+
+
 $$
 \bar x\triangleq\frac{1}{T}\sum_{t=1}^Tx_t \stackrel{p}\longrightarrow \mu
 $$
+
 方差遍历
+
+
 $$
 s^2\triangleq\frac{1}{T}\sum_{t=1}^T(x_t-\mu)^2 \stackrel{P}\longrightarrow\sigma^2
 $$
+
 协方差遍历（**为什么是这样**）
+
 $$
 s^{2} \triangleq \frac{1}{T-j} \sum_{t=j+1}^{T}\left(x_{t}-\mu\right)\left(x_{t-j}-\mu\right) \stackrel{p}{\rightarrow} \gamma_{j}^{2}
 $$
-
 
 遍历性只是一个假设，无法验证其成立与否。路径依赖的时间序列变量不满足平稳性。
 
@@ -94,6 +100,7 @@ $L$：对时间序列的一种操作，取其一阶滞后数据
 $Lx_t\equiv x_{t-1}$
 
 习惯用法：
+
 $$
 L(Lx_t)=L(x_{t-1})=x_{t-2}  \\
 L^kx_t=x_{t-k}      \\
@@ -101,9 +108,11 @@ L^0x_t=x_t    \\
 L^{-1}x_t=x_{t+1}     \\
 Lc=c
 $$
+
 滞后算子服从的运算法则：交换律、结合律、分配率
 
 例子
+
 $$
 \left(a+b L+c L^{2}\right) L x_{t}=a L x_{t}+b L^{2} x_{t}+c L^{3} x_{t}=a x_{t-1}+b x_{t-2}+c x_{t-3}   \\
 \left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) x_{t}=\left(1-\lambda_{1} L-\lambda_{2} L+\lambda_{1} \lambda_{2} L^{2}\right) x_{t}=x_{t}-\left(\lambda_{1}+\lambda_{2}\right) x_{t-1}+\lambda_{1} \lambda_{2} x_{t-2}
