@@ -43,7 +43,7 @@ $\omega\in A\subseteq\Omega$
 
 1. $P(\emptyset)=0$
 2. $P(\Omega)=1$
-3. $ \forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\emptyset ,\quad P(\cup_{k=1}^{\infin} A_k)=\sum_{k=1}^\infin P(A_k) $
+3. $ \forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\emptyset ,\quad P(\cup_{k=1}^{\infty} A_k)=\sum_{k=1}^\infty P(A_k) $
 
 则我们称$P$为$(\Omega,\mathscr{F})$上的概率测度
 
@@ -75,15 +75,15 @@ $\omega\in A\subseteq\Omega$
 
 定义1.8
 
-若$\{A_n,n\geq 1\}$，是递增集合序列，$\lim\limits_{n\rightarrow \infin}=\cup_{k=1}^\infin A_k$
+若$\{A_n,n\geq 1\}$，是递增集合序列，$\lim\limits_{n\rightarrow \infty}=\cup_{k=1}^\infty A_k$
 
-若$\{A_n,n\geq 1\}$，是递减集合序列，$\lim\limits_{n\rightarrow \infin}=\cap_{k=1}^\infin A_k$
+若$\{A_n,n\geq 1\}$，是递减集合序列，$\lim\limits_{n\rightarrow \infty}=\cap_{k=1}^\infty A_k$
 
 
 
 定理
 
-若$\{A_n,n\geq1\}\in\mathscr{F},\mathscr{F}为\sigma$域，$\{A_n,n\geq1\}$是单调增（减）集合序列，则$\lim\limits_{n\rightarrow \infin}P(A_n)=P(\lim\limits_{n\rightarrow\infin}A_n)$
+若$\{A_n,n\geq1\}\in\mathscr{F},\mathscr{F}为\sigma$域，$\{A_n,n\geq1\}$是单调增（减）集合序列，则$\lim\limits_{n\rightarrow \infty}P(A_n)=P(\lim\limits_{n\rightarrow\infty}A_n)$
 
 
 
@@ -91,15 +91,15 @@ $\omega\in A\subseteq\Omega$
 
 定义1.10
 
-上极限：$\lim\sup A_n=\cap_n^\infin\cup_n^\infin A_n$
+上极限：$\lim\sup A_n=\cap_n^\infty\cup_n^\infty A_n$
 $$
 \forall \omega \in \lim\sup A_n \Leftrightarrow \{ \omega:属于无穷多个 A_n \}  \\
-\omega\in\cap_{n=1}^\infin\cup_n^\infin A_k \Leftrightarrow  \forall n\geq 1,\exists k\geq n，有 \omega \in A_k
+\omega\in\cap_{n=1}^\infty\cup_n^\infty A_k \Leftrightarrow  \forall n\geq 1,\exists k\geq n，有 \omega \in A_k
 $$
 
 
 
-下极限：$\lim\sup A_n=\cap_n^\infin\cup_n^\infin A_n$
+下极限：$\lim\sup A_n=\cap_n^\infty\cup_n^\infty A_n$
 
 $$
 \forall \omega \in \lim\inf A_n \Leftrightarrow \exists n\geq 1, \forall k\geq n,\omega\in A_k成立
