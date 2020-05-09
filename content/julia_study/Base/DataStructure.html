@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>DataStructure &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Control flow" href="Control_flow.html" />
+    <link rel="prev" title="String" href="String.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../README.html">Why Julia</a>
+  </li>
+  <li class="active">
+    <a href="README.html">Base</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Basic_gammer.html">Basic Gammer</a>
+    </li>
+    <li class="">
+      <a href="String.html">String</a>
+    </li>
+    <li class="active">
+      <a href="">DataStructure</a>
+    </li>
+    <li class="">
+      <a href="Control_flow.html">Control flow</a>
+    </li>
+    <li class="">
+      <a href="Functions.html">Functions</a>
+    </li>
+    <li class="">
+      <a href="Packages.html">Packages</a>
+    </li>
+    <li class="">
+      <a href="Plotting.html">Plotting</a>
+    </li>
+    <li class="">
+      <a href="Multiple_Dispatch.html">Multiple Dispatch</a>
+    </li>
+    <li class="">
+      <a href="Factorizations.html">Factorizations</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../Flux/README.html">Flux</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../../Course_study/DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Base/DataStructure.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#tuples" class="nav-link">Tuples</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">创建元组</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">索引元组</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">不能改变元组</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#namedtuples" class="nav-link">NamedTuples</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#dictionary" class="nav-link">Dictionary</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">创建字典</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">读取字典内容</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">增加字典内容</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">删除一个键值对应并返回值</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#arrays" class="nav-link">Arrays</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">创建Arrays</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">索引Arrays</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">修改Arrays某一索引</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">增加和减少Arrays</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id12" class="nav-link">复杂的Arrays</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id13" class="nav-link">创建副本防止绑定更新</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="datastructure">
+<h1>DataStructure<a class="headerlink" href="#datastructure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>创建元组<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">(item1,</span> <span class="pre">item2,</span> <span class="pre">...)</span></code></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>索引元组<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>julia是从1开始索引</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">&quot;penguins&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>不能改变元组<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>因为它是immutable的</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;otters&quot;</span>
+<span class="n">ERROR</span><span class="o">:</span> <span class="kt">MethodError</span><span class="o">:</span> <span class="n">no</span> <span class="n">method</span> <span class="n">matching</span> <span class="n">setindex!</span><span class="p">(</span><span class="o">::</span><span class="kt">Tuple</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="p">},</span> <span class="o">::</span><span class="n">String</span><span class="p">,</span> <span class="o">::</span><span class="kt">Int64</span><span class="p">)</span>
+<span class="n">Stacktrace</span><span class="o">:</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span> <span class="n">at</span> <span class="n">REPL</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="namedtuples">
+<h3>NamedTuples<a class="headerlink" href="#namedtuples" title="Permalink to this headline">¶</a></h3>
+<p>和一般的元组一样，只是把元组内部的每个元素都有一个name，用数字或者.name索引</p>
+<p><code class="docutils literal notranslate"><span class="pre">(name1</span> <span class="pre">=</span> <span class="pre">item1,</span> <span class="pre">name2</span> <span class="pre">=</span> <span class="pre">item2,</span> <span class="pre">...)</span></code></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span> <span class="o">=</span> <span class="p">(</span><span class="n">bird</span> <span class="o">=</span> <span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="n">mammal</span> <span class="o">=</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="n">marsupial</span> <span class="o">=</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">bird</span> <span class="o">=</span> <span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="n">mammal</span> <span class="o">=</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="n">marsupial</span> <span class="o">=</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">)</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="s">&quot;penguins&quot;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfavoriteanimals</span><span class="o">.</span><span class="n">bird</span>
+<span class="s">&quot;penguins&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionary">
+<h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>创建字典<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Dict(key1</span> <span class="pre">=&gt;</span> <span class="pre">value1,</span> <span class="pre">key2</span> <span class="pre">=&gt;</span> <span class="pre">value2,</span> <span class="pre">...)</span></code>，字典的值需是相同的类型</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myphonebook</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&quot;Jenny&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;867-5309&quot;</span><span class="p">,</span> <span class="s">&quot;Ghostbusters&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;555-2368&quot;</span><span class="p">)</span>
+<span class="kt">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="p">}</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="s">&quot;Jenny&quot;</span>        <span class="o">=&gt;</span> <span class="s">&quot;867-5309&quot;</span>
+  <span class="s">&quot;Ghostbusters&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;555-2368&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>读取字典内容<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myphonebook</span><span class="p">[</span><span class="s">&quot;Jenny&quot;</span><span class="p">]</span>
+<span class="s">&quot;867-5309&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>增加字典内容<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myphonebook</span><span class="p">[</span><span class="s">&quot;Kramer&quot;</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;555-FILK&quot;</span>
+<span class="s">&quot;555-FILK&quot;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">myphonebook</span>
+<span class="kt">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="p">}</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="s">&quot;Jenny&quot;</span>        <span class="o">=&gt;</span> <span class="s">&quot;867-5309&quot;</span>
+  <span class="s">&quot;Kramer&quot;</span>       <span class="o">=&gt;</span> <span class="s">&quot;555-FILK&quot;</span>
+  <span class="s">&quot;Ghostbusters&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;555-2368&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>删除一个键值对应并返回值<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>使用<code class="docutils literal notranslate"><span class="pre">pop!</span></code></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">pop!</span><span class="p">(</span><span class="n">myphonebook</span><span class="p">,</span> <span class="s">&quot;Kramer&quot;</span><span class="p">)</span>
+<span class="s">&quot;555-FILK&quot;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">myphonebook</span>
+<span class="kt">Dict</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="n">String</span><span class="p">}</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="s">&quot;Jenny&quot;</span>        <span class="o">=&gt;</span> <span class="s">&quot;867-5309&quot;</span>
+  <span class="s">&quot;Ghostbusters&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;555-2368&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="arrays">
+<h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<p>与Tuples不同，Arrays是可变的；与Dictionary不同，Arrays是有序的</p>
+<p><code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...]</span></code></p>
+<div class="section" id="id8">
+<h3>创建Arrays<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>返回的类型中，第一个“String”表示Arrays内元素的类型，1表示Arrays的维度</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfriends</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Ted&quot;</span><span class="p">,</span> <span class="s">&quot;Robyn&quot;</span><span class="p">,</span> <span class="s">&quot;Barney&quot;</span><span class="p">,</span> <span class="s">&quot;Lily&quot;</span><span class="p">,</span> <span class="s">&quot;Marshall&quot;</span><span class="p">]</span>
+<span class="mi">5</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="s">&quot;Ted&quot;</span>
+ <span class="s">&quot;Robyn&quot;</span>
+ <span class="s">&quot;Barney&quot;</span>
+ <span class="s">&quot;Lily&quot;</span>
+ <span class="s">&quot;Marshall&quot;</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">mixture</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;Ted&quot;</span><span class="p">,</span> <span class="s">&quot;Robyn&quot;</span><span class="p">]</span>
+<span class="mi">6</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="mi">1</span>
+ <span class="mi">1</span>
+ <span class="mi">2</span>
+ <span class="mi">3</span>
+  <span class="s">&quot;Ted&quot;</span>
+  <span class="s">&quot;Robyn&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>索引Arrays<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>用数字所在的序号索引</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfriends</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="s">&quot;Barney&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>修改Arrays某一索引<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">myfriends</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Baby Bop&quot;</span>
+<span class="s">&quot;Baby Bop&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>增加和减少Arrays<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">push!</span></code>,<code class="docutils literal notranslate"><span class="pre">pop!</span></code></p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">push!</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="mi">8</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+ <span class="mi">21</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">pop!</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">)</span>
+<span class="mi">21</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>复杂的Arrays<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>可以是多个维度的Arrays，也可以是Arrays的Arrays</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">favorites</span> <span class="o">=</span> <span class="p">[[</span><span class="s">&quot;koobideh&quot;</span><span class="p">,</span> <span class="s">&quot;chocolate&quot;</span><span class="p">,</span> <span class="s">&quot;eggs&quot;</span><span class="p">],[</span><span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">]]</span>
+<span class="mi">2</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Array</span><span class="p">{</span><span class="n">String</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="p">[</span><span class="s">&quot;koobideh&quot;</span><span class="p">,</span> <span class="s">&quot;chocolate&quot;</span><span class="p">,</span> <span class="s">&quot;eggs&quot;</span><span class="p">]</span>
+ <span class="p">[</span><span class="s">&quot;penguins&quot;</span><span class="p">,</span> <span class="s">&quot;cats&quot;</span><span class="p">,</span> <span class="s">&quot;sugargliders&quot;</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<span class="mi">3</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="mi">4</span><span class="n">×3</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span><span class="o">:</span>
+ <span class="mf">0.580342</span>  <span class="mf">0.840483</span>  <span class="mf">0.590226</span>
+ <span class="mf">0.612861</span>  <span class="mf">0.801844</span>  <span class="mf">0.859797</span>
+ <span class="mf">0.742443</span>  <span class="mf">0.590106</span>  <span class="mf">0.649077</span>
+ <span class="mf">0.477118</span>  <span class="mf">0.72509</span>   <span class="mf">0.342509</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">4</span><span class="n">×3×2</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span><span class="o">:</span>
+<span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="o">:</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span>
+ <span class="mf">0.888219</span>  <span class="mf">0.384393</span>  <span class="mf">0.0619398</span>
+ <span class="mf">0.473101</span>  <span class="mf">0.204024</span>  <span class="mf">0.784434</span>
+ <span class="mf">0.72608</span>   <span class="mf">0.92305</span>   <span class="mf">0.100044</span>
+ <span class="mf">0.815554</span>  <span class="mf">0.161155</span>  <span class="mf">0.416701</span>
+
+<span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="o">:</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span>
+ <span class="mf">0.305238</span>   <span class="mf">0.530652</span>   <span class="mf">0.74287</span>
+ <span class="mf">0.484455</span>   <span class="mf">0.0904463</span>  <span class="mf">0.105327</span>
+ <span class="mf">0.0632765</span>  <span class="mf">0.818537</span>   <span class="mf">0.704337</span>
+ <span class="mf">0.152749</span>   <span class="mf">0.0189906</span>  <span class="mf">0.120929</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>创建副本防止绑定更新<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>使用<code class="docutils literal notranslate"><span class="pre">=</span></code>生产的新Arrays，内存地址上和原来的Arrays是相同的，因此会同时更新</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">somenumbers</span> <span class="o">=</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">somenumbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">404</span>
+<span class="mi">404</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+ <span class="mi">404</span>
+   <span class="mi">1</span>
+   <span class="mi">2</span>
+   <span class="mi">3</span>
+   <span class="mi">5</span>
+   <span class="mi">8</span>
+  <span class="mi">13</span>
+</pre></div>
+</div>
+<p>若要防止此情况，使用copy创建新的Arrays</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">somemorenumbers</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">)</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">somemorenumbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">404</span>
+<span class="mi">404</span>
+
+<span class="n">julia</span><span class="o">&gt;</span> <span class="n">fibonacci</span>
+<span class="mi">7</span><span class="o">-</span><span class="n">element</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span><span class="o">:</span>
+  <span class="mi">1</span>
+  <span class="mi">1</span>
+  <span class="mi">2</span>
+  <span class="mi">3</span>
+  <span class="mi">5</span>
+  <span class="mi">8</span>
+ <span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="String.html" title="previous page">String</a>
+    <a class='right-next' id="next-link" href="Control_flow.html" title="next page">Control flow</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

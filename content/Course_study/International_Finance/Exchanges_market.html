@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>外汇市场 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Balance_payment" href="Balance_payment.html" />
+    <link rel="prev" title="外汇的概念" href="Exchanges.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Flux/README.html">Flux</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="../Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="active">
+    <a href="README.html">International_Finance</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Exchanges.html">外汇的概念</a>
+    </li>
+    <li class="active">
+      <a href="">外汇市场</a>
+    </li>
+    <li class="">
+      <a href="Balance_payment.html">Balance_payment</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="../M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="../Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/International_Finance/Exchanges_market.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">含义</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">外汇市场的组织形态</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">特征</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>外汇市场<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>含义<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>从事外汇买卖、调剂外汇供求，规避外汇风险和进行外汇投机的场所。不同货币彼此进行交换的场所。</p>
+<p>主要的两类外汇买卖：本币与外币间的买卖（国内外汇市场）；外币与外币间的买卖（国际外汇市场）</p>
+<p>币种上，美元、欧元和日元市场份额最大。2010年4月，以美元、欧元和日元的单边货币交易额占比分别为84.9%、39.1%和19%。</p>
+</div>
+<div class="section" id="id3">
+<h2>外汇市场的组织形态<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>有形市场——外汇交易所（Exchange Bourse）</p>
+<p>无形市场——表现为电话、电报、电传和计算机终端等各种远程通讯工具构成的交易网络。采用做市商（market maker）制度。</p>
+<p>外汇交易的两个步骤：成交和交割（即期或远期）。</p>
+<div class="section" id="id4">
+<h3>特征<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>全球性的、星期一至星期五24个小时外汇交易系统</p></li>
+<li><p>伦敦、纽约和东京为三大外汇交易中心</p></li>
+<li><p>外汇市场的规模持续扩大</p></li>
+</ul>
+<p>即期(Spot)、远期(Forwards)、外汇掉期(Foreign exchange swaps)、货币互换(Currency swaps)、外汇期权及其它产品(FX options and other products)</p>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h1>外汇市场的构成<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h2>参与者<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>外汇银行</p></li>
+<li><p>外汇经纪人（外汇银行之间或外汇银行与顾客之间）</p></li>
+<li><p>顾客和中央银行。</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>交易的三个层次<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>银行和顾客间的外汇交易（零售市场）。</p>
+<p>银行同业间的外汇交易（批发市场）：买卖差价一般低于零售市场。</p>
+<p>银行与中央银行间的外汇交易。中央银行外汇干预。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h1>外汇市场的效率<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
+<p>市场无效的原因之一是不停有人在操作而信息不被公开</p>
+<div class="section" id="id9">
+<h2>弱型<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>通过历史交易量和历史价格信息没法预测未来价格走势</p>
+</div>
+<div class="section" id="id10">
+<h2>半强型<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>基于所有公开发布的信息（不仅是价格和交易量，还有更多公司信息），无法预测价格变动</p>
+</div>
+<div class="section" id="id11">
+<h2>强型有效<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>利于公开发布的信息及所有的私人信息都没法预测价格变动。</p>
+<p>所有市场都无法达到，我国法律规定高管禁止买卖公司股票。</p>
+<p>理论上市场有效时(直接标价):远期汇率=即期汇率+风险升水</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h1>外汇市场交易<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id13">
+<h2>即期外汇交易<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>即期外汇(现汇)交易,指买卖双方成交后,在两个营业日内办理交割的外汇买卖。</p>
+<p>三种交割</p>
+<p>即日交割( Value today,简写成 VAL TOD)</p>
+<p>翌日交割( Value tomorrow,简写成VAL TOM)</p>
+<p>第二个营业日交割（value Spot简写为 VAL SP）</p>
+<p>交割日期也称为起息日( Value date),买卖双方可根据需要将息日约定为成交当日或成交次日。</p>
+<p>即期外汇交易往往包括四个步骤:询价( asking)、报价( Quotation)、成交(Done)、确认( Confirmation)。</p>
+</div>
+<div class="section" id="id14">
+<h2>远期外汇(期汇)交易<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>买卖双方成交后,并不立即办理交割,而是按照所签订的远期合同规定,在朿来的约定日期办理交割的外江交易。起息日在两个营业日以后。</p>
+<div class="section" id="id15">
+<h3>固定交割日的远期交易<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>选择交割日的远期交易(择期交易, Optional! orward Deals须提前两天通知报价行)。</p>
+<p>套期保值( Hedging):卖出或买入金额等于一笔外币资产或债的外汇,外币资产或负债以本币表示的价值免受汇率变动的影响。</p>
+<p>投机( Speculation):根据对汇率变动的预期,有意持有外汇的多头或空头,从汇率变动来中获利</p>
+</div>
+</div>
+<div class="section" id="swap">
+<h2>掉期外汇交易(Swap)<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h2>
+<p>将货币相同、金额相同,而方向相反、交割期限不同的两笔或两笔以上的外汇交易结合起来进行。在买进某种外汇时,同时卖出金额相同的这种货币,但买进和卖岀的交割日期不同。拌期交易实质上是一种套期保值的作法,但操作上有所不同种形式。</p>
+<div class="section" id="id16">
+<h3>三种形式<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="spot-against-forward">
+<h4>即期对远期( Spot Against Forward)<a class="headerlink" href="#spot-against-forward" title="Permalink to this headline">¶</a></h4>
+<p>买进或卖出一笔现汇的同时,卖出或买进一笔期汇。常见形式</p>
+</div>
+<div class="section" id="tomorrow-next-or-rollover">
+<h4>明日对次日( tomorrow- Next or rollover)<a class="headerlink" href="#tomorrow-next-or-rollover" title="Permalink to this headline">¶</a></h4>
+<p>成交后第二个营业日(明日)交割,在第三个营业日(次日)再作反向交割的一种交易。用于银行同业的隔夜资金拆借。</p>
+</div>
+<div class="section" id="forward-to-forward">
+<h4>远期对远期( Forward to forward)<a class="headerlink" href="#forward-to-forward" title="Permalink to this headline">¶</a></h4>
+<p>对不同交割期限的期汇双方作货币、金额相同而方向相反的两个交易。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>套汇和套利交易<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arbitrage">
+<h3>套汇( Arbitrage)<a class="headerlink" href="#arbitrage" title="Permalink to this headline">¶</a></h3>
+<p>在外汇市场上,同时买入和卖出货币以获利的行为</p>
+<div class="section" id="direct-arbitrage">
+<h4>直接套汇( Direct Arbitrage)<a class="headerlink" href="#direct-arbitrage" title="Permalink to this headline">¶</a></h4>
+<p>双边或两角套汇( BilateralofTwo-Point-Arbitrage)</p>
+<p>利用两个外汇市场上某种货币的汇率差异,同时在两个外汇市场上一边买入一边卖出这种货币</p>
+</div>
+<div class="section" id="indirect-arbitrage">
+<h4>间接套汇( Indirect Arbitrage)<a class="headerlink" href="#indirect-arbitrage" title="Permalink to this headline">¶</a></h4>
+<p>三角套汇( Three-Point Arbitrage)</p>
+<p>利用三个不同地点外汇市场上的汇率差异,同时在三地市场上低买高卖从中赚取汇率差价的行为。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Exchanges.html" title="previous page">外汇的概念</a>
+    <a class='right-next' id="next-link" href="Balance_payment.html" title="next page">Balance_payment</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

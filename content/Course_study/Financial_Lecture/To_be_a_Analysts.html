@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>如何成为一个分析师 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="International_Finance" href="../International_Finance/README.html" />
+    <link rel="prev" title="新冠肺炎疫情对上市公司的影响：基于财务的视角" href="Covid_to_company.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Flux/README.html">Flux</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="active">
+    <a href="README.html">Financial_Lecture</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Learn_from_ruixin.html">一些需要知道的</a>
+    </li>
+    <li class="">
+      <a href="Covid_to_invention.html">新冠肺炎对投资的影响</a>
+    </li>
+    <li class="">
+      <a href="Covid_to_company.html">新冠肺炎疫情对上市公司的影响：基于财务的视角</a>
+    </li>
+    <li class="active">
+      <a href="">如何成为一个分析师</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="../Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="../M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="../Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/Financial_Lecture/To_be_a_Analysts.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">如何进行信息收集</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">行业公司研究关注的重点</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id4" class="nav-link">行业运行特征</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id5" class="nav-link">公司运行特点</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id6" class="nav-link">核心问题</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id7" class="nav-link">什么样的人适合做分析师</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">分析师的门槛</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id9" class="nav-link">不适合作分析师的人</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id10" class="nav-link">勤奋</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">方法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id12" class="nav-link">情商</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id13" class="nav-link">如何写报告</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id14" class="nav-link">有效研究报告写作必须掌握的工其和方法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id15" class="nav-link">把握优秀研究报告的写作要旨（能够获得加分的要领）</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>如何成为一个分析师<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>如何进行信息收集<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>统计信息</p>
+<ul class="simple">
+<li><p>行业协会,如汽车工业协会、苓售商业协会</p></li>
+<li><p>国家相关管理机构,国家、地方统计局、各部委公布的信息</p></li>
+<li><p>行业年鉴</p></li>
+<li><p>半官方财经网站,如交易所、全景网(p5wcom)、中国证券网…</p></li>
+</ul>
+<p>常使用的收集渠道</p>
+<ul class="simple">
+<li><p>商业性行业专业网站</p></li>
+<li><p>我的钢铁网、中华商务网、网上车市</p></li>
+</ul>
+<p>商用证券信息分析系统</p>
+<ul class="simple">
+<li><p>国外:CEC、彭博、路透S</p></li>
+<li><p>国內:万德、聚源…</p></li>
+<li><p>社会免费网站</p></li>
+<li><p>行业领先企业的网站</p></li>
+<li><p>互联网搜索引擎,如百度、 GOOGLE…</p></li>
+<li><p>各类研究机构研究报告</p></li>
+<li><p>国家有关研究机构,国研中心、社科院、人行研究部门、国发改委</p></li>
+<li><p>国内外投资银行研究机构, Morgen Stanley, Goldman Sachs</p></li>
+<li><p>国内外咨询公司,KMPG、BCG…</p></li>
+</ul>
+<div class="section" id="id3">
+<h3>行业公司研究关注的重点<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>行业发展的核心驱动因素</p></li>
+<li><p>贏利模式</p></li>
+<li><p>核心驱动因素</p></li>
+<li><p>规模、市场份额</p></li>
+<li><p>研发、技术诀窍</p></li>
+<li><p>内部管理</p></li>
+</ul>
+<div class="section" id="id4">
+<h4>行业运行特征<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>行业集中度</p></li>
+<li><p>平均贏利水平、平均圻旧率、平均夤用率</p></li>
+<li><p>投资类型(资本/劳动力/研发)</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>公司运行特点<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>行业核心驱动力上的差异</p></li>
+<li><p>行业地位</p></li>
+<li><p>贏利水平、平均折旧率、平均用率等</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h4>核心问题<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>公司经营成果的真实性、可持续性</p></li>
+<li><p>公司经营的合规性</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>什么样的人适合做分析师<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>分析师的门槛<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>人品</p></li>
+<li><p>名校硕士</p></li>
+<li><p>元认知能力</p></li>
+<li><p>学习能力</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>不适合作分析师的人<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>回答问题习惯使用辩证法</p></li>
+<li><p>善于归纳而不是推理</p></li>
+<li><p>习惯发散思维而不是逻辑思维的人</p></li>
+<li><p>善于撰写而不会沟通交流，充分表达观点的人</p></li>
+</ul>
+<p>什么是优秀的卖方分析师</p>
+<ul class="simple">
+<li><p>有超越同业、竞争胜出的信念与实力,已经或者即将取得业内顶尖一流分析师的定位必须先是相关行业的专家,其次才是证券领域的内行</p></li>
+<li><p>有广泛的社会资源和很强的专业活动能力能代表所在卖方参与和组织相关领域的专业活动,能够成为该领域上市公司发展的战略顾问</p></li>
+<li><p>能够洞察行业发展的趋势和规律,并在证券市场引领同业的观点和思潮</p></li>
+<li><p>拥有超强的心理素质,在个人推荐的品种遇到困难时,必须是一名优秀的心理按摩师</p></li>
+<li><p>永远直取前三名四和第四十名没有任何差别</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>勤奋<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>只有下限，没有上线，这不是朝九晚五的工作。</p>
+<p>合理安排时间</p>
+<ul class="simple">
+<li><p>大于1/3的时问用于调研和写报告,读资料:小1/3时间用于报告编辑,行文表述,逻辑推理;1/3时间用于与基金经理等机构客户进行交流沟通</p></li>
+<li><p>调研前的准备工作所花时间应该多于调研的提问时间所提出的问题必须深刻而具体;</p></li>
+<li><p>思考的时间要远远多于撰写的时间,千万不要因为写报告和读资料而不动脑筋,研究报告的核心是观点新颖、督导、逻辑严密。一篇充满<strong>思想</strong>的报告才真正影响人的决策</p></li>
+<li><p>建立自己的研究框架,形成研究原则,并坚持</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>方法<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>形成具有自身特色的研究原则和习惯</p>
+<ol class="simple">
+<li><p>具备全球化和产业链的研究视野,尤其要对欧美国家曾经的历程做到倒背如流</p></li>
+<li><p>在研究方式上,先有结论,然后加以严格科学的推理和论证,始终要记住,逻辑推理比结论吏重要,敏感性分析、核心因素分析、结构性问题分析等是极为重要的</p></li>
+<li><p>经典性地提出全新的行业或公司研究术语,如杨青丽提岀坏帐率指标看银行股,石化行业的李晨提出的成本差率,房地产行业方焱提出的每股所含土地面积,这如同IT行业的点击率</p></li>
+<li><p>顺应并引导研究的潮流,绝对不能始终成为跟随者;</p></li>
+<li><p>充分满足机构投资者的需求:预测准确加服务</p></li>
+</ol>
+</div>
+<div class="section" id="id12">
+<h3>情商<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>约有一般的时间都是在跟不同的人聊天</p></li>
+<li><p>怎么通过聊天获得信息、建立信任，直到成为朋友</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>如何写报告<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>有效研究报告写作必须掌握的工其和方法<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>全球视野的数据库运用,包括彭博资讯、CEIC等</p></li>
+<li><p>产业理论和欧洲、美国、日本、新兴国家的产业演进的路径和规律;</p></li>
+<li><p>熟练的财务报表分析,尤其“三张表”的制作</p></li>
+<li><p>EXCEL的熟练使用</p></li>
+<li><p>公司盈利模式和商业模式分析</p></li>
+<li><p>各种估值方法的使用,而非简单的PE</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>把握优秀研究报告的写作要旨（能够获得加分的要领）<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>要旨之一：高度重视首页的表述，明确无误地指出行业或公司的关键亮点或内在规律性因素；</p></li>
+<li><p>要旨之二：篇章布局合理和逻辑论证思路严密，形成环环相扣——学习优秀报告，首先要学习其篇章布局尤其是大小标题之间的关系，内容如何服务其标题；</p></li>
+<li><p>要旨之三：揭示行业或企业的发展规律;</p></li>
+<li><p>要旨之四：揭示行业或企业的盈利模式；</p></li>
+<li><p>要旨之五：揭示影响和左右行业或企业发展的关键因素</p></li>
+<li><p>要旨之六：揭示企业的核心竞争力；</p></li>
+<li><p>要旨之七：以国际化全球视野来分析和思考问题，并配以翔实的数据和资料；</p></li>
+<li><p>要旨之八：对公司净利润及三大报表的预测能力是分析师的核心竞争力，也是说服投资者的利器；</p></li>
+<li><p>要旨之九：科学合理估值方法运用，而不是简单的PE；</p></li>
+<li><p>要旨之十：好的内容需要好的形式加以表现，研究产品的要求必须按照模板，进行相应数字化、图表化、模型化和标准化</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h1>会计简介<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id17">
+<h2>会计的信息传递作用包括<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>向企业外部提供信息</p></li>
+<li><p>向企业内部提供信息</p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>会计作为解决信息不对称的一种手段的功能<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>传递信号</p></li>
+<li><p>产生后果</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>会计的实质是什么<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>经济后果</p></li>
+<li><p>分配标准</p></li>
+<li><p>契约关系</p></li>
+<li><p>制度安排</p></li>
+<li><p>产权关系</p></li>
+<li><p>信息权利</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>报表是什么<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>古代的昭君画像?</p></li>
+<li><p>现代的征婚启事?</p></li>
+</ul>
+<div class="section" id="id21">
+<h3>启示一:信息的重要性<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>权利依赖信息来传递</p>
+<ul>
+<li><p>信息界定权利大小</p></li>
+<li><p>信息帮助权利实现</p></li>
+<li><p>信息导致权利再分配</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>启示二:如何保证获取可靠的信任<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>首先靠制度?静态的</p></li>
+<li><p>其次靠执行?动态的</p></li>
+</ul>
+<p>会计作为一种商业语言,其基本功能是描述一个特定主体的活动过程及其结果</p>
+<p>会计信息的质量决定</p>
+<ul class="simple">
+<li><p>会计语言的丰富程度</p></li>
+<li><p>会计人员的水平高低</p></li>
+<li><p>会计人员的职业道德</p></li>
+</ul>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588088940582.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588088996244.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588089011800.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588089029693.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588089120588.png" /></p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1588089197929.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="id23">
+<h1>鸣谢<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h1>
+<p>Danglun Luo（SYSU）</p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Covid_to_company.html" title="previous page">新冠肺炎疫情对上市公司的影响：基于财务的视角</a>
+    <a class='right-next' id="next-link" href="../International_Finance/README.html" title="next page">International_Finance</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>
