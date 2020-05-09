@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>概率论基础 &#8212; Jerrynote</title>
+    <title>博弈论基础 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -67,7 +67,7 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../../README.html">Introduction</a>
+    <a href="../../../README.html">Introduction</a>
   </li>
   <li class="">
     <a href="../../Regular_Expression.html">Regular Expression</a>
@@ -103,7 +103,7 @@
     <a href="README.html">Game_Thoery</a>
   <ul class="nav sidenav_l2">
     <li class="active">
-      <a href="">概率论基础</a>
+      <a href="">博弈论基础</a>
     </li>
     <li class="">
       <a href="Nash_equilibria.html">纳什均衡</a>
@@ -182,11 +182,25 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id2" class="nav-link">期望效用</a>
+            <a href="#id2" class="nav-link">概率论基础</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">期望效用</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">事件概率之间的关系</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id3" class="nav-link">事件概率之间的关系</a>
+            <a href="#id5" class="nav-link">圣彼得堡悖论</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">逆向归纳法</a>
         </li>
     
     </ul>
@@ -201,17 +215,19 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>概率论基础<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>博弈论基础<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>期望效用<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-</div>
+<h2>概率论基础<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
-<h2>事件概率之间的关系<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h3>期望效用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>事件概率之间的关系<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>互斥、互补、条件概率</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h1>圣彼得堡悖论<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>圣彼得堡悖论<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>不停地投一个骰子，第一次投骰子，若为反面，则结束游戏得一元，正面，则奖金翻倍，进入下一轮，以此类推</p>
 <p>这样的赌博期望收益为<span class="math notranslate nohighlight">\(\infin\)</span>，但实际上没有人愿意付无穷多的钱进行这个赌博。</p>
 <ul>
@@ -232,8 +248,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h1>逆向归纳法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h2>逆向归纳法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>相亲问题</p>
 <p>假设一个人对相亲对象的评分落在区间<span class="math notranslate nohighlight">\([0,1]\)</span>之间，每次遇到相亲对象的评分为落在<span class="math notranslate nohighlight">\([0,1]\)</span>上的均匀分布，该个体该如何决策，他的期望收益为多少</p>
 <p>假设这一个人只有一次相亲机会，那么他没得选择，期望为
@@ -249,6 +265,7 @@ $\)</span>
 <span class="math notranslate nohighlight">\($
 V(n)=\int_{0}^{1} \max (x, V(n-1)) d x=\int_{V(n-1)}^{1} x d x+\int_{0}^{V(n-1)} V(n-1) d x=\frac{1+V(n-1)^{2}}{2}
 $\)</span></p>
+</div>
 </div>
 
 

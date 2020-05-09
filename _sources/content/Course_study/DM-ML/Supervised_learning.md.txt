@@ -1,4 +1,4 @@
-# Surpervised Learning Intro
+# 监督学习简介
 
 ## Discriminative models
 
@@ -50,7 +50,7 @@
 
 **假设空间**
 
-- $F\sube Y^X$(从$X$映射到$Y$)
+- $F\subseteq Y^X$(从$X$映射到$Y$)
 - 可能的模型空间，例如：所有的线性函数
 - 取决于特征结构和有关该问题的先验知识
 
@@ -58,7 +58,7 @@
 
 **目标**
 
-找到一个较好的假设$f\sube F$
+找到一个较好的假设$f\subseteq F$
 
 什么叫较好的假设？可以从以下三个角度来谈
 
@@ -76,7 +76,7 @@ $$
 $$
 \hat{R}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(f\left(x_{i}\right), y_{i}\right)
 $$
-对于有限的假设空间$F$,$\forall f \sube F$，有不超过$1-\delta$的概率，满足
+对于有限的假设空间$F$,$\forall f \subseteq F$，有不超过$1-\delta$的概率，满足
 $$
 R(f) \leq \hat{R}(f)+\epsilon(d, N, \delta)
 $$

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Surpervised Learning Intro &#8212; Jerrynote</title>
+    <title>监督学习简介 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -67,7 +67,7 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="../../README.html">Introduction</a>
+    <a href="../../../README.html">Introduction</a>
   </li>
   <li class="">
     <a href="../../Regular_Expression.html">Regular Expression</a>
@@ -100,7 +100,7 @@
     <a href="README.html">DM-ML</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="Homework.html">2020-2-20</a>
+      <a href="Homework.html">作业</a>
     </li>
     <li class="">
       <a href="Math_base_matrix.html">矩阵相关知识</a>
@@ -109,7 +109,7 @@
       <a href="Math_base_opt.html">函数求极值</a>
     </li>
     <li class="active">
-      <a href="">Surpervised Learning Intro</a>
+      <a href="">监督学习简介</a>
     </li>
     <li class="">
       <a href="Linear_regression.html">线性回归</a>
@@ -209,7 +209,7 @@
             <a href="#strategy" class="nav-link">Strategy</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h4">
-            <a href="#id1" class="nav-link">泛化误差</a>
+            <a href="#id2" class="nav-link">泛化误差</a>
         </li>
     
             </ul>
@@ -233,8 +233,8 @@
         
               <div>
                 
-  <div class="section" id="surpervised-learning-intro">
-<h1>Surpervised Learning Intro<a class="headerlink" href="#surpervised-learning-intro" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="id1">
+<h1>监督学习简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="discriminative-models">
 <h2>Discriminative models<a class="headerlink" href="#discriminative-models" title="Permalink to this headline">¶</a></h2>
 <p>辨别模型</p>
@@ -265,7 +265,7 @@
 </ul>
 <p><strong>假设空间</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(F\sube Y^X\)</span>(从<span class="math notranslate nohighlight">\(X\)</span>映射到<span class="math notranslate nohighlight">\(Y\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\subseteq Y^X\)</span>(从<span class="math notranslate nohighlight">\(X\)</span>映射到<span class="math notranslate nohighlight">\(Y\)</span>)</p></li>
 <li><p>可能的模型空间，例如：所有的线性函数</p></li>
 <li><p>取决于特征结构和有关该问题的先验知识</p></li>
 </ul>
@@ -273,10 +273,10 @@
 <div class="section" id="strategy">
 <h3>Strategy<a class="headerlink" href="#strategy" title="Permalink to this headline">¶</a></h3>
 <p><strong>目标</strong></p>
-<p>找到一个较好的假设<span class="math notranslate nohighlight">\(f\sube F\)</span></p>
+<p>找到一个较好的假设<span class="math notranslate nohighlight">\(f\subseteq F\)</span></p>
 <p>什么叫较好的假设？可以从以下三个角度来谈</p>
-<div class="section" id="id1">
-<h4>泛化误差<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h4>泛化误差<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p><strong>损失函数</strong></p>
 <p><span class="math notranslate nohighlight">\(L: Y \times Y \rightarrow \mathbb{R}\)</span></p>
 <p><strong>泛化误差</strong>
@@ -287,7 +287,7 @@ $\)</span>
 <span class="math notranslate nohighlight">\($
 \hat{R}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(f\left(x_{i}\right), y_{i}\right)
 $\)</span>
-对于有限的假设空间<span class="math notranslate nohighlight">\(F\)</span>,<span class="math notranslate nohighlight">\(\forall f \sube F\)</span>，有不超过<span class="math notranslate nohighlight">\(1-\delta\)</span>的概率，满足
+对于有限的假设空间<span class="math notranslate nohighlight">\(F\)</span>,<span class="math notranslate nohighlight">\(\forall f \subseteq F\)</span>，有不超过<span class="math notranslate nohighlight">\(1-\delta\)</span>的概率，满足
 <span class="math notranslate nohighlight">\($
 R(f) \leq \hat{R}(f)+\epsilon(d, N, \delta)
 $\)</span>

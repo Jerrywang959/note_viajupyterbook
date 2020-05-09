@@ -2,7 +2,7 @@
 
 ## Tuples
 
-#### 创建元组
+### 创建元组
 
 `(item1, item2, ...)`
 
@@ -11,7 +11,7 @@ julia> myfavoriteanimals = ("penguins", "cats", "sugargliders")
 ("penguins", "cats", "sugargliders")
 ```
 
-#### 索引元组
+### 索引元组
 
 julia是从1开始索引
 
@@ -20,7 +20,7 @@ julia> myfavoriteanimals[1]
 "penguins"
 ```
 
-#### 不能改变元组
+### 不能改变元组
 
 因为它是immutable的
 
@@ -31,7 +31,7 @@ Stacktrace:
  [1] top-level scope at REPL[10]:1
 ```
 
-### NamedTuples
+## NamedTuples
 
 和一般的元组一样，只是把元组内部的每个元素都有一个name，用数字或者.name索引
 
@@ -51,7 +51,7 @@ julia> myfavoriteanimals.bird
 
 ## Dictionary
 
-#### 创建字典
+### 创建字典
 
 `Dict(key1 => value1, key2 => value2, ...)`，字典的值需是相同的类型
 
@@ -62,14 +62,14 @@ Dict{String,String} with 2 entries:
   "Ghostbusters" => "555-2368"
 ```
 
-#### 读取字典内容
+### 读取字典内容
 
 ```julia
 julia> myphonebook["Jenny"]
 "867-5309"
 ```
 
-#### 增加字典内容
+### 增加字典内容
 
 ```julia
 julia> myphonebook["Kramer"]="555-FILK"
@@ -82,7 +82,7 @@ Dict{String,String} with 3 entries:
   "Ghostbusters" => "555-2368"
 ```
 
-#### 删除一个键值对应并返回值
+### 删除一个键值对应并返回值
 
 使用`pop!`
 
@@ -102,7 +102,7 @@ Dict{String,String} with 2 entries:
 
 `[item1, item2, ...]`
 
-#### 创建Arrays
+### 创建Arrays
 
 返回的类型中，第一个“String”表示Arrays内元素的类型，1表示Arrays的维度
 
@@ -136,7 +136,7 @@ julia> mixture = [1, 1, 2, 3, "Ted", "Robyn"]
 
 ```
 
-#### 索引Arrays
+### 索引Arrays
 
 用数字所在的序号索引
 
@@ -146,7 +146,7 @@ julia> myfriends[3]
 
 ```
 
-#### 修改Arrays某一索引
+### 修改Arrays某一索引
 
 ```julia
 julia> myfriends[3] = "Baby Bop"
@@ -154,7 +154,7 @@ julia> myfriends[3] = "Baby Bop"
 
 ```
 
-#### 增加和减少Arrays
+### 增加和减少Arrays
 
 `push!`,`pop!`
 
