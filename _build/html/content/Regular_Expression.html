@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Regular Expression &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Julia学习笔记" href="julia_study/README.html" />
+    <link rel="prev" title="Introduction" href="README.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="README.html">Introduction</a>
+  </li>
+  <li class="active">
+    <a href="">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="julia_study/README.html">Julia学习笔记</a>
+  </li>
+  <li class="">
+    <a href="julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="julia_study/LinearAlgebra/Basic.html">Basic</a>
+  </li>
+  <li class="">
+    <a href="julia_study/Flux/Functions.html">Fuctions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="Course_study/README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="Course_study/DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="Course_study/Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="Course_study/Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="">
+    <a href="Course_study/International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="Course_study/Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="Course_study/M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="Course_study/Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/content/Regular_Expression.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">定义</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">基本结构</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">限定符</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">特殊字符</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">非打印字符</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">定位符</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id7" class="nav-link">举例</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">贪婪匹配与非贪婪匹配</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id9" class="nav-link">还不懂的</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="regular-expression">
+<h1>Regular Expression<a class="headerlink" href="#regular-expression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>定义<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。</p>
+</div>
+<div class="section" id="id2">
+<h2>基本结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="正则表达式基本结构" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587106179440.png" /></p>
+<div class="section" id="id3">
+<h3>限定符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>字符</p></th>
+<th class="text-align:center head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>*</p></td>
+<td class="text-align:center"><p>匹配前面的子表达式<strong>零次或多次</strong>。例如，zo* 能匹配 “z” 以及 “zoo”。* 等价于{0,}。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>+</p></td>
+<td class="text-align:center"><p>匹配前面的子表达式<strong>一次或多次</strong>。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。+ 等价于 {1,}。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>匹配前面的子表达式<strong>零次或一次</strong>。例如，”do(es)?” 可以匹配 “do” 、 “does” 中的 “does” 、 “doxy” 中的 “do” 。? 等价于 {0,1}。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>{n}</p></td>
+<td class="text-align:center"><p>n 是一个非负整数。匹配<strong>确定的 n 次</strong>。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>{n,}</p></td>
+<td class="text-align:center"><p>n 是一个非负整数。<strong>至少匹配n 次</strong>。例如，’o{2,}’ 不能匹配 “Bob” 中的 ‘o’，但能匹配 “foooood” 中的所有 o。’o{1,}’ 等价于 ‘o+’。’o{0,}’ 则等价于 ‘o*’。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>{n,m}</p></td>
+<td class="text-align:center"><p>m 和 n 均为非负整数，其中n &lt;= m。<strong>最少匹配 n 次且最多匹配 m 次</strong>。例如，”o{1,3}” 将匹配 “fooooood” 中的前三个 o。’o{0,1}’ 等价于 ‘o?’。请注意在逗号和两个数之间不能有空格。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>特殊字符<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>特殊字符</p></th>
+<th class="text-align:center head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>$</p></td>
+<td class="text-align:center"><p><strong>匹配输入字符串的结尾位置</strong>。如果设置了 RegExp 对象的 Multiline 属性，则 $ 也匹配 ‘\n’ 或 ‘\r’。要匹配 $ 字符本身，请使用 <code class="docutils literal notranslate"><span class="pre">\$</span></code>。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>( )</p></td>
+<td class="text-align:center"><p><strong>标记一个子表达式的开始和结束位置</strong>。子表达式可以获取供以后使用。要匹配这些字符，请使用 <code class="docutils literal notranslate"><span class="pre">\(</span></code>  和 <code class="docutils literal notranslate"><span class="pre">\(</span></code>。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>*</p></td>
+<td class="text-align:center"><p>匹配<strong>前面的子表达式零次或多次</strong>。要匹配 * 字符，请使用 <code class="docutils literal notranslate"><span class="pre">\*</span></code>。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>+</p></td>
+<td class="text-align:center"><p>匹配<strong>前面的子表达式一次或多次</strong>。要匹配 + 字符，请使用 <code class="docutils literal notranslate"><span class="pre">\+</span></code>。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>.</p></td>
+<td class="text-align:center"><p>匹配<strong>除换行符 \n 之外的任何单字符</strong>。要匹配 . ，请使用 <code class="docutils literal notranslate"><span class="pre">\.</span></code> 。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>[</p></td>
+<td class="text-align:center"><p><strong>标记一个中括号表达式的开始</strong>。要匹配 [，请使用 <code class="docutils literal notranslate"><span class="pre">\[</span></code>。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>匹配前面的<strong>子表达式零次或一次</strong>，或指明一个非贪婪限定符。要匹配 ? 字符，请使用 <code class="docutils literal notranslate"><span class="pre">\?</span></code>。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\</p></td>
+<td class="text-align:center"><p>将下一个字符<strong>标记为或特殊字符、或原义字符、或向后引用、或八进制转义符</strong>。例如， <code class="docutils literal notranslate"><span class="pre">'n'</span></code> 匹配字符 <code class="docutils literal notranslate"><span class="pre">'n'</span></code>。<code class="docutils literal notranslate"><span class="pre">'\n'</span></code> 匹配换行符。序列 <code class="docutils literal notranslate"><span class="pre">'\\'</span></code> 匹配 <code class="docutils literal notranslate"><span class="pre">&quot;\&quot;</span></code>，而 <code class="docutils literal notranslate"><span class="pre">'\('</span></code> 则匹配 <code class="docutils literal notranslate"><span class="pre">&quot;(&quot;</span></code>。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>^</p></td>
+<td class="text-align:center"><p>匹配<strong>输入字符串的开始位置</strong>，除非在方括号表达式中使用，当该符号在<strong>方括号表达式中使用时</strong>，<strong>表示不接受该方括号表达式中的字符集合</strong>。要匹配 ^ 字符本身，请使用 <code class="docutils literal notranslate"><span class="pre">\^</span></code>。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>{</p></td>
+<td class="text-align:center"><p>标记<strong>限定符表达式的开始</strong>。要匹配 {，请使用 <code class="docutils literal notranslate"><span class="pre">\{</span></code>。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>|</p></td>
+<td class="text-align:center"><p>指明<strong>两项之间的一个选择</strong>。要匹配 |，请使用 &amp;#124;。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h3>非打印字符<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>字符</p></th>
+<th class="text-align:center head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>\cx</p></td>
+<td class="text-align:center"><p><strong>匹配由x指明的控制字符</strong>。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\f</p></td>
+<td class="text-align:center"><p><strong>匹配一个换页符</strong>。等价于 \x0c 和 \cL。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>\n</p></td>
+<td class="text-align:center"><p><strong>匹配一个换行符</strong>。等价于 \x0a 和 \cJ。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\r</p></td>
+<td class="text-align:center"><p><strong>匹配一个回车符</strong>。等价于 \x0d 和 \cM。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>\s</p></td>
+<td class="text-align:center"><p>匹配任何空白字符，包括<strong>空格、制表符、换页符</strong>等等。等价于 [ \f\n\r\t\v]。注意 Unicode 正则表达式会匹配全角空格符。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\S</p></td>
+<td class="text-align:center"><p>匹配<strong>任何非空白字符</strong>。等价于 [^ \f\n\r\t\v]。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>\t</p></td>
+<td class="text-align:center"><p>匹配一个<strong>制表符</strong>。等价于 \x09 和 \cI。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\v</p></td>
+<td class="text-align:center"><p>匹配一个<strong>垂直制表符</strong>。等价于 \x0b 和 \cK。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h3>定位符<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>字符</p></th>
+<th class="text-align:center head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>^</p></td>
+<td class="text-align:center"><p>匹配<strong>输入字符串开始的位置</strong>。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与 \n 或 \r 之后的位置匹配。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>$</p></td>
+<td class="text-align:center"><p>匹配<strong>输入字符串结尾的位置</strong>。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与 \n 或 \r 之前的位置匹配。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>\b</p></td>
+<td class="text-align:center"><p>匹配一个单词边界，即字与空格间的位置。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>\B</p></td>
+<td class="text-align:center"><p>非单词边界匹配。</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>不能将限定符与定位符一起使用。由于在紧靠换行或者单词边界的前面或后面不能有一个以上位置，因此不允许诸如 ^* 之类的表达式。</p>
+<p>若要匹配一行文本开始处的文本，请在正则表达式的开始使用 ^ 字符。不要将 ^ 的这种用法与中括号表达式内的用法混淆。</p>
+<p>若要匹配一行文本的结束处的文本，请在正则表达式的结束处使用 $ 字符。</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>举例<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>匹配所有正整数，不包括0</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>匹配1~99</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[1-9][0-9]?
+</pre></div>
+</div>
+<p>匹配章节</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>^Chapter [1-9][0-9]{0,1}$
+</pre></div>
+</div>
+<p>匹配Chapter中的apt，但不匹配aptitude中的apt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">Bapt</span>
+</pre></div>
+</div>
+<div class="section" id="id8">
+<h3>贪婪匹配与非贪婪匹配<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>*、+ 限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个?就可以实现非贪婪或最小匹配。</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">RUNOOB</span><span class="o">-</span><span class="n">菜鸟教程</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;.*&gt;</span></code>匹配<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;RUNOOB-菜鸟教程&lt;/h1&gt;</span></code></p>
+<p>而<code class="docutils literal notranslate"><span class="pre">&lt;.*?&gt;</span></code>匹配<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>还不懂的<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>非捕获元</p></li>
+<li><p>缓存</p></li>
+<li><p>反向选择</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h1>参考文献<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.runoob.com/regexp/regexp-syntax.html">菜鸟教程：正则表达式 - 语法</a></p></li>
+</ul>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="julia_study/README.html" title="next page">Julia学习笔记</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
