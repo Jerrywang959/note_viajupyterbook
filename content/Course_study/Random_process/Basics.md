@@ -23,7 +23,7 @@ $\omega\in A\subseteq\Omega$
 
 如果 $\mathscr{F}$是$\omega$的子集组成的集合，且满足
 
-1. $\empty\in\mathscr{F}$
+1. $\emptyset\in\mathscr{F}$
 2. 若$A\in\mathscr{F}$，则$A^c\in\mathscr{F}$
 3. 若$A_1,...A_n\in\mathscr{F}，则\cup_{i=1}^nA_i\in\mathscr{F}$
 
@@ -41,9 +41,9 @@ $\omega\in A\subseteq\Omega$
 
 若$(\Omega,\mathscr{F})$为可测空间，定义集函数$P:\mathscr{F} \rightarrow [0,1]$，且满足
 
-1. $P(\empty)=0$
+1. $P(\emptyset)=0$
 2. $P(\Omega)=1$
-3. $ \forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\empty ,\quad P(\cup_{k=1}^{\infin} A_k)=\sum_{k=1}^\infin P(A_k) $
+3. $ \forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\emptyset ,\quad P(\cup_{k=1}^{\infin} A_k)=\sum_{k=1}^\infin P(A_k) $
 
 则我们称$P$为$(\Omega,\mathscr{F})$上的概率测度
 
@@ -55,10 +55,10 @@ $\omega\in A\subseteq\Omega$
 
 若$P$为$(\Omega,\mathscr{F})$上的概率测度，则有
 
-1. $P(\empty)=0,P(\Omega)=1$
+1. $P(\emptyset)=0,P(\Omega)=1$
 2. 若$A\in \mathscr{F},P(A^c)=1-P(A)$
 3. 若$A,B\in\mathscr{F},P(A\cup B)=P(A)+P(B)$
-4. 若$A_1,...A_n \in \mathscr{F}，$且$A_i\cap A_j=\empty (i\not =j)$，则$P(\cup_{k=1}^nA_k)=\sum_{k=1}^nP(A_k)$（有限可加）
+4. 若$A_1,...A_n \in \mathscr{F}，$且$A_i\cap A_j=\emptyset (i\not =j)$，则$P(\cup_{k=1}^nA_k)=\sum_{k=1}^nP(A_k)$（有限可加）
 
 
 
