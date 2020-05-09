@@ -249,23 +249,25 @@
 <h1>函数求极值<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gradient-and-hessian">
 <h2>Gradient and Hessian<a class="headerlink" href="#gradient-and-hessian" title="Permalink to this headline">¶</a></h2>
-<p>函数<span class="math notranslate nohighlight">\(f:\mathbb{R}^d\rightarrow\mathbb{R}\)</span>的梯度为：
-<span class="math notranslate nohighlight">\($
+<p>函数<span class="math notranslate nohighlight">\(f:\mathbb{R}^d\rightarrow\mathbb{R}\)</span>的梯度为：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \nabla f=\left(\begin{array}{c}
 \frac{\partial f}{\partial x_{1}} \\
 \frac{\partial f}{\partial x_{2}} \\
 \vdots \\
 \frac{\partial f}{\partial x_{d}}
 \end{array}\right)
-$\)</span></p>
-<p>函数<span class="math notranslate nohighlight">\(f:\mathbb{R}^d\rightarrow\mathbb{R}\)</span>的Hessian矩阵为
-<span class="math notranslate nohighlight">\($
+\end{split}\]</div>
+<p>函数<span class="math notranslate nohighlight">\(f:\mathbb{R}^d\rightarrow\mathbb{R}\)</span>的Hessian矩阵为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \nabla^{2} f=\left(\begin{array}{ccc}
 \frac{\partial^{2} f}{\partial x_{1}^{2}} &amp; \cdots &amp; \frac{\partial^{2} f}{\partial x_{1} \partial x_{d}} \\
 \vdots &amp; \ddots &amp; \vdots \\
 \frac{\partial^{2} f}{\partial x_{d} \partial x_{1}} &amp; \cdots &amp; \frac{\partial^{2} f}{\partial x_{d}^{2}}
 \end{array}\right)
-$\)</span></p>
+\end{split}\]</div>
 </div>
 <div class="section" id="gradient-descent">
 <h2>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h2>
@@ -279,36 +281,40 @@ $\)</span></p>
 <p><span class="math notranslate nohighlight">\(\eta_{t}=\arg \min _{\eta} f(x-\eta \nabla f(x))\)</span></p>
 <p>往往这是不切实际的</p>
 <p><strong>回溯线搜索</strong></p>
-<p>我们令<span class="math notranslate nohighlight">\(\alpha\in(1,\frac{1}{2}],\beta\in(0,1)\)</span>，<span class="math notranslate nohighlight">\(\eta\)</span>从<span class="math notranslate nohighlight">\(\eta=1\)</span>出发，并不断迭代<span class="math notranslate nohighlight">\(\eta=\beta\eta\)</span>直到
-<span class="math notranslate nohighlight">\($
+<p>我们令<span class="math notranslate nohighlight">\(\alpha\in(1,\frac{1}{2}],\beta\in(0,1)\)</span>，<span class="math notranslate nohighlight">\(\eta\)</span>从<span class="math notranslate nohighlight">\(\eta=1\)</span>出发，并不断迭代<span class="math notranslate nohighlight">\(\eta=\beta\eta\)</span>直到</p>
+<div class="math notranslate nohighlight">
+\[
 f(x-\eta \nabla f(x)) \leq f(x)-\alpha \eta\|\nabla f(x)\|^{2}
-$\)</span>
-这种方法在实际操作中效果较佳</p>
+\]</div>
+<p>这种方法在实际操作中效果较佳</p>
 </div>
 </div>
 <div class="section" id="convergence-analysis">
 <h2>Convergence Analysis<a class="headerlink" href="#convergence-analysis" title="Permalink to this headline">¶</a></h2>
 <p>收敛性分析</p>
-<p>假设函数<span class="math notranslate nohighlight">\(f\)</span>是凸函数且可导，那么它是利普希茨连续的(Lipschitz continuous)：
-<span class="math notranslate nohighlight">\($
+<p>假设函数<span class="math notranslate nohighlight">\(f\)</span>是凸函数且可导，那么它是利普希茨连续的(Lipschitz continuous)：</p>
+<div class="math notranslate nohighlight">
+\[
 \|\nabla f(x)-\nabla f(y)\|_{2} \leq L\|x-y\|_{2}
-$\)</span>
-<strong>定理</strong></p>
-<p>固定步长<span class="math notranslate nohighlight">\(\eta\le\frac{1}{L}\)</span>的梯度下降法满足
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p><strong>定理</strong></p>
+<p>固定步长<span class="math notranslate nohighlight">\(\eta\le\frac{1}{L}\)</span>的梯度下降法满足</p>
+<div class="math notranslate nohighlight">
+\[
 f\left(x_{t}\right)-f^{*} \leq \frac{\left\|x_{0}-x^{*}\right\|_{2}^{2}}{2 t \eta}
-$\)</span>
-为了实现<span class="math notranslate nohighlight">\(f\left(x_{t}\right)-f^{*} \leq\epsilon\)</span>，我们需要<span class="math notranslate nohighlight">\(O(1 / \epsilon)\)</span>次的迭代</p>
+\]</div>
+<p>为了实现<span class="math notranslate nohighlight">\(f\left(x_{t}\right)-f^{*} \leq\epsilon\)</span>，我们需要<span class="math notranslate nohighlight">\(O(1 / \epsilon)\)</span>次的迭代</p>
 <p>回溯线搜索的有着相同的收敛速度</p>
 <div class="section" id="id2">
 <h3>强凸性下的收敛性分析<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>假设<span class="math notranslate nohighlight">\(f\)</span>为强凸函数且<span class="math notranslate nohighlight">\(m\)</span>为常数</p>
 <p><strong>定理</strong></p>
-<p>固定步长<span class="math notranslate nohighlight">\(\eta\le2/(m+L)\)</span>或者回溯线搜索的梯度下降法满足
-<span class="math notranslate nohighlight">\($
+<p>固定步长<span class="math notranslate nohighlight">\(\eta\le2/(m+L)\)</span>或者回溯线搜索的梯度下降法满足</p>
+<div class="math notranslate nohighlight">
+\[
 f\left(x_{t}\right)-f^{*} \leq c^{t} \frac{L}{2}\left\|x_{0}-x^{*}\right\|_{2}^{2}
-$\)</span>
-此处<span class="math notranslate nohighlight">\(0&lt;c&lt;1\)</span></p>
+\]</div>
+<p>此处<span class="math notranslate nohighlight">\(0&lt;c&lt;1\)</span></p>
 <p>为了实现<span class="math notranslate nohighlight">\(f\left(x_{t}\right)-f^{*} \leq\epsilon\)</span>，我们需要<span class="math notranslate nohighlight">\(O(\log(1 / \epsilon))\)</span>次的迭代</p>
 <p>这被称为线性收敛</p>
 </div>
@@ -317,14 +323,16 @@ $\)</span>
 <h2>Newton’s Method<a class="headerlink" href="#newtons-method" title="Permalink to this headline">¶</a></h2>
 <p>牛顿法求解最值问题</p>
 <p><strong>思路：从一个点出发，寻找它附近比它更接近导数为0的点的点</strong></p>
-<p>任意一个函数<span class="math notranslate nohighlight">\(f(x)\)</span>可以写成如下的形式：
-<span class="math notranslate nohighlight">\($
+<p>任意一个函数<span class="math notranslate nohighlight">\(f(x)\)</span>可以写成如下的形式:</p>
+<div class="math notranslate nohighlight">
+\[
 f(x) \approx f(x-x_k)+\nabla f(x-x_k)^{\top} (x-x_k)+\frac{1}{2} (x-x_k)^{\top} \nabla^{2} f(x-x_k) (x-x_k)
-$\)</span>
-其中，<span class="math notranslate nohighlight">\(x\)</span>为<span class="math notranslate nohighlight">\(x_k\)</span>附近的一个点。如果令<span class="math notranslate nohighlight">\(\approx\)</span>变成<span class="math notranslate nohighlight">\(=\)</span>，对上式的右边对<span class="math notranslate nohighlight">\(x\)</span>求导数，并令其为0（即，使<span class="math notranslate nohighlight">\(f\prime(x)=0\)</span>)，则有
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>其中，<span class="math notranslate nohighlight">\(x\)</span>为<span class="math notranslate nohighlight">\(x_k\)</span>附近的一个点。如果令<span class="math notranslate nohighlight">\(\approx\)</span>变成<span class="math notranslate nohighlight">\(=\)</span>，对上式的右边对<span class="math notranslate nohighlight">\(x\)</span>求导数，并令其为0（即，使<span class="math notranslate nohighlight">\(f\prime(x)=0\)</span>)，则有</p>
+<div class="math notranslate nohighlight">
+\[
 \nabla f(x_k) + \nabla^{2} f(x_k) (x-x_k)=0
-$\)</span></p>
+\]</div>
 <p>整理得到</p>
 <div class="math notranslate nohighlight">
 \[
@@ -332,11 +340,12 @@ x=x_k-\left[\nabla^{2} f(x_k)\right]^{-1} \nabla f(x_k)
 \]</div>
 <p>这个式子表明，在近似情况下，从<span class="math notranslate nohighlight">\(x_k\)</span>来看，<span class="math notranslate nohighlight">\(x\)</span>是使得<span class="math notranslate nohighlight">\(f\prime(x)\)</span>为<span class="math notranslate nohighlight">\(0\)</span>的点，即最值点。</p>
 <p>那么我们可以认为，在不近似的情况下<span class="math notranslate nohighlight">\(x\)</span>是比<span class="math notranslate nohighlight">\(x_k\)</span>更加接近导数为0的点的点。</p>
-<p>因此我们可以得到如下的迭代过程
-<span class="math notranslate nohighlight">\($
+<p>因此我们可以得到如下的迭代过程</p>
+<div class="math notranslate nohighlight">
+\[
 x_{k+1}=x_k-\left[\nabla^{2} f(x_k)\right]^{-1} \nabla f(x_k)
-$\)</span>
-牛顿法的一般迭代步骤如下：</p>
+\]</div>
+<p>牛顿法的一般迭代步骤如下：</p>
 <ol class="simple">
 <li><p>给定终止误差值<span class="math notranslate nohighlight">\(0\leq\epsilon\ll1\)</span>，初始点<span class="math notranslate nohighlight">\(x\in R_n\)</span>，<span class="math notranslate nohighlight">\(k=0\)</span></p></li>
 <li><p>计算<span class="math notranslate nohighlight">\(g_{k}=\nabla f\left(x_{k}\right)\)</span>，若<span class="math notranslate nohighlight">\(\left\|g_{k}\right\| \leq \varepsilon\)</span>，则终止迭代</p></li>
@@ -358,47 +367,55 @@ $\)</span>
 </div>
 <div class="section" id="lagrangian-method">
 <h2>Lagrangian Method<a class="headerlink" href="#lagrangian-method" title="Permalink to this headline">¶</a></h2>
-<p>从一个优化问题出发
-<span class="math notranslate nohighlight">\($
+<p>从一个优化问题出发</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{array}{l}
 \min\limits_{x} f(x) \\
 \text { s.t. } g_{i}(x) \leq 0, i=1,2, \ldots, m \\
 \quad h_{j}(x)=0, j=1,2, \ldots, n
 \end{array}
-$\)</span>
-我们定义拉格朗日函数为
-<span class="math notranslate nohighlight">\($
+\end{split}\]</div>
+<p>我们定义拉格朗日函数为</p>
+<div class="math notranslate nohighlight">
+\[
 L(x, u, v)=f(x)+\sum_{i=1}^{m} u_{i} g_{i}(x)+\sum_{j=1}^{n} v_{j} h_{j}(x) \qquad ,u_i\ge0
-$\)</span>
-（本质上是把约束条件转化为惩罚函数加入目标：这是一个最小化的目标，令<span class="math notranslate nohighlight">\(u_i\ge0\)</span>意味着要想最小化<span class="math notranslate nohighlight">\(L\)</span>，<span class="math notranslate nohighlight">\(g_i(x)\)</span>必须越小越好）</p>
-<p>$\forall u\ge0 ,v <span class="math notranslate nohighlight">\(和可行的\)</span>x<span class="math notranslate nohighlight">\(，我们有（因为\)</span>L<span class="math notranslate nohighlight">\(函数的定义域比\)</span>f<span class="math notranslate nohighlight">\(函数的定义域更大，或者说：约束更小）
-$\)</span>
+\]</div>
+<p>（本质上是把约束条件转化为惩罚函数加入目标：这是一个最小化的目标，令<span class="math notranslate nohighlight">\(u_i\ge0\)</span>意味着要想最小化<span class="math notranslate nohighlight">\(L\)</span>，<span class="math notranslate nohighlight">\(g_i(x)\)</span>必须越小越好）</p>
+<p>$\forall u\ge0 ,v <span class="math notranslate nohighlight">\(和可行的\)</span>x<span class="math notranslate nohighlight">\(，我们有（因为\)</span>L<span class="math notranslate nohighlight">\(函数的定义域比\)</span>f$函数的定义域更大，或者说：约束更小）</p>
+<div class="math notranslate nohighlight">
+\[
 L(x, u, v) \leq f(x)
-$$</p>
+\]</div>
 <div class="section" id="id3">
 <h3>拉格朗日对偶函数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p><span class="math notranslate nohighlight">\(C\)</span>表示原始的可行解，<span class="math notranslate nohighlight">\(f^*\)</span>表示原始的最优解，在所有的<span class="math notranslate nohighlight">\(x\)</span>上最小化<span class="math notranslate nohighlight">\(L(x,u,v)\)</span>会得到<span class="math notranslate nohighlight">\(f^*\)</span>的更小的边界，<span class="math notranslate nohighlight">\(\forall u\ge0,v\)</span>，即
-<span class="math notranslate nohighlight">\($
+<p><span class="math notranslate nohighlight">\(C\)</span>表示原始的可行解，<span class="math notranslate nohighlight">\(f^*\)</span>表示原始的最优解，在所有的<span class="math notranslate nohighlight">\(x\)</span>上最小化<span class="math notranslate nohighlight">\(L(x,u,v)\)</span>会得到<span class="math notranslate nohighlight">\(f^*\)</span>的更小的边界，<span class="math notranslate nohighlight">\(\forall u\ge0,v\)</span>，即</p>
+<div class="math notranslate nohighlight">
+\[
 f^{*} \geq \min _{x \in C} L(x, u, v) \geq \min _{x} L(x, u, v)=g(u, v)
-$\)</span>
-对偶函数的形式为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>对偶函数的形式为</p>
+<div class="math notranslate nohighlight">
+\[
 g(u, v)=\min _{x} L(x, u, v)
-$\)</span>
-对于初始的问题，拉格朗日对偶问题为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>对于初始的问题，拉格朗日对偶问题为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{array}{l}
 \max\limits _{u, v} g(u, v) \\
 \text {s.t. } u \geq 0
 \end{array}
-$\)</span></p>
+\end{split}\]</div>
 <div class="section" id="id4">
 <h4>性质<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<ol class="simple">
-<li><p>弱对偶性
-<span class="math notranslate nohighlight">\($
-f^*\ge g^*
-$\)</span></p></li>
+<ol>
+<li><p>弱对偶性</p>
+<div class="math notranslate nohighlight">
+\[
+   f^*\ge g^*
+   \]</div>
+</li>
 <li><p>对偶问题是一个凸优化问题，即使原优化问题并不是凸的</p></li>
 </ol>
 <div class="math notranslate nohighlight">
@@ -411,11 +428,12 @@ g(u, v)=\min _{x}\left\{f(x)+\sum_{i=1}^{m} u_{i} g_{i}(x)+\sum_{j=1}^{n} v_{j} 
 <p><strong>强对偶性</strong></p>
 <p>在某些情况下（原问题是凸的），我们可以观察到<span class="math notranslate nohighlight">\(f^*=g^*\)</span>，这被称为强对偶性</p>
 <p><strong>斯莱特条件</strong>（Slater’s condition，充分条件）</p>
-<p>如果原问题是凸优化问题，且至少存在一个严格可行的<span class="math notranslate nohighlight">\(x\)</span>，满足
-<span class="math notranslate nohighlight">\($
+<p>如果原问题是凸优化问题，且至少存在一个严格可行的<span class="math notranslate nohighlight">\(x\)</span>，满足</p>
+<div class="math notranslate nohighlight">
+\[
 g_{1}(x)&lt;0, \ldots, g_{m}(x)&lt;0 \text { and } h_{1}(x)=\ldots h_{n}(x)=0
-$\)</span>
-那么强对偶性满足。</p>
+\]</div>
+<p>那么强对偶性满足。</p>
 <p><img alt="UTOOLS1587872480002.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587872480002.png" /></p>
 </div>
 </div>

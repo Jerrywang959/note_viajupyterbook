@@ -30,7 +30,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="prev" title="时间序列分析简史" href="Introduction.html" />
+    <link rel="prev" title="时间序列分析简介" href="Introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -117,7 +117,7 @@
     <a href="README.html">Times_Series</a>
   <ul class="nav sidenav_l2">
     <li class="">
-      <a href="Introduction.html">时间序列分析简史</a>
+      <a href="Introduction.html">时间序列分析简介</a>
     </li>
     <li class="active">
       <a href="">时间序列的定义</a>
@@ -216,7 +216,7 @@
 <h2>弱平稳序列<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\forall t\in\mathscr{T},\mathrm{E}(X_t)=\mu\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\forall t\in\mathscr{T},\mathrm{E}(X_t^2)&lt;\infin\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\forall t\in\mathscr{T},\mathrm{E}(X_t^2)&lt;\infty\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\forall t,s\in\mathscr{T},\gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{s}-\mu_{s}\right)\right]=\gamma_{t-s}\)</span>，<span class="math notranslate nohighlight">\(\forall t=s \in \mathscr{T}, \gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{t}-\mu_{t}\right)\right]=\gamma_{0}\)</span></p></li>
 </ol>
 </div>
@@ -246,18 +246,21 @@
 <p>难点：只有一次实现，不知道<span class="math notranslate nohighlight">\(X_t\)</span>的分布</p>
 <p>解决方法：遍历性</p>
 <p>假设<span class="math notranslate nohighlight">\(\mathrm{E}(X_t)=\mu,\mathrm{E}(X_t^2)=\sigma^2\)</span></p>
-<p>均值遍历
-<span class="math notranslate nohighlight">\($
+<p>均值遍历</p>
+<div class="math notranslate nohighlight">
+\[
 \bar x\triangleq\frac{1}{T}\sum_{t=1}^Tx_t \stackrel{p}\longrightarrow \mu
-$\)</span>
-方差遍历
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>方差遍历</p>
+<div class="math notranslate nohighlight">
+\[
 s^2\triangleq\frac{1}{T}\sum_{t=1}^T(x_t-\mu)^2 \stackrel{P}\longrightarrow\sigma^2
-$\)</span>
-协方差遍历（<strong>为什么是这样</strong>）
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>协方差遍历（<strong>为什么是这样</strong>）</p>
+<div class="math notranslate nohighlight">
+\[
 s^{2} \triangleq \frac{1}{T-j} \sum_{t=j+1}^{T}\left(x_{t}-\mu\right)\left(x_{t-j}-\mu\right) \stackrel{p}{\rightarrow} \gamma_{j}^{2}
-$\)</span></p>
+\]</div>
 <p>遍历性只是一个假设，无法验证其成立与否。路径依赖的时间序列变量不满足平稳性。</p>
 </div>
 </div>
@@ -265,20 +268,22 @@ $\)</span></p>
 <h1>滞后算子<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
 <p><span class="math notranslate nohighlight">\(L\)</span>：对时间序列的一种操作，取其一阶滞后数据</p>
 <p><span class="math notranslate nohighlight">\(Lx_t\equiv x_{t-1}\)</span></p>
-<p>习惯用法：
-<span class="math notranslate nohighlight">\($
+<p>习惯用法：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 L(Lx_t)=L(x_{t-1})=x_{t-2}  \\
 L^kx_t=x_{t-k}      \\
 L^0x_t=x_t    \\
 L^{-1}x_t=x_{t+1}     \\
 Lc=c
-$\)</span>
-滞后算子服从的运算法则：交换律、结合律、分配率</p>
-<p>例子
-<span class="math notranslate nohighlight">\($
+\end{split}\]</div>
+<p>滞后算子服从的运算法则：交换律、结合律、分配率</p>
+<p>例子</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \left(a+b L+c L^{2}\right) L x_{t}=a L x_{t}+b L^{2} x_{t}+c L^{3} x_{t}=a x_{t-1}+b x_{t-2}+c x_{t-3}   \\
 \left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) x_{t}=\left(1-\lambda_{1} L-\lambda_{2} L+\lambda_{1} \lambda_{2} L^{2}\right) x_{t}=x_{t}-\left(\lambda_{1}+\lambda_{2}\right) x_{t-1}+\lambda_{1} \lambda_{2} x_{t-2}
-$\)</span></p>
+\end{split}\]</div>
 </div>
 
 
@@ -290,7 +295,7 @@ $\)</span></p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">时间序列分析简史</a>
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">时间序列分析简介</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

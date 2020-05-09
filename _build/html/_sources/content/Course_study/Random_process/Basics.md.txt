@@ -43,7 +43,7 @@ $\omega\in A\subseteq\Omega$
 
 1. $P(\emptyset)=0$
 2. $P(\Omega)=1$
-3. $ \forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\emptyset ,\quad P(\cup_{k=1}^{\infty} A_k)=\sum_{k=1}^\infty P(A_k) $
+3. $\forall A_1,A_2,...A_n \in \mathscr{F}, \mathrm{and} \  A_i\cap A_j=\emptyset ,\quad P(\cup_{k=1}^{\infty} A_k)=\sum_{k=1}^\infty P(A_k)$
 
 则我们称$P$为$(\Omega,\mathscr{F})$上的概率测度
 
@@ -92,6 +92,7 @@ $\omega\in A\subseteq\Omega$
 定义1.10
 
 上极限：$\lim\sup A_n=\cap_n^\infty\cup_n^\infty A_n$
+
 $$
 \forall \omega \in \lim\sup A_n \Leftrightarrow \{ \omega:属于无穷多个 A_n \}  \\
 \omega\in\cap_{n=1}^\infty\cup_n^\infty A_k \Leftrightarrow  \forall n\geq 1,\exists k\geq n，有 \omega \in A_k

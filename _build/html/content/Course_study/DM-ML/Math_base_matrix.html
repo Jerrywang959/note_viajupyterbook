@@ -257,11 +257,12 @@
 <h1>矩阵相关知识<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="orthogonal-matrices">
 <h2>Orthogonal Matrices<a class="headerlink" href="#orthogonal-matrices" title="Permalink to this headline">¶</a></h2>
-<p>如果一个矩阵<span class="math notranslate nohighlight">\($Q\in R^{n\times n} $\)</span>满足
-<span class="math notranslate nohighlight">\($
+<p>如果一个矩阵 <span class="math notranslate nohighlight">\(Q\in R^{n\times n}\)</span> 满足</p>
+<div class="math notranslate nohighlight">
+\[
 Q^TQ=I
-$\)</span>
-则它为正交矩阵</p>
+\]</div>
+<p>则它为正交矩阵</p>
 </div>
 <div class="section" id="tall-matrices-with-orthonormal-columns">
 <h2>Tall Matrices with Orthonormal Columns<a class="headerlink" href="#tall-matrices-with-orthonormal-columns" title="Permalink to this headline">¶</a></h2>
@@ -283,19 +284,22 @@ $\)</span>
 </ol>
 <div class="section" id="p">
 <h3>p-范数诱导的矩阵范数<a class="headerlink" href="#p" title="Permalink to this headline">¶</a></h3>
-<p>向量<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>的p-范数
-<span class="math notranslate nohighlight">\($
+<p>向量<span class="math notranslate nohighlight">\(\mathbf{x}\)</span>的p-范数</p>
+<div class="math notranslate nohighlight">
+\[
 \|\mathbf{x}\|_{p}=\left(\left|x_{1}\right|^{p}+\left|x_{2}\right|^{p}+\cdots+\left|x_{n}\right|^{p}\right)^{1 / p}
-$\)</span>
-矩阵的p范数为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>矩阵的p范数为</p>
+<div class="math notranslate nohighlight">
+\[
 \|\mathbf{A}\|_{p}=\max _{\mathbf{x} \neq 0} \frac{\|\mathbf{A} \mathbf{x}\|_{p}}{\|\mathbf{x}\|_{p}}
-$\)</span>
-例如，1-范数为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>例如，1-范数为</p>
+<div class="math notranslate nohighlight">
+\[
 \|\mathbf{A}\|_{1}=\max _{j} \sum_{i=1}^{n}\left|a_{i j}\right|
-$\)</span>
-这种由矢量范数诱导的矩阵范数称为 算子范数（operator norm）。</p>
+\]</div>
+<p>这种由矢量范数诱导的矩阵范数称为 算子范数（operator norm）。</p>
 </div>
 <div class="section" id="frobenius-norm">
 <h3><strong>弗罗贝尼乌斯范数</strong>(Frobenius norm)<a class="headerlink" href="#frobenius-norm" title="Permalink to this headline">¶</a></h3>
@@ -304,30 +308,34 @@ $\)</span>
 \[
 \|\mathbf{A}\|_{F}=\left(\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}\right)^{1 / 2}
 \]</div>
-<p>一些性质
-<span class="math notranslate nohighlight">\($
+<p>一些性质</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \|\mathbf{A}\|_{F}^{2}=\operatorname{trace}\left(\mathbf{A}^{\top} \mathbf{A}\right) \\
 \|\mathbf{A B}\|_{F}=\|\mathbf{A}\|_{F}\|\mathbf{B}\|_{F}
-$\)</span>
-正交乘法下不变性
-<span class="math notranslate nohighlight">\($
+\end{split}\]</div>
+<p>正交乘法下不变性</p>
+<div class="math notranslate nohighlight">
+\[
 \|\mathbf{Q A}\|_{2}=\|\mathbf{A}\|_{2} \quad\|\mathbf{Q A}\|_{F}=\|\mathbf{A}\|_{F}
-$\)</span>
-其中<span class="math notranslate nohighlight">\(Q\)</span>是一个正交矩阵</p>
+\]</div>
+<p>其中<span class="math notranslate nohighlight">\(Q\)</span>是一个正交矩阵</p>
 </div>
 </div>
 <div class="section" id="eigenvalue-decomposition">
 <h2>Eigenvalue Decomposition<a class="headerlink" href="#eigenvalue-decomposition" title="Permalink to this headline">¶</a></h2>
 <p>矩阵特征分解</p>
-<p>对于一个方阵<span class="math notranslate nohighlight">\(A\in\mathbb{R}^{m\times n}\)</span>，我们称非0向量<span class="math notranslate nohighlight">\(\mathbf{x}\in\mathbb{R^n}\)</span>是其特征值<span class="math notranslate nohighlight">\(\lambda\)</span>对应的一个特征向量，如果：
-<span class="math notranslate nohighlight">\($
+<p>对于一个方阵<span class="math notranslate nohighlight">\(A\in\mathbb{R}^{m\times n}\)</span>，我们称非0向量<span class="math notranslate nohighlight">\(\mathbf{x}\in\mathbb{R^n}\)</span>是其特征值<span class="math notranslate nohighlight">\(\lambda\)</span>对应的一个特征向量，如果：</p>
+<div class="math notranslate nohighlight">
+\[
 \mathbf{A x}=\lambda \mathbf{x}
-$\)</span>
-方针<span class="math notranslate nohighlight">\(A\)</span>的特征值分解为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>方针<span class="math notranslate nohighlight">\(A\)</span>的特征值分解为</p>
+<div class="math notranslate nohighlight">
+\[
 A=X \Lambda X^{-1}
-$\)</span>
-其中，<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>是一个非奇异矩阵，且由<span class="math notranslate nohighlight">\(A\)</span>矩阵的特征向量组成；<span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span>是一个对角线上的值为<span class="math notranslate nohighlight">\(A\)</span>矩阵的特征值的对角矩阵。</p>
+\]</div>
+<p>其中，<span class="math notranslate nohighlight">\(\mathbf{X}\)</span>是一个非奇异矩阵，且由<span class="math notranslate nohighlight">\(A\)</span>矩阵的特征向量组成；<span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span>是一个对角线上的值为<span class="math notranslate nohighlight">\(A\)</span>矩阵的特征值的对角矩阵。</p>
 <p>Note:</p>
 <ol class="simple">
 <li><p>不是所有的矩阵都有特征分解，一个矩阵有特征分解当且仅当它是可对角化的(diagonalizable)。</p></li>
@@ -336,15 +344,17 @@ $\)</span>
 <div class="section" id="singular-value-decomposition">
 <h3>Singular Value Decomposition<a class="headerlink" href="#singular-value-decomposition" title="Permalink to this headline">¶</a></h3>
 <p>奇异值分解 SVD</p>
-<p>每一个矩阵<span class="math notranslate nohighlight">\(\mathbf{A}\in\mathbb{R}\)</span>都有如下的奇异值分解形式
-<span class="math notranslate nohighlight">\($
+<p>每一个矩阵<span class="math notranslate nohighlight">\(\mathbf{A}\in\mathbb{R}\)</span>都有如下的奇异值分解形式</p>
+<div class="math notranslate nohighlight">
+\[
 \mathbf{A}=\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^{\top}
-$\)</span>
-其中，<span class="math notranslate nohighlight">\(\mathbf{U}\in\mathbb{R}^{m\times m}\)</span>和<span class="math notranslate nohighlight">\(\mathbf{V}\in\mathbb{R}^{n\times n}\)</span>为正交矩阵，<span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} \in \mathbb{R}^{m \times n}\)</span>是一个对角线上的值为<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的奇异值的对角矩阵</p>
-<p>如果矩阵<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的秩为<span class="math notranslate nohighlight">\(r\)</span>，则<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的奇异值为
-<span class="math notranslate nohighlight">\($
+\]</div>
+<p>其中，<span class="math notranslate nohighlight">\(\mathbf{U}\in\mathbb{R}^{m\times m}\)</span>和<span class="math notranslate nohighlight">\(\mathbf{V}\in\mathbb{R}^{n\times n}\)</span>为正交矩阵，<span class="math notranslate nohighlight">\(\boldsymbol{\Sigma} \in \mathbb{R}^{m \times n}\)</span>是一个对角线上的值为<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的奇异值的对角矩阵</p>
+<p>如果矩阵<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的秩为<span class="math notranslate nohighlight">\(r\)</span>，则<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>的奇异值为</p>
+<div class="math notranslate nohighlight">
+\[
 \sigma_{1} \geq \sigma_{2} \geq \cdots \geq \sigma_{r} \geq \sigma_{r+1}=\ldots \sigma_{\min (m, n)}=0
-$\)</span></p>
+\]</div>
 <p><strong>Full SVD</strong></p>
 <p><span class="math notranslate nohighlight">\(U\)</span>是<span class="math notranslate nohighlight">\(m\times m\)</span>矩阵，<span class="math notranslate nohighlight">\(\Sigma\)</span>是$m\times n $矩阵</p>
 <p><strong>Reduced SVD</strong></p>
@@ -388,14 +398,15 @@ $\)</span></p>
 <h4>Low-rank Approximation<a class="headerlink" href="#low-rank-approximation" title="Permalink to this headline">¶</a></h4>
 <p>低阶近似</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{A}=\sum_{i=1}^{r} \sigma_{i} \mathbf{u}_{i} \mathbf{v}_{i}^{\top}\)</span>，我们设<span class="math notranslate nohighlight">\(\mathbf{A}_{k}=\sum_{i=1}^{k} \sigma_{i} \mathbf{u}_{i} \mathbf{v}_{i}^{\top},\quad 0&lt;k&lt;r\)</span></p>
-<p><strong>Eckart-Young Theorem</strong>(埃卡特-杨定理)
-<span class="math notranslate nohighlight">\($
+<p><strong>Eckart-Young Theorem</strong>(埃卡特-杨定理)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{array}{c}
 \min\limits _{\operatorname{rank}(\mathbf{B}) \leq k}\|\mathbf{A}-\mathbf{B}\|_{2}=\left\|\mathbf{A}-\mathbf{A}_{k}\right\|_{2}=\sigma_{k+1} \\
 \min\limits _{\operatorname{rank} k(\mathbf{B}) \leq k}\|\mathbf{A}-\mathbf{B}\|_{F}=\left\|\mathbf{A}-\mathbf{A}_{k}\right\|_{F}=\sqrt{\sigma_{k+1}^{2}+\cdots+\sigma_{r}^{2}}
 \end{array}
-$\)</span>
-<span class="math notranslate nohighlight">\(A_k\)</span>为秩为<span class="math notranslate nohighlight">\(k\)</span>的<span class="math notranslate nohighlight">\(A\)</span>的最佳近似</p>
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(A_k\)</span>为秩为<span class="math notranslate nohighlight">\(k\)</span>的<span class="math notranslate nohighlight">\(A\)</span>的最佳近似</p>
 </div>
 </div>
 </div>
@@ -410,10 +421,11 @@ $\)</span>
 <ol class="simple">
 <li><p><strong>一个对称矩阵是半正定的当且仅当它的特征值都是非负值。</strong></p></li>
 </ol>
-<p>证明如下，<span class="math notranslate nohighlight">\(x,\lambda\)</span>分别为<span class="math notranslate nohighlight">\(A\)</span>的特征向量和特征值
-<span class="math notranslate nohighlight">\($
+<p>证明如下，<span class="math notranslate nohighlight">\(x,\lambda\)</span>分别为<span class="math notranslate nohighlight">\(A\)</span>的特征向量和特征值</p>
+<div class="math notranslate nohighlight">
+\[
 0 \leq \mathbf{x}^{\top} \mathbf{A} \mathbf{x}=\mathbf{x}^{\top}(\lambda \mathbf{x})=\lambda \mathbf{x}^{\top} \mathbf{x}=\lambda\|\mathbf{x}\|_{2}^{2}
-$\)</span></p>
+\]</div>
 <ol class="simple">
 <li><p><strong>对一个半正定矩阵进行特征值分解等于对它进行奇异值分解</strong></p></li>
 <li><p>对于一个半正定矩阵<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>，存在唯一一个半正定矩阵<span class="math notranslate nohighlight">\(\mathbf{B}\)</span>满足<span class="math notranslate nohighlight">\(\mathbf{B}^2=\mathbf{A}\)</span></p></li>
@@ -421,10 +433,11 @@ $\)</span></p>
 <p>证明：</p>
 <p>对<span class="math notranslate nohighlight">\(A\)</span>做特征值分解<span class="math notranslate nohighlight">\(\mathbf{A}=\mathbf{U} \mathbf{\Lambda} \mathbf{U}^{\top}\)</span></p>
 <p>令<span class="math notranslate nohighlight">\(\mathbf{B}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}\)</span></p>
-<p>有
-<span class="math notranslate nohighlight">\($
+<p>有</p>
+<div class="math notranslate nohighlight">
+\[
 \mathbf{B}^{2}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top} \mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}=\mathbf{U} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{\Lambda}^{\frac{1}{2}} \mathbf{U}^{\top}=\mathbf{A}
-$\)</span></p>
+\]</div>
 </div>
 </div>
 </div>
