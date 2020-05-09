@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>时间序列分析简史 &#8212; Jerrynote</title>
+    <title>时间序列分析简介 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -118,7 +118,7 @@
     <a href="README.html">Times_Series</a>
   <ul class="nav sidenav_l2">
     <li class="active">
-      <a href="">时间序列分析简史</a>
+      <a href="">时间序列分析简介</a>
     </li>
     <li class="">
       <a href="Math_base.html">时间序列的定义</a>
@@ -174,9 +174,44 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">时间序列分析简史</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">分析方法</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">描述性时序分析</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">统计性时序分析</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id6" class="nav-link">频域分析法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id7" class="nav-link">时域分析法</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">时间序列分析的发展</a>
+        </li>
+    
+            </ul>
+        </li>
     
     </ul>
 </nav>
@@ -189,10 +224,12 @@
         
               <div>
                 
-  <p>时间序列：一组按时间顺序排列的定量观测值</p>
+  <div class="section" id="id1">
+<h1>时间序列分析简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>时间序列：一组按时间顺序排列的定量观测值</p>
 <p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587625965115.png" /></p>
-<div class="section" id="id1">
-<h1>时间序列分析简史<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>时间序列分析简史<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p><strong>古代</strong></p>
 <ul class="simple">
 <li><p>古埃及:尼罗河涨落→农业生产和居住安排</p></li>
@@ -205,18 +242,18 @@
 <li><p>Slutzky、Yule、 Walker、Wold:随机项</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h1>分析方法<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id3">
-<h2>描述性时序分析<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>分析方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>描述性时序分析<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>优点:操作简单,直观有效。</p>
 <p>局限:很大程度的依赖于人的主观性,只能展示非常明显的规律性。</p>
 </div>
-<div class="section" id="id4">
-<h2>统计性时序分析<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587629160418.png" /></p>
 <div class="section" id="id5">
-<h3>频域分析法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>统计性时序分析<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587629160418.png" /></p>
+<div class="section" id="id6">
+<h4>频域分析法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>频域(frequency domain)分析方法也被称为“频谱分析”或“谱分析”(spectral analysis)方法。</p>
 <p>早期的频域分析方法假设任何一种无趋势的时间序列都可以分解成若干不同频率的周期波动，借助富里埃分析从频率的角度揭示时间序列的规律，后来又借助了傅里叶变换，用正弦、余弦项之和来逼近某个函数。后来出现了最大熵谱估计理论，使谱分析进入现代谱分析阶段。</p>
 <ul class="simple">
@@ -225,8 +262,8 @@
 </ul>
 <p>参数模型和非参数模型</p>
 </div>
-<div class="section" id="id6">
-<h3>时域分析法<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h4>时域分析法<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>从序列自相关角度解释时间序列的发展规律。</p>
 <p>基本思想：事件的发展通常都具有一定的惯性，这种惯性用统计的语言来描述就是序列值之间存在着一定的相关关系，而且这种相关关系具有某种统计规律。时域分析法就是寻找这种规律，并拟合出适当的数学模型来描述这种规律，进而利用这个拟合模型来预测序列未来的走势。</p>
 <p>基本步骤：</p>
@@ -239,11 +276,12 @@
 </ol>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>时间序列分析的发展<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>时间序列分析的发展<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>AR-&gt;自回归，当前时间点的数据跟上一个时间点的数据的关系</p>
 <p>MA-&gt;移动平均，误差项，新获得的信息</p>
 <p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1583899756064.jpg" /></p>
+</div>
 </div>
 </div>
 
