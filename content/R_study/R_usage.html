@@ -14,20 +14,20 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="DataFrame" href="R_usage_2.html" />
@@ -60,7 +60,7 @@
 
 <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -213,7 +213,7 @@
     </div>
 </div>
     <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
         
               <div>
                 
@@ -243,12 +243,12 @@
 </div>
 <p>索引矩阵</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="nf">matrix </span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">16</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
-<span class="n">A</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">]</span>   <span class="c1">#索引一个位置</span>
-<span class="n">A</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span> <span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="p">]</span> <span class="c1">#索引连续行和连续列</span>
-<span class="n">A</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span> <span class="p">,]</span>   <span class="c1">#索引行</span>
-<span class="n">A</span><span class="p">[</span> <span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>   <span class="c1">#索引列</span>
-<span class="n">A</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)</span> <span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)</span> <span class="p">]</span> <span class="c1">#索引某些特定的点：行号为1或3，列号为2或4</span>
-<span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)</span> <span class="p">,]</span>     <span class="c1"># `-`表示剔除这些元素的其他元素</span>
+<span class="n">A[2</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>   <span class="c1">#索引一个位置</span>
+<span class="n">A[1</span><span class="o">:</span><span class="m">3</span> <span class="p">,</span><span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="n">]</span> <span class="c1">#索引连续行和连续列</span>
+<span class="n">A[1</span><span class="o">:</span><span class="m">2</span> <span class="p">,</span><span class="n">]</span>   <span class="c1">#索引行</span>
+<span class="n">A[</span> <span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span>   <span class="c1">#索引列</span>
+<span class="n">A</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)</span> <span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)</span> <span class="n">]</span> <span class="c1">#索引某些特定的点：行号为1或3，列号为2或4</span>
+<span class="n">A[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">)</span> <span class="p">,</span><span class="n">]</span>     <span class="c1"># `-`表示剔除这些元素的其他元素</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">dim(A)</span></code>返回矩阵的形状</p>
@@ -258,7 +258,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code>，<code class="docutils literal notranslate"><span class="pre">x^2</span></code>分别为开方和乘方操作，支持向量操作</p>
 <p><code class="docutils literal notranslate"><span class="pre">rnorm()</span></code>返回一定数量的正态分布随机数</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="m">50</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">.</span><span class="m">1</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="m">50</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="m">.1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cor(x,y)</span></code>返回两个向量的相关系数</p>
@@ -357,15 +357,13 @@
 
     </div>
     <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Jerrywang<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.<br/>
+    </p>
+  </div>
+</footer>
 </main>
 
 
