@@ -40,6 +40,7 @@
     - file: content/Course_study/DM-ML/Math_base_opt
     - file: content/Course_study/DM-ML/Supervised_learning
     - file: content/Course_study/DM-ML/Linear_regression
+    - file: content/Course_study/DM-ML/Logistic_reg
 
 - file: content/Course_study/Game_Thoery/README
   sections:
@@ -52,6 +53,7 @@
     - file: content/Course_study/Financial_Lecture/Covid_to_invention
     - file: content/Course_study/Financial_Lecture/Covid_to_company
     - file: content/Course_study/Financial_Lecture/To_be_a_Analysts
+    - file: content/Course_study/International_Finance/Indexed_investment_logic
 
 - file: content/Course_study/International_Finance/README
   sections:

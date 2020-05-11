@@ -18,8 +18,8 @@
 
 # 欢迎pr
 
-若有书写错误或者补充的地方，可以fork[此项目github主页](https://github.com/Jerrywang959/jerrywang_note)修改并提交push request，只需要修改markdown文件即可。
+若有书写错误或者补充的地方，可以fork[此项目github主页](https://github.com/Jerrywang959/note_viajupyterbook)修改并提交push request，只需要修改markdown文件即可。
 
 # License
 
-[CC-BY-SA-4.0](https://github.com/Jerrywang959/jerrywang_note/blob/master/LICENSE) © Jerry Wang
+[CC-BY-SA-4.0](https://github.com/Jerrywang959/note_viajupyterbook/blob/master/LICENSE) © Jerry Wang
