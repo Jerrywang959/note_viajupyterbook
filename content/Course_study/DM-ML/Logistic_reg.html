@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>作业 &#8212; Jerrynote</title>
+    <title>逻辑回归 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="矩阵相关知识" href="Math_base_matrix.html" />
-    <link rel="prev" title="DM-ML" href="README.html" />
+    <link rel="next" title="Game_Thoery" href="../Game_Thoery/README.html" />
+    <link rel="prev" title="线性回归" href="Linear_regression.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -99,8 +99,8 @@
   <li class="active">
     <a href="README.html">DM-ML</a>
   <ul class="nav sidenav_l2">
-    <li class="active">
-      <a href="">作业</a>
+    <li class="">
+      <a href="Homework.html">作业</a>
     </li>
     <li class="">
       <a href="Math_base_matrix.html">矩阵相关知识</a>
@@ -114,8 +114,8 @@
     <li class="">
       <a href="Linear_regression.html">线性回归</a>
     </li>
-    <li class="">
-      <a href="Logistic_reg.html">逻辑回归</a>
+    <li class="active">
+      <a href="">逻辑回归</a>
     </li>
   </ul>
   </li>
@@ -167,7 +167,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/DM-ML/Homework.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/DM-ML/Logistic_reg.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -194,11 +194,11 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id2" class="nav-link">2020-2-20</a>
+            <a href="#linear-discrimination-model" class="nav-link">Linear discrimination model</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id3" class="nav-link">2020-2-26</a>
+            <a href="#logicstic-regression" class="nav-link">logicstic regression</a>
         </li>
     
     </ul>
@@ -213,20 +213,17 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>作业<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>2020-2-20<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Read Home Reading 1A: Mathematics for Machine LearningSend the page numbers to ta wherever you can’t understand. TA Will collect the information</p></li>
-<li><p>Send a life photo to ta with your namedue day : Apr.23,10pm</p></li>
-</ol>
-<p>发到TA邮箱</p>
-<p>FINISHED</p>
+<h1>逻辑回归<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>线性回归难以解决的问题：二值分类问题（Binary Classification）</p>
+<div class="section" id="linear-discrimination-model">
+<h2>Linear discrimination model<a class="headerlink" href="#linear-discrimination-model" title="Permalink to this headline">¶</a></h2>
+<p>线性判别模型</p>
 </div>
-<div class="section" id="id3">
-<h2>2020-2-26<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p><img alt="UTOOLS1587872143481.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587872143481.png" /></p>
-<p><img alt="UTOOLS1587959124446.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587959124446.png" /></p>
+<div class="section" id="logicstic-regression">
+<h2>logicstic regression<a class="headerlink" href="#logicstic-regression" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>解决二元分类问题</p></li>
+</ul>
 </div>
 </div>
 
@@ -239,8 +236,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">DM-ML</a>
-    <a class='right-next' id="next-link" href="Math_base_matrix.html" title="next page">矩阵相关知识</a>
+    <a class='left-prev' id="prev-link" href="Linear_regression.html" title="previous page">线性回归</a>
+    <a class='right-next' id="next-link" href="../Game_Thoery/README.html" title="next page">Game_Thoery</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

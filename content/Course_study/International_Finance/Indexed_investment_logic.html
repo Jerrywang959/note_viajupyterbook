@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>作业 &#8212; Jerrynote</title>
+    <title>指数化投资逻辑与A股市场实战 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="矩阵相关知识" href="Math_base_matrix.html" />
-    <link rel="prev" title="DM-ML" href="README.html" />
+    <link rel="next" title="International_Finance" href="README.html" />
+    <link rel="prev" title="如何成为一个分析师" href="../Financial_Lecture/To_be_a_Analysts.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -96,37 +96,34 @@
 <li class="navbar-special">
 <p class="margin-caption">Course_study</p>
 </li>
-  <li class="active">
-    <a href="README.html">DM-ML</a>
-  <ul class="nav sidenav_l2">
-    <li class="active">
-      <a href="">作业</a>
-    </li>
-    <li class="">
-      <a href="Math_base_matrix.html">矩阵相关知识</a>
-    </li>
-    <li class="">
-      <a href="Math_base_opt.html">函数求极值</a>
-    </li>
-    <li class="">
-      <a href="Supervised_learning.html">监督学习简介</a>
-    </li>
-    <li class="">
-      <a href="Linear_regression.html">线性回归</a>
-    </li>
-    <li class="">
-      <a href="Logistic_reg.html">逻辑回归</a>
-    </li>
-  </ul>
+  <li class="">
+    <a href="../DM-ML/README.html">DM-ML</a>
   </li>
   <li class="">
     <a href="../Game_Thoery/README.html">Game_Thoery</a>
   </li>
-  <li class="">
+  <li class="active">
     <a href="../Financial_Lecture/README.html">Financial_Lecture</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="../Financial_Lecture/Learn_from_ruixin.html">瑞幸咖啡案例</a>
+    </li>
+    <li class="">
+      <a href="../Financial_Lecture/Covid_to_invention.html">新冠肺炎对投资的影响</a>
+    </li>
+    <li class="">
+      <a href="../Financial_Lecture/Covid_to_company.html">新冠肺炎疫情对上市公司的影响：基于财务的视角</a>
+    </li>
+    <li class="">
+      <a href="../Financial_Lecture/To_be_a_Analysts.html">如何成为一个分析师</a>
+    </li>
+    <li class="active">
+      <a href="">指数化投资逻辑与A股市场实战</a>
+    </li>
+  </ul>
   </li>
   <li class="">
-    <a href="../International_Finance/README.html">International_Finance</a>
+    <a href="README.html">International_Finance</a>
   </li>
   <li class="">
     <a href="../Random_process/README.html">Random_process</a>
@@ -167,7 +164,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/DM-ML/Homework.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/International_Finance/Indexed_investment_logic.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -194,11 +191,25 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id2" class="nav-link">2020-2-20</a>
+            <a href="#id1" class="nav-link">如何投资股票</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id2" class="nav-link">自下而上的捡贝壳</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#beta" class="nav-link">资产配置：获取Beta收益</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id3" class="nav-link">2020-2-26</a>
+            <a href="#q-a" class="nav-link">Q&A</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">鸣谢</a>
         </li>
     
     </ul>
@@ -212,21 +223,60 @@
         
               <div>
                 
-  <div class="section" id="id1">
-<h1>作业<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>2020-2-20<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="a">
+<h1>指数化投资逻辑与A股市场实战<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511192333.png" /></p>
+<div class="section" id="id1">
+<h2>如何投资股票<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>对于普通(业余)投资者而言,胜利天平更倾向于</p>
+<ul class="simple">
+<li><p>长期投资:短线会使得动作变形、胜率降低、成本增加;</p></li>
+<li><p>委托投资:相信专业化分工</p></li>
+<li><p>分散投资:避免专业盲区、避免踩雷</p></li>
+<li><p>基于价值:不容易受价格短期波动诱惑</p></li>
+</ul>
+<p>巴菲特有两门课:如何给公司估值?如何对待股价波动?</p>
+<ul class="simple">
+<li><p>在自己能力圈内,对投资标的进行估值,对不同投资标的进行对比</p></li>
+<li><p>选择性价比和确定性最高的投资标的;</p></li>
+<li><p>自下而上的思考框架,更适合于普通投资者;</p></li>
+</ul>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511192442.png" /></p>
+<p>人的本能：避险</p>
+<p>但是,股神巴菲特继续说到:</p>
+<p>“当投资人并没有对任何产业有特别的熟悉,就应该分散持有许多公司的股份,同时将投入的时间拉长。但如果你是位稍具常识的投资者,能够了解企业的经营状况,并能够发现5-10家具有长期竟争优势的价格合理的公司,那么,传统的分散投资就毫无意义,那样做反而会损害你的投资成果并增加投资风险。</p>
+<p>我对于普通投资者的建议:</p>
 <ol class="simple">
-<li><p>Read Home Reading 1A: Mathematics for Machine LearningSend the page numbers to ta wherever you can’t understand. TA Will collect the information</p></li>
-<li><p>Send a life photo to ta with your namedue day : Apr.23,10pm</p></li>
+<li><p>先立足于“不败”:指数基金就是“不胜不败”,市场平均水平(且低费率)</p></li>
+<li><p>再求“小胜”:选择指数增强基金,但要求会选人</p></li>
+<li><p>再求“中胜”:选择主动基金,对选人提出更高的要求。</p></li>
+<li><p>最后求“大胜”:根据自己的资金水平、爱好、能力,决定是否走深入研究企业的道路</p></li>
 </ol>
-<p>发到TA邮箱</p>
-<p>FINISHED</p>
+<div class="section" id="id2">
+<h3>自下而上的捡贝壳<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>自下而上:好资产(可估值)、合适的买入价格、再平衡投资组合</p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511193321.png" /></p>
+</div>
+<div class="section" id="beta">
+<h3>资产配置：获取Beta收益<a class="headerlink" href="#beta" title="Permalink to this headline">¶</a></h3>
+<p>目前覆盖股票、债券、商品、货币四大类资产;各大类资产再划分为8个细分类别,而各细分类别资产对应不同代理变量未来根据市场情况扩大配置范围:涉及欧洲/本新兴市场的股票基金、大宗商品基金(原油)、REITS基金、另类基金等。</p>
+<p>大量的学术文献和投资经验表明,资产配置是组合投资中最为关键的一步,它决定了投资组合的大部分收益和波动。</p>
+<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511193514.png" /></p>
+<p>读书时接受的很多训练，就业时都用不到，难免会产生落差。在就业中，知识的广度更加重要。</p>
+</div>
+</div>
+<div class="section" id="q-a">
+<h2>Q&amp;A<a class="headerlink" href="#q-a" title="Permalink to this headline">¶</a></h2>
+<p>大多数基金经理，都是自下而上</p>
+<p>基金经理一天的安排：不停地阅读交流</p>
+<p>推荐书：查理 门戈</p>
+<p>多读哲学，苏格拉底到康德。</p>
+<p>金融是服务业</p>
+<p>数学是一种思维训练</p>
 </div>
 <div class="section" id="id3">
-<h2>2020-2-26<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p><img alt="UTOOLS1587872143481.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587872143481.png" /></p>
-<p><img alt="UTOOLS1587959124446.png" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/UTOOLS1587959124446.png" /></p>
+<h2>鸣谢<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>WeiBin Lin(eFunds)</p>
 </div>
 </div>
 
@@ -239,8 +289,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">DM-ML</a>
-    <a class='right-next' id="next-link" href="Math_base_matrix.html" title="next page">矩阵相关知识</a>
+    <a class='left-prev' id="prev-link" href="../Financial_Lecture/To_be_a_Analysts.html" title="previous page">如何成为一个分析师</a>
+    <a class='right-next' id="next-link" href="README.html" title="next page">International_Finance</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
