@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>指数化投资逻辑与A股市场实战 &#8212; Jerrynote</title>
+    <title>固定（浮动）汇率制下的汇率理论—价格调整机制 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +30,6 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="International_Finance" href="README.html" />
-    <link rel="prev" title="如何成为一个分析师" href="../Financial_Lecture/To_be_a_Analysts.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -102,25 +100,8 @@
   <li class="">
     <a href="../Game_Thoery/README.html">Game_Thoery</a>
   </li>
-  <li class="active">
+  <li class="">
     <a href="../Financial_Lecture/README.html">Financial_Lecture</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="../Financial_Lecture/Learn_from_ruixin.html">瑞幸咖啡案例</a>
-    </li>
-    <li class="">
-      <a href="../Financial_Lecture/Covid_to_invention.html">新冠肺炎对投资的影响</a>
-    </li>
-    <li class="">
-      <a href="../Financial_Lecture/Covid_to_company.html">新冠肺炎疫情对上市公司的影响：基于财务的视角</a>
-    </li>
-    <li class="">
-      <a href="../Financial_Lecture/To_be_a_Analysts.html">如何成为一个分析师</a>
-    </li>
-    <li class="active">
-      <a href="">指数化投资逻辑与A股市场实战</a>
-    </li>
-  </ul>
   </li>
   <li class="">
     <a href="README.html">International_Finance</a>
@@ -164,7 +145,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/International_Finance/Indexed_investment_logic.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/International_Finance/Exchange_rate_price_adjustment_mechanism.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -191,25 +172,37 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id1" class="nav-link">如何投资股票</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#id2" class="nav-link">自下而上的捡贝壳</a>
+            <a href="#id2" class="nav-link">国际收支理论背景</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">弹性分析法</a><ul class="nav section-nav flex-column">
+                
         <li class="nav-item toc-entry toc-h3">
-            <a href="#beta" class="nav-link">资产配置：获取Beta收益</a>
+            <a href="#id4" class="nav-link">绝对价格不变条件下的特殊情况</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id5" class="nav-link">马歇尔·勒那条件</a>
         </li>
     
             </ul>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#q-a" class="nav-link">Q&A</a>
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">价格可以变的情况下</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id7" class="nav-link">外汇需需曲线的推导</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#id3" class="nav-link">鸣谢</a>
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id8" class="nav-link">基于外汇供需曲线的分析</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
         </li>
     
     </ul>
@@ -223,60 +216,95 @@
         
               <div>
                 
-  <div class="section" id="a">
-<h1>指数化投资逻辑与A股市场实战<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h1>
-<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511192333.png" /></p>
-<div class="section" id="id1">
-<h2>如何投资股票<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>对于普通(业余)投资者而言,胜利天平更倾向于</p>
-<ul class="simple">
-<li><p>长期投资:短线会使得动作变形、胜率降低、成本增加;</p></li>
-<li><p>委托投资:相信专业化分工</p></li>
-<li><p>分散投资:避免专业盲区、避免踩雷</p></li>
-<li><p>基于价值:不容易受价格短期波动诱惑</p></li>
-</ul>
-<p>巴菲特有两门课:如何给公司估值?如何对待股价波动?</p>
-<ul class="simple">
-<li><p>在自己能力圈内,对投资标的进行估值,对不同投资标的进行对比</p></li>
-<li><p>选择性价比和确定性最高的投资标的;</p></li>
-<li><p>自下而上的思考框架,更适合于普通投资者;</p></li>
-</ul>
-<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511192442.png" /></p>
-<p>人的本能：避险</p>
-<p>但是,股神巴菲特继续说到:</p>
-<p>“当投资人并没有对任何产业有特别的熟悉,就应该分散持有许多公司的股份,同时将投入的时间拉长。但如果你是位稍具常识的投资者,能够了解企业的经营状况,并能够发现5-10家具有长期竟争优势的价格合理的公司,那么,传统的分散投资就毫无意义,那样做反而会损害你的投资成果并增加投资风险。</p>
-<p>我对于普通投资者的建议:</p>
-<ol class="simple">
-<li><p>先立足于“不败”:指数基金就是“不胜不败”,市场平均水平(且低费率)</p></li>
-<li><p>再求“小胜”:选择指数增强基金,但要求会选人</p></li>
-<li><p>再求“中胜”:选择主动基金,对选人提出更高的要求。</p></li>
-<li><p>最后求“大胜”:根据自己的资金水平、爱好、能力,决定是否走深入研究企业的道路</p></li>
-</ol>
+  <div class="section" id="id1">
+<h1>固定（浮动）汇率制下的汇率理论—价格调整机制<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h3>自下而上的捡贝壳<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>自下而上:好资产(可估值)、合适的买入价格、再平衡投资组合</p>
-<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511193321.png" /></p>
-</div>
-<div class="section" id="beta">
-<h3>资产配置：获取Beta收益<a class="headerlink" href="#beta" title="Permalink to this headline">¶</a></h3>
-<p>目前覆盖股票、债券、商品、货币四大类资产;各大类资产再划分为8个细分类别,而各细分类别资产对应不同代理变量未来根据市场情况扩大配置范围:涉及欧洲/本新兴市场的股票基金、大宗商品基金(原油)、REITS基金、另类基金等。</p>
-<p>大量的学术文献和投资经验表明,资产配置是组合投资中最为关键的一步,它决定了投资组合的大部分收益和波动。</p>
-<p><img alt="" src="https://mypictuchuang.oss-cn-shenzhen.aliyuncs.com/20200511193514.png" /></p>
-<p>读书时接受的很多训练，就业时都用不到，难免会产生落差。在就业中，知识的广度更加重要。</p>
-</div>
-</div>
-<div class="section" id="q-a">
-<h2>Q&amp;A<a class="headerlink" href="#q-a" title="Permalink to this headline">¶</a></h2>
-<p>大多数基金经理，都是自下而上</p>
-<p>基金经理一天的安排：不停地阅读、交流</p>
-<p>推荐书：查理 门戈</p>
-<p>多读哲学，苏格拉底到康德。</p>
-<p>金融是服务业</p>
-<p>数学是一种思维训练</p>
+<h2>国际收支理论背景<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>金本位制下的自动调整</strong>。1752年大卫·休谟对重商主义追求贸易盈余的批判。“价格-铸币流动机制”。</p>
+<p><strong>弹性论</strong>。1880-1914年一战前盛行。1930年代,金本位制崩溃,各国收支状况极度混乱。琼·罗宾逊和A·勒纳发挥了马歇尔的供求弹性局部均衡分析,提出“弹性论”</p>
+<p><strong>贸易乘数论</strong>。二战后,凯恩斯主义统治了西方经济学界。提出贸易乘数论。马克卢普( F. Machlup)和梅茨勒( Metzler)将凯恩斯乘数原理应用于国际收支分析,提出“对外贸易乘数论”。</p>
+<p><strong>吸收论</strong>。亚历山大( Alexander)(IMF工作)采用凯恩斯的宏观经济模式,1952年提出“吸收论”。</p>
+<p><strong>货币论</strong>。随着货币学派兴起,60年代岀现了将货币主义封闭经济糸件下的原理推衍到开放经济的“货币论”。</p>
 </div>
 <div class="section" id="id3">
-<h2>鸣谢<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>WeiBin Lin(eFunds)</p>
+<h2>弹性分析法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>问题:贬值是否可以改善国际收支(经常账户)?</p>
+<p>本币贬值对贸易收支和贸易条件的影响,国际收支调节中的相对价格效应。</p>
+<p>一)弹性分析法:价格不变</p>
+<ol class="simple">
+<li><p>利率不变，不考虑国际资本流动，将商品劳务贸易收支等同于国际收支;</p></li>
+<li><p>收入不变(Y)</p></li>
+<li><p>国内外商品劳务的价格不变(<span class="math notranslate nohighlight">\(P_m\)</span>和<span class="math notranslate nohighlight">\(P_x\)</span>不变)</p></li>
+<li><p>贸易品进出口供给弹性无穷大。</p></li>
+</ol>
+<p>弹性分析法的基本机制：</p>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph LR
+A[汇率变动]--&gt;B1(国内外贸易品相对价格变动)
+A--&gt;B2(国内贸易ping与非贸易品的相对价格变动)
+B1--&gt;C(影响进出口供求)
+B2--&gt;C(影响进出口供求)
+C--&gt;D(影响国际收支)
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>绝对价格不变条件下的特殊情况<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>本币贬值(<span class="math notranslate nohighlight">\(e\)</span>上升),本国商品劳务的相对价格下降——出口量增加、进口量减少,单位商品劳务的进口支出增加——贸易收支变化不确定。</p>
+<p><span class="math notranslate nohighlight">\(X\)</span>表示出口数量,<span class="math notranslate nohighlight">\(P_x\)</span>表示出口本币价格,<span class="math notranslate nohighlight">\(M\)</span>表示进口数量，<span class="math notranslate nohighlight">\(P_m\)</span>表示进口外币价格，<span class="math notranslate nohighlight">\(TB\)</span>为一国的贸易收支。</p>
+<p>用本币表示</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TB}=\mathrm{X}^{\uparrow} \cdot \mathrm{P}_{\mathrm{x}}-\mathrm{M}^{\downarrow} \cdot\left(\mathrm{e}^{\uparrow} \mathrm{P}_{\mathrm{m}}\right)
+\]</div>
+<p>用外币表示</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TB}=\mathrm{X}^{\uparrow} \cdot \mathrm{P}_{\mathrm{x}} / \mathrm{e}^{\uparrow}-\mathrm{M}^{\downarrow} \cdot \mathrm{P}_{\mathrm{m}}
+\]</div>
+<div class="section" id="id5">
+<h4>马歇尔·勒那条件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>the marshall- Lerner Condition</p>
+<p>假定一国的进出口供给(出口供给:本国;进口供给:外国)弹性无穷大，一囯的进出口数量和贸易收支的变动将完全取决于进出口的需求价格弹性。</p>
+<p>Px表示出口本币价格
+出口需求：<span class="math notranslate nohighlight">\(D_x = D_x(P_x/e)\)</span></p>
+<p>Pm表示进口外币价格
+进口需求：<span class="math notranslate nohighlight">\(D_m = D_m(P_m*e)\)</span></p>
+<p><img alt="" src="http://pic.jerrywang.top/20200512093249.png" /></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+T B=P_{x} X-e P_{m} M \\
+\eta_{x}=\frac{e}{X} \frac{d X}{d e} \quad \eta_{m}=-\frac{e}{M} \frac{d M}{d e} \\
+\frac{d T B}{d e}=P_{x} \frac{d X}{d e}-e P_{m} \frac{d M}{d e}-P_{m} M \\
+=\frac{1}{e} P_{x} X\left(\frac{e}{X} \frac{d X}{d e}\right)+\left(-\frac{e}{M} \frac{d M}{d e}\right) P_{m} M-P_{m} M \\
+=\eta_{x} \frac{1}{e} P_{x} X+\eta_{m} P_{m} M-P_{m} M \\
+P_{x} X=e P_{m} M \\
+\frac{d T B}{d e}=P_{m} M\left(\eta_{x}+\eta_{m}-1\right) \\
+\frac{d T B}{d e}&gt;0 \Leftrightarrow \eta_{x}+\eta_{m}&gt;1
+\end{array}
+\end{split}\]</div>
+<p>一国的进出口供给弹性无穷大时,当进出口(需求)弹性之和大于1时,本币贬值改善贸易收支</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>价格可以变的情况下<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>汇率变动(贬值)与国际收支(经常账户)调整</p>
+<p><img alt="" src="http://pic.jerrywang.top/20200512093528.png" /></p>
+<div class="section" id="id7">
+<h4>外汇需需曲线的推导<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>外币需求曲线斜率为负，除非<span class="math notranslate nohighlight">\(D_M\)</span>弹性为0（进口需求:$D_M= D_M（P € * e $）</p>
+<p>外币供给曲线正、垂直、负斜率，当<span class="math notranslate nohighlight">\(D_X\)</span>弹性、单位弹性、无弹性时（出口供给<span class="math notranslate nohighlight">\(S_X= S_X（ P € * e )\)</span>）</p>
+</div>
+<div class="section" id="id8">
+<h4>基于外汇供需曲线的分析<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>美元(本币)贬值20%为例,降低了美国进出口品的外币价格</p>
+<p><img alt="" src="http://pic.jerrywang.top/20200512094001.png" /></p>
+<p>二、购买力平价理论
+金本位下的自动调整
+四、乘数分析法
+五、吸收分析法
+六、货币分析法</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -289,8 +317,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Financial_Lecture/To_be_a_Analysts.html" title="previous page">如何成为一个分析师</a>
-    <a class='right-next' id="next-link" href="README.html" title="next page">International_Finance</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
