@@ -60,6 +60,7 @@
     - file: content/Course_study/International_Finance/Exchanges
     - file: content/Course_study/International_Finance/Exchanges_market
     - file: content/Course_study/International_Finance/Balance_payment
+    - file: content/Course_study/International_Finance/Exchange_price_adjustment
 
 - file: content/Course_study/Random_process/README
   sections:
