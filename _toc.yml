@@ -34,6 +34,11 @@
     - file: content/R_study/SVM_practice
 
 - header: Course_study
+- file: content/Course_study/Art/README
+  sections:
+    - file: content/Course_study/Art/Dang_de_nver
+
+
 - file: content/Course_study/DM-ML/README
   sections:
     - file: content/Course_study/DM-ML/Homework
