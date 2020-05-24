@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>时间序列的定义 &#8212; Jerrynote</title>
+    <title>时间序列的数学基础 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
@@ -26,7 +26,8 @@
     <script src="../../../_static/mystnb.js"></script>
     <script src="../../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -120,7 +121,7 @@
       <a href="Introduction.html">时间序列分析简介</a>
     </li>
     <li class="active">
-      <a href="">时间序列的定义</a>
+      <a href="">时间序列的数学基础</a>
     </li>
   </ul>
   </li>
@@ -173,9 +174,116 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">时间序列的定义</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">时间序列的统计量</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">时间序列的平稳性</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">弱平稳序列</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id6" class="nav-link">严平稳序列</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">白噪声过程</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">分析平稳时间序列</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id9" class="nav-link">滞后算子</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id10" class="nav-link">差分方程</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id11" class="nav-link">差分方程的特征</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id12" class="nav-link">一阶差分方程</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id13" class="nav-link">递归求解法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id14" class="nav-link">滞后算子求解法</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id15" class="nav-link">考察三类影响</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#omega-ky" class="nav-link">影响之类型一：\omega的一次性变化,对k期以后y的影响</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#omega-y" class="nav-link">影响之类型二：\omega的一次性变化,以后各期y的累计影响</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id16" class="nav-link">影响之类型三：\omega的持续性变化,以后k期以后y的影响</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id17" class="nav-link">二阶差分方程</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id18" class="nav-link">稳定的二阶差分方程</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id19" class="nav-link">其他情况</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id20" class="nav-link">重根</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id21" class="nav-link">复根</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id22" class="nav-link">高阶差分方程</a>
+        </li>
+    
+            </ul>
+        </li>
     
     </ul>
 </nav>
@@ -189,7 +297,9 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>时间序列的定义<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>时间序列的数学基础<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>时间序列的定义<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>随机变量:随机现象/试验各种结果的实值单值函数</p>
 <p>随机过程</p>
 <p>设<span class="math notranslate nohighlight">\(\mathscr{T}\)</span>为实数集合<span class="math notranslate nohighlight">\(\mathscr{R}=(-\infin,+\infin)\)</span>的一个子集，称之为指标集。如果对于每个<span class="math notranslate nohighlight">\(t\in\mathscr{T}\)</span>，都有一个随机变量<span class="math notranslate nohighlight">\(X_t\)</span>与之对应，就称随机变量的集合<span class="math notranslate nohighlight">\(\{X_t\}=\{X_t,t\in\mathscr{T}\}\)</span>为一个随机过程。</p>
@@ -199,8 +309,8 @@
 <li><p>时间序列：<span class="math notranslate nohighlight">\(\mathscr{T}\)</span>是时间指标的随机序列</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h1>时间序列的统计量<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>时间序列的统计量<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>均值</p>
 <p><span class="math notranslate nohighlight">\(\mu_t\triangleq\mathrm{E}(X_t)\)</span></p>
 <p>方差</p>
@@ -210,23 +320,23 @@
 <p>自相关系数</p>
 <p><span class="math notranslate nohighlight">\(\rho_{s,t}=\triangleq\frac{\gamma{t,s}}{\sqrt{\sigma_t^2}\sqrt{\sigma_s^2}}\equiv\rho_{t,s}\)</span></p>
 </div>
-<div class="section" id="id3">
-<h1>时间序列的平稳性<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id4">
-<h2>弱平稳序列<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>时间序列的平稳性<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>弱平稳序列<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\forall t\in\mathscr{T},\mathrm{E}(X_t)=\mu\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\forall t\in\mathscr{T},\mathrm{E}(X_t^2)&lt;\infty\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\forall t,s\in\mathscr{T},\gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{s}-\mu_{s}\right)\right]=\gamma_{t-s}\)</span>，<span class="math notranslate nohighlight">\(\forall t=s \in \mathscr{T}, \gamma_{t, s}=E\left[\left(X_{t}-\mu_{t}\right)\left(X_{t}-\mu_{t}\right)\right]=\gamma_{0}\)</span></p></li>
 </ol>
 </div>
-<div class="section" id="id5">
-<h2>严平稳序列<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>严平稳序列<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>严格平稳的时间序列<span class="math notranslate nohighlight">\(\{X_t\}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\left(X_{t+k_{1}}, X_{t+k_{2}}, \ldots, X_{t+k_{n}}\right)\)</span>的联合分布仅和时间间隔<span class="math notranslate nohighlight">\(k_i\)</span>有关</p>
 </div>
-<div class="section" id="id6">
-<h2>白噪声过程<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>白噪声过程<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>如果<span class="math notranslate nohighlight">\(\{\epsilon_t\}\)</span>是一个平稳序列，并且<span class="math notranslate nohighlight">\(\forall t,s\in\mathscr{T},有\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathrm{E}(\epsilon_t)=\mu\)</span></p></li>
@@ -241,8 +351,8 @@
 <li><p>高斯/正态白噪声：<span class="math notranslate nohighlight">\(\epsilon_t\)</span>服从正态分布</p></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>分析平稳时间序列<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>分析平稳时间序列<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>难点：只有一次实现，不知道<span class="math notranslate nohighlight">\(X_t\)</span>的分布</p>
 <p>解决方法：遍历性</p>
 <p>假设<span class="math notranslate nohighlight">\(\mathrm{E}(X_t)=\mu,\mathrm{E}(X_t^2)=\sigma^2\)</span></p>
@@ -264,8 +374,8 @@ s^{2} \triangleq \frac{1}{T-j} \sum_{t=j+1}^{T}\left(x_{t}-\mu\right)\left(x_{t-
 <p>遍历性只是一个假设，无法验证其成立与否。路径依赖的时间序列变量不满足平稳性。</p>
 </div>
 </div>
-<div class="section" id="id8">
-<h1>滞后算子<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id9">
+<h2>滞后算子<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(L\)</span>：对时间序列的一种操作，取其一阶滞后数据</p>
 <p><span class="math notranslate nohighlight">\(Lx_t\equiv x_{t-1}\)</span></p>
 <p>习惯用法：</p>
@@ -284,6 +394,233 @@ Lc=c
 \left(a+b L+c L^{2}\right) L x_{t}=a L x_{t}+b L^{2} x_{t}+c L^{3} x_{t}=a x_{t-1}+b x_{t-2}+c x_{t-3}   \\
 \left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) x_{t}=\left(1-\lambda_{1} L-\lambda_{2} L+\lambda_{1} \lambda_{2} L^{2}\right) x_{t}=x_{t}-\left(\lambda_{1}+\lambda_{2}\right) x_{t-1}+\lambda_{1} \lambda_{2} x_{t-2}
 \end{split}\]</div>
+</div>
+<div class="section" id="id10">
+<h2>差分方程<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>差分算子<span class="math notranslate nohighlight">\(\Delta\)</span></p>
+<p>差分方程：与它滞后项相关的方程</p>
+<div class="math notranslate nohighlight">
+\[
+y_t=f(y_{t-1},y_{t-2},...,y_{t-p};\omega_t;\Phi)
+\]</div>
+<div class="section" id="id11">
+<h3>差分方程的特征<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>阶数：<span class="math notranslate nohighlight">\(y_t=y_{t-1}+2\)</span></p></li>
+<li><p>线性：<span class="math notranslate nohighlight">\(y_t=y_t^2+2\)</span></p></li>
+<li><p>齐次：<span class="math notranslate nohighlight">\(y_t=y_{t-1}\)</span></p></li>
+<li><p>系数：<span class="math notranslate nohighlight">\(y_t=g_ty_{t-1}+2\)</span></p></li>
+</ul>
+<p>常系数线性差分方程</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+y_{t}=\phi y_{t-1}+w_{t}  \qquad  \text{AR(1)}  \\      
+y_{t}=\phi_{1} y_{t-1}+\phi_{2} y_{t-2}+\cdots+\phi_{p} y_{t-p}+w_{t}  \qquad  \text{AR(p)}
+\end{array}
+\end{split}\]</div>
+</div>
+<div class="section" id="id12">
+<h3>一阶差分方程<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h4>递归求解法<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+y_{t}=\phi y_{t-1}+w_{t} \\
+=\phi\left(\phi y_{t-2}+w_{t-1}\right)+w_{t}=\phi^{2} y_{t-2}+\phi w_{t-1}+w_{t} \\
+=\phi^{2}\left(\phi y_{t-3}+w_{t-2}\right)+\phi w_{t-1}+w_{t}=\phi^{3} y_{t-3}+\phi^{2} w_{t-2}+\phi w_{t-1}+w_{t} \\
+=\phi^{3}\left(\phi y_{t-4}+w_{t-3}\right)+\phi^{2} w_{t-2}+\phi w_{t-1}+w_{t}=\phi^{4} y_{t-4}+\phi^{3} w_{t-3}+\phi^{2} w_{t-2}+ \\
+\phi w_{t-1}+w_{t}=\cdots
+\end{array}
+\end{split}\]</div>
+<p>缺点：非一阶方程会非常复杂</p>
+</div>
+<div class="section" id="id14">
+<h4>滞后算子求解法<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[
+y_{t}=\phi y_{t-1}+w_{t} \Rightarrow(1-\phi L) y_{t}=w_{t}
+\]</div>
+<p>两边同乘<span class="math notranslate nohighlight">\(1+\phi L+\phi^{2} L^{2}+\cdots+\phi^{t} L^{t}\)</span></p>
+<p>左边：</p>
+<div class="math notranslate nohighlight">
+\[
+\left(1+\phi L+\phi^{2} L^{2}+\cdots+\phi^{t} L^{t}\right)(1-\phi L) y_{t}=\left(1-\phi^{t+1} L^{t+1}\right) y_{t}
+\]</div>
+<p>右边：</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{l}
+\left(1+\phi L+\phi^{2} L^{2}+\cdots+\phi^{t} L^{t}\right) w_{t} 
+\end{array}
+\]</div>
+<p>我们得到</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+\left(1-\phi^{t+1} L^{t+1}\right) y_{t}=\left(1+\phi L+\phi^{2} L^{2}+\cdots+\phi^{t} L^{t}\right) w_{t}\\
+y_{t}=\phi^{t+1} y_{-1}+\phi^{t} w_{0}+\phi^{t-1} w_{1}+\cdots+\phi^{1} w_{t-1}+\phi^{0} w_{t} \\
+y_{t+k}=\phi^{k+1} y_{t-1}+\phi^{k} w_{t}+\phi^{k-1} w_{t+1}+\cdots+\phi^{1} w_{t+k-1}+\phi^{0} w_{t+k}
+\end{array}
+\end{split}\]</div>
+<p>和递归算出来的结果完全一样</p>
+</div>
+<div class="section" id="id15">
+<h4>考察三类影响<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="omega-ky">
+<h5>影响之类型一：<span class="math notranslate nohighlight">\(\omega\)</span>的一次性变化,对k期以后y的影响<a class="headerlink" href="#omega-ky" title="Permalink to this headline">¶</a></h5>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y_{t+k}}{\partial w_{t}}=\phi^{k}
+\]</div>
+<ul class="simple">
+<li><p>影响之类型二：<span class="math notranslate nohighlight">\(\omega\)</span>的一次性变化,对以后各期y的累积影响</p></li>
+<li><p>影响之类型三：<span class="math notranslate nohighlight">\(\omega\)</span>的持久性变化,对k期以后y的影响</p></li>
+</ul>
+</div>
+<div class="section" id="omega-y">
+<h5>影响之类型二：<span class="math notranslate nohighlight">\(\omega\)</span>的一次性变化,以后各期y的累计影响<a class="headerlink" href="#omega-y" title="Permalink to this headline">¶</a></h5>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_{t+k}=\phi^{k+1} y_{t-1}+\phi^{0} w_{t+k}+\phi^{1} w_{t+k-1}+\cdots+\phi^{k-1} w_{t+1}+\phi^{k} w_{t}  \\
+\frac{\partial y_{t+k}}{\partial w_{t+k}}=1 ; \frac{\partial y_{t+k}}{\partial w_{t+k-1}}=\phi^{1} ; \ldots ; \frac{\partial y_{t+k}}{\partial w_{t}}=\phi^{k}
+\end{split}\]</div>
+<p>一次性变化的累计影响为</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \sum_{j=0}^{k} y_{t+j}}{\partial w_{t}}=1+\phi^{1}+\cdots+\phi^{k}=\frac{1-\phi^{k+1}}{1-\phi} \approx \frac{1}{1-\phi}(|\phi|&lt;1)
+\]</div>
+</div>
+<div class="section" id="id16">
+<h5>影响之类型三：<span class="math notranslate nohighlight">\(\omega\)</span>的持续性变化,以后k期以后y的影响<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h5>
+<p>持久变化的影响为</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{j=0}^{k} \frac{\partial y_{t+k}}{\partial w_{t+j}}=1+\phi^{1}+\cdots+\phi^{k}=\frac{1-\phi^{k+1}}{1-\phi} \approx \frac{1}{1-\phi}(|\phi|&lt;1)
+\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>二阶差分方程<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[
+y_{t}=\phi_{1} y_{t-1}+\phi_{2} y_{t-2}+w_t
+\]</div>
+<p>以滞后算子写作</p>
+<div class="math notranslate nohighlight">
+\[
+\left(1-\phi_{1} L-\phi_{2} L^{2}\right) y_{t}=w_{t}
+\]</div>
+<p>或</p>
+<div class="math notranslate nohighlight">
+\[
+\left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) y_{t}=w_{t}
+\]</div>
+<p>其中</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{\begin{array}{c}
+\lambda_{1}+\lambda_{2}=\phi_{1} \\
+\lambda_{1} \lambda_{2}=-\phi_{2}
+\end{array}\right.
+\end{split}\]</div>
+<p>有</p>
+<div class="math notranslate nohighlight">
+\[
+y_{t}=\left(1-\lambda_{1} L\right)^{-1}\left(1-\lambda_{2} L\right)^{-1} w_{t}
+\]</div>
+<p>做如下的形式转化</p>
+<div class="math notranslate nohighlight">
+\[
+\left(1-\lambda_{1} L\right)^{-1}\left(1-\lambda_{2} L\right)^{-1}=\underbrace{\frac{\lambda_{1}}{\lambda_{1}-\lambda_{2}}}_{c_{1}}\left(1-\lambda_{1} L\right)^{-1} \underbrace{-\frac{\lambda_{2}}{\lambda_{1}-\lambda_{2}}}_{c_{2}}\left(1-\lambda_{2} L\right)^{-1}
+\]</div>
+<p>可以得到</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+y_{t}=c_{1}\left(1+\lambda_{1} L+\lambda_{1}^{2} L^{2}+\cdots\right) w_{t}+c_{2}\left(1+\lambda_{2} L+\lambda_{2}^{2} L^{2}+\cdots\right) w_{t} \\
+=\left(c_{1}+c_{2}\right) w_{t}+\left(c_{1} \lambda_{1}+c_{2} \lambda_{2}\right) w_{t-1}+\left(c_{1} \lambda_{1}^{2}+c_{2} \lambda_{2}^{2}\right) w_{t-2}+\cdots \\
+\triangleq \varphi_{0} w_{t}+\varphi_{1} w_{t-1}+\varphi_{2} w_{t-2}+\cdots \\
+\frac{\partial y_{t+k}}{\partial w_{t}}=\varphi_{k}=c_{1} \lambda_{1}^{k}+c_{2} \lambda_{2}^{k}
+\end{array}
+\end{split}\]</div>
+<div class="section" id="id18">
+<h4>稳定的二阶差分方程<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y_{t+k}}{\partial w_{t}}=c_{1} \lambda_{1}^{k}+c_{2} \lambda_{2}^{k}
+\]</div>
+<p>其中<span class="math notranslate nohighlight">\(\left|\lambda_{1}\right|&lt;1,\left|\lambda_{2}\right|&lt;1\)</span></p>
+</div>
+<div class="section" id="id19">
+<h4>其他情况<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id20">
+<h5>重根<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(\phi_{1}^{2}+4 \phi_{2}=0\)</span></p>
+<p>易得</p>
+<div class="math notranslate nohighlight">
+\[
+y_{t}=(1-\lambda L)^{-2} w_{t}=\left(1+\lambda L+\lambda^{2} L^{2}+\cdots\right)^{2} w_{t}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y_{t+k}}{\partial \omega_t}=
+\]</div>
+</div>
+<div class="section" id="id21">
+<h5>复根<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(\phi_{1}^{2}+4 \phi_{2}&lt;0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_{t}=\phi_{1} y_{t-1}+\phi_{2} y_{t-2}+w_{t} \\
+\left(1-\phi_{1} L-\phi_{2} L^{2}\right) y_{t}=w_{t} \\
+\left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) y_{t}=w_{t} \\
+\frac{1}{\lambda_{1}}=a+b i ; \frac{1}{\lambda_{2}}=a-b i
+\end{split}\]</div>
+<p>要使得差分方程稳定，必有点<span class="math notranslate nohighlight">\(\left(\frac{1}{\lambda_{1}},\frac{1}{\lambda_{2}}\right)\)</span>在单位圆外</p>
+</div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>高阶差分方程<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_{t}=\phi_{1} y_{t-1}+\phi_{2} y_{t-2}+\cdots+\phi_{p} y_{t-p}+w_{t} \\
+\left(1-\phi_{1} L-\phi_{2} L^{2}-\cdots-\phi_{p} L^{p}\right) y_{t}=w_{t} \\
+\left(1-\lambda_{1} L\right)\left(1-\lambda_{2} L\right) \ldots\left(1-\lambda_{p} L\right) y_{t}=w_{t}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+y_{t}=\left(1-\lambda_{1} L\right)^{-1}\left(1-\lambda_{2} L\right)^{-1} \ldots\left(1-\lambda_{p} L\right)^{-1} w_{t} \\
+=w_{t}+\left(\sum_{i=1}^{p} c_{i} \lambda_{i}\right) w_{t-1}+\left(\sum_{i=1}^{p} c_{i} \lambda_{i}^{2}\right) w_{t-2}+\cdots \\
+\triangleq w_{t}+\varphi_{1} w_{t-1}+\varphi_{2} w_{t-2}+\cdots
+\end{array}
+\end{split}\]</div>
+<p>其中</p>
+<div class="math notranslate nohighlight">
+\[
+c_{i}=\frac{\lambda_{i}^{p-1}}{\prod_{j=1, j \neq i}^{p}\left(\lambda_{i}-\lambda_{j}\right)}
+\]</div>
+<p><span class="math notranslate nohighlight">\(\omega\)</span>一次性变化的k期影响</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial y_{t+k}}{\partial \omega_{t}}=\varphi_{k}=\sum_{i=1}^{p} c_{i} \lambda_{i}^{k}={c_{1} \lambda_{1}^{k}+c_{2} \lambda_{2}^{k}+\cdots+c_{p} \lambda_{p}^{k}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+y_{t}=\phi_{1} y_{t-1}+\phi_{2} y_{t-2}+\cdots+\phi_{p} y_{t-p}+w_{t} \\
+\left(1-\phi_{1} L-\phi_{2} L^{2}-\cdots-\phi_{p} L^{p}\right) y_{t}=w_{t} \\
+y_{t}=\left(1+\varphi_{1} L+\varphi_{2} L^{2}+\cdots\right) w_{t} \\
+1+\varphi_{1} L+\varphi_{2} L^{2}+\cdots \equiv\left(1-\phi_{1} L-\phi_{2} L^{2}-\cdots-\phi_{p} L^{p}\right)^{-1} \\
+\frac{\partial \sum_{j=0}^{k} y_{t+j}}{\partial w_{t}}=\sum_{j=0}^{k} \varphi_{j}=\varphi(1)=\frac{1}{1-\phi_{1}-\phi_{2}-\cdots-\phi_{p}}
+\end{array}
+\end{split}\]</div>
+</div>
+</div>
 </div>
 
 

@@ -26,11 +26,12 @@
     <script src="../../_static/mystnb.js"></script>
     <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="DM-ML" href="../Course_study/DM-ML/README.html" />
+    <link rel="next" title="SVM练习" href="SVM_practice.html" />
     <link rel="prev" title="读取并初步探索数据" href="Linear_reg_application.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -107,6 +108,9 @@
     </li>
     <li class="active">
       <a href="">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
     </li>
   </ul>
   </li>
@@ -218,25 +222,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	131 obs. of  14 variables:
- $ MemberID            : int  1 2 3 4 5 6 7 8 9 10 ...
- $ InpatientDays       : int  0 1 0 0 8 2 16 2 2 4 ...
- $ ERVisits            : int  0 1 0 1 2 0 1 0 1 2 ...
- $ OfficeVisits        : int  18 6 5 19 19 9 8 8 4 0 ...
- $ Narcotics           : int  1 1 3 0 3 2 1 0 3 2 ...
- $ DaysSinceLastERVisit: num  731 411 731 158 449 ...
- $ Pain                : int  10 0 10 34 10 6 4 5 5 2 ...
- $ TotalVisits         : int  18 8 5 20 29 11 25 10 7 6 ...
- $ ProviderCount       : int  21 27 16 14 24 40 19 11 28 21 ...
- $ MedicalClaims       : int  93 19 27 59 51 53 40 28 20 17 ...
- $ ClaimLines          : int  222 115 148 242 204 156 261 87 98 66 ...
- $ StartedOnCombination: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
- $ AcuteDrugGapSmall   : int  0 1 5 0 0 4 0 0 0 0 ...
- $ PoorCare            : int  0 0 0 0 0 1 0 0 1 0 ...
-</pre></div>
-</div>
-</div>
 </div>
 <p>MemberID是从1到131 对患者进行编号的唯一标识符。<br />
 InpatientDays是住院次数或患者在医院度过的天数。<br />
@@ -259,13 +244,6 @@ PoorCare是因变量，如果患者护理不佳，则等于1，如果患者护�
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
- 0  1 
-98 33 
-</pre></div>
-</div>
-</div>
 </div>
 <p>护理不佳的患者百分比可以如下计算。</p>
 <div class="cell docutils container">
@@ -275,18 +253,10 @@ percPC
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">0.251908396946565</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>summary(quality$PoorCare)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.0000  0.0000  0.0000  0.2519  0.5000  1.0000 
 </pre></div>
 </div>
 </div>
@@ -296,25 +266,6 @@ percPC
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>quality$PoorCare = as.factor(quality$PoorCare)
 str(quality)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	131 obs. of  14 variables:
- $ MemberID            : int  1 2 3 4 5 6 7 8 9 10 ...
- $ InpatientDays       : int  0 1 0 0 8 2 16 2 2 4 ...
- $ ERVisits            : int  0 1 0 1 2 0 1 0 1 2 ...
- $ OfficeVisits        : int  18 6 5 19 19 9 8 8 4 0 ...
- $ Narcotics           : int  1 1 3 0 3 2 1 0 3 2 ...
- $ DaysSinceLastERVisit: num  731 411 731 158 449 ...
- $ Pain                : int  10 0 10 34 10 6 4 5 5 2 ...
- $ TotalVisits         : int  18 8 5 20 29 11 25 10 7 6 ...
- $ ProviderCount       : int  21 27 16 14 24 40 19 11 28 21 ...
- $ MedicalClaims       : int  93 19 27 59 51 53 40 28 20 17 ...
- $ ClaimLines          : int  222 115 148 242 204 156 261 87 98 66 ...
- $ StartedOnCombination: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
- $ AcuteDrugGapSmall   : int  0 1 5 0 0 4 0 0 0 0 ...
- $ PoorCare            : Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 1 1 1 1 2 1 1 2 1 ...
 </pre></div>
 </div>
 </div>
@@ -339,14 +290,6 @@ split
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li></ol>
-</div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sample.split()</span></code>函数中的第一个参数确保训练集和测试集合<code class="docutils literal notranslate"><span class="pre">PoorCare</span></code>的比例是相同的。</p>
 <p>让我们使用<code class="docutils literal notranslate"><span class="pre">subset()</span></code>创建训练和测试集。<code class="docutils literal notranslate"><span class="pre">TRUE</span></code>表示我们应该将该观察结果放入训练集中，而<code class="docutils literal notranslate"><span class="pre">FALSE</span></code>意味着我们应该将该观察结果放入测试集中。</p>
@@ -365,24 +308,10 @@ split
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
- 0  1 
-69 23 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(qualityTest$PoorCare)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
- 0  1 
-29 10 
 </pre></div>
 </div>
 </div>
@@ -395,34 +324,6 @@ split
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QualityLog</span> <span class="o">=</span> <span class="n">glm</span><span class="p">(</span><span class="n">PoorCare</span> <span class="o">~</span> <span class="n">OfficeVisits</span> <span class="o">+</span> <span class="n">Narcotics</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">qualityTrain</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
-Call:
-glm(formula = PoorCare ~ OfficeVisits + Narcotics, family = binomial, 
-    data = qualityTrain)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.3483  -0.5824  -0.4584  -0.2302   2.1552  
-
-Coefficients:
-             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)  -2.84649    0.60526  -4.703 2.56e-06 ***
-OfficeVisits  0.07720    0.03283   2.352  0.01870 *  
-Narcotics     0.10613    0.03699   2.869  0.00411 ** 
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 103.470  on 91  degrees of freedom
-Residual deviance:  75.674  on 89  degrees of freedom
-AIC: 81.674
-
-Number of Fisher Scoring iterations: 5
 </pre></div>
 </div>
 </div>
@@ -442,12 +343,6 @@ Number of Fisher Scoring iterations: 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.05486 0.09932 0.13446 0.25000 0.26498 0.99623 
-</pre></div>
-</div>
-</div>
 </div>
 <p>让我们看一下训练集中前十名患者接受不良护理的预期概率，并将其与实际观察结果进行比较。</p>
 <div class="cell docutils container">
@@ -456,14 +351,6 @@ Number of Fisher Scoring iterations: 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>1</dt><dd>0.205741388717585</dd><dt>3</dt><dd>0.105069869091757</dd><dt>6</dt><dd>0.125708120796305</dd><dt>7</dt><dd>0.10690265704798</dd><dt>8</dt><dd>0.097184807143474</dd><dt>9</dt><dd>0.0980290121314846</dd><dt>11</dt><dd>0.251568379890003</dd><dt>12</dt><dd>0.13220566422967</dd><dt>14</dt><dd>0.272071400489919</dd><dt>15</dt><dd>0.46631314108447</dd></dl>
-</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,25 +358,6 @@ Number of Fisher Scoring iterations: 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class=list-inline><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li></ol>
-
-<details>
-	<summary style=display:list-item;cursor:pointer>
-		<strong>Levels</strong>:
-	</summary>
-	<style>
-	.list-inline {list-style: none; margin:0; padding: 0}
-	.list-inline>li {display: inline-block}
-	.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-	</style>
-	<ol class=list-inline><li>'0'</li><li>'1'</li></ol>
-</details></div></div>
 </div>
 <p>通过输出均值查看模型是否如我们预期的那样为实际的<code class="docutils literal notranslate"><span class="pre">PoorCare</span></code>案例预测了更高的概率。</p>
 <div class="cell docutils container">
@@ -498,28 +366,12 @@ Number of Fisher Scoring iterations: 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>0</dt><dd>0.169158891947031</dd><dt>1</dt><dd>0.492523324157534</dd></dl>
-</div></div>
 </div>
 <p>如果使用0.5作为阈值，则会得到以下混淆矩阵。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>conf05 = table(qualityTrain$PoorCare, predictTrain &gt; 0.5)
 conf05
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
-    FALSE TRUE
-  0    66    3
-  1    13   10
 </pre></div>
 </div>
 </div>
@@ -536,27 +388,11 @@ conf07
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
-    FALSE TRUE
-  0    68    1
-  1    14    9
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>conf02 = table(qualityTrain$PoorCare, predictTrain &gt; 0.2)
 conf02
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
-    FALSE TRUE
-  0    51   18
-  1     7   16
 </pre></div>
 </div>
 </div>
@@ -584,9 +420,6 @@ plot(ROCRperf)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Logistic_reg_39_0.png" src="../../_images/Logistic_reg_39_0.png" />
-</div>
 </div>
 <p>为ROC图添加更多视觉效果。</p>
 <div class="cell docutils container">
@@ -594,9 +427,6 @@ plot(ROCRperf)
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">ROCRperf</span><span class="p">,</span> <span class="n">colorize</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">print</span><span class="o">.</span><span class="n">cutoffs</span><span class="o">.</span><span class="n">at</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">text</span><span class="o">.</span><span class="n">adj</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">1.7</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Logistic_reg_41_0.png" src="../../_images/Logistic_reg_41_0.png" />
 </div>
 </div>
 <p>现在我们计算ROC曲线下面的面积，即AUC</p>
@@ -607,33 +437,12 @@ plot(ROCRperf)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol>
-	<li>0.834908632640202</li>
-</ol>
-</div></div>
 </div>
 <p>为ROC曲线下的区域着色，使用<code class="docutils literal notranslate"><span class="pre">pROC</span></code>包中的<code class="docutils literal notranslate"><span class="pre">plot.roc</span></code>功能</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">pROC</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">Type 'citation(&quot;pROC&quot;)' for a citation.
-
-
-Attaching package: ‘pROC’
-
-
-The following objects are masked from ‘package:stats’:
-
-    cov, smooth, var
-
-
-</pre>
 </div>
 </div>
 </div>
@@ -645,16 +454,6 @@ The following objects are masked from ‘package:stats’:
     auc.polygon.border=rgb(.35,0.31,0.61, 0.4))
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">Setting levels: control = 0, case = 1
-
-Setting direction: controls &lt; cases
-
-</pre>
-</div>
-<img alt="../../_images/Logistic_reg_46_1.png" src="../../_images/Logistic_reg_46_1.png" />
 </div>
 </div>
 <p>默认情况下,<code class="docutils literal notranslate"><span class="pre">plot.roc</span></code>,x轴是特异性，等于（1-假阳性率），数字从1到0从左到右</p>
@@ -669,14 +468,6 @@ conf03out
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
-    FALSE TRUE
-  0    27    2
-  1     6    4
-</pre></div>
-</div>
-</div>
 </div>
 <p>阈值为0.3的模型的样本外准确性<span class="math notranslate nohighlight">\(为31/39 = 79.49\%\)</span>。我们还可以绘制模型的样本外ROC并计算其样本外AUC。</p>
 <div class="cell docutils container">
@@ -686,9 +477,6 @@ ROCRperfTest = performance(ROCRpredTest, &quot;tpr&quot;, &quot;fpr&quot;)
 plot(ROCRperfTest, colorize = TRUE, print.cutoffs.at = seq(0,1,0.2), text.adj = c(-0.2,1.7))
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/Logistic_reg_50_0.png" src="../../_images/Logistic_reg_50_0.png" />
 </div>
 </div>
 </div>
@@ -703,7 +491,7 @@ plot(ROCRperfTest, colorize = TRUE, print.cutoffs.at = seq(0,1,0.2), text.adj = 
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Linear_reg_application.html" title="previous page">读取并初步探索数据</a>
-    <a class='right-next' id="next-link" href="../Course_study/DM-ML/README.html" title="next page">DM-ML</a>
+    <a class='right-next' id="next-link" href="SVM_practice.html" title="next page">SVM练习</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
