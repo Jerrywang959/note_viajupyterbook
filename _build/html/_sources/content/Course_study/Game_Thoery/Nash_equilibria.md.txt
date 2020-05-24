@@ -1,5 +1,17 @@
 # 纳什均衡
 
+## 占优策略
+
+### 强占优策略
+
+
+
+### 弱占优策略
+
+
+
+
+
 重复剔除被占优策略
 
 
@@ -180,3 +192,52 @@ $$
 
 生活中会存在其他很多因素，影响我们博弈的均衡，在不同的条件下，均衡的博弈会汇集在不同的焦点上，同时我们也应该对博弈的均衡点进行细化分析。
 
+## 对称博弈
+
+博弈的结果只依赖于使用的策略，而不依赖身份
+
+对称博弈中存在对称均衡
+
+## 零和博弈
+
+任何情况下收益总和为$0$的博弈
+
+在一般的0和博弈中，玩家i的最大化收益为
+
+$$
+m_{i}=\max _{\sigma_{i}} \min _{\sigma_{-i}} u_{i}\left(\sigma_{i}, \sigma_{-i}\right)
+$$
+
+也可写作
+
+$$
+m_{i}=\min _{\sigma_{-i}}  \max _{\sigma_{i}} u_{i} \left(\sigma_{i}, \sigma_{-i}\right)
+$$
+
+$\max$和$\min$的先后顺序反映了博弈的先后顺序（或者是谁会被谁看穿）。纯策略博弈下这两个式子的结果是有所不同的，在混合策略博弈下这两个式子的结果是相同的。
+
+$$
+\min_{\sigma_{2}} \max_{ \sigma_{1}} u_{1} \geq min_{\sigma_{1}} \max_{ \sigma_{2}}  u_{1}\left(\sigma_{1}, \sigma_{2}\right)
+$$
+
+$$
+m_1+M_2=0 \\
+m_2+M_1=0
+$$
+
+## 纳什均衡的存在性
+
+有限博弈一定有纳什均衡
+
+不存在纳什均衡的情况
+
+1. 无穷策略，支付不连续
+2. 无穷策略，支付无界
+
+
+
+纳什均衡点其实是函数中的不动点，策略组合一般是一个紧凸集(compact and convex)
+
+
+
+Use the Kakutani's fixed point theorem we can show that the best response correspondence has at least one fixed point (need to check some nice properties" of ∑)

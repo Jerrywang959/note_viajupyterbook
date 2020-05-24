@@ -31,6 +31,7 @@
     - file: content/R_study/Linear_regression
     - file: content/R_study/Linear_reg_application
     - file: content/R_study/Logistic_reg
+    - file: content/R_study/SVM_practice
 
 - header: Course_study
 - file: content/Course_study/DM-ML/README
@@ -46,6 +47,7 @@
   sections:
     - file: content/Course_study/Game_Thoery/Basics
     - file: content/Course_study/Game_Thoery/Nash_equilibria
+    - file: content/Course_study/Game_Thoery/Extensive-Form_games
 
 - file: content/Course_study/Financial_Lecture/README
   sections:
@@ -54,7 +56,11 @@
     - file: content/Course_study/Financial_Lecture/Covid_to_company
     - file: content/Course_study/Financial_Lecture/To_be_a_Analysts
     - file: content/Course_study/International_Finance/Indexed_investment_logic
-
+    - file: content/Course_study/Financial_Lecture/Tao_and_the_Art_of_Adversity
+    - file: content/Course_study/Financial_Lecture/Digital_finance_effect_on_residents_economic_decisions
+    - file: content/Course_study/Financial_Lecture/Global_economy_and_finance_under_the_impact_of_epidemic
+    - file: content/Course_study/Financial_Lecture/Compliance_risk_management_of_financial_institutions_and_construction_of_compliance_culture
+    
 - file: content/Course_study/International_Finance/README
   sections:
     - file: content/Course_study/International_Finance/Exchanges

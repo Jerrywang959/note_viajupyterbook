@@ -26,7 +26,8 @@
     <script src="../../../_static/mystnb.js"></script>
     <script src="../../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -195,27 +196,63 @@
             <a href="#id3" class="nav-link">弹性分析法</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#id4" class="nav-link">绝对价格不变条件下的特殊情况</a><ul class="nav section-nav flex-column">
+            <a href="#id4" class="nav-link">绝对价格不变条件下的特殊情况</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">价格可以变的情况下</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h4">
-            <a href="#id5" class="nav-link">马歇尔·勒那条件</a>
+            <a href="#id6" class="nav-link">外汇需需曲线的推导</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id7" class="nav-link">基于外汇供需曲线的分析</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id8" class="nav-link">本币贬值对外币的影响</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id9" class="nav-link">本币贬值对国内价格和贸易条件的影响</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id10" class="nav-link">外汇市场的稳定性</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h5">
+            <a href="#id11" class="nav-link">外汇市场的多重均衡</a>
+        </li>
+    
+            </ul>
         </li>
     
             </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#id6" class="nav-link">价格可以变的情况下</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#id7" class="nav-link">外汇需需曲线的推导</a>
+            <a href="#id12" class="nav-link">马歇尔·勒那条件</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#id8" class="nav-link">基于外汇供需曲线的分析</a>
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id13" class="nav-link">现实世界中的弹性</a>
         </li>
     
             </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id14" class="nav-link">购买力平价理论</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id15" class="nav-link">绝对购买力平价理论</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id16" class="nav-link">相对购买力平价理论</a>
         </li>
     
             </ul>
@@ -269,9 +306,6 @@
 \[
 \mathrm{TB}=\mathrm{X}^{\uparrow} \cdot \mathrm{P}_{\mathrm{x}} / \mathrm{e}^{\uparrow}-\mathrm{M}^{\downarrow} \cdot \mathrm{P}_{\mathrm{m}}
 \]</div>
-<div class="section" id="id5">
-<h4>马歇尔·勒那条件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>the marshall- Lerner Condition</p>
 <p>假定一国的进出口供给(出口供给:本国;进口供给:外国)弹性无穷大，一囯的进出口数量和贸易收支的变动将完全取决于进出口的需求价格弹性。</p>
 <p>Px表示出口本币价格
 出口需求：<span class="math notranslate nohighlight">\(D_x = D_x(P_x/e)\)</span></p>
@@ -293,26 +327,100 @@ P_{x} X=e P_{m} M \\
 \end{split}\]</div>
 <p>一国的进出口供给弹性无穷大时,当进出口(需求)弹性之和大于1时,本币贬值改善贸易收支</p>
 </div>
-</div>
-<div class="section" id="id6">
-<h3>价格可以变的情况下<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>价格可以变的情况下<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>汇率变动(贬值)与国际收支(经常账户)调整</p>
 <p><img alt="" src="http://pic.jerrywang.top/20200512093528.png" /></p>
-<div class="section" id="id7">
-<h4>外汇需需曲线的推导<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>外汇需需曲线的推导<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>外币需求曲线斜率为负，除非<span class="math notranslate nohighlight">\(D_M\)</span>弹性为0（进口需求:$D_M= D_M（P € * e $）</p>
 <p>外币供给曲线正、垂直、负斜率，当<span class="math notranslate nohighlight">\(D_X\)</span>弹性、单位弹性、无弹性时（出口供给<span class="math notranslate nohighlight">\(S_X= S_X（ P € * e )\)</span>）</p>
 </div>
+<div class="section" id="id7">
+<h4>基于外汇供需曲线的分析<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="id8">
-<h4>基于外汇供需曲线的分析<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<h5>本币贬值对外币的影响<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
 <p>美元(本币)贬值20%为例,降低了美国进出口品的外币价格</p>
 <p><img alt="" src="http://pic.jerrywang.top/20200512094001.png" /></p>
-<p>二、购买力平价理论
-金本位下的自动调整
+</div>
+<div class="section" id="id9">
+<h5>本币贬值对国内价格和贸易条件的影响<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<p><img alt="" src="http://pic.jerrywang.top/20200519093229.png" /></p>
+<p><img alt="" src="http://pic.jerrywang.top/20200519093249.png" /></p>
+<p>国内价格：美元贬值降低了美国进出口的外币价格，增加了美国进口替代品和出口品的美元价格，从而有通胀倾向，也缩小了贬值得到的价格优势，因而通过本币大幅贬值调整国际收支逆差不可行。</p>
+<p><strong>贸易条件</strong>：<span class="math notranslate nohighlight">\(P_x/P_M\)</span>。美元贬值降低了美国进出口的外币价格（1、2），增加了美国进口替代品和出口品的本币价格（3）。贸易条件的上升、下降或不变，取决于出口与进口价格上升的相对百分比幅度。</p>
+<p><strong>荷兰病</strong>:当一个工业国家开始利用一种先前依赖进口的国内自然资源时,本币升值,可能导致其他部门萎缩。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>外汇市场的稳定性<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="http://pic.jerrywang.top/20200519094515.png" /></p>
+<p>当外汇市场不稳定时，可变汇率制将增强而不是减弱国际收支表上的失衡程度。与稳定市场相反，应用本币升值（贬值）缩小逆差（顺差）。</p>
+<p>前两个图也是马歇尔·勒那条件满足的反映</p>
+<div class="section" id="id11">
+<h5>外汇市场的多重均衡<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+<p><img alt="" src="http://pic.jerrywang.top/20200519094825.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>马歇尔·勒那条件<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>the marshall- Lerner Condition</p>
+<p>当进出口供给弹性无穷大(水平)时,如果进出口需求(进口需求:本国;出口需求:外国)弹性之和大于1,则汇率市场稳定(贬值改善国际收支)。</p>
+<p><span class="math notranslate nohighlight">\(P_x,P_M\)</span>分别表示出口和进口的外币价格。本币贬值幅度<span class="math notranslate nohighlight">\(k=-\mathrm{d}m\)</span></p>
+<p>若开始时<span class="math notranslate nohighlight">\(B=Q X P X-P M Q M=0\)</span>，则<span class="math notranslate nohighlight">\(\mathrm{d}B&gt;0\)</span>等价于<span class="math notranslate nohighlight">\(nX+nM&gt;1\)</span></p>
+<p>若开始时<span class="math notranslate nohighlight">\(VM&gt;VX\)</span>，则稳定外汇市场的马歇尔-勒纳条件为<span class="math notranslate nohighlight">\(nX+(VM/VX)nM&gt;1\)</span></p>
+<p>如果进口供给<span class="math notranslate nohighlight">\(eM\)</span>和出口供给的价格弹性<span class="math notranslate nohighlight">\(eX\)</span>都不是无穷大，则外汇市场稳定的马歇尔-勒纳条件为(毕肯戴克-罗宾逊-梅茨勒条件Bickerdike-Robinson-Metzler Condition)</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{e_{X}\left(n_{X}-1\right)}{e_{X}+n_{X}}+\frac{n_{X}\left(e_{M}+1\right)}{e_{M}+n_{M}}&gt;1
+\]</div>
+<p>贬值使得贸易条件恶化的条件：<span class="math notranslate nohighlight">\(e X^{*} e M&gt;n X^{*} n M\)</span></p>
+</div>
+<div class="section" id="id13">
+<h3>现实世界中的弹性<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>（1）弹性估计：乐观与悲观</p>
+<p>弹性乐观主义：二战前，人们普遍认为外汇市场是稳定的，外汇的供求非常有弹性。</p>
+<p>Marshall（1923）《Money, Credit and Commerce》:马歇尔－勒纳条件。</p>
+<p>弹性悲观主义（测算研究）：Chang（1945）：进口需求弹性；Chang（1949）：出口需求弹性。</p>
+<p>Orcutt（1950）：识别问题：国际贸易中的真实弹性可能被低估了。</p>
+<p>（2）长短期弹性与J-curve effect</p>
+<p>长期弹性大于短期弹性：琼兹和龙伯格（Junz and Rhomberg, 1973）:价格变动数量反应的五个滞后：认知、决策、交货、替代、生产，3年才能完成50％的最终长期数量反应，90％的反应需要5年，40年代的弹性测算研究极大地低估了长期弹性。</p>
+<p>J-curve effect：贬值初期进出口商品数量变化不大，进出口商品本币价格上升。如果进口商品本币价格上升快于出口商品，贸易余额恶化。之后，出口商品价格上升，出口数量上升进口数量下降，贸易余额恶化逐渐被抑制和扭转。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>购买力平价理论<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>purchasing power parity</p>
+<p>弹性分析法的缺点：需求曲线（弹性）难以预测，供给曲线（弹性）更难以预测。现实中缺乏操作性。</p>
+<p>固定汇率下，均衡汇率的简便测算方法。本国外汇供给曲线的形状无法确知！</p>
+<div class="section" id="id15">
+<h3>绝对购买力平价理论<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>一个单位的外国商品和国内一个商品的价格应该是等价的</p>
+<p><span class="math notranslate nohighlight">\(R = e P^*/ P = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(e=\frac{P}{P^*}\)</span></p>
+<p>局限：</p>
+<ul class="simple">
+<li><p>商品和服务贸易竞争均衡的汇率，忽略资本流动</p></li>
+<li><p>多考虑了非贸易商品和服务</p></li>
+<li><p>忽略运输成本和贸易壁垒</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>相对购买力平价理论<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R = e P*/ P = 常数 \\
+e = 常数\times （P /P^*）  \\
+           Δlne = Δp - Δp^*    \\
+           e1=(P1/P0)/(P1^* /P0^*)e0
+\end{split}\]</div>
+<p>相对购买力平价意味着：汇率的升值与贬值由两国的通货膨胀率差异决定：本国通货膨胀率超过外国，本币将贬值。</p>
+<p>资本流动、运输成本和壁垒、政府干涉政策变动时该常数失效</p>
+<p>三、金本位下的自动调整
 四、乘数分析法
 五、吸收分析法
 六、货币分析法</p>
-</div>
 </div>
 </div>
 </div>

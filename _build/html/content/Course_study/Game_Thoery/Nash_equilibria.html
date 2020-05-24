@@ -26,11 +26,12 @@
     <script src="../../../_static/mystnb.js"></script>
     <script src="../../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Financial_Lecture" href="../Financial_Lecture/README.html" />
+    <link rel="next" title="扩展博弈和逆向归纳" href="Extensive-Form_games.html" />
     <link rel="prev" title="博弈论基础" href="Basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -108,6 +109,9 @@
     <li class="active">
       <a href="">纳什均衡</a>
     </li>
+    <li class="">
+      <a href="Extensive-Form_games.html">扩展博弈和逆向归纳</a>
+    </li>
   </ul>
   </li>
   <li class="">
@@ -182,21 +186,47 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id2" class="nav-link">古诺模型和伯特兰模型</a>
+            <a href="#id2" class="nav-link">占优策略</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">强占优策略</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">弱占优策略</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id3" class="nav-link">混合策略纳什均衡</a><ul class="nav section-nav flex-column">
+            <a href="#id5" class="nav-link">古诺模型和伯特兰模型</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">混合策略纳什均衡</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
             <a href="#the-indifference-principle" class="nav-link">无差异原则（The Indifference principle）</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#id4" class="nav-link">混合策略的意义</a>
+            <a href="#id7" class="nav-link">混合策略的意义</a>
         </li>
     
             </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id8" class="nav-link">对称博弈</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id9" class="nav-link">零和博弈</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id10" class="nav-link">纳什均衡的存在性</a>
         </li>
     
     </ul>
@@ -212,6 +242,13 @@
                 
   <div class="section" id="id1">
 <h1>纳什均衡<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>占优策略<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>强占优策略<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>弱占优策略<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>重复剔除被占优策略</p>
 <p>纳什均衡：</p>
 <p>满足理性预期的，彼此互为最优反应的选择策略组合，叫做纳什均衡。</p>
@@ -301,8 +338,10 @@ v_{i}\left(s_{i}^{*}, s_{-i}^{*}\right) \geq v_{i}\left(s_{i}^{\prime}, s_{-i}^{
 </tbody>
 </table>
 <p>纳什均衡可能有很多，但是不一定都是最优的，用其他的规则，可以排除掉一部分纳什均衡（refinement）。这也依赖于人们的信念</p>
-<div class="section" id="id2">
-<h2>古诺模型和伯特兰模型<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>古诺模型和伯特兰模型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>公司可以不做生意，不赚钱，但就是为了让老大不赚钱，让老大价格抬不上去，等着老大收购自己。</p>
 <p>不允许随意改变价格，适用用古诺模型；新兴产业打价格战，适用于伯特兰模型。</p>
 <p>怎么让被人猜不到自己选？</p>
@@ -310,8 +349,8 @@ v_{i}\left(s_{i}^{*}, s_{-i}^{*}\right) \geq v_{i}\left(s_{i}^{\prime}, s_{-i}^{
 <p>即自己按照一定的概率进行选择，这样自己事先也不知道自己的选择。</p>
 <p>混合策略</p>
 </div>
-<div class="section" id="id3">
-<h2>混合策略纳什均衡<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>混合策略纳什均衡<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>混合策略是在纯策略上的一个概率分布</p>
 <p>一个混合策略<span class="math notranslate nohighlight">\(\sigma_i\)</span>可以看做在纯策略<span class="math notranslate nohighlight">\(S_i\)</span>上的概率分布。一个扩展策略<span class="math notranslate nohighlight">\(A_i\)</span>包括所有可能的<span class="math notranslate nohighlight">\(s_i\)</span></p>
 <p>有的纯策略博弈可能没有纳什均衡，但是会有混合策略纳什均衡。</p>
@@ -331,8 +370,8 @@ v_{i}\left(s_{i}^{*}, s_{-i}^{*}\right) \geq v_{i}\left(s_{i}^{\prime}, s_{-i}^{
 <p>通过被混合策略占优提剔除策略：没有系统的办法，只能猜和验证</p>
 <p>被混合策略严格占优可以放心的剔除</p>
 </div>
-<div class="section" id="id4">
-<h3>混合策略的意义<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>混合策略的意义<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>在博弈中，玩家希望不被对手猜到自己的行为，仅混合策略不会被对手猜到</p></li>
 <li><p>净化（Harsanyi）：混合策略可以解释为参与者对彼此纯策略的不确定性。</p></li>
@@ -341,6 +380,46 @@ v_{i}\left(s_{i}^{*}, s_{-i}^{*}\right) \geq v_{i}\left(s_{i}^{\prime}, s_{-i}^{
 <p>正如我们已经看到，许多博弈有多个均衡，如何处理多个均衡呢？</p>
 <p>生活中会存在其他很多因素，影响我们博弈的均衡，在不同的条件下，均衡的博弈会汇集在不同的焦点上，同时我们也应该对博弈的均衡点进行细化分析。</p>
 </div>
+</div>
+<div class="section" id="id8">
+<h2>对称博弈<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>博弈的结果只依赖于使用的策略，而不依赖身份</p>
+<p>对称博弈中存在对称均衡</p>
+</div>
+<div class="section" id="id9">
+<h2>零和博弈<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>任何情况下收益总和为<span class="math notranslate nohighlight">\(0\)</span>的博弈</p>
+<p>在一般的0和博弈中，玩家i的最大化收益为</p>
+<div class="math notranslate nohighlight">
+\[
+m_{i}=\max _{\sigma_{i}} \min _{\sigma_{-i}} u_{i}\left(\sigma_{i}, \sigma_{-i}\right)
+\]</div>
+<p>也可写作</p>
+<div class="math notranslate nohighlight">
+\[
+m_{i}=\min _{\sigma_{-i}}  \max _{\sigma_{i}} u_{i} \left(\sigma_{i}, \sigma_{-i}\right)
+\]</div>
+<p><span class="math notranslate nohighlight">\(\max\)</span>和<span class="math notranslate nohighlight">\(\min\)</span>的先后顺序反映了博弈的先后顺序（或者是谁会被谁看穿）。纯策略博弈下这两个式子的结果是有所不同的，在混合策略博弈下这两个式子的结果是相同的。</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{\sigma_{2}} \max_{ \sigma_{1}} u_{1} \geq min_{\sigma_{1}} \max_{ \sigma_{2}}  u_{1}\left(\sigma_{1}, \sigma_{2}\right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+m_1+M_2=0 \\
+m_2+M_1=0
+\end{split}\]</div>
+</div>
+<div class="section" id="id10">
+<h2>纳什均衡的存在性<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>有限博弈一定有纳什均衡</p>
+<p>不存在纳什均衡的情况</p>
+<ol class="simple">
+<li><p>无穷策略，支付不连续</p></li>
+<li><p>无穷策略，支付无界</p></li>
+</ol>
+<p>纳什均衡点其实是函数中的不动点，策略组合一般是一个紧凸集(compact and convex)</p>
+<p>Use the Kakutani’s fixed point theorem we can show that the best response correspondence has at least one fixed point (need to check some nice properties” of ∑)</p>
 </div>
 </div>
 
@@ -354,7 +433,7 @@ v_{i}\left(s_{i}^{*}, s_{-i}^{*}\right) \geq v_{i}\left(s_{i}^{\prime}, s_{-i}^{
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Basics.html" title="previous page">博弈论基础</a>
-    <a class='right-next' id="next-link" href="../Financial_Lecture/README.html" title="next page">Financial_Lecture</a>
+    <a class='right-next' id="next-link" href="Extensive-Form_games.html" title="next page">扩展博弈和逆向归纳</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

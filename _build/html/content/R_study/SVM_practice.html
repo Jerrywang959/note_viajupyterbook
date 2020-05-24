@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>SVM练习 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DM-ML" href="../Course_study/DM-ML/README.html" />
+    <link rel="prev" title="加载和浏览数据集" href="Logistic_reg.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">安装并使用包</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="active">
+      <a href="">SVM练习</a>
+    </li>
+  </ul>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../Course_study/DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="../Course_study/Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/SVM_practice.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/R_study/SVM_practice.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和浏览数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">分割数据集以进行培训和测试</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">建立SVM模型</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="svm">
+<h1>SVM练习<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>加载和浏览数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;/home/jerrywang/GitHub/note_viajupyterbook/datas/Diabetes.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">quality</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	131 obs. of  14 variables:
+ $ MemberID            : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ InpatientDays       : int  0 1 0 0 8 2 16 2 2 4 ...
+ $ ERVisits            : int  0 1 0 1 2 0 1 0 1 2 ...
+ $ OfficeVisits        : int  18 6 5 19 19 9 8 8 4 0 ...
+ $ Narcotics           : int  1 1 3 0 3 2 1 0 3 2 ...
+ $ DaysSinceLastERVisit: num  731 411 731 158 449 ...
+ $ Pain                : int  10 0 10 34 10 6 4 5 5 2 ...
+ $ TotalVisits         : int  18 8 5 20 29 11 25 10 7 6 ...
+ $ ProviderCount       : int  21 27 16 14 24 40 19 11 28 21 ...
+ $ MedicalClaims       : int  93 19 27 59 51 53 40 28 20 17 ...
+ $ ClaimLines          : int  222 115 148 242 204 156 261 87 98 66 ...
+ $ StartedOnCombination: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+ $ AcuteDrugGapSmall   : int  0 1 5 0 0 4 0 0 0 0 ...
+ $ PoorCare            : int  0 0 0 0 0 1 0 0 1 0 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>MemberID是从1到131 对患者进行编号的唯一标识符。<br />
+InpatientDays是住院次数或患者在医院度过的天数。<br />
+ERVisits是患者访问急诊室的次数。<br />
+OfficeVisits是患者拜访任何医生办公室的次数。<br />
+Narcotics是患者对麻醉剂开出的处方数量。<br />
+DaysSinceLastERVisit是患者上次急诊室（ER）到研究期结束之间的天数，如果患者从未去过ER，则将其设置为研究期的长度。<br />
+Pain是患者抱怨疼痛的就诊次数。<br />
+TotalVisits是患者拜访任何医疗保健提供者的总次数。<br />
+ProviderCount是为患者提供服务的提供者的数量。<br />
+MedicalClaims是患者提出医疗要求的天数。<br />
+ClaimLines是医疗索赔的总数。<br />
+StartedOnCombination是患者是否开始使用药物组合治疗糖尿病。<br />
+AcuteDrugGapSmall是处方用完后迅速补充的急性药物的一部分。<br />
+PoorCare是因变量，如果患者护理不佳，则等于1，如果患者护理得好，则等于0。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>percPC = sum(quality$PoorCare)/nrow(quality)
+percPC
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.251908396946565</div></div>
+</div>
+<p>在SVM模型中，需要将因变量的值设为-1或1。将Poorcare 0更改为Poorcare -1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>quality$PoorCare[which(quality$PoorCare==0)]=-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>将Poorcare更改为因子变量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>quality$PoorCare=as.factor(quality$PoorCare)
+str(quality$PoorCare)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span> Factor w/ 2 levels &quot;-1&quot;,&quot;1&quot;: 1 1 1 1 1 2 1 1 2 1 ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(quality$PoorCare)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+-1  1 
+98 33 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>分割数据集以进行培训和测试<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">caTools</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set.seed(123)
+split = sample.split(quality$PoorCare, SplitRatio = 0.70)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qualityTrain</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">quality</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="n">qualityTest</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">quality</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(qualityTrain$PoorCare)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+-1  1 
+69 23 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(qualityTest$PoorCare)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+-1  1 
+29 10 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>建立SVM模型<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>现在，我们准备好使用OfficeVisits和Narcotics作为自变量来构建SVM模型，与上一讲一致。在此之前，让我们减少无用的变量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Train</span><span class="o">=</span><span class="n">qualityTrain</span><span class="p">[,</span><span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
+<span class="n">Test</span><span class="o">=</span><span class="n">qualityTest</span><span class="p">[,</span><span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">14</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">Train</span><span class="p">[,</span><span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)],</span> <span class="n">col</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="k">as</span><span class="o">.</span><span class="n">numeric</span><span class="p">(</span><span class="n">Train</span><span class="p">[,</span><span class="mi">3</span><span class="p">])))</span>
+<span class="n">legend</span><span class="p">(</span><span class="s2">&quot;topleft&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Good Care&quot;</span><span class="p">,</span> <span class="s2">&quot;Poor Care&quot;</span><span class="p">),</span>     <span class="n">col</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cex</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/SVM_practice_18_0.png" src="../../_images/SVM_practice_18_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Logistic_reg.html" title="previous page">加载和浏览数据集</a>
+    <a class='right-next' id="next-link" href="../Course_study/DM-ML/README.html" title="next page">DM-ML</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
