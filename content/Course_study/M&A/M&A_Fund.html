@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>并购基金 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Times_Series" href="../Times_series/README.html" />
+    <link rel="prev" title="并购重组的动因" href="Why_M&amp;A.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../Art/README.html">Chinese Opera Appreciation</a>
+  </li>
+  <li class="">
+    <a href="../DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="../Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="">
+    <a href="../International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="../Random_process/README.html">Random_process</a>
+  </li>
+  <li class="active">
+    <a href="README.html">M&A</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="Why_M&A.html">并购重组的动因</a>
+    </li>
+    <li class="active">
+      <a href="">并购基金</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/Course_study/M&A/M&A_Fund.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/content/Course_study/M&A/M&A_Fund.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">并购基金的分类</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id3" class="nav-link">产业系并购基金</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">券商系并购基金</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#pe" class="nav-link">大型PE机构系并购基金。</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id5" class="nav-link">纯外资并购基金</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">并购现状</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">盈利模式</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">并购模式</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/executablebooks/jupyter-book/edit/master/content/Course_study/M&A/M&A_Fund.md">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>并购基金<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>并购基金的分类<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>根据国内并购基金的管理机构背景,将其主要分为以下类</p>
+<div class="section" id="id3">
+<h3>产业系并购基金<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>这类并购基金主要由大型产业资本与PE机构联合发起,大型产业资本同时作为基金的LP,但只以较少比例出资(约10%-20%左右),其余部分资金由PE机构从其它渠道募得。这类并购基金只专注于该产业资本既定的项目,合伙期满如果项目未能退出。则由该大型产业资本收购,并购基金从而实现退出,因此,此类基金也被称为专项基金。</p>
+<p>这种并购基金在项日筛选、收购后整合重组、退出方式探索上尚未完全市场化运作,因此也比较适合国内PE机构初步发展并购基金的阶段。</p>
+</div>
+<div class="section" id="id4">
+<h3>券商系并购基金<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>券商系并购基金在设立模式上主要分为三种</p>
+<p>一是由直投子公司作为基金管理公司直接设立并购基金,如中信证券通过旗下直投子公司中信并购基金管理有限公司设立的规模100亿元的中信产业并购基金、中金证券通过旗下直投子公司设立的规模50亿元的中金佳泰产业整合基金。</p>
+<p>二是与国际知名资本巨头联合设立并购基金,如光大证券与罗斯柴尔德达成战略合作组建并购基金。</p>
+<p>第三种是指券商与地方政府联合主导设立的并购基金,如海通证券与上海国际集团牵头组建的目标规模近100亿元的上海国际全球并购基金在具体投资运作上,券商系并购基金主要进行控股型的并购交易,通过对企业重组整合后通过IPO或并购实现退出。</p>
+</div>
+<div class="section" id="pe">
+<h3>大型PE机构系并购基金。<a class="headerlink" href="#pe" title="Permalink to this headline">¶</a></h3>
+<p>这类并购基金由国内已有多年成熟运作经验的大型PE机构发起,具体运作过程中采取控股收购、少数股权投资、跨行业投资等多样化投资策略,通过对未上市企业少数股权投资、参与上市公司定向增发等,来平衡控股收购带来的巨大风险。</p>
+<p>这种基金在具体收购与退出运作上,与并购基金基本无差异,对基金管理团队的专业运作能力要求较高,处于向纯并购基金转型的过渡阶段。</p>
+<p>国内比较典型的PE机构如弘毅、鼎晖等,其中弘毅投资多以参与国企改制为主,曾先后参与收购中联重科、石药集团、改制中国玻璃等,而鼎晖较为典型的案例则为联合中信产业基金收购绿叶制药集团50%控股权的交易。</p>
+</div>
+<div class="section" id="id5">
+<h3>纯外资并购基金<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>代表:KKR、凯雷、黑石等</p>
+<p>这些活跃在中国的外资并购基金,凭借强大资金实力,每个并购案例都可堪称经典,尽管有些并未成功。凯雷买徐工机械、高盛投福耀玻璃,IFC与摩根士丹利共同向龙头企业海螺水泥注资2亿元人民币:德州太平洋的新桥收购深发展。</p>
+<p>2000年凯雷进入中国。在整个亚太地区,凯雷有8个办事处其中近半数设立在中国,足见凯雷对中国的重视。2004年4月凯雷在上海开设办事处之后,收购手笔加大,在此之前最大的项日是4300万美元投资太平洋百货。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>并购现状<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>盈利模式<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>并购型投资阶段的投资模型是“1.5×1.5×1.5”。一个1.5是要继续投资于成长型的行业,但不追求过高的增长,每年增长5%-10%即可,几年后利润增长到1.5倍。第二个1.5是还是要利用好中国资本市场级市场的溢价,目标企业通过直接上市或间接上市实现从1到1.5的溢价。第三个1.5就是通过整合并购提升效率,发挥协同效益,带来企业额外的增长,从1增加1.5。这三个1.5乘在一起是1变3到4的回报。这就是中国PE的第三季——并购季。</p>
+<p>相较于过去的“捡钱”时代、“抢钱”时代,这个时代称为“挣钱”时代。“捡钱”与“抢钱”时代,因为比较容易,来得快去得也快。而“挣钱”时代,尽管外部环境更加艰难,专业要求也更高,但却是一个更大的舞台,持续时间将会长很多。这完全是一个为有准备、有能力的PE机构展现才华而准备的时代,要求PE从简单的金融资本向产业资木进行进化。这个时代门槛更高、市场更大、玩家却更少。事实上,这才是中国PE发展的黃金时期。在第三季的黃金时期,中国将可能创造出几家世界级的PE巨头。</p>
+</div>
+<div class="section" id="id8">
+<h3>并购模式<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>并购时代中,PE应该这么做?搞并购我们确定了两个模式。由于并购就是要提高行业集中度,企业数量会明显减少龙头企业会涌现出来。因此并购一定是与龙头企业相关。</p>
+<p>我们的第一个并购投资模式是“龙买A模式”,围绕中国各个行业中已经形成的龙头企业来进行。并购是一件非常复杂的事,只有以各出期拼出来的龙头为主导,由资本配合而推进的并购胜算才更大。</p>
+<p>第二个模式并购投资模式是“龙头B模式”,我们主动去打造龙头。目前国内有很多产业还没有龙头企业,例如医疗、教育、旅游、公用事业、城市服务等。以医疗为例,国内有很多大型单体医院,但并没有真正的规模较大的连锁医疗集团。未来中国一定会诞生出一批规模很大、区域性甚至全国连锁经营的医疗集团。这类集团在取得巨大的经济效益的同时,也能够为消费者提供优质的医疗服务实现良好的社佘效。这一模式需要由资本力来主厅进行整合,并找到由优秀至业家来经营。由于“龙头B模式“所涉及的产业几乎都跟城市化、家庭生活相关,我们也称其为“人头模式”。</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Why_M&amp;A.html" title="previous page">并购重组的动因</a>
+    <a class='right-next' id="next-link" href="../Times_series/README.html" title="next page">Times_Series</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

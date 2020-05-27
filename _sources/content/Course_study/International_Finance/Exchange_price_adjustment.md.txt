@@ -220,6 +220,18 @@ $$
 
 
 
+### 巴拉萨—萨缪尔森效应
+
+1964：巴拉萨（Balassa）： 《购买力平价：一种重新表述》；萨缪尔森：《对贸易问题的理论评价》。
+**非贸易品价格影响汇率**：发达国家非贸易和贸易商品和服务的价格之比，系统地高于发展中国家，因而高收入国家实际汇率较高；经济增长率高的国家，工资实际增长率也高，非贸易品相对贸易品的价格上升，实际汇率上升。
+
+RPPP容易高估发达国家的汇率，低估发展中国家的汇率。
+
+RPPP theory will tend to predict overvalued exchange rates for developed nations and undervalued exchange rates for developing nations。Rogoff (1996) and Choudri and Khan (2005).
+
+重大结构变化可能使RPPP不灵，在长期以纯粹货币扰动情况下相当不错。
+
+![](http://pic.jerrywang.top/20200526084801.png)
 
 
 
@@ -233,10 +245,45 @@ $$
 
 
 
+## 金本位下的自动调整
+
+### 金本位制度
+
+1880－1914年，战后希望重建的努力在1931大萧条期间彻底失败。二战后，1945-1971的布雷顿森林体系是一种金汇兑本位制（国际货币基金组织和世界银行）。
+
+铸币平价（mint parity）:Under the gold standard, a ￡1 gold coin in the United Kingdom contained 113.0016 grains (英美的最小重量单位:一谷=0.0648克=64.8毫克) of pure gold, while a \$1 gold coin in the United States contained 23.22 grains. This implied that the dollar price of the pound, or the exchange rate, was R = \$/￡ = 113.0016/23.22 = 4.87.
+
+ 铸币平价（mint parity）
+ 黄金输出/输入点（gold export/import point）
+
+![](http://pic.jerrywang.top/20200526092836.png)
+
+### 价格黄金流动机制
+
+货币数量论：quantity theory of money
+
+$$
+MV = PQ
+$$
+
+价格黄金流动机制：price-specie-flow mechanism： introduced  by David Hume in 1752 
+
+![](http://pic.jerrywang.top/20200526093020.png)
+
+金本位制的博弈规则：逆差国必须进一步限制信贷，顺差国反之，以加强调整过程。
 
 
 
-三、金本位下的自动调整
+
+
+
+
+
+
+
+
+
+
 四、乘数分析法
 五、吸收分析法
 六、货币分析法
