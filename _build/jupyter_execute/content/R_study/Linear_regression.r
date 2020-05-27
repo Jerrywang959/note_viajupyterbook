@@ -1,4 +1,6 @@
-# 安装并使用包
+# 线性回归入门
+
+## 安装并使用包
 
 切换清华镜像源
 
@@ -7,9 +9,9 @@ options(repos=structure(c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/")))
 MASS:支持Venables和Ripley的函数和数据集   
 ISLR:R中应用统计学习入门的数据
 
-install.packages("ISLR")
+#install.packages("ISLR")
 
-install.packages("MASS")
+#install.packages("MASS")
 
 加载包并删除全部变量
 

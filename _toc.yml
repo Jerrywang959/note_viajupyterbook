@@ -23,6 +23,11 @@
   sections:
     - file: content/julia_study/Flux/Functions
 
+- file: content/julia_study/Data_science_course_from_juliaacademy/READMD
+  sections:
+    - file: content/julia_study/Data_science_course_from_juliaacademy/Data
+
+
 - header: R_study
 - file: content/R_study/README
   sections:
@@ -65,7 +70,8 @@
     - file: content/Course_study/Financial_Lecture/Digital_finance_effect_on_residents_economic_decisions
     - file: content/Course_study/Financial_Lecture/Global_economy_and_finance_under_the_impact_of_epidemic
     - file: content/Course_study/Financial_Lecture/Compliance_risk_management_of_financial_institutions_and_construction_of_compliance_culture
-    
+    - file: content/Course_study/Financial_Lecture/Shi_and_Responsibility
+
 - file: content/Course_study/International_Finance/README
   sections:
     - file: content/Course_study/International_Finance/Exchanges
@@ -80,6 +86,7 @@
 - file: content/Course_study/M&A/README
   sections:
     - file: content/Course_study/M&A/Why_M&A
+    - file: content/Course_study/M&A/M&A_Fund
 
 
 - file: content/Course_study/Times_series/README

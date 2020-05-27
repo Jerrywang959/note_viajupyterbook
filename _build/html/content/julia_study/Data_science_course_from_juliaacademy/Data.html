@@ -1,0 +1,1375 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>数据 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="R语言的学习" href="../../R_study/README.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="READMD.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../Flux/README.html">Flux</a>
+  </li>
+  <li class="active">
+    <a href="">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="../../R_study/README.html">R语言的学习</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Course_study</p>
+</li>
+  <li class="">
+    <a href="../../Course_study/Art/README.html">Chinese Opera Appreciation</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/DM-ML/README.html">DM-ML</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Game_Thoery/README.html">Game_Thoery</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Financial_Lecture/README.html">Financial_Lecture</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/International_Finance/README.html">International_Finance</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Random_process/README.html">Random_process</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/M&A/README.html">M&A</a>
+  </li>
+  <li class="">
+    <a href="../../Course_study/Times_series/README.html">Times_Series</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Data_science_course_from_juliaacademy/Data.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/content/julia_study/Data_science_course_from_juliaacademy/Data.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/julia_study/Data_science_course_from_juliaacademy/Data.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">🗃️ 获得数据</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">📂 从文本文件中读取数据</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#delimitedfiles" class="nav-link">DelimitedFiles</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">写入数据</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#csv" class="nav-link">CSV</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#xlxs" class="nav-link">XLXS</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id5" class="nav-link">写入XLXS文件</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#importing-your-data" class="nav-link">⬇️ Importing your data</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/executablebooks/jupyter-book/edit/master/content/julia_study/Data_science_course_from_juliaacademy/Data.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>能够轻松加载和处理数据是一项至关重要的任务，它可以使任何数据科学变得更加愉快。在本笔记本中，我们将介绍数据科学任务中经常遇到的最常见类型，并将在本教程的其余部分中使用这些数据。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">BenchmarkTools</span>
+<span class="n">using</span> <span class="n">DataFrames</span>
+<span class="n">using</span> <span class="n">DelimitedFiles</span>
+<span class="n">using</span> <span class="n">CSV</span>
+<span class="n">using</span> <span class="n">XLSX</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="p">(</span><span class="s2">&quot;../../../&quot;</span><span class="p">)</span>
+<span class="n">pwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;/home/jerrywang/GitHub/note_viajupyterbook&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>🗃️ 获得数据<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在Julia中，使用<code class="docutils literal notranslate"><span class="pre">download</span></code>功能从网络下载文件非常容易。但同时，你可以使用自己喜欢的命令行commad通过轻松通过从朱莉娅切换到下载文件<code class="docutils literal notranslate"><span class="pre">;</span></code>键。让我们都尝试一下。</p>
+<p>注意：“download”取决于外部工具，例如<code class="docutils literal notranslate"><span class="pre">curl</span></code>，<code class="docutils literal notranslate"><span class="pre">wget</span></code>或<code class="docutils literal notranslate"><span class="pre">fetch</span></code>。因此，您必须拥有其中之一。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?download
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>search: [0m[1md[22m[0m[1mo[22m[0m[1mw[22m[0m[1mn[22m[0m[1ml[22m[0m[1mo[22m[0m[1ma[22m[0m[1md[22m
+
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{verbatim}
+download(url::AbstractString, [localfile::AbstractString])
+\end{verbatim}
+Download a file from the given url, optionally renaming it to the given local file name. If no filename is given this will download into a randomly-named file in your temp directory. Note that this function relies on the availability of external tools such as \texttt{curl}, \texttt{wget} or \texttt{fetch} to download the file and is provided for convenience. For production use or situations in which more options are needed, please use a package that provides the desired functionality instead.\\Returns the filename of the downloaded file.\\\rule{\textwidth}{1pt}
+\begin{verbatim}
+download(url::Union{AbstractString, AbstractPath}, localfile::AbstractPath)
+\end{verbatim}
+Download a file from the remote url and save it to the localfile path.\end{aligned}\end{align} \]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/nassarhuda/easy_data/master/programming_languages.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;programminglanguages.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;programminglanguages.csv&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>与此相同的命令为</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span><span class="n">wget</span> <span class="s2">&quot;https://raw.githubusercontent.com/nassarhuda/easy_data/master/programming_languages.csv&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/jerrywang/.wget-hsts'. HSTS will be disabled.
+--2020-05-27 19:34:27--  https://raw.githubusercontent.com/nassarhuda/easy_data/master/programming_languages.csv
+正在连接 127.0.0.1:8118... 已连接。
+已发出 Proxy 请求，正在等待回应... 200 OK
+长度：876 [text/plain]
+正在保存至: “programming_languages.csv.3”
+
+     0K                                                       100% 18.4M=0s
+
+2020-05-27 19:34:27 (18.4 MB/s) - 已保存 “programming_languages.csv.3” [876/876])
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>📂 从文本文件中读取数据<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>这里的关键问题是要从文件中加载数据，例如csv文件，xlsx文件或原始文本文件。我们将介绍一些Julia软件包，这些软件包将使我们能够非常轻松地读取此类文件。</p>
+<div class="section" id="delimitedfiles">
+<h3>DelimitedFiles<a class="headerlink" href="#delimitedfiles" title="Permalink to this headline">¶</a></h3>
+<p>让我们从标准库中的软件包<code class="docutils literal notranslate"><span class="pre">DelimitedFiles</span></code>开始。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#;head programminglanguages.csv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>用<code class="docutils literal notranslate"><span class="pre">DelimitedFiles</span></code>中的<code class="docutils literal notranslate"><span class="pre">readdlm</span></code>读取csv文件。其中，P为数据，H为header</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#=</span>
+<span class="n">readdlm</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> 
+    <span class="n">delim</span><span class="p">::</span><span class="n">AbstractChar</span><span class="p">,</span> 
+    <span class="n">T</span><span class="p">::</span><span class="n">Type</span><span class="p">,</span> 
+    <span class="n">eol</span><span class="p">::</span><span class="n">AbstractChar</span><span class="p">;</span> 
+    <span class="n">header</span><span class="o">=</span><span class="n">false</span><span class="p">,</span> 
+    <span class="n">skipstart</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+    <span class="n">skipblanks</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> 
+    <span class="n">use_mmap</span><span class="p">,</span> 
+    <span class="n">quotes</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> 
+    <span class="n">dims</span><span class="p">,</span> 
+    <span class="n">comments</span><span class="o">=</span><span class="n">false</span><span class="p">,</span> 
+    <span class="n">comment_char</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<span class="o">=</span><span class="c1">#</span>
+<span class="n">P</span><span class="p">,</span><span class="n">H</span> <span class="o">=</span> <span class="n">readdlm</span><span class="p">(</span><span class="s2">&quot;$(pwd())/programming_languages.csv&quot;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">;</span><span class="n">header</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>73×2 Array{Any,2}:
+ 1951  &quot;Regional Assembly Language&quot;
+ 1952  &quot;Autocode&quot;
+ 1954  &quot;IPL&quot;
+ 1955  &quot;FLOW-MATIC&quot;
+ 1957  &quot;FORTRAN&quot;
+ 1957  &quot;COMTRAN&quot;
+ 1958  &quot;LISP&quot;
+ 1958  &quot;ALGOL 58&quot;
+ 1959  &quot;FACT&quot;
+ 1959  &quot;COBOL&quot;
+ 1959  &quot;RPG&quot;
+ 1962  &quot;APL&quot;
+ 1962  &quot;Simula&quot;
+    ⋮  
+ 2003  &quot;Scala&quot;
+ 2005  &quot;F#&quot;
+ 2006  &quot;PowerShell&quot;
+ 2007  &quot;Clojure&quot;
+ 2009  &quot;Go&quot;
+ 2010  &quot;Rust&quot;
+ 2011  &quot;Dart&quot;
+ 2011  &quot;Kotlin&quot;
+ 2011  &quot;Red&quot;
+ 2011  &quot;Elixir&quot;
+ 2012  &quot;Julia&quot;
+ 2014  &quot;Swift&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1×2 Array{AbstractString,2}:
+ &quot;year&quot;  &quot;language&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>写入数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writedlm</span><span class="p">(</span><span class="s2">&quot;programminglanguages_dlm.txt&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="csv">
+<h3>CSV<a class="headerlink" href="#csv" title="Permalink to this headline">¶</a></h3>
+<p>此处使用的更强大的软件包是<code class="docutils literal notranslate"><span class="pre">CSV</span></code>软件包。默认情况下，CSV包将数据导入到<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>中，这具有许多优点，如下所示。</p>
+<p>通常，推荐使用[<code class="docutils literal notranslate"><span class="pre">CSV.jl</span></code>]（https://juliadata.github.io/CSV.jl/stable/） 加载CSV。仅当您有一个更复杂的文件要指定多个内容时，才使用<code class="docutils literal notranslate"><span class="pre">DelimitedFlies”</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;programming_languages.csv&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>读取DataFrame中的某些数据</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>typeof(C) = DataFrame
+</pre></div>
+</div>
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>year</th><th>language</th></tr><tr><th></th><th>Int64</th><th>String</th></tr></thead><tbody><p>10 rows × 2 columns</p><tr><th>1</th><td>1951</td><td>Regional Assembly Language</td></tr><tr><th>2</th><td>1952</td><td>Autocode</td></tr><tr><th>3</th><td>1954</td><td>IPL</td></tr><tr><th>4</th><td>1955</td><td>FLOW-MATIC</td></tr><tr><th>5</th><td>1957</td><td>FORTRAN</td></tr><tr><th>6</th><td>1957</td><td>COMTRAN</td></tr><tr><th>7</th><td>1958</td><td>LISP</td></tr><tr><th>8</th><td>1958</td><td>ALGOL 58</td></tr><tr><th>9</th><td>1959</td><td>FACT</td></tr><tr><th>10</th><td>1959</td><td>COBOL</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">.</span><span class="n">year</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>73-element CSV.Column{Int64,Int64}:
+ 1951
+ 1952
+ 1954
+ 1955
+ 1957
+ 1957
+ 1958
+ 1958
+ 1959
+ 1959
+ 1959
+ 1962
+ 1962
+    ⋮
+ 2003
+ 2005
+ 2006
+ 2007
+ 2009
+ 2010
+ 2011
+ 2011
+ 2011
+ 2011
+ 2012
+ 2014
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>C[!,:year]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>73-element CSV.Column{Int64,Int64}:
+ 1951
+ 1952
+ 1954
+ 1955
+ 1957
+ 1957
+ 1958
+ 1958
+ 1959
+ 1959
+ 1959
+ 1962
+ 1962
+    ⋮
+ 2003
+ 2005
+ 2006
+ 2007
+ 2009
+ 2010
+ 2011
+ 2011
+ 2011
+ 2011
+ 2012
+ 2014
+</pre></div>
+</div>
+</div>
+</div>
+<p>查看DataFrames的变量名</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2-element Array{Symbol,1}:
+ :year
+ :language
+</pre></div>
+</div>
+</div>
+</div>
+<p>用<code class="docutils literal notranslate"><span class="pre">describe()</span></code>函数以得到C的变量描述</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>variable</th><th>mean</th><th>min</th><th>median</th><th>max</th><th>nunique</th><th>nmissing</th><th>eltype</th></tr><tr><th></th><th>Symbol</th><th>Union…</th><th>Any</th><th>Union…</th><th>Any</th><th>Union…</th><th>Nothing</th><th>DataType</th></tr></thead><tbody><p>2 rows × 8 columns</p><tr><th>1</th><td>year</td><td>1982.99</td><td>1951</td><td>1986.0</td><td>2014</td><td></td><td></td><td>Int64</td></tr><tr><th>2</th><td>language</td><td></td><td>ALGOL 58</td><td></td><td>dBase III</td><td>73</td><td></td><td>String</td></tr></tbody></table></div></div>
+</div>
+<p>用<code class="docutils literal notranslate"><span class="pre">&#64;btime</span></code>测试两种读取方式的速度</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@btime</span> <span class="n">P</span><span class="p">,</span><span class="n">H</span> <span class="o">=</span> <span class="n">readdlm</span><span class="p">(</span><span class="s2">&quot;programming_languages.csv&quot;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">;</span><span class="n">header</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="nd">@btime</span> <span class="n">C</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;programming_languages.csv&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>  141.297 μs (325 allocations: 51.09 KiB)
+  84.727 μs (158 allocations: 17.64 KiB)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="xlxs">
+<h3>XLXS<a class="headerlink" href="#xlxs" title="Permalink to this headline">¶</a></h3>
+<p>读取xlsx文件</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">XLSX</span><span class="o">.</span><span class="n">readdata</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/zillow_data_download_april2020.xlsx&quot;</span><span class="p">,</span> <span class="c1">#file name</span>
+    <span class="s2">&quot;Sale_counts_city&quot;</span><span class="p">,</span> <span class="c1">#sheet name</span>
+    <span class="s2">&quot;A1:F9&quot;</span> <span class="c1">#cell range</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9×6 Array{Any,2}:
+      &quot;RegionID&quot;  &quot;RegionName&quot;    …      &quot;2008-03&quot;      &quot;2008-04&quot;
+  6181            &quot;New York&quot;             missing        missing
+ 12447            &quot;Los Angeles&quot;      1446           1705
+ 39051            &quot;Houston&quot;          2926           3121
+ 17426            &quot;Chicago&quot;          2910           3022
+  6915            &quot;San Antonio&quot;   …  1479           1529
+ 13271            &quot;Philadelphia&quot;     1609           1795
+ 40326            &quot;Phoenix&quot;          1310           1519
+ 18959            &quot;Las Vegas&quot;        1618           1856
+</pre></div>
+</div>
+</div>
+</div>
+<p>也可以选择不指定单元格的范围，但这样会花费更多的时间</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">XLSX</span><span class="o">.</span><span class="n">readtable</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/zillow_data_download_april2020.xlsx&quot;</span><span class="p">,</span><span class="s2">&quot;Sale_counts_city&quot;</span><span class="p">);</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(Any[Any[6181, 12447, 39051, 17426, 6915, 13271, 40326, 18959, 54296, 38128  …  396952, 397236, 398030, 398104, 398357, 398712, 398716, 399081, 737789, 760882], Any[&quot;New York&quot;, &quot;Los Angeles&quot;, &quot;Houston&quot;, &quot;Chicago&quot;, &quot;San Antonio&quot;, &quot;Philadelphia&quot;, &quot;Phoenix&quot;, &quot;Las Vegas&quot;, &quot;San Diego&quot;, &quot;Dallas&quot;  …  &quot;Barnard Plantation&quot;, &quot;Windsor Place&quot;, &quot;Stockbridge&quot;, &quot;Mattamiscontis&quot;, &quot;Chase Stream&quot;, &quot;Bowdoin College Grant West&quot;, &quot;Summerset&quot;, &quot;Long Pond&quot;, &quot;Hideout&quot;, &quot;Ebeemee&quot;], Any[&quot;New York&quot;, &quot;California&quot;, &quot;Texas&quot;, &quot;Illinois&quot;, &quot;Texas&quot;, &quot;Pennsylvania&quot;, &quot;Arizona&quot;, &quot;Nevada&quot;, &quot;California&quot;, &quot;Texas&quot;  …  &quot;Maine&quot;, &quot;Missouri&quot;, &quot;Wisconsin&quot;, &quot;Maine&quot;, &quot;Maine&quot;, &quot;Maine&quot;, &quot;South Dakota&quot;, &quot;Maine&quot;, &quot;Utah&quot;, &quot;Maine&quot;], Any[1, 2, 3, 4, 5, 6, 7, 8, 9, 10  …  28750, 28751, 28752, 28753, 28754, 28755, 28756, 28757, 28758, 28759], Any[missing, 1446, 2926, 2910, 1479, 1609, 1310, 1618, 772, 1158  …  0, 0, 0, 0, 0, 0, 0, 0, 1, 0], Any[missing, 1705, 3121, 3022, 1529, 1795, 1519, 1856, 1057, 1232  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0], Any[missing, 1795, 3220, 2937, 1582, 1709, 1654, 1961, 1195, 1240  …  0, 0, 0, 0, 0, 0, 2, 0, 0, 0], Any[missing, 1890, 3405, 3224, 1761, 1914, 1743, 2022, 1115, 1236  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0], Any[missing, 2072, 3352, 3464, 1678, 1984, 1975, 2219, 1272, 1392  …  0, 0, 0, 0, 0, 1, 1, 0, 0, 0], Any[missing, 1876, 2962, 3371, 1468, 1739, 1809, 2248, 1171, 1138  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  …  Any[3473, 2651, 3894, 3702, 2384, 2682, 3898, 3284, 1542, 1407  …  0, 0, 0, 0, 0, 2, 3, 0, 0, 0], Any[3900, 2504, 3511, 3549, 2242, 2270, 3570, 3058, 1433, 1235  …  0, 0, 2, 0, 0, 2, 6, 0, 1, 0], Any[4493, 2675, 3687, 3622, 2300, 2479, 3616, 3235, 1529, 1423  …  0, 0, 0, 0, 0, 3, 10, 0, 1, 0], Any[4266, 2759, 3414, 3619, 2233, 2503, 3581, 3254, 1479, 1266  …  0, missing, 0, 0, 0, 3, 5, 0, 2, 0], Any[4183, 2334, 2803, 2938, 1788, 2184, 3199, 2821, 1307, 1143  …  0, missing, 0, 0, 1, 1, 4, 0, 1, 0], Any[4232, 2594, 2969, 2930, 1917, 2337, 3189, 3097, 1356, 1239  …  0, missing, 0, 0, 0, missing, 8, 0, 2, 0], Any[3869, 2272, 2699, 2176, 1520, 1931, 2867, 2702, 1179, 1117  …  0, missing, 0, 0, 0, missing, 8, 0, missing, 0], Any[3938, 2394, 3338, 2866, 1876, 2192, 2934, 2810, 1276, 1315  …  0, missing, 0, 0, 0, missing, 5, 0, missing, 0], Any[4306, 2006, 2407, 2240, 1460, 2381, 2226, 2512, 1020, 1056  …  0, missing, 0, 0, 0, missing, 1, 0, missing, 1], Any[4054, 1522, 2682, 2100, 1626, 1620, 2325, 2547, missing, 1292  …  missing, missing, missing, missing, missing, missing, 2, 0, missing, 0]], [:RegionID, :RegionName, :StateName, :SizeRank, Symbol(&quot;2008-03&quot;), Symbol(&quot;2008-04&quot;), Symbol(&quot;2008-05&quot;), Symbol(&quot;2008-06&quot;), Symbol(&quot;2008-07&quot;), Symbol(&quot;2008-08&quot;)  …  Symbol(&quot;2019-05&quot;), Symbol(&quot;2019-06&quot;), Symbol(&quot;2019-07&quot;), Symbol(&quot;2019-08&quot;), Symbol(&quot;2019-09&quot;), Symbol(&quot;2019-10&quot;), Symbol(&quot;2019-11&quot;), Symbol(&quot;2019-12&quot;), Symbol(&quot;2020-01&quot;), Symbol(&quot;2020-02&quot;)])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>148-element Array{Any,1}:
+ Any[6181, 12447, 39051, 17426, 6915, 13271, 40326, 18959, 54296, 38128  …  396952, 397236, 398030, 398104, 398357, 398712, 398716, 399081, 737789, 760882]
+ Any[&quot;New York&quot;, &quot;Los Angeles&quot;, &quot;Houston&quot;, &quot;Chicago&quot;, &quot;San Antonio&quot;, &quot;Philadelphia&quot;, &quot;Phoenix&quot;, &quot;Las Vegas&quot;, &quot;San Diego&quot;, &quot;Dallas&quot;  …  &quot;Barnard Plantation&quot;, &quot;Windsor Place&quot;, &quot;Stockbridge&quot;, &quot;Mattamiscontis&quot;, &quot;Chase Stream&quot;, &quot;Bowdoin College Grant West&quot;, &quot;Summerset&quot;, &quot;Long Pond&quot;, &quot;Hideout&quot;, &quot;Ebeemee&quot;]
+ Any[&quot;New York&quot;, &quot;California&quot;, &quot;Texas&quot;, &quot;Illinois&quot;, &quot;Texas&quot;, &quot;Pennsylvania&quot;, &quot;Arizona&quot;, &quot;Nevada&quot;, &quot;California&quot;, &quot;Texas&quot;  …  &quot;Maine&quot;, &quot;Missouri&quot;, &quot;Wisconsin&quot;, &quot;Maine&quot;, &quot;Maine&quot;, &quot;Maine&quot;, &quot;South Dakota&quot;, &quot;Maine&quot;, &quot;Utah&quot;, &quot;Maine&quot;]
+ Any[1, 2, 3, 4, 5, 6, 7, 8, 9, 10  …  28750, 28751, 28752, 28753, 28754, 28755, 28756, 28757, 28758, 28759]
+ Any[missing, 1446, 2926, 2910, 1479, 1609, 1310, 1618, 772, 1158  …  0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+ Any[missing, 1705, 3121, 3022, 1529, 1795, 1519, 1856, 1057, 1232  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ Any[missing, 1795, 3220, 2937, 1582, 1709, 1654, 1961, 1195, 1240  …  0, 0, 0, 0, 0, 0, 2, 0, 0, 0]
+ Any[missing, 1890, 3405, 3224, 1761, 1914, 1743, 2022, 1115, 1236  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ Any[missing, 2072, 3352, 3464, 1678, 1984, 1975, 2219, 1272, 1392  …  0, 0, 0, 0, 0, 1, 1, 0, 0, 0]
+ Any[missing, 1876, 2962, 3371, 1468, 1739, 1809, 2248, 1171, 1138  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ Any[missing, 1981, 2017, 2979, 1480, 1635, 1965, 2207, 1193, 1042  …  0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ Any[missing, 2195, 2595, 2869, 1475, 1598, 2074, 2372, 1319, 1089  …  0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+ Any[missing, 1579, 1865, 1915, 949, 1169, 1435, 1880, 873, 772  …  0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+ ⋮
+ Any[3456, 2150, 3283, 2735, 1989, 1958, 3378, 2748, 1207, 1058  …  0, 1, 0, 1, 4, 0, 6, 0, 0, 0]
+ Any[3652, 2537, 3620, 3197, 2137, 2177, 3728, 2959, 1384, 1221  …  0, 0, 0, 0, 0, 0, 4, 0, 0, 0]
+ Any[3473, 2651, 3894, 3702, 2384, 2682, 3898, 3284, 1542, 1407  …  0, 0, 0, 0, 0, 2, 3, 0, 0, 0]
+ Any[3900, 2504, 3511, 3549, 2242, 2270, 3570, 3058, 1433, 1235  …  0, 0, 2, 0, 0, 2, 6, 0, 1, 0]
+ Any[4493, 2675, 3687, 3622, 2300, 2479, 3616, 3235, 1529, 1423  …  0, 0, 0, 0, 0, 3, 10, 0, 1, 0]
+ Any[4266, 2759, 3414, 3619, 2233, 2503, 3581, 3254, 1479, 1266  …  0, missing, 0, 0, 0, 3, 5, 0, 2, 0]
+ Any[4183, 2334, 2803, 2938, 1788, 2184, 3199, 2821, 1307, 1143  …  0, missing, 0, 0, 1, 1, 4, 0, 1, 0]
+ Any[4232, 2594, 2969, 2930, 1917, 2337, 3189, 3097, 1356, 1239  …  0, missing, 0, 0, 0, missing, 8, 0, 2, 0]
+ Any[3869, 2272, 2699, 2176, 1520, 1931, 2867, 2702, 1179, 1117  …  0, missing, 0, 0, 0, missing, 8, 0, missing, 0]
+ Any[3938, 2394, 3338, 2866, 1876, 2192, 2934, 2810, 1276, 1315  …  0, missing, 0, 0, 0, missing, 5, 0, missing, 0]
+ Any[4306, 2006, 2407, 2240, 1460, 2381, 2226, 2512, 1020, 1056  …  0, missing, 0, 0, 0, missing, 1, 0, missing, 1]
+ Any[4054, 1522, 2682, 2100, 1626, 1620, 2325, 2547, missing, 1292  …  missing, missing, missing, missing, missing, missing, 2, 0, missing, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10-element Array{Any,1}:
+  6181
+ 12447
+ 39051
+ 17426
+  6915
+ 13271
+ 40326
+ 18959
+ 54296
+ 38128
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10-element Array{Symbol,1}:
+ :RegionID
+ :RegionName
+ :StateName
+ :SizeRank
+ Symbol(&quot;2008-03&quot;)
+ Symbol(&quot;2008-04&quot;)
+ Symbol(&quot;2008-05&quot;)
+ Symbol(&quot;2008-06&quot;)
+ Symbol(&quot;2008-07&quot;)
+ Symbol(&quot;2008-08&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>而且我们可以轻松地将此数据存储在DataFrame中</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">G</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>RegionID</th><th>RegionName</th><th>StateName</th><th>SizeRank</th><th>2008-03</th><th>2008-04</th><th>2008-05</th></tr><tr><th></th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th></tr></thead><tbody><p>28,759 rows × 148 columns (omitted printing of 141 columns)</p><tr><th>1</th><td>6181</td><td>New York</td><td>New York</td><td>1</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>2</th><td>12447</td><td>Los Angeles</td><td>California</td><td>2</td><td>1446</td><td>1705</td><td>1795</td></tr><tr><th>3</th><td>39051</td><td>Houston</td><td>Texas</td><td>3</td><td>2926</td><td>3121</td><td>3220</td></tr><tr><th>4</th><td>17426</td><td>Chicago</td><td>Illinois</td><td>4</td><td>2910</td><td>3022</td><td>2937</td></tr><tr><th>5</th><td>6915</td><td>San Antonio</td><td>Texas</td><td>5</td><td>1479</td><td>1529</td><td>1582</td></tr><tr><th>6</th><td>13271</td><td>Philadelphia</td><td>Pennsylvania</td><td>6</td><td>1609</td><td>1795</td><td>1709</td></tr><tr><th>7</th><td>40326</td><td>Phoenix</td><td>Arizona</td><td>7</td><td>1310</td><td>1519</td><td>1654</td></tr><tr><th>8</th><td>18959</td><td>Las Vegas</td><td>Nevada</td><td>8</td><td>1618</td><td>1856</td><td>1961</td></tr><tr><th>9</th><td>54296</td><td>San Diego</td><td>California</td><td>9</td><td>772</td><td>1057</td><td>1195</td></tr><tr><th>10</th><td>38128</td><td>Dallas</td><td>Texas</td><td>10</td><td>1158</td><td>1232</td><td>1240</td></tr><tr><th>11</th><td>10221</td><td>Austin</td><td>Texas</td><td>11</td><td>997</td><td>1140</td><td>1168</td></tr><tr><th>12</th><td>33839</td><td>San Jose</td><td>California</td><td>12</td><td>455</td><td>555</td><td>583</td></tr><tr><th>13</th><td>25290</td><td>Jacksonville</td><td>Florida</td><td>13</td><td>613</td><td>730</td><td>738</td></tr><tr><th>14</th><td>32149</td><td>Indianapolis</td><td>Indiana</td><td>14</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>15</th><td>20330</td><td>San Francisco</td><td>California</td><td>15</td><td>419</td><td>485</td><td>553</td></tr><tr><th>16</th><td>24043</td><td>Charlotte</td><td>North Carolina</td><td>16</td><td>1101</td><td>1201</td><td>1380</td></tr><tr><th>17</th><td>18172</td><td>Fort Worth</td><td>Texas</td><td>17</td><td>862</td><td>1130</td><td>1000</td></tr><tr><th>18</th><td>7481</td><td>Tucson</td><td>Arizona</td><td>18</td><td>737</td><td>841</td><td>842</td></tr><tr><th>19</th><td>10920</td><td>Columbus</td><td>Ohio</td><td>19</td><td>832</td><td>975</td><td>939</td></tr><tr><th>20</th><td>12455</td><td>Louisville</td><td>Kentucky</td><td>20</td><td>881</td><td>1017</td><td>967</td></tr><tr><th>21</th><td>13121</td><td>Orlando</td><td>Florida</td><td>21</td><td>550</td><td>507</td><td>489</td></tr><tr><th>22</th><td>17933</td><td>El Paso</td><td>Texas</td><td>22</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>23</th><td>17762</td><td>Detroit</td><td>Michigan</td><td>23</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>24</th><td>11093</td><td>Denver</td><td>Colorado</td><td>24</td><td>975</td><td>1076</td><td>1241</td></tr><tr><th>25</th><td>16037</td><td>Seattle</td><td>Washington</td><td>25</td><td>615</td><td>641</td><td>689</td></tr><tr><th>26</th><td>32811</td><td>Memphis</td><td>Tennessee</td><td>26</td><td>872</td><td>802</td><td>775</td></tr><tr><th>27</th><td>44269</td><td>Boston</td><td>Massachusetts</td><td>27</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>28</th><td>41568</td><td>Washington</td><td>District of Columbia</td><td>28</td><td>479</td><td>429</td><td>503</td></tr><tr><th>29</th><td>13373</td><td>Portland</td><td>Oregon</td><td>29</td><td>787</td><td>745</td><td>926</td></tr><tr><th>30</th><td>6118</td><td>Nashville</td><td>Tennessee</td><td>30</td><td>671</td><td>778</td><td>779</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typeof</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Tuple{Array{Any,1},Array{Symbol,1}}
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame(G...)</span></code>使用<code class="docutils literal notranslate"><span class="pre">splat</span></code>运算符_unwrap_这些数组并将它们传递给DataFrame构造函数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">G</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>RegionID</th><th>RegionName</th><th>StateName</th><th>SizeRank</th><th>2008-03</th><th>2008-04</th><th>2008-05</th></tr><tr><th></th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th></tr></thead><tbody><p>28,759 rows × 148 columns (omitted printing of 141 columns)</p><tr><th>1</th><td>6181</td><td>New York</td><td>New York</td><td>1</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>2</th><td>12447</td><td>Los Angeles</td><td>California</td><td>2</td><td>1446</td><td>1705</td><td>1795</td></tr><tr><th>3</th><td>39051</td><td>Houston</td><td>Texas</td><td>3</td><td>2926</td><td>3121</td><td>3220</td></tr><tr><th>4</th><td>17426</td><td>Chicago</td><td>Illinois</td><td>4</td><td>2910</td><td>3022</td><td>2937</td></tr><tr><th>5</th><td>6915</td><td>San Antonio</td><td>Texas</td><td>5</td><td>1479</td><td>1529</td><td>1582</td></tr><tr><th>6</th><td>13271</td><td>Philadelphia</td><td>Pennsylvania</td><td>6</td><td>1609</td><td>1795</td><td>1709</td></tr><tr><th>7</th><td>40326</td><td>Phoenix</td><td>Arizona</td><td>7</td><td>1310</td><td>1519</td><td>1654</td></tr><tr><th>8</th><td>18959</td><td>Las Vegas</td><td>Nevada</td><td>8</td><td>1618</td><td>1856</td><td>1961</td></tr><tr><th>9</th><td>54296</td><td>San Diego</td><td>California</td><td>9</td><td>772</td><td>1057</td><td>1195</td></tr><tr><th>10</th><td>38128</td><td>Dallas</td><td>Texas</td><td>10</td><td>1158</td><td>1232</td><td>1240</td></tr><tr><th>11</th><td>10221</td><td>Austin</td><td>Texas</td><td>11</td><td>997</td><td>1140</td><td>1168</td></tr><tr><th>12</th><td>33839</td><td>San Jose</td><td>California</td><td>12</td><td>455</td><td>555</td><td>583</td></tr><tr><th>13</th><td>25290</td><td>Jacksonville</td><td>Florida</td><td>13</td><td>613</td><td>730</td><td>738</td></tr><tr><th>14</th><td>32149</td><td>Indianapolis</td><td>Indiana</td><td>14</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>15</th><td>20330</td><td>San Francisco</td><td>California</td><td>15</td><td>419</td><td>485</td><td>553</td></tr><tr><th>16</th><td>24043</td><td>Charlotte</td><td>North Carolina</td><td>16</td><td>1101</td><td>1201</td><td>1380</td></tr><tr><th>17</th><td>18172</td><td>Fort Worth</td><td>Texas</td><td>17</td><td>862</td><td>1130</td><td>1000</td></tr><tr><th>18</th><td>7481</td><td>Tucson</td><td>Arizona</td><td>18</td><td>737</td><td>841</td><td>842</td></tr><tr><th>19</th><td>10920</td><td>Columbus</td><td>Ohio</td><td>19</td><td>832</td><td>975</td><td>939</td></tr><tr><th>20</th><td>12455</td><td>Louisville</td><td>Kentucky</td><td>20</td><td>881</td><td>1017</td><td>967</td></tr><tr><th>21</th><td>13121</td><td>Orlando</td><td>Florida</td><td>21</td><td>550</td><td>507</td><td>489</td></tr><tr><th>22</th><td>17933</td><td>El Paso</td><td>Texas</td><td>22</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>23</th><td>17762</td><td>Detroit</td><td>Michigan</td><td>23</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>24</th><td>11093</td><td>Denver</td><td>Colorado</td><td>24</td><td>975</td><td>1076</td><td>1241</td></tr><tr><th>25</th><td>16037</td><td>Seattle</td><td>Washington</td><td>25</td><td>615</td><td>641</td><td>689</td></tr><tr><th>26</th><td>32811</td><td>Memphis</td><td>Tennessee</td><td>26</td><td>872</td><td>802</td><td>775</td></tr><tr><th>27</th><td>44269</td><td>Boston</td><td>Massachusetts</td><td>27</td><td>missing</td><td>missing</td><td>missing</td></tr><tr><th>28</th><td>41568</td><td>Washington</td><td>District of Columbia</td><td>28</td><td>479</td><td>429</td><td>503</td></tr><tr><th>29</th><td>13373</td><td>Portland</td><td>Oregon</td><td>29</td><td>787</td><td>745</td><td>926</td></tr><tr><th>30</th><td>6118</td><td>Nashville</td><td>Tennessee</td><td>30</td><td>671</td><td>778</td><td>779</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<p>使用<code class="docutils literal notranslate"><span class="pre">by</span></code>函数以获得特性DataFrame列的函数映射</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">by</span><span class="p">(</span><span class="n">D</span><span class="p">,:</span><span class="n">StateName</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>StateName</th><th>x1</th></tr><tr><th></th><th>Any</th><th>Tuple…</th></tr></thead><tbody><p>51 rows × 2 columns</p><tr><th>1</th><td>New York</td><td>(1332, 148)</td></tr><tr><th>2</th><td>California</td><td>(1136, 148)</td></tr><tr><th>3</th><td>Texas</td><td>(1589, 148)</td></tr><tr><th>4</th><td>Illinois</td><td>(1374, 148)</td></tr><tr><th>5</th><td>Pennsylvania</td><td>(2196, 148)</td></tr><tr><th>6</th><td>Arizona</td><td>(207, 148)</td></tr><tr><th>7</th><td>Nevada</td><td>(90, 148)</td></tr><tr><th>8</th><td>Florida</td><td>(672, 148)</td></tr><tr><th>9</th><td>Indiana</td><td>(684, 148)</td></tr><tr><th>10</th><td>North Carolina</td><td>(781, 148)</td></tr><tr><th>11</th><td>Ohio</td><td>(1155, 148)</td></tr><tr><th>12</th><td>Kentucky</td><td>(656, 148)</td></tr><tr><th>13</th><td>Michigan</td><td>(870, 148)</td></tr><tr><th>14</th><td>Colorado</td><td>(412, 148)</td></tr><tr><th>15</th><td>Washington</td><td>(466, 148)</td></tr><tr><th>16</th><td>Tennessee</td><td>(528, 148)</td></tr><tr><th>17</th><td>Massachusetts</td><td>(367, 148)</td></tr><tr><th>18</th><td>District of Columbia</td><td>(1, 148)</td></tr><tr><th>19</th><td>Oregon</td><td>(375, 148)</td></tr><tr><th>20</th><td>Maryland</td><td>(422, 148)</td></tr><tr><th>21</th><td>Wisconsin</td><td>(848, 148)</td></tr><tr><th>22</th><td>Nebraska</td><td>(486, 148)</td></tr><tr><th>23</th><td>New Mexico</td><td>(241, 148)</td></tr><tr><th>24</th><td>Oklahoma</td><td>(631, 148)</td></tr><tr><th>25</th><td>Georgia</td><td>(650, 148)</td></tr><tr><th>26</th><td>Missouri</td><td>(1063, 148)</td></tr><tr><th>27</th><td>Virginia</td><td>(678, 148)</td></tr><tr><th>28</th><td>Minnesota</td><td>(907, 148)</td></tr><tr><th>29</th><td>Louisiana</td><td>(432, 148)</td></tr><tr><th>30</th><td>Kansas</td><td>(597, 148)</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<p>通过向量创建DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">foods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;cucumber&quot;</span><span class="p">,</span> <span class="s2">&quot;tomato&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">]</span>
+<span class="n">calories</span> <span class="o">=</span> <span class="p">[</span><span class="mi">105</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">105</span><span class="p">]</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,]</span>
+<span class="n">dataframe_calories</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">foods</span><span class="p">,</span><span class="n">calories</span><span class="o">=</span><span class="n">calories</span><span class="p">)</span>
+<span class="n">dataframe_prices</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">foods</span><span class="p">,</span><span class="n">price</span><span class="o">=</span><span class="n">prices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>item</th><th>price</th></tr><tr><th></th><th>String</th><th>Float64</th></tr></thead><tbody><p>4 rows × 2 columns</p><tr><th>1</th><td>apple</td><td>0.85</td></tr><tr><th>2</th><td>cucumber</td><td>1.6</td></tr><tr><th>3</th><td>tomato</td><td>0.8</td></tr><tr><th>4</th><td>banana</td><td>0.6</td></tr></tbody></table></div></div>
+</div>
+<p>合并DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DF</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">dataframe_calories</span><span class="p">,</span><span class="n">dataframe_prices</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">:</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>item</th><th>calories</th><th>price</th></tr><tr><th></th><th>String</th><th>Int64</th><th>Float64</th></tr></thead><tbody><p>4 rows × 3 columns</p><tr><th>1</th><td>apple</td><td>105</td><td>0.85</td></tr><tr><th>2</th><td>cucumber</td><td>47</td><td>1.6</td></tr><tr><th>3</th><td>tomato</td><td>22</td><td>0.8</td></tr><tr><th>4</th><td>banana</td><td>105</td><td>0.6</td></tr></tbody></table></div></div>
+</div>
+<p>直接把矩阵转化为DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>x1</th><th>x2</th><th>x3</th><th>x4</th><th>x5</th><th>x6</th></tr><tr><th></th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th><th>Any</th></tr></thead><tbody><p>9 rows × 6 columns</p><tr><th>1</th><td>RegionID</td><td>RegionName</td><td>StateName</td><td>SizeRank</td><td>2008-03</td><td>2008-04</td></tr><tr><th>2</th><td>6181</td><td>New York</td><td>New York</td><td>1</td><td>missing</td><td>missing</td></tr><tr><th>3</th><td>12447</td><td>Los Angeles</td><td>California</td><td>2</td><td>1446</td><td>1705</td></tr><tr><th>4</th><td>39051</td><td>Houston</td><td>Texas</td><td>3</td><td>2926</td><td>3121</td></tr><tr><th>5</th><td>17426</td><td>Chicago</td><td>Illinois</td><td>4</td><td>2910</td><td>3022</td></tr><tr><th>6</th><td>6915</td><td>San Antonio</td><td>Texas</td><td>5</td><td>1479</td><td>1529</td></tr><tr><th>7</th><td>13271</td><td>Philadelphia</td><td>Pennsylvania</td><td>6</td><td>1609</td><td>1795</td></tr><tr><th>8</th><td>40326</td><td>Phoenix</td><td>Arizona</td><td>7</td><td>1310</td><td>1519</td></tr><tr><th>9</th><td>18959</td><td>Las Vegas</td><td>Nevada</td><td>8</td><td>1618</td><td>1856</td></tr></tbody></table></div></div>
+</div>
+<div class="section" id="id5">
+<h4>写入XLXS文件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>XLSX.writetable(“filename.xlsx”,collect(DataFrames.eachcol(df)), DataFrames.names(df))</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># XLSX.writetable(&quot;writefile_using_XLSX.xlsx&quot;,G[1],G[2])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">AssertionError</span>: writefile_using_XLSX.xlsx already exists.
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">writetable</span><span class="p">(::</span><span class="n">String</span><span class="p">,</span> <span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span> <span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">Symbol</span><span class="p">,</span><span class="mi">1</span><span class="p">};</span> <span class="n">overwrite</span><span class="p">::</span><span class="n">Bool</span><span class="p">,</span> <span class="n">sheetname</span><span class="p">::</span><span class="n">String</span><span class="p">,</span> <span class="n">anchor_cell</span><span class="p">::</span><span class="n">XLSX</span><span class="o">.</span><span class="n">CellRef</span><span class="p">)</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jerrywang</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">XLSX</span><span class="o">/</span><span class="n">uf9Gy</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">write</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">589</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">writetable</span><span class="p">(::</span><span class="n">String</span><span class="p">,</span> <span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">},</span> <span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="n">Symbol</span><span class="p">,</span><span class="mi">1</span><span class="p">})</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jerrywang</span><span class="o">/.</span><span class="n">julia</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">XLSX</span><span class="o">/</span><span class="n">uf9Gy</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">write</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">588</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span> <span class="n">at</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">]:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-your-data">
+<h2>⬇️ Importing your data<a class="headerlink" href="#importing-your-data" title="Permalink to this headline">¶</a></h2>
+<p>通常，要导入的数据不是以纯文本格式存储的，可能要导入其他类型的类型。在这里，我们将介绍导入<code class="docutils literal notranslate"><span class="pre">jld</span></code>，<code class="docutils literal notranslate"><span class="pre">npz</span></code>，<code class="docutils literal notranslate"><span class="pre">rda</span></code>和<code class="docutils literal notranslate"><span class="pre">mat</span></code>文件的过程。希望这四种能够从数据科学中使用的四种常见编程语言（Julia，Python，R，Matlab）中捕获类型。</p>
+<p>在这里，我们将使用一个非常小的矩阵的玩具示例。但是相同的语法适用于较大的文件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>4×5 Array{Int64,2}:
+ 2  1446  1705  1795  1890
+ 3  2926  3121  3220  3405
+ 4  2910  3022  2937  3224
+ 5  1479  1529  1582  1761
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">JLD</span>
+<span class="n">jld_data</span> <span class="o">=</span> <span class="n">JLD</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/mywrite.jld&quot;</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="s2">&quot;mywrite.jld&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">jld_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">NPZ</span>
+<span class="n">npz_data</span> <span class="o">=</span> <span class="n">npzread</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/mytempdata.npz&quot;</span><span class="p">)</span>
+<span class="n">npzwrite</span><span class="p">(</span><span class="s2">&quot;mywrite.npz&quot;</span><span class="p">,</span> <span class="n">npz_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">RData</span>
+<span class="n">R_data</span> <span class="o">=</span> <span class="n">RData</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/mytempdata.rda&quot;</span><span class="p">)</span>
+<span class="c1"># We&#39;ll need RCall to save here. https://github.com/JuliaData/RData.jl/issues/56</span>
+<span class="n">using</span> <span class="n">RCall</span>
+<span class="nd">@rput</span> <span class="n">R_data</span>
+<span class="sa">R</span><span class="s2">&quot;save(R_data, file=</span><span class="se">\&quot;</span><span class="s2">mywrite.rda</span><span class="se">\&quot;</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>RObject{NilSxp}
+NULL
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">MAT</span>
+<span class="n">Matlab_data</span> <span class="o">=</span> <span class="n">matread</span><span class="p">(</span><span class="s2">&quot;$(pwd())/datas/julia_datascience_data/mytempdata.mat&quot;</span><span class="p">)</span>
+<span class="n">matwrite</span><span class="p">(</span><span class="s2">&quot;mywrite.mat&quot;</span><span class="p">,</span><span class="n">Matlab_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">jld_data</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">npz_data</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">R_data</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">Matlab_data</span><span class="p">)</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>typeof(jld_data) = Dict{String,Any}
+typeof(npz_data) = Array{Int64,2}
+typeof(R_data) = Dict{String,Any}
+typeof(Matlab_data) = Dict{String,Any}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jld_data</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">][</span><span class="s2">&quot;tempdata&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4×5 Array{Int64,2}:
+ 2  1446  1705  1795  1890
+ 3  2926  3121  3220  3405
+ 4  2910  3022  2937  3224
+ 5  1479  1529  1582  1761
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npz_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4×5 Array{Int64,2}:
+ 2  1446  1705  1795  1890
+ 3  2926  3121  3220  3405
+ 4  2910  3022  2937  3224
+ 5  1479  1529  1582  1761
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R_data</span><span class="p">[</span><span class="s2">&quot;tempdata&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4×5 Array{Int32,2}:
+ 2  1446  1705  1795  1890
+ 3  2926  3121  3220  3405
+ 4  2910  3022  2937  3224
+ 5  1479  1529  1582  1761
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Matlab_data</span><span class="p">[</span><span class="s2">&quot;tempdata&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4×5 Array{Int64,2}:
+ 2  1446  1705  1795  1890
+ 3  2926  3121  3220  3405
+ 4  2910  3022  2937  3224
+ 5  1479  1529  1582  1761
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="julia">
+<h1>🔢 处理来自julia的数据<a class="headerlink" href="#julia" title="Permalink to this headline">¶</a></h1>
+<p>我们将主要介绍<code class="docutils literal notranslate"><span class="pre">Matrix</span></code>（或<code class="docutils literal notranslate"><span class="pre">Vector</span></code>），<code class="docutils literal notranslate"><span class="pre">DataFrames</span></code>和<code class="docutils literal notranslate"><span class="pre">Dict</span></code>（或<code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>）。让我们带回编程语言集，并开始将其存储在矩阵中。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>73×2 Array{Any,2}:
+ 1951  &quot;Regional Assembly Language&quot;
+ 1952  &quot;Autocode&quot;
+ 1954  &quot;IPL&quot;
+ 1955  &quot;FLOW-MATIC&quot;
+ 1957  &quot;FORTRAN&quot;
+ 1957  &quot;COMTRAN&quot;
+ 1958  &quot;LISP&quot;
+ 1958  &quot;ALGOL 58&quot;
+ 1959  &quot;FACT&quot;
+ 1959  &quot;COBOL&quot;
+ 1959  &quot;RPG&quot;
+ 1962  &quot;APL&quot;
+ 1962  &quot;Simula&quot;
+    ⋮  
+ 2003  &quot;Scala&quot;
+ 2005  &quot;F#&quot;
+ 2006  &quot;PowerShell&quot;
+ 2007  &quot;Clojure&quot;
+ 2009  &quot;Go&quot;
+ 2010  &quot;Rust&quot;
+ 2011  &quot;Dart&quot;
+ 2011  &quot;Kotlin&quot;
+ 2011  &quot;Red&quot;
+ 2011  &quot;Elixir&quot;
+ 2012  &quot;Julia&quot;
+ 2014  &quot;Swift&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下是一些我们可能想问这个简单数据的快速问题。</p>
+<ul class="simple">
+<li><p>哪一种语言是哪一年发明的？</p></li>
+<li><p>一年中创建了几种语言？</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">year_created</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">language</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">findfirst</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">.==</span> <span class="n">language</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">P</span><span class="p">[</span><span class="n">loc</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">end</span>
+<span class="n">year_created</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="s2">&quot;Julia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2012
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">year_created</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="s2">&quot;W&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ArgumentError</span>: invalid index: nothing of type Nothing
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">to_index</span><span class="p">(::</span><span class="n">Nothing</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">indices</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">297</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">to_index</span><span class="p">(::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">::</span><span class="n">Nothing</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">indices</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">274</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">to_indices</span> <span class="n">at</span> <span class="o">./</span><span class="n">indices</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">325</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">to_indices</span> <span class="n">at</span> <span class="o">./</span><span class="n">indices</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">321</span> <span class="p">[</span><span class="n">inlined</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="n">getindex</span><span class="p">(::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">::</span><span class="n">Nothing</span><span class="p">,</span> <span class="p">::</span><span class="n">Int64</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">abstractarray</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">980</span>
+ <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="n">year_created</span><span class="p">(::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">::</span><span class="n">String</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">42</span><span class="p">]:</span><span class="mi">3</span>
+ <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span> <span class="n">at</span> <span class="n">In</span><span class="p">[</span><span class="mi">43</span><span class="p">]:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>改进函数并给出报错信息，<code class="docutils literal notranslate"><span class="pre">return</span></code>之后函数将直接结束</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function year_created_handle_error(P,language::String)
+    loc = findfirst(P[:,2] .== language)
+    !isnothing(loc) &amp;&amp; return P[loc,1]
+    error(&quot;Error: Language not found.&quot;)
+end
+year_created_handle_error(P,&quot;W&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">Error</span>: Language not found.
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">error</span><span class="p">(::</span><span class="n">String</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">error</span><span class="o">.</span><span class="n">jl</span><span class="p">:</span><span class="mi">33</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">year_created_handle_error</span><span class="p">(::</span><span class="n">Array</span><span class="p">{</span><span class="n">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">::</span><span class="n">String</span><span class="p">)</span> <span class="n">at</span> <span class="o">./</span><span class="n">In</span><span class="p">[</span><span class="mi">44</span><span class="p">]:</span><span class="mi">4</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span> <span class="n">at</span> <span class="n">In</span><span class="p">[</span><span class="mi">44</span><span class="p">]:</span><span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Q2: 一个给定的年中，有多少语言被创造了</span>
+<span class="n">function</span> <span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">year</span><span class="p">::</span><span class="n">Int64</span><span class="p">)</span>
+    <span class="n">year_count</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">findall</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.==</span><span class="n">year</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">year_count</span>
+<span class="n">end</span>
+<span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">2011</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>把数据储存在DataFrame中</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_df</span> <span class="o">=</span> <span class="n">C</span>  <span class="c1">#DataFrame(year = P[:,1], language = P[:,2]) # or DataFrame(P)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>year</th><th>language</th></tr><tr><th></th><th>Int64</th><th>String</th></tr></thead><tbody><p>73 rows × 2 columns</p><tr><th>1</th><td>1951</td><td>Regional Assembly Language</td></tr><tr><th>2</th><td>1952</td><td>Autocode</td></tr><tr><th>3</th><td>1954</td><td>IPL</td></tr><tr><th>4</th><td>1955</td><td>FLOW-MATIC</td></tr><tr><th>5</th><td>1957</td><td>FORTRAN</td></tr><tr><th>6</th><td>1957</td><td>COMTRAN</td></tr><tr><th>7</th><td>1958</td><td>LISP</td></tr><tr><th>8</th><td>1958</td><td>ALGOL 58</td></tr><tr><th>9</th><td>1959</td><td>FACT</td></tr><tr><th>10</th><td>1959</td><td>COBOL</td></tr><tr><th>11</th><td>1959</td><td>RPG</td></tr><tr><th>12</th><td>1962</td><td>APL</td></tr><tr><th>13</th><td>1962</td><td>Simula</td></tr><tr><th>14</th><td>1962</td><td>SNOBOL</td></tr><tr><th>15</th><td>1963</td><td>CPL</td></tr><tr><th>16</th><td>1964</td><td>Speakeasy</td></tr><tr><th>17</th><td>1964</td><td>BASIC</td></tr><tr><th>18</th><td>1964</td><td>PL/I</td></tr><tr><th>19</th><td>1966</td><td>JOSS</td></tr><tr><th>20</th><td>1967</td><td>BCPL</td></tr><tr><th>21</th><td>1968</td><td>Logo</td></tr><tr><th>22</th><td>1969</td><td>B</td></tr><tr><th>23</th><td>1970</td><td>Pascal</td></tr><tr><th>24</th><td>1970</td><td>Forth</td></tr><tr><th>25</th><td>1972</td><td>C</td></tr><tr><th>26</th><td>1972</td><td>Smalltalk</td></tr><tr><th>27</th><td>1972</td><td>Prolog</td></tr><tr><th>28</th><td>1973</td><td>ML</td></tr><tr><th>29</th><td>1975</td><td>Scheme</td></tr><tr><th>30</th><td>1978</td><td>SQL </td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<p>更好的是，由于我们知道每一列的类型，因此可以如下创建DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="n">Int</span><span class="o">.</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">language</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>year</th><th>language</th></tr><tr><th></th><th>Int64</th><th>String</th></tr></thead><tbody><p>73 rows × 2 columns</p><tr><th>1</th><td>1951</td><td>Regional Assembly Language</td></tr><tr><th>2</th><td>1952</td><td>Autocode</td></tr><tr><th>3</th><td>1954</td><td>IPL</td></tr><tr><th>4</th><td>1955</td><td>FLOW-MATIC</td></tr><tr><th>5</th><td>1957</td><td>FORTRAN</td></tr><tr><th>6</th><td>1957</td><td>COMTRAN</td></tr><tr><th>7</th><td>1958</td><td>LISP</td></tr><tr><th>8</th><td>1958</td><td>ALGOL 58</td></tr><tr><th>9</th><td>1959</td><td>FACT</td></tr><tr><th>10</th><td>1959</td><td>COBOL</td></tr><tr><th>11</th><td>1959</td><td>RPG</td></tr><tr><th>12</th><td>1962</td><td>APL</td></tr><tr><th>13</th><td>1962</td><td>Simula</td></tr><tr><th>14</th><td>1962</td><td>SNOBOL</td></tr><tr><th>15</th><td>1963</td><td>CPL</td></tr><tr><th>16</th><td>1964</td><td>Speakeasy</td></tr><tr><th>17</th><td>1964</td><td>BASIC</td></tr><tr><th>18</th><td>1964</td><td>PL/I</td></tr><tr><th>19</th><td>1966</td><td>JOSS</td></tr><tr><th>20</th><td>1967</td><td>BCPL</td></tr><tr><th>21</th><td>1968</td><td>Logo</td></tr><tr><th>22</th><td>1969</td><td>B</td></tr><tr><th>23</th><td>1970</td><td>Pascal</td></tr><tr><th>24</th><td>1970</td><td>Forth</td></tr><tr><th>25</th><td>1972</td><td>C</td></tr><tr><th>26</th><td>1972</td><td>Smalltalk</td></tr><tr><th>27</th><td>1972</td><td>Prolog</td></tr><tr><th>28</th><td>1973</td><td>ML</td></tr><tr><th>29</th><td>1975</td><td>Scheme</td></tr><tr><th>30</th><td>1978</td><td>SQL </td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<p>使用DataFrame解决刚刚的两个问题</p>
+<p>Q1：给定语言是哪一年发明的？</p>
+<ul class="simple">
+<li><p>更加直观，无需记住列ID</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">function</span> <span class="n">year_created</span><span class="p">(</span><span class="n">P_df</span><span class="p">,</span><span class="n">language</span><span class="p">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">findfirst</span><span class="p">(</span><span class="n">P_df</span><span class="o">.</span><span class="n">language</span> <span class="o">.==</span> <span class="n">language</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">P_df</span><span class="o">.</span><span class="n">year</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+<span class="n">end</span>
+<span class="n">year_created</span><span class="p">(</span><span class="n">P_df</span><span class="p">,</span><span class="s2">&quot;Julia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2012
+</pre></div>
+</div>
+</div>
+</div>
+<p>Q2：在一年中创建了几种语言？</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P_df</span><span class="p">,</span><span class="n">year</span><span class="p">::</span><span class="n">Int64</span><span class="p">)</span>
+  <span class="n">year_count</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">findall</span><span class="p">(</span><span class="n">P_df</span><span class="o">.</span><span class="n">year</span><span class="o">.==</span><span class="n">year</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">year_count</span>
+<span class="n">end</span>
+<span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P_df</span><span class="p">,</span><span class="mi">2011</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>接下来，我们将使用字典。创建字典的快速方法是使用<code class="docutils literal notranslate"><span class="pre">Dic()</span></code>命令。但这会创建一个没有类型的字典。在这里，我们将指定此字典的类型。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 一个简单的例子来展示如何构建字典</span>
+<span class="n">Dict</span><span class="p">([(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Dict{Any,Any} with 3 entries:
+  &quot;B&quot; =&gt; 2
+  &quot;A&quot; =&gt; 1
+  1   =&gt; [1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>创建字典并指定类型</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_dictionary</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">{</span><span class="n">Integer</span><span class="p">,</span><span class="n">Vector</span><span class="p">{</span><span class="n">String</span><span class="p">}}()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Dict{Integer,Array{String,1}} with 0 entries
+</pre></div>
+</div>
+</div>
+</div>
+<p>符合预创建类型的字典可以插入，不符合的则将无法插入</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">P_dictionary</span><span class="p">[</span><span class="mi">67</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;julia&quot;</span><span class="p">,</span><span class="s2">&quot;programming&quot;</span><span class="p">]</span>       
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2-element Array{String,1}:
+ &quot;julia&quot;
+ &quot;programming&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_dictionary</span><span class="p">[</span><span class="s2">&quot;julia&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">MethodError</span>: Cannot `convert` an object of type String to an object of type Integer
+<span class="n">Closest</span> <span class="n">candidates</span> <span class="n">are</span><span class="p">:</span>
+  <span class="n">convert</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="o">!</span>Matched::EzXML.NodeType<span class="o">)</span> where T&lt;:Integer at /home/jerrywang/.julia/packages/EzXML/ZNwhK/src/node.jl:37
+  <span class="n">convert</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="o">!</span>Matched::EzXML.ReaderType<span class="o">)</span> where T&lt;:Integer at /home/jerrywang/.julia/packages/EzXML/ZNwhK/src/streamreader.jl:55
+  <span class="n">convert</span><span class="p">(::</span><span class="n">Type</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="o">!</span>Matched::T<span class="o">)</span> where T&lt;:Number at number.jl:6
+  <span class="o">...</span>
+
+<span class="ne">Stacktrace</span>:
+ <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">setindex</span><span class="o">!(</span>::Dict<span class="o">{</span>Integer,Array<span class="o">{</span>String,1<span class="o">}}</span>, ::Int64, ::String<span class="o">)</span> at ./dict.jl:372
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">top</span><span class="o">-</span><span class="n">level</span> <span class="n">scope</span> <span class="n">at</span> <span class="n">In</span><span class="p">[</span><span class="mi">53</span><span class="p">]:</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_dictionary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Dict{Integer,Array{String,1}} with 1 entry:
+  67 =&gt; [&quot;julia&quot;, &quot;programming&quot;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在，让我们用年份作为键和向量填充字典，这些键和向量将每年创建的所有编程语言作为其值。用遍历的方法进行</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>P_dictionary = Dict{Integer,Vector{String}}()  # 重新创建P_dictionary
+dict = Dict{Integer,Vector{String}}()
+for i = 1:size(P,1)
+    year,lang = P[i,:]
+    if year in keys(dict)
+        dict[year] = push!(dict[year],lang) 
+        # note that push! is not our favorite thing do in Julia, 
+        # but we&#39;re focusing on correctness rather than speed here
+    else
+        dict[year] = [lang]
+    end
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>尽管更聪明的方法是：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>P_dictionary = Dict{Integer,Vector{String}}()   # 重新创建P_dictionary
+curyear = P_df.year[1]
+P_dictionary[curyear] = [P_df.language[1]]
+for (i,nextyear) in enumerate(P_df.year[2:end])
+    if nextyear == curyear
+        #same key
+        P_dictionary[curyear] = push!(P_dictionary[curyear],P_df.language[i+1])
+    else
+        curyear = nextyear
+        P_dictionary[curyear] = [P_df.language[i+1]]
+    end
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>注意<code class="docutils literal notranslate"><span class="pre">push!</span></code>在朱莉娅不是我们最喜欢的事情，但是我们在这里专注于正确性而不是速度</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">keys</span><span class="p">(</span><span class="n">P_dictionary</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们用字典来解决刚才的问题</p>
+<p>Q1：给定语言是哪一年发明的？</p>
+<p>现在，我们将寻找许多小的向量，而不是寻找一个长向量</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function year_created(P_dictionary,language::String)
+    keys_vec = collect(keys(P_dictionary))
+    lookup = map(keyid -&gt; findfirst(P_dictionary[keyid].==language),keys_vec)
+# 现在查找向量没有任何值或数值。我们想找到数值的索引。
+    return keys_vec[findfirst((!isnothing).(lookup))]
+end
+year_created(P_dictionary,&quot;Julia&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2012
+</pre></div>
+</div>
+</div>
+</div>
+<p>问题2：在一年中创建了几种语言？</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P_dictionary</span><span class="p">,</span><span class="n">year</span><span class="p">::</span><span class="n">Int64</span><span class="p">)</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">P_dictionary</span><span class="p">[</span><span class="n">year</span><span class="p">])</span>
+<span class="n">how_many_per_year</span><span class="p">(</span><span class="n">P_dictionary</span><span class="p">,</span><span class="mi">2011</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-note-about-missing-data">
+<h2>📝 A note about missing data<a class="headerlink" href="#a-note-about-missing-data" title="Permalink to this headline">¶</a></h2>
+<p>创建一个有missing值的DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">missing</span>
+<span class="n">P_df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">language</span> <span class="o">=</span> <span class="n">P</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="data-frame"><thead><tr><th></th><th>year</th><th>language</th></tr><tr><th></th><th>Any</th><th>Any</th></tr></thead><tbody><p>73 rows × 2 columns</p><tr><th>1</th><td>missing</td><td>Regional Assembly Language</td></tr><tr><th>2</th><td>1952</td><td>Autocode</td></tr><tr><th>3</th><td>1954</td><td>IPL</td></tr><tr><th>4</th><td>1955</td><td>FLOW-MATIC</td></tr><tr><th>5</th><td>1957</td><td>FORTRAN</td></tr><tr><th>6</th><td>1957</td><td>COMTRAN</td></tr><tr><th>7</th><td>1958</td><td>LISP</td></tr><tr><th>8</th><td>1958</td><td>ALGOL 58</td></tr><tr><th>9</th><td>1959</td><td>FACT</td></tr><tr><th>10</th><td>1959</td><td>COBOL</td></tr><tr><th>11</th><td>1959</td><td>RPG</td></tr><tr><th>12</th><td>1962</td><td>APL</td></tr><tr><th>13</th><td>1962</td><td>Simula</td></tr><tr><th>14</th><td>1962</td><td>SNOBOL</td></tr><tr><th>15</th><td>1963</td><td>CPL</td></tr><tr><th>16</th><td>1964</td><td>Speakeasy</td></tr><tr><th>17</th><td>1964</td><td>BASIC</td></tr><tr><th>18</th><td>1964</td><td>PL/I</td></tr><tr><th>19</th><td>1966</td><td>JOSS</td></tr><tr><th>20</th><td>1967</td><td>BCPL</td></tr><tr><th>21</th><td>1968</td><td>Logo</td></tr><tr><th>22</th><td>1969</td><td>B</td></tr><tr><th>23</th><td>1970</td><td>Pascal</td></tr><tr><th>24</th><td>1970</td><td>Forth</td></tr><tr><th>25</th><td>1972</td><td>C</td></tr><tr><th>26</th><td>1972</td><td>Smalltalk</td></tr><tr><th>27</th><td>1972</td><td>Prolog</td></tr><tr><th>28</th><td>1973</td><td>ML</td></tr><tr><th>29</th><td>1975</td><td>Scheme</td></tr><tr><th>30</th><td>1978</td><td>SQL </td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td></tr></tbody></table></div></div>
+</div>
+<p>用<code class="docutils literal notranslate"><span class="pre">dropmissing()</span></code>删去有missing数值的行</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dropmissing</span><span class="p">(</span><span class="n">P_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finally">
+<h2>Finally…<a class="headerlink" href="#finally" title="Permalink to this headline">¶</a></h2>
+<p>After finishing this notebook, you should be able to:</p>
+<ul class="simple">
+<li><p>[ ] dowload a data file from the web given a url</p></li>
+<li><p>[ ] load data from a file from a text file via DelimitedFiles or CSV</p></li>
+<li><p>[ ] write your data to a text file or csv file</p></li>
+<li><p>[ ] load data from file types xlsx, jld, npz, mat, rda</p></li>
+<li><p>[ ] write your data to an xlsx file, jld, npz, mat, rda</p></li>
+<li><p>[ ] store data in a 2D array (<code class="docutils literal notranslate"><span class="pre">Matrix</span></code>), or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Dict</span></code></p></li>
+<li><p>[ ] write functions to perform basic lookups on <code class="docutils literal notranslate"><span class="pre">Matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dict</span></code> types</p></li>
+<li><p>[ ] use some of the basic functions on <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s such as: <code class="docutils literal notranslate"><span class="pre">dropmissing</span></code>, <code class="docutils literal notranslate"><span class="pre">describe</span></code>, <code class="docutils literal notranslate"><span class="pre">by</span></code>, and <code class="docutils literal notranslate"><span class="pre">join</span></code></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="READMD.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="../../R_study/README.html" title="next page">R语言的学习</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

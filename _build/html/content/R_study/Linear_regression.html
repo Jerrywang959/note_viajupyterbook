@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>安装并使用包 &#8212; Jerrynote</title>
+    <title>线性回归入门 &#8212; Jerrynote</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -88,6 +88,9 @@
   <li class="">
     <a href="../julia_study/Flux/README.html">Flux</a>
   </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">R_study</p>
 </li>
@@ -101,7 +104,7 @@
       <a href="R_usage_2.html">DataFrame</a>
     </li>
     <li class="active">
-      <a href="">安装并使用包</a>
+      <a href="">线性回归入门</a>
     </li>
     <li class="">
       <a href="Linear_reg_application.html">读取并初步探索数据</a>
@@ -118,7 +121,7 @@
 <p class="margin-caption">Course_study</p>
 </li>
   <li class="">
-    <a href="../Course_study/Art/README.html">中国民族歌剧鉴赏</a>
+    <a href="../Course_study/Art/README.html">Chinese Opera Appreciation</a>
   </li>
   <li class="">
     <a href="../Course_study/DM-ML/README.html">DM-ML</a>
@@ -179,7 +182,7 @@
         </div>
 
         <!-- Edit this page -->
-        
+        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/content/R_study/Linear_regression.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
@@ -201,13 +204,27 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">安装并使用包</a>
+        </li>
+    
     </ul>
 </nav>
 
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/executablebooks/jupyter-book/edit/master/content/R_study/Linear_regression.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
 
     </div>
 </div>
@@ -217,7 +234,9 @@
               <div>
                 
   <div class="section" id="id1">
-<h1>安装并使用包<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>线性回归入门<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>安装并使用包<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>切换清华镜像源</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -230,31 +249,15 @@
 ISLR:R中应用统计学习入门的数据</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;ISLR&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#install.packages(&quot;ISLR&quot;)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">Installing package into ‘/home/jerrywang/R/x86_64-pc-linux-gnu-library/4.0’
-(as ‘lib’ is unspecified)
-
-</pre>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;MASS&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#install.packages(&quot;MASS&quot;)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">Installing package into ‘/home/jerrywang/R/x86_64-pc-linux-gnu-library/4.0’
-(as ‘lib’ is unspecified)
-
-</pre>
 </div>
 </div>
 </div>
@@ -269,8 +272,9 @@ ISLR:R中应用统计学习入门的数据</p>
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h1>简单线性回归<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="id3">
+<h1>简单线性回归<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
 <p>查看变量名词</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,8 +558,8 @@ abline(lm.fit,lwd=3,col=&quot;red&quot;)
 <div class="output text_html"><strong>375:</strong> 375</div></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h1>多元线性回归<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h1>多元线性回归<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lm</span><span class="o">.</span><span class="n">fit</span><span class="o">=</span><span class="n">lm</span><span class="p">(</span><span class="n">medv</span><span class="o">~</span><span class="n">lstat</span><span class="o">+</span><span class="n">age</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">Boston</span><span class="p">)</span>
@@ -785,8 +789,8 @@ F-statistic: 412.4 on 1 and 504 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h1>加入解释变量的非线性项<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h1>加入解释变量的非线性项<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
 <p>函数<code class="docutils literal notranslate"><span class="pre">I()</span></code>将项包装起来</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -887,8 +891,8 @@ F-statistic: 214.2 on 5 and 500 DF,  p-value: &lt; 2.2e-16
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h1>定性预测因子<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h1>定性预测因子<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
 <p>查看Carseats数据的变量</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
