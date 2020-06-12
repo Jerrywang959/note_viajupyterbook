@@ -1,5 +1,6 @@
 - file: README
 - file: content/Regular_Expression
+- file: content/proxy_setting
 
 - header: Julia_study
 - file: content/julia_study/README
@@ -27,7 +28,6 @@
   sections:
     - file: content/julia_study/Data_science_course_from_juliaacademy/Data
 
-
 - header: R_study
 - file: content/R_study/README
   sections:
@@ -38,58 +38,3 @@
     - file: content/R_study/Logistic_reg
     - file: content/R_study/SVM_practice
 
-- header: Course_study
-- file: content/Course_study/Art/README
-  sections:
-    - file: content/Course_study/Art/Dang_de_nver
-
-
-- file: content/Course_study/DM-ML/README
-  sections:
-    - file: content/Course_study/DM-ML/Homework
-    - file: content/Course_study/DM-ML/Math_base_matrix
-    - file: content/Course_study/DM-ML/Math_base_opt
-    - file: content/Course_study/DM-ML/Supervised_learning
-    - file: content/Course_study/DM-ML/Linear_regression
-    - file: content/Course_study/DM-ML/Logistic_reg
-
-- file: content/Course_study/Game_Thoery/README
-  sections:
-    - file: content/Course_study/Game_Thoery/Basics
-    - file: content/Course_study/Game_Thoery/Nash_equilibria
-    - file: content/Course_study/Game_Thoery/Extensive-Form_games
-
-- file: content/Course_study/Financial_Lecture/README
-  sections:
-    - file: content/Course_study/Financial_Lecture/Learn_from_ruixin
-    - file: content/Course_study/Financial_Lecture/Covid_to_invention
-    - file: content/Course_study/Financial_Lecture/Covid_to_company
-    - file: content/Course_study/Financial_Lecture/To_be_a_Analysts
-    - file: content/Course_study/International_Finance/Indexed_investment_logic
-    - file: content/Course_study/Financial_Lecture/Tao_and_the_Art_of_Adversity
-    - file: content/Course_study/Financial_Lecture/Digital_finance_effect_on_residents_economic_decisions
-    - file: content/Course_study/Financial_Lecture/Global_economy_and_finance_under_the_impact_of_epidemic
-    - file: content/Course_study/Financial_Lecture/Compliance_risk_management_of_financial_institutions_and_construction_of_compliance_culture
-    - file: content/Course_study/Financial_Lecture/Shi_and_Responsibility
-
-- file: content/Course_study/International_Finance/README
-  sections:
-    - file: content/Course_study/International_Finance/Exchanges
-    - file: content/Course_study/International_Finance/Exchanges_market
-    - file: content/Course_study/International_Finance/Balance_payment
-    - file: content/Course_study/International_Finance/Exchange_price_adjustment
-
-- file: content/Course_study/Random_process/README
-  sections:
-    - file: content/Course_study/Random_process/Basics
-
-- file: content/Course_study/M&A/README
-  sections:
-    - file: content/Course_study/M&A/Why_M&A
-    - file: content/Course_study/M&A/M&A_Fund
-
-
-- file: content/Course_study/Times_series/README
-  sections:
-    - file: content/Course_study/Times_series/Introduction
-    - file: content/Course_study/Times_series/Math_base

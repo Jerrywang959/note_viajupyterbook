@@ -25,7 +25,7 @@
     <script src="../../../_static/copybutton.js"></script>
     <script src="../../../_static/mystnb.js"></script>
     <script src="../../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -46,9 +46,9 @@
     <div class="container-xl">
       <div class="row">
           
-
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    <div class="navbar-brand-box">
+    
+        <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../../../index.html">
   
   <img src="../../../_static/logo.png" class="logo" alt="logo">
@@ -72,6 +72,9 @@
   </li>
   <li class="">
     <a href="../../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../../proxy_setting.html">各种设置镜像或代理</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Julia_study</p>
@@ -126,36 +129,15 @@
   <li class="">
     <a href="../../R_study/README.html">R语言的学习</a>
   </li>
-<li class="navbar-special">
-<p class="margin-caption">Course_study</p>
-</li>
-  <li class="">
-    <a href="../../Course_study/Art/README.html">Chinese Opera Appreciation</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/DM-ML/README.html">DM-ML</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/Game_Thoery/README.html">Game_Thoery</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/Financial_Lecture/README.html">Financial_Lecture</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/International_Finance/README.html">International_Finance</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/Random_process/README.html">Random_process</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/M&A/README.html">M&A</a>
-  </li>
-  <li class="">
-    <a href="../../Course_study/Times_series/README.html">Times_Series</a>
-  </li>
 </ul>
 </nav>
-<p class="navbar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -175,6 +157,7 @@
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
+        
         <div class="dropdown-buttons-trigger">
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
 
@@ -183,22 +166,29 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Base/Packages.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
+                <a class="dropdown-buttons" href="../../../_sources/content/julia_study/Base/Packages.md"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
             
         </div>
 
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/executablebooks/jupyter-book/edit/master/content/julia_study/Base/Packages.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/julia_study/Base/Packages.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-        
-
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
@@ -212,7 +202,7 @@
 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/executablebooks/jupyter-book/edit/master/content/julia_study/Base/Packages.md">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/julia_study/Base/Packages.md">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -220,7 +210,7 @@
     </div>
 </div>
     <div id="main-content" class="row">
-        <div class="col-12 col-md-9 col-xxl-7 pl-md-3 pr-md-0">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
               <div>
                 
@@ -284,13 +274,15 @@
 
     </div>
     <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    <p>
-          &copy; Copyright 2020.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-    </p>
-  </div>
-</footer>
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
 </main>
 
 
