@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>神经网络练习1:为二手丰田卡罗拉定价 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="README.html">R语言的学习</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/Neural_Networks_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Neural_Networks_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/Neural_Networks_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">加载和预处理数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">训练神经网络</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">预测验证集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id5" class="nav-link">调整模型</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">绘制预测价格和真实价格</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Neural_Networks_1.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>神经网络练习1:为二手丰田卡罗拉定价<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>加载和预处理数据集<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">mxnet</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Loading required package: lattice
+
+Loading required package: ggplot2
+
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+
+</pre>
+</div>
+</div>
+</div>
+<p>读取数据,并转化成dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">toyota</span><span class="o">.</span><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/Jerrywang959/note_viajupyterbook/raw/master/datas/ToyotaCorolla.csv&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">toyota</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	1436 obs. of  39 variables:
+ $ Id               : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Model            : chr  &quot;TOYOTA Corolla 2.0 D4D HATCHB TERRA 2/3-Doors&quot; &quot;TOYOTA Corolla 2.0 D4D HATCHB TERRA 2/3-Doors&quot; &quot;\xa0TOYOTA Corolla 2.0 D4D HATCHB TERRA 2/3-Doors&quot; &quot;TOYOTA Corolla 2.0 D4D HATCHB TERRA 2/3-Doors&quot; ...
+ $ Price            : int  13500 13750 13950 14950 13750 12950 16900 18600 21500 12950 ...
+ $ Age_08_04        : int  23 23 24 26 30 32 27 30 27 23 ...
+ $ Mfg_Month        : int  10 10 9 7 3 1 6 3 6 10 ...
+ $ Mfg_Year         : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
+ $ KM               : int  46986 72937 41711 48000 38500 61000 94612 75889 19700 71138 ...
+ $ Fuel_Type        : chr  &quot;Diesel&quot; &quot;Diesel&quot; &quot;Diesel&quot; &quot;Diesel&quot; ...
+ $ HP               : int  90 90 90 90 90 90 90 90 192 69 ...
+ $ Met_Color        : int  1 1 1 0 0 0 1 1 0 0 ...
+ $ Color            : chr  &quot;Blue&quot; &quot;Silver&quot; &quot;Blue&quot; &quot;Black&quot; ...
+ $ Automatic        : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ CC               : int  2000 2000 2000 2000 2000 2000 2000 2000 1800 1900 ...
+ $ Doors            : int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Cylinders        : int  4 4 4 4 4 4 4 4 4 4 ...
+ $ Gears            : int  5 5 5 5 5 5 5 5 5 5 ...
+ $ Quarterly_Tax    : int  210 210 210 210 210 210 210 210 100 185 ...
+ $ Weight           : int  1165 1165 1165 1165 1170 1170 1245 1245 1185 1105 ...
+ $ Mfr_Guarantee    : int  0 0 1 1 1 0 0 1 0 0 ...
+ $ BOVAG_Guarantee  : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Guarantee_Period : int  3 3 3 3 3 3 3 3 3 3 ...
+ $ ABS              : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Airbag_1         : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Airbag_2         : int  1 1 1 1 1 1 1 1 0 1 ...
+ $ Airco            : int  0 1 0 0 1 1 1 1 1 1 ...
+ $ Automatic_airco  : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Boardcomputer    : int  1 1 1 1 1 1 1 1 0 1 ...
+ $ CD_Player        : int  0 1 0 0 0 0 0 1 0 0 ...
+ $ Central_Lock     : int  1 1 0 0 1 1 1 1 1 0 ...
+ $ Powered_Windows  : int  1 0 0 0 1 1 1 1 1 0 ...
+ $ Power_Steering   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ Radio            : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ Mistlamps        : int  0 0 0 0 1 1 0 0 0 0 ...
+ $ Sport_Model      : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Backseat_Divider : int  1 1 1 1 1 1 1 1 0 1 ...
+ $ Metallic_Rim     : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ Radio_cassette   : int  0 0 0 0 0 0 0 0 1 0 ...
+ $ Parking_Assistant: int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Tow_Bar          : int  0 0 0 0 0 0 0 0 0 0 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们用<code class="docutils literal notranslate"><span class="pre">Age_08_04,</span> <span class="pre">KM,</span> <span class="pre">Fuel_Type,</span> <span class="pre">HP,</span> <span class="pre">Automatic,</span> <span class="pre">Doors,</span> <span class="pre">Quarterly_Tax,</span> <span class="pre">Mfr_Guarantee,</span> <span class="pre">Guarantee_Period,</span> <span class="pre">Airco,</span> <span class="pre">Automatic_airco,</span> <span class="pre">CD_Player,</span> <span class="pre">Powered_Windows,</span> <span class="pre">Sport_Model</span> <span class="pre">and</span> <span class="pre">Tow_Bar</span></code>来预测价格,因此删除不需要的变量</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">toyota</span><span class="o">=</span><span class="n">toyota</span><span class="o">.</span><span class="n">df</span><span class="p">[,</span><span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">38</span><span class="p">)]</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">toyota</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	1436 obs. of  16 variables:
+ $ Price           : int  13500 13750 13950 14950 13750 12950 16900 18600 21500 12950 ...
+ $ Age_08_04       : int  23 23 24 26 30 32 27 30 27 23 ...
+ $ KM              : int  46986 72937 41711 48000 38500 61000 94612 75889 19700 71138 ...
+ $ Fuel_Type       : chr  &quot;Diesel&quot; &quot;Diesel&quot; &quot;Diesel&quot; &quot;Diesel&quot; ...
+ $ HP              : int  90 90 90 90 90 90 90 90 192 69 ...
+ $ Automatic       : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Doors           : int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Quarterly_Tax   : int  210 210 210 210 210 210 210 210 100 185 ...
+ $ Mfr_Guarantee   : int  0 0 1 1 1 0 0 1 0 0 ...
+ $ Guarantee_Period: int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Airco           : int  0 1 0 0 1 1 1 1 1 1 ...
+ $ Automatic_airco : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ CD_Player       : int  0 1 0 0 0 0 0 1 0 0 ...
+ $ Powered_Windows : int  1 0 0 0 1 1 1 1 1 0 ...
+ $ Sport_Model     : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Tow_Bar         : int  0 0 0 0 0 0 0 0 0 0 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>把字符串类型变量<code class="docutils literal notranslate"><span class="pre">Fuel_Type</span></code>转化为虚拟变量.因为Fuel_Type有三种类型的字符串 Fuel_Type==”CNG” 则赋值<code class="docutils literal notranslate"><span class="pre">Fuel_Type_CNG</span></code>为1. Fuel_Type==”Diesel”则赋值<code class="docutils literal notranslate"><span class="pre">Fuel_Type_Diesel</span></code>为1.最后删除<code class="docutils literal notranslate"><span class="pre">Fuel_Type</span></code>这一变量</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>toyota$Fuel_Type_CNG &lt;- 1* (toyota$Fuel_Type == &quot;CNG&quot;)
+toyota$Fuel_Type_Diesel &lt;- 1* (toyota$Fuel_Type == &quot;Diesel&quot;)
+toyota=toyota[,-4]
+str(toyota)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	1436 obs. of  17 variables:
+ $ Price           : int  13500 13750 13950 14950 13750 12950 16900 18600 21500 12950 ...
+ $ Age_08_04       : int  23 23 24 26 30 32 27 30 27 23 ...
+ $ KM              : int  46986 72937 41711 48000 38500 61000 94612 75889 19700 71138 ...
+ $ HP              : int  90 90 90 90 90 90 90 90 192 69 ...
+ $ Automatic       : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Doors           : int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Quarterly_Tax   : int  210 210 210 210 210 210 210 210 100 185 ...
+ $ Mfr_Guarantee   : int  0 0 1 1 1 0 0 1 0 0 ...
+ $ Guarantee_Period: int  3 3 3 3 3 3 3 3 3 3 ...
+ $ Airco           : int  0 1 0 0 1 1 1 1 1 1 ...
+ $ Automatic_airco : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ CD_Player       : int  0 1 0 0 0 0 0 1 0 0 ...
+ $ Powered_Windows : int  1 0 0 0 1 1 1 1 1 0 ...
+ $ Sport_Model     : int  0 0 0 0 0 0 1 0 0 0 ...
+ $ Tow_Bar         : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Fuel_Type_CNG   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Fuel_Type_Diesel: num  1 1 1 1 1 1 1 1 0 1 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>对于价格,一般都求log</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>toyota$Price=log(toyota$Price)
+</pre></div>
+</div>
+</div>
+</div>
+<p>将数据集拆分为训练和验证集。我们在这里使用另一个函数<code class="docutils literal notranslate"><span class="pre">sample()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">train</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="p">(</span><span class="n">toyota</span><span class="p">),</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">dim</span><span class="p">(</span><span class="n">toyota</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  
+<span class="n">valid</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="n">setdiff</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="p">(</span><span class="n">toyota</span><span class="p">),</span> <span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> 
+<span class="n">train</span> <span class="o">&lt;-</span> <span class="n">toyota</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">valid</span> <span class="o">&lt;-</span> <span class="n">toyota</span><span class="p">[</span><span class="n">valid</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们首先在包插入符号中使用函数preProcess将数字变量缩放为0-1，并将转换保存到preProcValues。然后使用<code class="docutils literal notranslate"><span class="pre">predict()</span></code>将转换应用于数据。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">preProcValues</span><span class="o">=</span><span class="n">preProcess</span><span class="p">(</span><span class="n">train</span><span class="p">,</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span><span class="n">rangeBounds</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">trainTransformed</span> <span class="o">&lt;-</span> <span class="n">predict</span><span class="p">(</span><span class="n">preProcValues</span><span class="p">,</span> <span class="n">train</span><span class="p">)</span>
+<span class="n">validTransformed</span> <span class="o">&lt;-</span> <span class="n">predict</span><span class="p">(</span><span class="n">preProcValues</span><span class="p">,</span> <span class="n">valid</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">validTransformed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	575 obs. of  17 variables:
+ $ Price           : num  0.563 0.572 0.614 0.795 0.542 ...
+ $ Age_08_04       : num  0.278 0.278 0.316 0.329 0.278 ...
+ $ KM              : num  0.2154 0.3344 0.2201 0.0903 0.3261 ...
+ $ HP              : num  0.171 0.171 0.171 1 0 ...
+ $ Automatic       : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Doors           : num  0.333 0.333 0.333 0.333 0.333 ...
+ $ Quarterly_Tax   : num  0.723 0.723 0.723 0.307 0.629 ...
+ $ Mfr_Guarantee   : num  0 0 1 0 0 1 1 0 0 0 ...
+ $ Guarantee_Period: num  0 0 0 0 0 ...
+ $ Airco           : num  0 1 0 1 1 1 1 1 1 1 ...
+ $ Automatic_airco : num  0 0 0 0 0 1 1 1 0 1 ...
+ $ CD_Player       : num  0 1 0 0 0 0 1 0 0 1 ...
+ $ Powered_Windows : num  1 0 0 1 0 1 1 1 1 1 ...
+ $ Sport_Model     : num  0 0 0 0 0 1 1 1 0 1 ...
+ $ Tow_Bar         : num  0 0 0 0 0 0 0 0 1 1 ...
+ $ Fuel_Type_CNG   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Fuel_Type_Diesel: num  1 1 1 0 1 0 0 0 0 0 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>训练神经网络<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>我们将在包<code class="docutils literal notranslate"><span class="pre">mxnet</span></code>中使用<code class="docutils literal notranslate"><span class="pre">mx.mlp()</span></code>函数。数据和标签表示x和y。让我们首先创建它们。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">trainTransformed</span><span class="p">[,</span><span class="mi">2</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">trainTransformed</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hidden_node</span></code>:隐藏层中的节点数。c(2,3)表示有2个隐藏层，第一个隐藏层具有2个神经元，第二个隐藏层具有3个。<br />
+<code class="docutils literal notranslate"><span class="pre">out_node</span> <span class="pre">=</span> <span class="pre">1</span></code>:由于是回归问题,因此在输出层中有1个节点<br />
+<code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">=&quot;relu&quot;</span></code>: 激活函数选择<code class="docutils literal notranslate"><span class="pre">relu</span></code>,也可以选择<code class="docutils literal notranslate"><span class="pre">Sigmoid,tanh</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">out_activation</span> <span class="pre">=&quot;rmse&quot;</span></code>:输出层中的激活函数；对于分类问题，默认值为softmax。<br />
+<code class="docutils literal notranslate"><span class="pre">array.layout</span> <span class="pre">=&quot;rowmajor&quot;</span></code>：如果row是数据的实例<br />
+<code class="docutils literal notranslate"><span class="pre">num.round</span></code>：迭代次数<br />
+<code class="docutils literal notranslate"><span class="pre">array.batch.size</span></code>：每个批次中的样本数
+<code class="docutils literal notranslate"><span class="pre">learning.rate</span></code>：梯度下降中的学习率<br />
+<code class="docutils literal notranslate"><span class="pre">momentum</span></code>: 带有动量的梯度下降考虑了过去的梯度以平滑更新。它计算渐变的指数加权平均值，然后使用该渐变来更新您的权重。它比标准的梯度下降算法更快地工作。这是介于0到1之间的数字。<br />
+<code class="docutils literal notranslate"><span class="pre">eval_metric</span></code>：  评估指标。分类问题可以使用mx.metric.accuracy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model</span><span class="o">&lt;-</span><span class="n">mx</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">hidden_node</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span><span class="n">out_node</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">out_activation</span><span class="o">=</span><span class="s2">&quot;rmse&quot;</span><span class="p">,</span><span class="n">array</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;rowmajor&quot;</span><span class="p">,</span> <span class="n">num</span><span class="o">.</span><span class="n">round</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">learning</span><span class="o">.</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="nb">eval</span><span class="o">.</span><span class="n">metric</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Start training with 1 devices
+
+[1] Train-rmse=0.183488687949962
+
+[2] Train-rmse=0.153313753548367
+
+[3] Train-rmse=0.153974139741782
+
+[4] Train-rmse=0.154017912416623
+
+[5] Train-rmse=0.154020231730979
+
+[6] Train-rmse=0.15402033282765
+
+[7] Train-rmse=0.154020323193279
+
+[8] Train-rmse=0.154020316128073
+
+[9] Train-rmse=0.154020304309911
+
+[10] Train-rmse=0.154020291977915
+
+[11] Train-rmse=0.154020283242752
+
+[12] Train-rmse=0.154020263717092
+
+[13] Train-rmse=0.154020254339637
+
+[14] Train-rmse=0.154020238924643
+
+[15] Train-rmse=0.154020228519522
+
+[16] Train-rmse=0.154020210149987
+
+[17] Train-rmse=0.1540201987172
+
+[18] Train-rmse=0.154020177650041
+
+[19] Train-rmse=0.154020161721213
+
+[20] Train-rmse=0.154020142195554
+
+[21] Train-rmse=0.154020116889271
+
+[22] Train-rmse=0.154020088243073
+
+[23] Train-rmse=0.154020059853792
+
+[24] Train-rmse=0.15402002928072
+
+[25] Train-rmse=0.154019988944818
+
+[26] Train-rmse=0.154019947067417
+
+[27] Train-rmse=0.15401990634614
+
+[28] Train-rmse=0.15401985316441
+
+[29] Train-rmse=0.154019790091391
+
+[30] Train-rmse=0.154019718411668
+
+[31] Train-rmse=0.154019638639072
+
+[32] Train-rmse=0.154019539212358
+
+[33] Train-rmse=0.15401943040819
+
+[34] Train-rmse=0.154019292443991
+
+[35] Train-rmse=0.154019130715008
+
+[36] Train-rmse=0.154018936742996
+
+[37] Train-rmse=0.154018693443002
+
+[38] Train-rmse=0.154018403255734
+
+[39] Train-rmse=0.154018040874909
+
+[40] Train-rmse=0.15401757534208
+
+[41] Train-rmse=0.154016981607881
+
+[42] Train-rmse=0.154016203921417
+
+[43] Train-rmse=0.154015167134589
+
+[44] Train-rmse=0.154013746899777
+
+[45] Train-rmse=0.15401174693272
+
+[46] Train-rmse=0.154008840178621
+
+[47] Train-rmse=0.15400443598628
+
+[48] Train-rmse=0.15399742563223
+
+[49] Train-rmse=0.153985560968004
+
+[50] Train-rmse=0.153963776241089
+
+</pre>
+</div>
+</div>
+</div>
+<p>生成的神经网络中的权重和偏差可以通过<code class="docutils literal notranslate"><span class="pre">model$arg.params</span></code>找到。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>model$arg.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>$fullyconnected0_weight
+              [,1]         [,2]          [,3]         [,4]
+ [1,]  0.000251364  0.002721510  0.0227664988  0.015098012
+ [2,]  0.007656842  0.007514593  0.0155111169  0.013211223
+ [3,] -0.001833370 -0.002022291  0.0066052107 -0.001807258
+ [4,] -0.005291542  0.004286422  0.0010420483 -0.007832700
+ [5,]  0.003257737 -0.011945103 -0.0126218610  0.001095789
+ [6,] -0.001088850 -0.004286718  0.0030281481 -0.002240660
+ [7,]  0.008684259 -0.007507119 -0.0174596384 -0.010892521
+ [8,] -0.005166853  0.007712031 -0.0021526928  0.001577258
+ [9,] -0.004102852 -0.002837309 -0.0146477185 -0.014754630
+[10,]  0.004337608 -0.014782390 -0.0178184658 -0.014386953
+[11,]  0.003708433 -0.011563182 -0.0172139946 -0.014998819
+[12,]  0.006491954 -0.004553760 -0.0156454649 -0.002145444
+[13,] -0.000991428 -0.007957110 -0.0117291473  0.001156766
+[14,] -0.005837713  0.004476704  0.0091741346  0.002934348
+[15,] -0.006012313  0.008900746 -0.0009431211 -0.006508498
+[16,]  0.006296108  0.007908014 -0.0044523384 -0.006566367
+
+$fullyconnected0_bias
+[1] -6.956844e-06  1.790000e-05  4.851807e-05  4.376541e-06
+
+$fullyconnected1_weight
+             [,1]         [,2]         [,3]         [,4]
+[1,] -0.004922843 -0.007851154 -0.001978758 -0.005360282
+[2,] -0.003904139  0.012083029 -0.011141293  0.014593910
+[3,] -0.011899862  0.017043669 -0.029824894  0.031573217
+[4,]  0.004266148  0.017065141 -0.024430301  0.012832401
+
+$fullyconnected1_bias
+[1] -3.499730e-05  6.165585e-05  4.006649e-05  1.216710e-04
+
+$fullyconnected2_weight
+             [,1]
+[1,]  0.005857619
+[2,] -0.019910228
+[3,]  0.029440334
+[4,] -0.027128175
+
+$fullyconnected2_bias
+[1] 0.4279093
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>预测验证集<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>使用训练有素的模型来预测测试集。这里的<code class="docutils literal notranslate"><span class="pre">predit()</span></code>将使用模型来预测valid.x。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">validTransformed</span><span class="p">[,</span><span class="mi">2</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">validTransformed</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;rowmajor&quot;</span><span class="p">)</span>
+<span class="n">preds</span><span class="o">=</span><span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以通过包装预测中的函数 <code class="docutils literal notranslate"><span class="pre">precision()</span></code> 计算预测精度。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accu</span><span class="o">=</span><span class="n">accuracy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">accu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A matrix: 1 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>ME</th><th scope=col>RMSE</th><th scope=col>MAE</th><th scope=col>MPE</th><th scope=col>MAPE</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Test set</th><td>-0.006539717</td><td>0.1417234</td><td>0.1112813</td><td>-13.51134</td><td>30.00869</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>有效均方根值为0.14
+ME：平均误差<br />
+RMSE：均方根误差<br />
+MAE：平均绝对误差<br />
+MPE：平均百分比误差<br />
+MAPE：平均绝对百分比误差</p>
+</div>
+<div class="section" id="id5">
+<h2>调整模型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>让我们降低学习率并增加迭代次数。并通过辍学简化模型。<br />
+这里的dropout是<code class="docutils literal notranslate"><span class="pre">[0,1)</span></code>中的数字，其中包含从最后一个隐藏层到输出层的丢失率。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model2</span><span class="o">&lt;-</span><span class="n">mx</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">hidden_node</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span><span class="n">out_node</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">out_activation</span><span class="o">=</span><span class="s2">&quot;rmse&quot;</span><span class="p">,</span><span class="n">array</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;rowmajor&quot;</span><span class="p">,</span> <span class="n">num</span><span class="o">.</span><span class="n">round</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">learning</span><span class="o">.</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="nb">eval</span><span class="o">.</span><span class="n">metric</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Start training with 1 devices
+
+[1] Train-rmse=0.181136857846688
+
+[2] Train-rmse=0.14961624505191
+
+[3] Train-rmse=0.149909008294344
+
+[4] Train-rmse=0.149925264947373
+
+[5] Train-rmse=0.14992555975914
+
+[6] Train-rmse=0.149925827851583
+
+[7] Train-rmse=0.149925471508297
+
+[8] Train-rmse=0.149925226024513
+
+[9] Train-rmse=0.149925478316587
+
+[10] Train-rmse=0.14992534536226
+
+[11] Train-rmse=0.149925387881953
+
+[12] Train-rmse=0.149925299759569
+
+[13] Train-rmse=0.14992560921558
+
+[14] Train-rmse=0.149925383771288
+
+[15] Train-rmse=0.1499252824177
+
+[16] Train-rmse=0.14992511529347
+
+[17] Train-rmse=0.149924984908309
+
+[18] Train-rmse=0.149924703327746
+
+[19] Train-rmse=0.149925772999895
+
+[20] Train-rmse=0.149925673316265
+
+[21] Train-rmse=0.149925271241829
+
+[22] Train-rmse=0.149925235530426
+
+[23] Train-rmse=0.149925186844735
+
+[24] Train-rmse=0.149924863900604
+
+[25] Train-rmse=0.149924803653668
+
+[26] Train-rmse=0.149925042842997
+
+[27] Train-rmse=0.149924286994441
+
+[28] Train-rmse=0.149924871222726
+
+[29] Train-rmse=0.149924092637054
+
+[30] Train-rmse=0.149924787082549
+
+[31] Train-rmse=0.149924159563821
+
+[32] Train-rmse=0.149924602359533
+
+[33] Train-rmse=0.14992410869434
+
+[34] Train-rmse=0.149924391302569
+
+[35] Train-rmse=0.149923594861195
+
+[36] Train-rmse=0.149923151166275
+
+[37] Train-rmse=0.149922473805732
+
+[38] Train-rmse=0.14992360719319
+
+[39] Train-rmse=0.149921787838484
+
+[40] Train-rmse=0.149923002283121
+
+[41] Train-rmse=0.14992159399493
+
+[42] Train-rmse=0.149921005655979
+
+[43] Train-rmse=0.149922627827217
+
+[44] Train-rmse=0.149922246563024
+
+[45] Train-rmse=0.149918797201124
+
+[46] Train-rmse=0.149918206293007
+
+[47] Train-rmse=0.14991570713705
+
+[48] Train-rmse=0.149915914468724
+
+[49] Train-rmse=0.149913916300083
+
+[50] Train-rmse=0.149911961421884
+
+[51] Train-rmse=0.149907904195374
+
+[52] Train-rmse=0.149900396836215
+
+[53] Train-rmse=0.149897898322549
+
+[54] Train-rmse=0.149889087111786
+
+[55] Train-rmse=0.14988150601757
+
+[56] Train-rmse=0.149846929928352
+
+[57] Train-rmse=0.1498215007114
+
+[58] Train-rmse=0.14981069094662
+
+[59] Train-rmse=0.149749014783522
+
+[60] Train-rmse=0.149558845650533
+
+[61] Train-rmse=0.149352366040493
+
+[62] Train-rmse=0.148745559155941
+
+[63] Train-rmse=0.14699293261972
+
+[64] Train-rmse=0.141735690164155
+
+[65] Train-rmse=0.12237073326933
+
+[66] Train-rmse=0.0961748195234044
+
+[67] Train-rmse=0.0894276273019355
+
+[68] Train-rmse=0.0810258749487071
+
+[69] Train-rmse=0.0765387288712222
+
+[70] Train-rmse=0.0744790292890935
+
+[71] Train-rmse=0.0731971587600379
+
+[72] Train-rmse=0.0731499554782078
+
+[73] Train-rmse=0.0680770960090489
+
+[74] Train-rmse=0.065006568706755
+
+[75] Train-rmse=0.0654980097736778
+
+[76] Train-rmse=0.0655092588657963
+
+[77] Train-rmse=0.0631624267854053
+
+[78] Train-rmse=0.0646996150628246
+
+[79] Train-rmse=0.0676517292600254
+
+[80] Train-rmse=0.064760457338958
+
+[81] Train-rmse=0.0639198906719685
+
+[82] Train-rmse=0.0619818811015836
+
+[83] Train-rmse=0.0653810565327776
+
+[84] Train-rmse=0.0633438109452354
+
+[85] Train-rmse=0.0645651376709856
+
+[86] Train-rmse=0.0634866696300692
+
+[87] Train-rmse=0.0638958855435766
+
+[88] Train-rmse=0.0641264837106754
+
+[89] Train-rmse=0.065074404894278
+
+[90] Train-rmse=0.0661649225793522
+
+[91] Train-rmse=0.0621323503939242
+
+[92] Train-rmse=0.0631795721449729
+
+[93] Train-rmse=0.0647599571866208
+
+[94] Train-rmse=0.0639930803585669
+
+[95] Train-rmse=0.0605873103285658
+
+[96] Train-rmse=0.0631588802769266
+
+[97] Train-rmse=0.0615651053858214
+
+[98] Train-rmse=0.0633189174635657
+
+[99] Train-rmse=0.0626326498158019
+
+[100] Train-rmse=0.0643827822059393
+
+</pre>
+</div>
+</div>
+</div>
+<p>让我们检查准确性。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">preds2</span> <span class="o">=</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;rowmajor&quot;</span><span class="p">))</span>
+<span class="n">accu2</span><span class="o">=</span><span class="n">accuracy</span><span class="p">(</span><span class="n">preds2</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">accu2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A matrix: 1 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>ME</th><th scope=col>RMSE</th><th scope=col>MAE</th><th scope=col>MPE</th><th scope=col>MAPE</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Test set</th><td>-0.004508121</td><td>0.05052696</td><td>0.03975079</td><td>-3.564681</td><td>11.37297</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>有效均方根值是0.05，比以前的模型好。</p>
+</div>
+<div class="section" id="id6">
+<h2>绘制预测价格和真实价格<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>当前的preds2是标准化的标签。让我们重置它们。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">real</span><span class="o">.</span><span class="n">preds2</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="n">preds2</span><span class="o">*</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">train</span><span class="p">[,</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">train</span><span class="p">[,</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="nb">min</span><span class="p">(</span><span class="n">train</span><span class="p">[,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">real</span><span class="o">.</span><span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">exp</span><span class="p">(</span><span class="n">valid</span><span class="p">[,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>让我们使用<code class="docutils literal notranslate"><span class="pre">ggplot()</span></code>，让我们首先将预测价格和真实价格合并为一列。使用“预测”或“正确”来标记它们。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result_compare2</span><span class="o">=</span><span class="n">rbind</span><span class="p">(</span><span class="n">cbind</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">575</span><span class="p">),</span><span class="n">real</span><span class="o">.</span><span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">,</span><span class="mi">575</span><span class="p">)),</span><span class="n">cbind</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">575</span><span class="p">),</span><span class="n">real</span><span class="o">.</span><span class="n">preds2</span><span class="p">,</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;Predict&quot;</span><span class="p">,</span><span class="mi">575</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>将矩阵转换为data.frame。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result_compare2</span><span class="o">=</span><span class="k">as</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">result_compare2</span><span class="p">)</span>
+<span class="n">colnames</span><span class="p">(</span><span class="n">result_compare2</span><span class="p">)</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span><span class="s2">&quot;Price&quot;</span><span class="p">,</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们需要将指数和价格转换为数字变量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>result_compare2$Index=as.numeric(result_compare2$Index)
+result_compare2$Price=as.numeric(result_compare2$Price)
+## 在R 3.5-3.6中 ,应该使用
+## result_compare2$Index=as.numeric(levels(result_compare2$Index))[result_compare2$Index]
+##  result_compare2$Price=as.numeric(levels(result_compare2$Price))[result_compare2$Price]
+## 这一差异的产生是因为3.5-3.6的R预测变量结果类型是factor 而这里是是 str
+</pre></div>
+</div>
+</div>
+</div>
+<p>使用<code class="docutils literal notranslate"><span class="pre">ggplot()</span></code>绘制它们。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">result_compare2</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Price</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="n">Value</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Neural_Networks_1_39_0.png" src="../../_images/Neural_Networks_1_39_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
