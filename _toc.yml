@@ -38,4 +38,5 @@
     - file: content/R_study/Logistic_reg
     - file: content/R_study/SVM_practice
     - file: content/R_study/Neural_Networks_1
+    - file: content/R_study/DNN_1
 
