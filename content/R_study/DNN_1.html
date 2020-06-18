@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>简单生成DNN &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="多层感知机" href="Neural_Networks_1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">线性回归入门</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
+    </li>
+    <li class="">
+      <a href="Neural_Networks_1.html">多层感知机</a>
+    </li>
+    <li class="active">
+      <a href="">简单生成DNN</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/DNN_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/DNN_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/DNN_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和预处理数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">训练深度神经网络</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">预测验证集</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/DNN_1.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dnn">
+<h1>简单生成DNN<a class="headerlink" href="#dnn" title="Permalink to this headline">¶</a></h1>
+<p>再次考虑 为二手丰田卡罗拉定价 问题</p>
+<div class="section" id="id1">
+<h2>加载和预处理数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>加载包</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">mxnet</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Loading required package: lattice
+
+Loading required package: ggplot2
+
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+
+</pre>
+</div>
+</div>
+</div>
+<p>加载数据集</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">toyota</span><span class="o">.</span><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/Jerrywang959/note_viajupyterbook/raw/master/datas/ToyotaCorolla.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>使用<code class="docutils literal notranslate"><span class="pre">Age_08_04，KM，Fuel_Type，HP，Automatic，Doors，Quarterly_Tax，Mfr_Guarantee，Guarantee_Period，Airco，Automatic_airco，CD_Player，Powered_Windows，Sport_Model和Tow_Bar</span></code>来做价格预测,一次性做好变量的预处理</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>toyota=toyota.df[,-c(1,2,5,6,10,11,13,15,16,18,20,22,23,24,27,29,31,32,33,35,36,37,38)]
+toyota$Fuel_Type_CNG &lt;- 1* (toyota$Fuel_Type == &quot;CNG&quot;)
+toyota$Fuel_Type_Diesel &lt;- 1* (toyota$Fuel_Type == &quot;Diesel&quot;)
+toyota=toyota[,-4]
+toyota$Price=log(toyota$Price)
+set.seed(1)
+train.index &lt;- sample(row.names(toyota), 0.6*dim(toyota)[1])  
+valid.index &lt;- setdiff(row.names(toyota), train.index) 
+train &lt;- toyota[train.index, ]
+valid &lt;- toyota[valid.index, ]
+preProcValues=preProcess(train,method = &quot;range&quot;,rangeBounds = c(0,1))
+trainTransformed &lt;- predict(preProcValues, train)
+validTransformed &lt;- predict(preProcValues, valid)
+str(validTransformed)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	575 obs. of  17 variables:
+ $ Price           : num  0.563 0.572 0.614 0.795 0.542 ...
+ $ Age_08_04       : num  0.278 0.278 0.316 0.329 0.278 ...
+ $ KM              : num  0.2154 0.3344 0.2201 0.0903 0.3261 ...
+ $ HP              : num  0.171 0.171 0.171 1 0 ...
+ $ Automatic       : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Doors           : num  0.333 0.333 0.333 0.333 0.333 ...
+ $ Quarterly_Tax   : num  0.723 0.723 0.723 0.307 0.629 ...
+ $ Mfr_Guarantee   : num  0 0 1 0 0 1 1 0 0 0 ...
+ $ Guarantee_Period: num  0 0 0 0 0 ...
+ $ Airco           : num  0 1 0 1 1 1 1 1 1 1 ...
+ $ Automatic_airco : num  0 0 0 0 0 1 1 1 0 1 ...
+ $ CD_Player       : num  0 1 0 0 0 0 1 0 0 1 ...
+ $ Powered_Windows : num  1 0 0 1 0 1 1 1 1 1 ...
+ $ Sport_Model     : num  0 0 0 0 0 1 1 1 0 1 ...
+ $ Tow_Bar         : num  0 0 0 0 0 0 0 0 1 1 ...
+ $ Fuel_Type_CNG   : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Fuel_Type_Diesel: num  1 1 1 0 1 0 0 0 0 0 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>训练深度神经网络<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>软件包mxnet可以逐层生成神经网络。因此，我们可以根据设计的网络结构独立定义每个层。<br />
+我们首先通过函数<code class="docutils literal notranslate"><span class="pre">mx.symbol.Variable()</span></code>定义输入层。此步骤仅创建具有指定名称的符号变量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>然后，我们定义第一个隐藏层。<code class="docutils literal notranslate"><span class="pre">mx.symbol.FullyConnected()</span></code>用于定义具有输入数据和隐藏节点数15 的完全连接层。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fc1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fc1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>然后在第一个隐藏层之后定义激活函数。第一个参数是输入，它是第一隐藏层的输出。我们在这里使用<code class="docutils literal notranslate"><span class="pre">tanh</span></code>函数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">act1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">fc1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tanh1&quot;</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>然后是第二个隐藏层。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fc2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">act1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fc2&quot;</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>第二隐藏层之后的激活函数。我们现在使用<code class="docutils literal notranslate"><span class="pre">relu</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">act2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">fc2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;relu2&quot;</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在我们定义输出层。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fc3</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">act2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fc3&quot;</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以及线性回归输出。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lro</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">LinearRegressionOutput</span><span class="p">(</span><span class="n">fc3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>基本上，神经网络的结构是：<code class="docutils literal notranslate"><span class="pre">数据-&gt;</span> <span class="pre">fc1-&gt;</span> <span class="pre">ac1-&gt;</span> <span class="pre">fc2-&gt;</span> <span class="pre">act2-&gt;</span> <span class="pre">fc3-&gt;</span> <span class="pre">lro</span></code>。</p>
+<p>然后我们训练模型。使用<code class="docutils literal notranslate"><span class="pre">mx.model.FeedForward.create()</span></code>创建前馈神经网络。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">trainTransformed</span><span class="p">[,</span><span class="mi">2</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">trainTransformed</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">mx</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">FeedForward</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">lro</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                                     <span class="n">num</span><span class="o">.</span><span class="n">round</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                                     <span class="n">learning</span><span class="o">.</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                                     <span class="nb">eval</span><span class="o">.</span><span class="n">metric</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">rmse</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="s2">&quot;rowmajor&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Start training with 1 devices
+
+[1] Train-rmse=0.186881958025283
+
+[2] Train-rmse=0.148715730242688
+
+[3] Train-rmse=0.148841657001397
+
+[4] Train-rmse=0.148833905443035
+
+[5] Train-rmse=0.14883360151073
+
+[6] Train-rmse=0.148833054278431
+
+[7] Train-rmse=0.148832373192598
+
+[8] Train-rmse=0.148831513935122
+
+[9] Train-rmse=0.148830420112815
+
+[10] Train-rmse=0.148828979067761
+
+[11] Train-rmse=0.148827070306087
+
+[12] Train-rmse=0.148824475063332
+
+[13] Train-rmse=0.148820842391458
+
+[14] Train-rmse=0.148815656915821
+
+[15] Train-rmse=0.148807899833753
+
+[16] Train-rmse=0.148795893480038
+
+[17] Train-rmse=0.14877622484647
+
+[18] Train-rmse=0.148741996365375
+
+[19] Train-rmse=0.148676605574016
+
+[20] Train-rmse=0.148536937632437
+
+[21] Train-rmse=0.148185138943894
+
+[22] Train-rmse=0.147050494906204
+
+[23] Train-rmse=0.141780573617795
+
+[24] Train-rmse=0.11588363554971
+
+[25] Train-rmse=0.0876695057698365
+
+[26] Train-rmse=0.0746788884802111
+
+[27] Train-rmse=0.0652738864180343
+
+[28] Train-rmse=0.0600101350453393
+
+[29] Train-rmse=0.057397688193054
+
+[30] Train-rmse=0.0560045706043983
+
+[31] Train-rmse=0.0553326530960099
+
+[32] Train-rmse=0.0550199089700292
+
+[33] Train-rmse=0.0548242331514585
+
+[34] Train-rmse=0.0547228159126023
+
+[35] Train-rmse=0.0546463660189304
+
+[36] Train-rmse=0.0545873485248664
+
+[37] Train-rmse=0.0545363056890923
+
+[38] Train-rmse=0.054500093041309
+
+[39] Train-rmse=0.0544633062171011
+
+[40] Train-rmse=0.05443709928157
+
+[41] Train-rmse=0.0544108966493915
+
+[42] Train-rmse=0.0543899612244347
+
+[43] Train-rmse=0.0543683881967746
+
+[44] Train-rmse=0.0543485359642012
+
+[45] Train-rmse=0.0543327230382068
+
+[46] Train-rmse=0.0543141780613825
+
+[47] Train-rmse=0.0543005198946801
+
+[48] Train-rmse=0.0542846243057785
+
+[49] Train-rmse=0.0542693998150784
+
+[50] Train-rmse=0.0542576866352866
+
+[51] Train-rmse=0.0542437443509698
+
+[52] Train-rmse=0.0542303527030965
+
+[53] Train-rmse=0.0542199277672274
+
+[54] Train-rmse=0.0542073801545234
+
+[55] Train-rmse=0.0541953509031185
+
+[56] Train-rmse=0.0541858362547796
+
+[57] Train-rmse=0.054173584674196
+
+[58] Train-rmse=0.0541647531670229
+
+[59] Train-rmse=0.054153845966633
+
+[60] Train-rmse=0.0541431974170023
+
+[61] Train-rmse=0.0541349634656618
+
+[62] Train-rmse=0.0541247795175376
+
+[63] Train-rmse=0.0541148630516796
+
+[64] Train-rmse=0.0541070784153096
+
+[65] Train-rmse=0.0540975739794045
+
+[66] Train-rmse=0.0540881523027502
+
+[67] Train-rmse=0.0540816075778727
+
+[68] Train-rmse=0.0540834935703154
+
+[69] Train-rmse=0.0540793251952734
+
+[70] Train-rmse=0.0540752503378638
+
+[71] Train-rmse=0.0540681745022022
+
+[72] Train-rmse=0.0540666492848561
+
+[73] Train-rmse=0.0540598863093504
+
+[74] Train-rmse=0.0540546967872772
+
+[75] Train-rmse=0.0540442498529266
+
+[76] Train-rmse=0.0540400148722632
+
+[77] Train-rmse=0.0540300972502807
+
+[78] Train-rmse=0.0540243755897571
+
+[79] Train-rmse=0.0540155393296275
+
+[80] Train-rmse=0.0540100331578789
+
+[81] Train-rmse=0.0540023420070266
+
+[82] Train-rmse=0.0539948601789516
+
+[83] Train-rmse=0.0539885515282894
+
+[84] Train-rmse=0.053979828279337
+
+[85] Train-rmse=0.053972474620517
+
+[86] Train-rmse=0.0539682954870935
+
+[87] Train-rmse=0.0539588952629731
+
+[88] Train-rmse=0.0539553380924566
+
+[89] Train-rmse=0.0539480129513761
+
+[90] Train-rmse=0.053942014752277
+
+[91] Train-rmse=0.0539332520345162
+
+[92] Train-rmse=0.0539300232033791
+
+[93] Train-rmse=0.0539221845824143
+
+[94] Train-rmse=0.0539169486868998
+
+[95] Train-rmse=0.0539112004676256
+
+[96] Train-rmse=0.0539041467267891
+
+[97] Train-rmse=0.053899233550604
+
+[98] Train-rmse=0.0538953059706195
+
+[99] Train-rmse=0.053886569683151
+
+[100] Train-rmse=0.0538828286888271
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>预测验证集<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>使用训练有素的模型来预测测试集。这里的<code class="docutils literal notranslate"><span class="pre">predit()</span></code>将使用模型来预测<code class="docutils literal notranslate"><span class="pre">valid.x</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">validTransformed</span><span class="p">[,</span><span class="mi">2</span><span class="p">:</span><span class="mi">17</span><span class="p">])</span>
+<span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">validTransformed</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;rowmajor&quot;</span><span class="p">)</span>
+<span class="n">preds</span><span class="o">=</span><span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以通过包装预测中的函数<code class="docutils literal notranslate"><span class="pre">precision()</span></code>计算预测精度。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accu</span><span class="o">=</span><span class="n">accuracy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">accu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A matrix: 1 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>ME</th><th scope=col>RMSE</th><th scope=col>MAE</th><th scope=col>MPE</th><th scope=col>MAPE</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Test set</th><td>0.005780164</td><td>0.05044384</td><td>0.03988474</td><td>-0.5297637</td><td>11.04301</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>有效均方根值为0.05。</p>
+<p>ME：平均误差</p>
+<p>RMSE：均方根误差</p>
+<p>MAE：平均绝对误差</p>
+<p>MPE：平均百分比误差</p>
+<p>MAPE：平均绝对百分比误差</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Neural_Networks_1.html" title="previous page">多层感知机</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
