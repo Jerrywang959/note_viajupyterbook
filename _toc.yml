@@ -39,4 +39,7 @@
     - file: content/R_study/SVM_practice
     - file: content/R_study/Neural_Networks_1
     - file: content/R_study/DNN_1
+    - file: content/R_study/DNN_2
+    - file: content/R_study/Case_1
+    - file: content/R_study/kaggle_2_via_SVM
 

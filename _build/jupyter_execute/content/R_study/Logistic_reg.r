@@ -1,6 +1,6 @@
 # 加载和浏览数据集
 
-quality = read.csv("/home/jerrywang/GitHub/note_viajupyterbook/mynote/datas/Diabetes.csv")
+quality = read.csv("../../datas/Diabetes.csv")
 str(quality)
 
 MemberID是从1到131 对患者进行编号的唯一标识符。   
