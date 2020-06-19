@@ -596,14 +596,6 @@ conf02
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">library</span><span class="p">(</span><span class="n">ROCR</span><span class="p">):</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">package</span> <span class="n">called</span> <span class="err">‘</span><span class="n">ROCR</span><span class="err">’</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">library</span><span class="p">(</span><span class="n">ROCR</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <p>用训练集的预测创建ROC曲线</p>
 <div class="cell docutils container">
@@ -615,10 +607,7 @@ plot(ROCRperf)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">(</span><span class="n">predictTrain</span><span class="p">,</span> <span class="n">qualityTrain</span><span class="err">$</span><span class="n">PoorCare</span><span class="p">):</span> <span class="n">没有</span><span class="s2">&quot;prediction&quot;</span><span class="n">这个函数</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
+<img alt="../../_images/Logistic_reg_39_0.png" src="../../_images/Logistic_reg_39_0.png" />
 </div>
 </div>
 <p>为ROC图添加更多视觉效果。</p>
@@ -629,13 +618,7 @@ plot(ROCRperf)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">plot</span><span class="p">(</span><span class="n">ROCRperf</span><span class="p">,</span> <span class="n">colorize</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">print</span><span class="o">.</span><span class="n">cutoffs</span><span class="o">.</span><span class="n">at</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:</span> <span class="n">找不到对象</span><span class="s1">&#39;ROCRperf&#39;</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">plot</span><span class="p">(</span><span class="n">ROCRperf</span><span class="p">,</span> <span class="n">colorize</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">print</span><span class="o">.</span><span class="n">cutoffs</span><span class="o">.</span><span class="n">at</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> 
- <span class="o">.</span>     <span class="mf">0.1</span><span class="p">),</span> <span class="n">text</span><span class="o">.</span><span class="n">adj</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">))</span>
-</pre></div>
-</div>
+<img alt="../../_images/Logistic_reg_41_0.png" src="../../_images/Logistic_reg_41_0.png" />
 </div>
 </div>
 <p>现在我们计算ROC曲线下面的面积，即AUC</p>
@@ -647,33 +630,16 @@ plot(ROCRperf)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">performance</span><span class="p">(</span><span class="n">ROCRpred</span><span class="p">,</span> <span class="s2">&quot;auc&quot;</span><span class="p">):</span> <span class="n">没有</span><span class="s2">&quot;performance&quot;</span><span class="n">这个函数</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><ol>
+	<li>0.834908632640202</li>
+</ol>
+</div></div>
 </div>
 <p>为ROC曲线下的区域着色，使用<code class="docutils literal notranslate"><span class="pre">pROC</span></code>包中的<code class="docutils literal notranslate"><span class="pre">plot.roc</span></code>功能</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">pROC</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">Type 'citation(&quot;pROC&quot;)' for a citation.
-
-
-Attaching package: ‘pROC’
-
-
-The following objects are masked from ‘package:stats’:
-
-    cov, smooth, var
-
-
-</pre>
 </div>
 </div>
 </div>
@@ -728,10 +694,7 @@ plot(ROCRperfTest, colorize = TRUE, print.cutoffs.at = seq(0,1,0.2), text.adj = 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">(</span><span class="n">predictTest</span><span class="p">,</span> <span class="n">qualityTest</span><span class="err">$</span><span class="n">PoorCare</span><span class="p">):</span> <span class="n">没有</span><span class="s2">&quot;prediction&quot;</span><span class="n">这个函数</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
+<img alt="../../_images/Logistic_reg_50_0.png" src="../../_images/Logistic_reg_50_0.png" />
 </div>
 </div>
 </div>
