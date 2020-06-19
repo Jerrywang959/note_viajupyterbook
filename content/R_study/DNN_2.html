@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>包含RNN的DNN练习 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Case 1: 点球成金" href="Case_1.html" />
+    <link rel="prev" title="简单生成DNN" href="DNN_1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">线性回归入门</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
+    </li>
+    <li class="">
+      <a href="Neural_Networks_1.html">多层感知机</a>
+    </li>
+    <li class="">
+      <a href="DNN_1.html">简单生成DNN</a>
+    </li>
+    <li class="active">
+      <a href="">包含RNN的DNN练习</a>
+    </li>
+    <li class="">
+      <a href="Case_1.html">Case 1: 点球成金</a>
+    </li>
+    <li class="">
+      <a href="kaggle_2_via_SVM.html">kaggle competition 2</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/DNN_2.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/DNN_2.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/DNN_2.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和预处理数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">训练卷积神经网络</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">预测验证集</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/DNN_2.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="rnndnn">
+<h1>包含RNN的DNN练习<a class="headerlink" href="#rnndnn" title="Permalink to this headline">¶</a></h1>
+<p>实现手写数字分类</p>
+<div class="section" id="id1">
+<h2>加载和预处理数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>加载所需的软件包。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">mxnet</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Loading required package: lattice
+
+Loading required package: ggplot2
+
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+
+</pre>
+</div>
+</div>
+</div>
+<p>让我们读取数据集：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">digit</span> <span class="o">&lt;-</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s1">&#39;../../datas/digit.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>区分训练集和测试集</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">train</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="p">(</span><span class="n">digit</span><span class="p">),</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">dim</span><span class="p">(</span><span class="n">digit</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  
+<span class="n">valid</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="n">setdiff</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="p">(</span><span class="n">digit</span><span class="p">),</span> <span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> 
+<span class="n">train</span> <span class="o">&lt;-</span> <span class="n">digit</span><span class="p">[</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">valid</span> <span class="o">&lt;-</span> <span class="n">digit</span><span class="p">[</span><span class="n">valid</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">train</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+    <span class="n">valid</span><span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span>
+    <span class="n">train</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">train</span><span class="p">[,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">train</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">train</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">valid</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">valid</span><span class="p">[,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">valid</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">valid</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>在训练/测试中，每个图像都表示为一行。每个图像的灰度范围在<code class="docutils literal notranslate"><span class="pre">[0，255]</span></code>范围内。使用以下命令将其线性转换为<code class="docutils literal notranslate"><span class="pre">[0,1]</span></code>：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">train</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">255</span>
+    <span class="n">valid</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>然后让我们将输入更改为专业列，并将矩阵重塑为数组：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">array</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">c</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nrow</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+<span class="n">valid</span><span class="o">.</span><span class="n">array</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">c</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nrow</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>在标签部分，每个数字的位数分布相当均匀：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>train.y
+   0    1    2    3    4    5    6    7    8    9 
+2500 2791 2536 2541 2448 2310 2471 2658 2410 2535 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>valid.y
+   0    1    2    3    4    5    6    7    8    9 
+1632 1893 1641 1810 1624 1485 1666 1743 1653 1653 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>训练卷积神经网络<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>现在让我们使用著名的CNN：LeNet。Yann LeCun提出了这种方法来识别手写数字。我们将演示如何在mxnet中构建和训练LeNet。</p>
+<p>LeNet：Conv-&gt; Tanh-&gt; Pool-&gt; Conv-&gt; Tanh-&gt; Pool-&gt; FC-&gt; FC-&gt; Softmax</p>
+<p><a class="reference external" href="http://yann.lecun.com/exdb/lenet/">http://yann.lecun.com/exdb/lenet/</a></p>
+<p>首先，我们构建网络：<br />
+输入层：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>第一卷积+激活+池化层。<code class="docutils literal notranslate"><span class="pre">num_filter</span></code>定义内核数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conv1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Convolution</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">num_filter</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">tanh1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">conv1</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)</span>
+<span class="n">pool1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tanh1</span><span class="p">,</span> <span class="n">pool_type</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+                          <span class="n">kernel</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>第二个卷积+激活+池化层</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conv2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Convolution</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pool1</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">num_filter</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">tanh2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">conv2</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)</span>
+<span class="n">pool2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tanh2</span><span class="p">,</span> <span class="n">pool_type</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+                          <span class="n">kernel</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>第一个完全连接的层。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flatten</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pool2</span><span class="p">)</span>
+<span class="n">fc1</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">flatten</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">tanh3</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">Activation</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fc1</span><span class="p">,</span> <span class="n">act_type</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>输出完全连接的层。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fc2</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">FullyConnected</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tanh3</span><span class="p">,</span> <span class="n">num_hidden</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>以及线性回归输出。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lenet</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">SoftmaxOutput</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">fc2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>训练lenet</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mx</span><span class="o">.</span><span class="n">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">&lt;-</span> <span class="n">mx</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">FeedForward</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">lenet</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">num</span><span class="o">.</span><span class="n">round</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                     <span class="n">learning</span><span class="o">.</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">wd</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">,</span>
+                                     <span class="nb">eval</span><span class="o">.</span><span class="n">metric</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">metric</span><span class="o">.</span><span class="n">accuracy</span><span class="p">,</span>
+                                       <span class="n">epoch</span><span class="o">.</span><span class="n">end</span><span class="o">.</span><span class="n">callback</span><span class="o">=</span><span class="n">mx</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Start training with 1 devices
+
+[1] Train-accuracy=0.301785713490394
+
+[2] Train-accuracy=0.945277779821366
+
+[3] Train-accuracy=0.974722230245197
+
+[4] Train-accuracy=0.985634929604001
+
+[5] Train-accuracy=0.990158738124938
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>预测验证集<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>使用训练好的的模型预测验证集。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">&lt;-</span> <span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">valid</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+<span class="n">pred</span><span class="o">.</span><span class="n">label</span> <span class="o">&lt;-</span> <span class="nb">max</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">preds</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>可以通过包装<code class="docutils literal notranslate"><span class="pre">forecast</span></code>中的 函数 <code class="docutils literal notranslate"><span class="pre">precision()</span></code>计算预测精度。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accu</span><span class="o">=</span><span class="n">length</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">label</span> <span class="o">==</span> <span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="n">length</span><span class="p">(</span><span class="n">valid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="n">accu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.980297619047619</div></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="DNN_1.html" title="previous page">简单生成DNN</a>
+    <a class='right-next' id="next-link" href="Case_1.html" title="next page">Case 1: 点球成金</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

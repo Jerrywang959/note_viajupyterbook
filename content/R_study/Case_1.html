@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Case 1: 点球成金 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="kaggle competition 2" href="kaggle_2_via_SVM.html" />
+    <link rel="prev" title="包含RNN的DNN练习" href="DNN_2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">线性回归入门</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
+    </li>
+    <li class="">
+      <a href="Neural_Networks_1.html">多层感知机</a>
+    </li>
+    <li class="">
+      <a href="DNN_1.html">简单生成DNN</a>
+    </li>
+    <li class="">
+      <a href="DNN_2.html">包含RNN的DNN练习</a>
+    </li>
+    <li class="active">
+      <a href="">Case 1: 点球成金</a>
+    </li>
+    <li class="">
+      <a href="kaggle_2_via_SVM.html">kaggle competition 2</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/Case_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Case_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/Case_1.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和浏览数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">预测胜利</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">预测得分</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">预测失分</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Case_1.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="case-1">
+<h1>Case 1: 点球成金<a class="headerlink" href="#case-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>加载和浏览数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baseball</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/Moneyball.csv&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">baseball</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	932 obs. of  15 variables:
+ $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
+ $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
+ $ Year        : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
+ $ RS          : int  851 819 708 667 859 706 856 709 739 778 ...
+ $ RA          : int  644 674 565 773 665 759 798 774 837 898 ...
+ $ W           : int  99 98 101 67 93 67 81 78 74 73 ...
+ $ OBP         : num  0.341 0.346 0.331 0.309 0.345 0.321 0.338 0.33 0.321 0.337 ...
+ $ SLG         : num  0.433 0.423 0.409 0.403 0.444 0.413 0.449 0.408 0.412 0.423 ...
+ $ BA          : num  0.282 0.267 0.26 0.246 0.277 0.246 0.268 0.253 0.249 0.274 ...
+ $ Playoffs    : int  1 1 1 0 0 0 0 0 0 0 ...
+ $ RankSeason  : int  3 4 2 NA NA NA NA NA NA NA ...
+ $ RankPlayoffs: int  1 4 4 NA NA NA NA NA NA NA ...
+ $ G           : int  162 162 161 162 162 162 162 162 162 162 ...
+ $ OOBP        : num  0.314 0.305 0.313 0.336 0.308 0.331 0.33 0.338 0.348 0.349 ...
+ $ OSLG        : num  0.392 0.397 0.364 0.435 0.385 0.407 0.423 0.426 0.423 0.466 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>由于我们确认了Moneyball的索赔，因此我们希望使用Paul DePodesta在2002年获得的数据来构建模型。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moneyball</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">baseball</span><span class="p">,</span> <span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">2002</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">moneyball</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	902 obs. of  15 variables:
+ $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
+ $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
+ $ Year        : int  2001 2001 2001 2001 2001 2001 2001 2001 2001 2001 ...
+ $ RS          : int  691 818 729 687 772 777 798 735 897 923 ...
+ $ RA          : int  730 677 643 829 745 701 795 850 821 906 ...
+ $ W           : int  75 92 88 63 82 88 83 66 91 73 ...
+ $ OBP         : num  0.327 0.341 0.324 0.319 0.334 0.336 0.334 0.324 0.35 0.354 ...
+ $ SLG         : num  0.405 0.442 0.412 0.38 0.439 0.43 0.451 0.419 0.458 0.483 ...
+ $ BA          : num  0.261 0.267 0.26 0.248 0.266 0.261 0.268 0.262 0.278 0.292 ...
+ $ Playoffs    : int  0 1 1 0 0 0 0 0 1 0 ...
+ $ RankSeason  : int  NA 5 7 NA NA NA NA NA 6 NA ...
+ $ RankPlayoffs: int  NA 1 3 NA NA NA NA NA 4 NA ...
+ $ G           : int  162 162 162 162 161 162 162 162 162 162 ...
+ $ OOBP        : num  0.331 0.311 0.314 0.337 0.329 0.321 0.334 0.341 0.341 0.35 ...
+ $ OSLG        : num  0.412 0.404 0.384 0.439 0.393 0.398 0.427 0.455 0.417 0.48 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>预测胜利<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>我们首先建立一个线性回归模型，以使用得分数和失分数之间的差异来预测获胜。为了使操作更容易一些，让我们从创建一个名为RD的新变量RD开始，并将其设置为的分数减去失分数</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>moneyball$RD = moneyball$RS - moneyball$RA
+str(moneyball)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	902 obs. of  16 variables:
+ $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
+ $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
+ $ Year        : int  2001 2001 2001 2001 2001 2001 2001 2001 2001 2001 ...
+ $ RS          : int  691 818 729 687 772 777 798 735 897 923 ...
+ $ RA          : int  730 677 643 829 745 701 795 850 821 906 ...
+ $ W           : int  75 92 88 63 82 88 83 66 91 73 ...
+ $ OBP         : num  0.327 0.341 0.324 0.319 0.334 0.336 0.334 0.324 0.35 0.354 ...
+ $ SLG         : num  0.405 0.442 0.412 0.38 0.439 0.43 0.451 0.419 0.458 0.483 ...
+ $ BA          : num  0.261 0.267 0.26 0.248 0.266 0.261 0.268 0.262 0.278 0.292 ...
+ $ Playoffs    : int  0 1 1 0 0 0 0 0 1 0 ...
+ $ RankSeason  : int  NA 5 7 NA NA NA NA NA 6 NA ...
+ $ RankPlayoffs: int  NA 1 3 NA NA NA NA NA 4 NA ...
+ $ G           : int  162 162 162 162 161 162 162 162 162 162 ...
+ $ OOBP        : num  0.331 0.311 0.314 0.337 0.329 0.321 0.334 0.341 0.341 0.35 ...
+ $ OSLG        : num  0.412 0.404 0.384 0.439 0.393 0.398 0.427 0.455 0.417 0.48 ...
+ $ RD          : int  -39 141 86 -142 27 76 3 -115 76 17 ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictWins</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">W</span> <span class="o">~</span> <span class="n">RD</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictWins</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = W ~ RD, data = moneyball)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.2662  -2.6509   0.1234   2.9364  11.6570 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 80.881375   0.131157  616.67   &lt;2e-16 ***
+RD           0.105766   0.001297   81.55   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.939 on 900 degrees of freedom
+Multiple R-squared:  0.8808,	Adjusted R-squared:  0.8807 
+F-statistic:  6651 on 1 and 900 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>预测得分<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>我们想看看是否可以使用线性回归来使用三个统计数据(上垒率（OBP），长打率（SLG）和打击率（BA）)来预测得分（RS）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">OBP</span> <span class="o">+</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">BA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ OBP + SLG + BA, data = moneyball)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.941 -17.247  -0.621  16.754  90.998 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -788.46      19.70 -40.029  &lt; 2e-16 ***
+OBP          2917.42     110.47  26.410  &lt; 2e-16 ***
+SLG          1637.93      45.99  35.612  &lt; 2e-16 ***
+BA           -368.97     130.58  -2.826  0.00482 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 24.69 on 898 degrees of freedom
+Multiple R-squared:  0.9302,	Adjusted R-squared:   0.93 
+F-statistic:  3989 on 3 and 898 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>根据定义（您可以在网上找到这些定义），这三个统计数据彼此非常相似，它们可以衡量玩家的击球表现。这些统计数据越大，球员的击球表现就越好。因此，我们希望所有这些变量的系数都为正，因为更好的参与者应该导致更多的得分。BA的违反直觉的负系数表明该模型可能存在问题。如果我们只关心模型预测的准确性，那么模型就很好。但是，在这种情况下，团队依赖模型聘用潜在的参与者，因此错误的系数将导致严重的错误决策。</p>
+<p>考虑到这些统计数据相互之间密切相关，因为它们都以定义稍有不同的方式来衡量击球表现，因此我们怀疑模型中可能存在一些多重共线性问题。我们可以检查这三个变量之间的相关性以确认这一点。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cor(data.frame(moneyball$OBP, moneyball$SLG, moneyball$BA))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A matrix: 3 × 3 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>moneyball.OBP</th><th scope=col>moneyball.SLG</th><th scope=col>moneyball.BA</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>moneyball.OBP</th><td>1.0000000</td><td>0.8061539</td><td>0.8540549</td></tr>
+	<tr><th scope=row>moneyball.SLG</th><td>0.8061539</td><td>1.0000000</td><td>0.8140681</td></tr>
+	<tr><th scope=row>moneyball.BA</th><td>0.8540549</td><td>0.8140681</td><td>1.0000000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>我们可以看到这三个变量确实彼此高度相关，因为所有相关系数都大于0.8。要决定保留哪个变量，我们需要执行更多分析。</p>
+<p>首先，让我们分别对这三个变量进行单变量分析，以检查其预测能力。通过单变量分析，即运行单变量线性回归。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS1</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">OBP</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ OBP, data = moneyball)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-118.317  -26.729    1.211   26.849  132.115 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1079.02      27.98  -38.56   &lt;2e-16 ***
+OBP          5486.30      86.01   63.78   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 39.74 on 900 degrees of freedom
+Multiple R-squared:  0.8189,	Adjusted R-squared:  0.8187 
+F-statistic:  4069 on 1 and 900 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS1</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">OBP</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ OBP, data = moneyball)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-118.317  -26.729    1.211   26.849  132.115 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1079.02      27.98  -38.56   &lt;2e-16 ***
+OBP          5486.30      86.01   63.78   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 39.74 on 900 degrees of freedom
+Multiple R-squared:  0.8189,	Adjusted R-squared:  0.8187 
+F-statistic:  4069 on 1 and 900 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS2</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">SLG</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ SLG, data = moneyball)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-103.113  -24.343   -1.906   22.544  126.598 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -315.51      13.86  -22.76   &lt;2e-16 ***
+SLG          2610.88      35.38   73.80   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 35.16 on 900 degrees of freedom
+Multiple R-squared:  0.8582,	Adjusted R-squared:  0.858 
+F-statistic:  5446 on 1 and 900 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS3</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">BA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ BA, data = moneyball)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-153.815  -37.476   -2.814   34.911  184.236 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -806.35      33.66  -23.96   &lt;2e-16 ***
+BA           5849.88     130.21   44.92   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 51.85 on 900 degrees of freedom
+Multiple R-squared:  0.6916,	Adjusted R-squared:  0.6913 
+F-statistic:  2018 on 1 and 900 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>上面的单变量分析表明，单独使用OBP和SLG可以得到更高的<span class="math notranslate nohighlight">\(R^2\)</span>. OBP的系数远大于SLG。让我们用OBP和SLG进行多元线性回归来确认发现。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRS4</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RS</span> <span class="o">~</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">OBP</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRS4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RS ~ SLG + OBP, data = moneyball)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.838 -17.174  -1.108  16.770  90.036 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -804.63      18.92  -42.53   &lt;2e-16 ***
+SLG          1584.91      42.16   37.60   &lt;2e-16 ***
+OBP          2737.77      90.68   30.19   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 24.79 on 899 degrees of freedom
+Multiple R-squared:  0.9296,	Adjusted R-squared:  0.9294 
+F-statistic:  5934 on 2 and 899 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们可以观察到, 这一模型的<span class="math notranslate nohighlight">\(R^2\)</span>近似于有三个因子变量的<span class="math notranslate nohighlight">\(R^2\)</span> :<span class="math notranslate nohighlight">\(0.9302\)</span>.  换句话说，BA的效果几乎可以被OBP和SLG捕获。如Moneyball所述，OBP和SLG的系数确定了变量的相对重要性。如果进一步的分析,会发现其他组合的<span class="math notranslate nohighlight">\(R^2\)</span>将大大小于0.9302</p>
+<p>我们决定保留<code class="docutils literal notranslate"><span class="pre">OBP</span></code>和<code class="docutils literal notranslate"><span class="pre">SLG</span></code>，即使它们彼此高度相关，这有两个主要原因. 一, 使用两个因子的模型的<span class="math notranslate nohighlight">\(R^2\)</span>高于使用单个因子的模型的<span class="math notranslate nohighlight">\(R^2\)</span>,这表明每个变量中都有大量信息无法被另一个变量捕获。其次，两个变量的系数均显着为正，并且其大小与单变量分析一致。</p>
+</div>
+<div class="section" id="id4">
+<h2>预测失分<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>我们可以进行类似的线性回归分析，以构建模型来预测失分.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PredictRA</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="n">RA</span> <span class="o">~</span> <span class="n">OOBP</span> <span class="o">+</span> <span class="n">OSLG</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">moneyball</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PredictRA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+lm(formula = RA ~ OOBP + OSLG, data = moneyball)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-82.397 -15.178  -0.129  17.679  60.955 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -837.38      60.26 -13.897  &lt; 2e-16 ***
+OOBP         2913.60     291.97   9.979 4.46e-16 ***
+OSLG         1514.29     175.43   8.632 2.55e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 25.67 on 87 degrees of freedom
+  (812 observations deleted due to missingness)
+Multiple R-squared:  0.9073,	Adjusted R-squared:  0.9052 
+F-statistic: 425.8 on 2 and 87 DF,  p-value: &lt; 2.2e-16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="DNN_2.html" title="previous page">包含RNN的DNN练习</a>
+    <a class='right-next' id="next-link" href="kaggle_2_via_SVM.html" title="next page">kaggle competition 2</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

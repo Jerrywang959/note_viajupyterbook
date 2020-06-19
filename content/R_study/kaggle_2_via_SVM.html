@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>kaggle competition 2 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Case 1: 点球成金" href="Case_1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">线性回归入门</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
+    </li>
+    <li class="">
+      <a href="Neural_Networks_1.html">多层感知机</a>
+    </li>
+    <li class="">
+      <a href="DNN_1.html">简单生成DNN</a>
+    </li>
+    <li class="">
+      <a href="DNN_2.html">包含RNN的DNN练习</a>
+    </li>
+    <li class="">
+      <a href="Case_1.html">Case 1: 点球成金</a>
+    </li>
+    <li class="active">
+      <a href="">kaggle competition 2</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/kaggle_2_via_SVM.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/kaggle_2_via_SVM.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/kaggle_2_via_SVM.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和浏览数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">逻辑回归</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#obp-slg" class="nav-link">仅使用 OBP+SLG 双变量</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/kaggle_2_via_SVM.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="kaggle-competition-2">
+<h1>kaggle competition 2<a class="headerlink" href="#kaggle-competition-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>加载和浏览数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>加载包</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">e1071</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caTools</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>加载数据</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trainraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Train.csv&quot;</span><span class="p">)</span>
+<span class="n">Testraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Test.csv&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	932 obs. of  16 variables:
+ $ Id          : int  301 302 303 304 305 306 307 308 309 310 ...
+ $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
+ $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
+ $ Year        : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
+ $ RS          : int  851 819 708 667 859 706 856 709 739 778 ...
+ $ RA          : int  644 674 565 773 665 759 798 774 837 898 ...
+ $ W           : int  99 98 101 67 93 67 81 78 74 73 ...
+ $ OBP         : num  0.341 0.346 0.331 0.309 0.345 0.321 0.338 0.33 0.321 0.337 ...
+ $ SLG         : num  0.433 0.423 0.409 0.403 0.444 0.413 0.449 0.408 0.412 0.423 ...
+ $ BA          : num  0.282 0.267 0.26 0.246 0.277 0.246 0.268 0.253 0.249 0.274 ...
+ $ Playoffs    : int  1 1 1 0 0 0 0 0 0 0 ...
+ $ RankSeason  : int  3 4 2 NA NA NA NA NA NA NA ...
+ $ RankPlayoffs: int  1 4 4 NA NA NA NA NA NA NA ...
+ $ G           : int  162 162 161 162 162 162 162 162 162 162 ...
+ $ OOBP        : num  0.314 0.305 0.313 0.336 0.308 0.331 0.33 0.338 0.348 0.349 ...
+ $ OSLG        : num  0.392 0.397 0.364 0.435 0.385 0.407 0.423 0.426 0.423 0.466 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>分割数据集</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set.seed(123)
+split = sample.split(Trainraw$Playoffs, SplitRatio = 0.70)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MyTrain</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="n">MyTest</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>逻辑回归<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="obp-slg">
+<h3>仅使用 OBP+SLG 双变量<a class="headerlink" href="#obp-slg" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QualityLog</span> <span class="o">=</span> <span class="n">glm</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span><span class="o">+</span><span class="n">SLG</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">MyTrain</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+glm(formula = Playoffs ~ OBP + SLG, family = binomial, data = MyTrain)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.5375  -0.6251  -0.4555  -0.2974   2.4924  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -20.842      2.815  -7.404 1.32e-13 ***
+OBP           52.314     12.411   4.215 2.49e-05 ***
+SLG            5.188      5.360   0.968    0.333    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 601.28  on 651  degrees of freedom
+Residual deviance: 528.21  on 649  degrees of freedom
+AIC: 534.21
+
+Number of Fisher Scoring iterations: 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>训练集验证及阈值筛选</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PatoffTrain_1</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;response&quot;</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PatoffTrain_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+0.009426 0.077302 0.135166 0.173313 0.231542 0.749071 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tapply(PatoffTrain_1, MyTrain$Playoffs, mean)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>0</dt><dd>0.152633373897801</dd><dt>1</dt><dd>0.27195231388603</dd></dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>conf05=table(MyTrain$Playoffs,predictTrain &gt; 0.4)
+conf05
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
+    FALSE TRUE
+  0   514   25
+  1    91   22
+</pre></div>
+</div>
+</div>
+</div>
+<p>画ROC曲线</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Case_1.html" title="previous page">Case 1: 点球成金</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
