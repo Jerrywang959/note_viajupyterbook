@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>决策树模型 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="">
+    <a href="README.html">R语言的学习</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/Tree_model.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Tree_model.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/Tree_model.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">加载和浏览数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">拆分数据集以进行培训和测试</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cart" class="nav-link">建立分类和回归树（CART）模型</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#minbucketcart" class="nav-link">使用给定的“ minbucket”值构建CART模型</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id4" class="nav-link">使用交叉验证选择复杂度参数</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#r" class="nav-link">与R中另一个程序包的交叉验证</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id5" class="nav-link">建立随机森林模型</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/Tree_model.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>决策树模型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>最高法院大法官史蒂文斯的判决</p>
+<div class="section" id="id2">
+<h2>加载和浏览数据集<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>加载包</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">caTools</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">rpart</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">rpart</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ROCR</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">e1071</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">randomForest</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">class</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stevens</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/Stevens.csv&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">stevens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	566 obs. of  9 variables:
+ $ Docket    : chr  &quot;93-1408&quot; &quot;93-1577&quot; &quot;93-1612&quot; &quot;94-623&quot; ...
+ $ Term      : int  1994 1994 1994 1994 1995 1995 1996 1997 1997 1999 ...
+ $ Circuit   : chr  &quot;2nd&quot; &quot;9th&quot; &quot;5th&quot; &quot;1st&quot; ...
+ $ Issue     : chr  &quot;EconomicActivity&quot; &quot;EconomicActivity&quot; &quot;EconomicActivity&quot; &quot;EconomicActivity&quot; ...
+ $ Petitioner: chr  &quot;BUSINESS&quot; &quot;BUSINESS&quot; &quot;BUSINESS&quot; &quot;BUSINESS&quot; ...
+ $ Respondent: chr  &quot;BUSINESS&quot; &quot;BUSINESS&quot; &quot;BUSINESS&quot; &quot;BUSINESS&quot; ...
+ $ LowerCourt: chr  &quot;liberal&quot; &quot;liberal&quot; &quot;liberal&quot; &quot;conser&quot; ...
+ $ Unconst   : int  0 0 0 0 0 1 0 1 0 0 ...
+ $ Reverse   : int  1 1 1 1 1 0 1 1 1 1 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们将以下变量转换为R中的“因子”类型。我们应将变量Term转换为变量，因为我们不希望这些年来决策概率的变化采用任何递增或递减的方式。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>stevens$Term = as.factor(stevens$Term)
+stevens$Unconst = as.factor(stevens$Unconst)
+stevens$Reverse = as.factor(stevens$Reverse)
+stevens$Docket = as.factor(stevens$Docket)
+stevens$Circuit = as.factor(stevens$Circuit)
+stevens$Issue = as.factor(stevens$Issue)
+stevens$Petitioner = as.factor(stevens$Petitioner)
+stevens$Respondent = as.factor(stevens$Respondent)
+stevens$LowerCourt = as.factor(stevens$LowerCourt)
+str(stevens)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	566 obs. of  9 variables:
+ $ Docket    : Factor w/ 566 levels &quot;00-1011&quot;,&quot;00-1045&quot;,..: 63 69 70 145 97 181 242 289 334 436 ...
+ $ Term      : Factor w/ 8 levels &quot;1994&quot;,&quot;1995&quot;,..: 1 1 1 1 2 2 3 4 4 6 ...
+ $ Circuit   : Factor w/ 13 levels &quot;10th&quot;,&quot;11th&quot;,..: 4 11 7 3 9 11 13 11 12 2 ...
+ $ Issue     : Factor w/ 11 levels &quot;Attorneys&quot;,&quot;CivilRights&quot;,..: 5 5 5 5 9 5 5 5 5 3 ...
+ $ Petitioner: Factor w/ 12 levels &quot;AMERICAN.INDIAN&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ Respondent: Factor w/ 12 levels &quot;AMERICAN.INDIAN&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ LowerCourt: Factor w/ 2 levels &quot;conser&quot;,&quot;liberal&quot;: 2 2 2 1 1 1 1 1 1 1 ...
+ $ Unconst   : Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 1 1 1 1 2 1 2 1 1 ...
+ $ Reverse   : Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 2 2 2 2 2 1 2 2 2 2 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>拆分数据集以进行培训和测试<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>我们将使用“ caTools”包中的“ sample.split”功能将数据集随机分为训练集和测试集。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set.seed(3000)
+split = sample.split(stevens$Reverse, SplitRatio = 0.7)
+train = subset(stevens, split == TRUE)
+test = subset(stevens, split == FALSE)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cart">
+<h2>建立分类和回归树（CART）模型<a class="headerlink" href="#cart" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="minbucketcart">
+<h3>使用给定的“ minbucket”值构建CART模型<a class="headerlink" href="#minbucketcart" title="Permalink to this headline">¶</a></h3>
+<p>在构建我们的CART模型之前，我们需要安装和加载两个新的软件包“ rpart”和“ rpart.plot”。</p>
+<p>现在我们准备建立模型并绘制树。现在我们仅将25用作“ minbucket”，稍后我们将使用交叉验证来优化参数的选择。</p>
+<p>minbucket为每个子集中的点数设置一个下限（一种正则化），它越小，生成的分割就越多。</p>
+<p>如果太小，则会发生过拟合；反之，</p>
+<p>如果太大，模型将太简单，准确性会很差。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stevensTree</span> <span class="o">=</span> <span class="n">rpart</span><span class="p">(</span><span class="n">Reverse</span> <span class="o">~</span> <span class="n">Term</span> <span class="o">+</span> <span class="n">Circuit</span> <span class="o">+</span> <span class="n">Issue</span> <span class="o">+</span> <span class="n">Petitioner</span> <span class="o">+</span> <span class="n">Respondent</span> <span class="o">+</span> <span class="n">LowerCourt</span> <span class="o">+</span> <span class="n">Unconst</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">train</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="n">rpart</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">minbucket</span> <span class="o">=</span> <span class="mi">25</span><span class="p">))</span>
+<span class="n">prp</span><span class="p">(</span><span class="n">stevensTree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Tree_model_9_0.png" src="../../_images/Tree_model_9_0.png" />
+</div>
+</div>
+<p>参数<code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=&quot;class&quot;</span></code>可确保模型是分类树而不是回归树。<code class="docutils literal notranslate"><span class="pre">rpart</span></code>函数中的最后一个参数定义<code class="docutils literal notranslate"><span class="pre">minbucket</span></code>的大小以限制树，以使其不会过度拟合</p>
+<p><code class="docutils literal notranslate"><span class="pre">prp</span></code>函数将尽可能地缩写变量，以便仍可以唯一标识它们。为了理解<code class="docutils literal notranslate"><span class="pre">prp</span></code>函数使用的缩写，我们可以列出变量以查看每个变量的全名，以便我们可以将缩写与全名匹配。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(stevens$Respondent)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+    AMERICAN.INDIAN            BUSINESS                CITY  CRIMINAL.DEFENDENT 
+                 13                  80                   9                  58 
+           EMPLOYEE            EMPLOYER GOVERNMENT.OFFICIAL      INJURED.PERSON 
+                 28                  21                  24                  14 
+              OTHER          POLITICIAN               STATE                  US 
+                177                  17                  56                  69 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(stevens$Petitioner)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+    AMERICAN.INDIAN            BUSINESS                CITY  CRIMINAL.DEFENDENT 
+                  4                  79                  13                  89 
+           EMPLOYEE            EMPLOYER GOVERNMENT.OFFICIAL      INJURED.PERSON 
+                 30                  17                  38                   9 
+              OTHER          POLITICIAN               STATE                  US 
+                175                  16                  48                  48 
+</pre></div>
+</div>
+</div>
+</div>
+<p>让我们评估CART模型的预测准确性。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictCART = predict(stevensTree, newdata = test, type = &quot;class&quot;)
+conf = table(test$Reverse, predictCART)
+conf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   predictCART
+     0  1
+  0 46 31
+  1 31 62
+</pre></div>
+</div>
+</div>
+</div>
+<p>上面的参数<code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=&quot;class&quot;</span></code>，使用阈值<code class="docutils literal notranslate"><span class="pre">0.5</span></code>来创建混淆矩阵。默认情况下，我们通常使用<code class="docutils literal notranslate"><span class="pre">0.5</span></code>作为CART模型的阈值，因为分类主要在树结构中进行编码，并且每个叶节点都应包含相似的观察值。</p>
+<p>我们的CART模型的准确性为63.53％，与始终预测为“反向”的基线模型的准确性55％相比要高得多。</p>
+<p>如果您喜欢使用其他阈值，则可以要求“<code class="docutils literal notranslate"><span class="pre">预测</span></code>函数预测概率而不是类别，然后手动设置阈值以创建混淆矩阵。在以下代码中，您甚至可以删除参数<code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=&quot;prob&quot;</span></code>，因为默认类型是概率。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">predictCART2</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">stevensTree</span><span class="p">,</span> <span class="n">newdata</span> <span class="o">=</span> <span class="n">test</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;prob&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>预测结果变量predictCART2是一个170 x 2的矩阵，如下所示。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dim</span><span class="p">(</span><span class="n">predictCART2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>170</li><li>2</li></ol>
+</div></div>
+</div>
+<p>让我们看一下predictCART2的前20行。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">predictCART2</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">,]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A matrix: 20 × 2 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>0</th><th scope=col>1</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>0.3035714</td><td>0.6964286</td></tr>
+	<tr><th scope=row>3</th><td>0.3035714</td><td>0.6964286</td></tr>
+	<tr><th scope=row>4</th><td>0.3114754</td><td>0.6885246</td></tr>
+	<tr><th scope=row>6</th><td>0.5588235</td><td>0.4411765</td></tr>
+	<tr><th scope=row>8</th><td>0.5588235</td><td>0.4411765</td></tr>
+	<tr><th scope=row>21</th><td>0.3035714</td><td>0.6964286</td></tr>
+	<tr><th scope=row>32</th><td>0.5517241</td><td>0.4482759</td></tr>
+	<tr><th scope=row>36</th><td>0.5517241</td><td>0.4482759</td></tr>
+	<tr><th scope=row>40</th><td>0.3035714</td><td>0.6964286</td></tr>
+	<tr><th scope=row>42</th><td>0.5517241</td><td>0.4482759</td></tr>
+	<tr><th scope=row>46</th><td>0.5517241</td><td>0.4482759</td></tr>
+	<tr><th scope=row>47</th><td>0.5588235</td><td>0.4411765</td></tr>
+	<tr><th scope=row>53</th><td>0.5517241</td><td>0.4482759</td></tr>
+	<tr><th scope=row>55</th><td>0.3035714</td><td>0.6964286</td></tr>
+	<tr><th scope=row>59</th><td>0.1842105</td><td>0.8157895</td></tr>
+	<tr><th scope=row>60</th><td>0.3114754</td><td>0.6885246</td></tr>
+	<tr><th scope=row>66</th><td>0.3114754</td><td>0.6885246</td></tr>
+	<tr><th scope=row>67</th><td>0.3114754</td><td>0.6885246</td></tr>
+	<tr><th scope=row>68</th><td>0.1842105</td><td>0.8157895</td></tr>
+	<tr><th scope=row>72</th><td>0.3035714</td><td>0.6964286</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>第一列标记为0。这是与测试集观察结果相同的子集（叶节点）中结果为0的训练集数据的百分比。第二列是在与测试集观察结果相同的子集（叶节点）中具有结果1的训练集数据的百分比。我们可以将第二列解释为测试集观察结果为1的概率。请注意，每一行的索引从1到20都是不连续的。相反，它是原始数据集中随机采样之前每个数据点的索引。分为训练和测试集。换句话说，原始数据集的第一种情况，第三种情况，第四种情况等被随机选择以包括在测试集中。</p>
+<p>现在，我们可以通过提供所需的任何阈值来生成混淆矩阵。使用0.5作为阈值将恢复参数<code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=&quot;class&quot;</span></code>之前得到的混淆矩阵。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>table(test$Reverse, predictCART2[,2] &gt; 0.5)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
+    FALSE TRUE
+  0    46   31
+  1    31   62
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们还可以为CART模型生成ROC曲线，并计算其AUC。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pred = prediction(predictCART2[,2], test$Reverse)
+perf = performance(pred, &quot;tpr&quot;, &quot;fpr&quot;)
+plot(perf)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Tree_model_24_0.png" src="../../_images/Tree_model_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auc</span> <span class="o">=</span> <span class="n">performance</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="s2">&quot;auc&quot;</span><span class="p">)</span>
+<span class="n">auc</span><span class="nd">@y</span><span class="o">.</span><span class="n">values</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.683284457478006</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>使用交叉验证选择复杂度参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>让我们尝试对我们的CART模型进行交叉验证。为此，我们需要安装和加载两个新的软件包<code class="docutils literal notranslate"><span class="pre">caret</span></code>和<code class="docutils literal notranslate"><span class="pre">e1071</span></code>。</p>
+<p>现在，我们将定义我们的交叉验证实验。首先，我们定义所需的折数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fitControl</span> <span class="o">=</span> <span class="n">trainControl</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;cv&quot;</span><span class="p">,</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>第一个参数<code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=&quot;cv&quot;</span></code>，告诉函数使用交叉验证方法。</p>
+<p>接下来，我们需要为参数cp选择可能的值。cp通过惩罚每个拆分来控制树的增长。</p>
+<p>cp越大（每次拆分的惩罚越高），导致树越小：<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">=</span> <span class="pre">1</span></code>将导致没有拆分的树，即最小的树；相当于设置<code class="docutils literal notranslate"><span class="pre">minbucket</span> <span class="pre">=数据大小</span></code> ;</p>
+<p>较小的<code class="docutils literal notranslate"><span class="pre">cp</span></code>（每次拆分的罚款较低）会导致树的增大：<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">=</span> <span class="pre">0</span></code>将导致以每个数据点为叶节点的树，即最大的树；等效于设置<code class="docutils literal notranslate"><span class="pre">minbucket</span> <span class="pre">=</span> <span class="pre">1</span></code>。</p>
+<p>通常，我们不需要探究cp值从0到1 的整个范围。在大多数情况下，我们只需要一个小的cp值即可，例如从0.01到0.5，步长为0.01。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cpGrid</span> <span class="o">=</span> <span class="n">expand</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="o">.</span><span class="n">cp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">50</span><span class="p">)</span><span class="o">*</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>现在，我们准备执行交叉验证。由于其中有一些随机成分ķ折交叉验证-随机划分为 ķ 折叠-让我们通过先设置一个公共随机种子来同步结果。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span>
+<span class="n">cvResults</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">Reverse</span> <span class="o">~</span> <span class="n">Term</span> <span class="o">+</span> <span class="n">Circuit</span> <span class="o">+</span> <span class="n">Issue</span> <span class="o">+</span> <span class="n">Petitioner</span> <span class="o">+</span> <span class="n">Respondent</span> <span class="o">+</span> <span class="n">LowerCourt</span> <span class="o">+</span> <span class="n">Unconst</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">train</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;rpart&quot;</span><span class="p">,</span> <span class="n">trControl</span> <span class="o">=</span> <span class="n">fitControl</span><span class="p">,</span> <span class="n">tuneGrid</span> <span class="o">=</span> <span class="n">cpGrid</span><span class="p">)</span>
+<span class="n">cvResults</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>CART 
+
+396 samples
+  7 predictor
+  2 classes: &#39;0&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (10 fold) 
+Summary of sample sizes: 356, 357, 357, 356, 356, 356, ... 
+Resampling results across tuning parameters:
+
+  cp    Accuracy   Kappa     
+  0.01  0.6267308  0.23433745
+  0.02  0.6139744  0.20969640
+  0.03  0.6191026  0.22426640
+  0.04  0.6291667  0.25184688
+  0.05  0.6443590  0.28571708
+  0.06  0.6443590  0.28571708
+  0.07  0.6443590  0.28571708
+  0.08  0.6443590  0.28571708
+  0.09  0.6443590  0.28571708
+  0.10  0.6443590  0.28571708
+  0.11  0.6443590  0.28571708
+  0.12  0.6443590  0.28571708
+  0.13  0.6443590  0.28571708
+  0.14  0.6443590  0.28571708
+  0.15  0.6443590  0.28571708
+  0.16  0.6443590  0.28571708
+  0.17  0.6443590  0.28571708
+  0.18  0.6187179  0.22698692
+  0.19  0.6187179  0.22698692
+  0.20  0.6187179  0.22698692
+  0.21  0.5733333  0.11309826
+  0.22  0.5530769  0.05337925
+  0.23  0.5403846  0.01187658
+  0.24  0.5403846  0.01187658
+  0.25  0.5453846  0.00000000
+  0.26  0.5453846  0.00000000
+  0.27  0.5453846  0.00000000
+  0.28  0.5453846  0.00000000
+  0.29  0.5453846  0.00000000
+  0.30  0.5453846  0.00000000
+  0.31  0.5453846  0.00000000
+  0.32  0.5453846  0.00000000
+  0.33  0.5453846  0.00000000
+  0.34  0.5453846  0.00000000
+  0.35  0.5453846  0.00000000
+  0.36  0.5453846  0.00000000
+  0.37  0.5453846  0.00000000
+  0.38  0.5453846  0.00000000
+  0.39  0.5453846  0.00000000
+  0.40  0.5453846  0.00000000
+  0.41  0.5453846  0.00000000
+  0.42  0.5453846  0.00000000
+  0.43  0.5453846  0.00000000
+  0.44  0.5453846  0.00000000
+  0.45  0.5453846  0.00000000
+  0.46  0.5453846  0.00000000
+  0.47  0.5453846  0.00000000
+  0.48  0.5453846  0.00000000
+  0.49  0.5453846  0.00000000
+  0.50  0.5453846  0.00000000
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was cp = 0.17.
+</pre></div>
+</div>
+</div>
+</div>
+<p>上面输出的最下面告诉我们我们要用来构建<code class="docutils literal notranslate"><span class="pre">CART</span></code>模型的最佳cp值，接下来将要构建新的CART模型。请注意，由于我们已经将结果变量Reverse转换为因子变量，因此现在可以删除参数<code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=&quot;class&quot;</span></code>。在以下代码中，命令<code class="docutils literal notranslate"><span class="pre">cvResults[&quot;bestTune&quot;]</span></code>从上述交叉验证结果中获取最佳cp值。我们也可以只输入0.17。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stevensTreeCV</span> <span class="o">=</span> <span class="n">rpart</span><span class="p">(</span><span class="n">Reverse</span> <span class="o">~</span> <span class="n">Term</span> <span class="o">+</span> <span class="n">Circuit</span> <span class="o">+</span> <span class="n">Issue</span> <span class="o">+</span> <span class="n">Petitioner</span> <span class="o">+</span> <span class="n">Respondent</span> <span class="o">+</span> <span class="n">LowerCourt</span> <span class="o">+</span> <span class="n">Unconst</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">train</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="n">rpart</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">cp</span> <span class="o">=</span> <span class="n">cvResults</span><span class="p">[</span><span class="s2">&quot;bestTune&quot;</span><span class="p">]))</span>
+<span class="n">prp</span><span class="p">(</span><span class="n">stevensTreeCV</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Tree_model_33_0.png" src="../../_images/Tree_model_33_0.png" />
+</div>
+</div>
+<p>有趣的是，使用cp参数从交叉验证过程中选择的最佳树仅在下级法院判决的意识形态方向上有一个分支。当下级法院的裁决被认为是自由的时，史蒂文斯法官就更有可能确认该裁决。但是，当下级法院的裁决被认为是保守的时，史蒂文斯大法官更有可能推翻该裁决。如下所示，此简单树的准确性超过70％。这提供了有力的证据，证明史蒂文斯大法官比保守派更自由，而不是他自己声称的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictCV = predict(stevensTreeCV, newdata = test, type = &quot;class&quot;)
+confCV = table(test$Reverse, predictCV)
+confCV
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   predictCV
+     0  1
+  0 59 18
+  1 29 64
+</pre></div>
+</div>
+</div>
+</div>
+<p>新<code class="docutils literal notranslate"><span class="pre">CART</span></code>模型的准确性为72.35％，比我们之前的CART模型的准确性为63.53％高。我们将看到，与接下来将要做的随机森林模型相比，它甚至更高。</p>
+<div class="section" id="r">
+<h3>与R中另一个程序包的交叉验证<a class="headerlink" href="#r" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">treeRev</span> <span class="o">=</span> <span class="n">tree</span><span class="p">(</span><span class="n">Reverse</span> <span class="o">~</span> <span class="n">Term</span> <span class="o">+</span> <span class="n">Circuit</span> <span class="o">+</span> <span class="n">Issue</span> <span class="o">+</span> <span class="n">Petitioner</span> <span class="o">+</span> <span class="n">Respondent</span> <span class="o">+</span> <span class="n">LowerCourt</span> <span class="o">+</span> <span class="n">Unconst</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">train</span><span class="p">)</span>
+<span class="n">cvResult</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">tree</span><span class="p">(</span><span class="n">treeRev</span><span class="p">,,</span><span class="n">prune</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">cvResult</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Tree_model_37_0.png" src="../../_images/Tree_model_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cvResult</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>$size
+ [1] 23 22 21 20 19 18 16 14 13 12 11 10  9  8  7  6  5  3  2  1
+
+$dev
+ [1] 953.6358 888.2305 887.6445 874.6479 840.5691 831.2859 803.5763 803.5763
+ [9] 712.1258 713.4176 694.4959 688.7589 667.8413 667.4122 626.9538 631.5714
+[17] 570.8960 570.8960 536.0984 547.4825
+
+$k
+ [1]      -Inf  5.487169  5.939778  5.999377  6.645951  7.063352  7.927246
+ [8]  7.934142  8.659141  8.788767  9.097557  9.252559  9.513109  9.573004
+[15] 10.628985 10.941779 15.925130 15.976991 23.591745 32.256967
+
+$method
+[1] &quot;deviance&quot;
+
+attr(,&quot;class&quot;)
+[1] &quot;prune&quot;         &quot;tree.sequence&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>treeRevCV = prune.tree(treeRev, k = cvResult$k[which.min(cvResult$dev)])
+summary(treeRevCV)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Classification tree:
+snip.tree(tree = treeRev, nodes = 3:2)
+Variables actually used in tree construction:
+[1] &quot;LowerCourt&quot;
+Number of terminal nodes:  2 
+Residual mean deviance:  1.303 = 513.4 / 394 
+Misclassification error rate: 0.3561 = 141 / 396 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">treeRevCV</span><span class="p">)</span>
+<span class="n">text</span><span class="p">(</span><span class="n">treeRevCV</span><span class="p">,</span> <span class="n">pretty</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Tree_model_40_0.png" src="../../_images/Tree_model_40_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>建立随机森林模型<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="n">stevensForest</span> <span class="o">=</span> <span class="n">randomForest</span><span class="p">(</span><span class="n">Reverse</span> <span class="o">~</span> <span class="n">Term</span> <span class="o">+</span> <span class="n">Circuit</span> <span class="o">+</span> <span class="n">Issue</span> <span class="o">+</span> <span class="n">Petitioner</span> <span class="o">+</span> <span class="n">Respondent</span> <span class="o">+</span> <span class="n">LowerCourt</span> <span class="o">+</span> <span class="n">Unconst</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">train</span><span class="p">,</span> <span class="n">ntree</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">nodesize</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">mtry</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictForest = predict(stevensForest, newdata = test)
+confRF = table(test$Reverse, predictForest)
+confRF
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   predictForest
+     0  1
+  0 45 32
+  1 20 73
+</pre></div>
+</div>
+</div>
+</div>
+<p>我们的随机森林模型的准确性为69.41％，与通过交叉验证得出的CART模型的准确性相近。可以使用交叉验证进一步微调模型，以选择最佳参数值。</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
