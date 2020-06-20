@@ -37,9 +37,10 @@
     - file: content/R_study/Linear_reg_application
     - file: content/R_study/Logistic_reg
     - file: content/R_study/SVM_practice
+    - file: content/R_study/Tree_model
     - file: content/R_study/Neural_Networks_1
     - file: content/R_study/DNN_1
     - file: content/R_study/DNN_2
     - file: content/R_study/Case_1
     - file: content/R_study/kaggle_2_via_logis
-    - file: content/R_study/Tree_model
+
