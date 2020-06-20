@@ -1,0 +1,1001 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>kaggle competition 2 &#8212; Jerrynote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Case 1: 点球成金" href="Case_1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jerrynote</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../README.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="../Regular_Expression.html">Regular Expression</a>
+  </li>
+  <li class="">
+    <a href="../proxy_setting.html">各种设置镜像或代理</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Julia_study</p>
+</li>
+  <li class="">
+    <a href="../julia_study/README.html">Why Julia</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Base/README.html">Base</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/LinearAlgebra/README.html">LinearAlgebra</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Flux/README.html">Flux</a>
+  </li>
+  <li class="">
+    <a href="../julia_study/Data_science_course_from_juliaacademy/Data.html">数据</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">R_study</p>
+</li>
+  <li class="active">
+    <a href="README.html">R语言的学习</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="R_usage.html">R的基本用法</a>
+    </li>
+    <li class="">
+      <a href="R_usage_2.html">DataFrame</a>
+    </li>
+    <li class="">
+      <a href="Linear_regression.html">线性回归入门</a>
+    </li>
+    <li class="">
+      <a href="Linear_reg_application.html">读取并初步探索数据</a>
+    </li>
+    <li class="">
+      <a href="Logistic_reg.html">加载和浏览数据集</a>
+    </li>
+    <li class="">
+      <a href="SVM_practice.html">SVM练习</a>
+    </li>
+    <li class="">
+      <a href="Neural_Networks_1.html">多层感知机</a>
+    </li>
+    <li class="">
+      <a href="DNN_1.html">简单生成DNN</a>
+    </li>
+    <li class="">
+      <a href="DNN_2.html">包含RNN的DNN练习</a>
+    </li>
+    <li class="">
+      <a href="Case_1.html">Case 1: 点球成金</a>
+    </li>
+    <li class="active">
+      <a href="">kaggle competition 2</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/content/R_study/kaggle_2_via_logis.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+            <div class="dropdown-buttons sourcebuttons">
+                <a class="repository-button" href="https://github.com/Jerrywang959/note_viajupyterbook"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Source repository"><i class="fab fa-github"></i>repository</button></a>
+                
+                <a class="edit-button" href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/kaggle_2_via_logis.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left" title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+            </div>
+        </div>
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/Jerrywang959/note_viajupyterbook/master?urlpath=tree/content/R_study/kaggle_2_via_logis.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id1" class="nav-link">加载和浏览数据集</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id2" class="nav-link">对数据变量做可视化分析</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">逻辑回归</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#obp-slg" class="nav-link">仅使用 OBP+SLG 双变量</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#roc" class="nav-link">画ROC</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id4" class="nav-link">测试集验证</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#id5" class="nav-link">预测</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#svm" class="nav-link">SVM</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/Jerrywang959/note_viajupyterbook/edit/master/content/R_study/kaggle_2_via_logis.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="kaggle-competition-2">
+<h1>kaggle competition 2<a class="headerlink" href="#kaggle-competition-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>加载和浏览数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>加载包</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">e1071</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caTools</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ROCR</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">pROC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>加载数据</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trainraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Train.csv&quot;</span><span class="p">)</span>
+<span class="n">Testraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Test.csv&quot;</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	932 obs. of  16 variables:
+ $ Id          : int  301 302 303 304 305 306 307 308 309 310 ...
+ $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
+ $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
+ $ Year        : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
+ $ RS          : int  851 819 708 667 859 706 856 709 739 778 ...
+ $ RA          : int  644 674 565 773 665 759 798 774 837 898 ...
+ $ W           : int  99 98 101 67 93 67 81 78 74 73 ...
+ $ OBP         : num  0.341 0.346 0.331 0.309 0.345 0.321 0.338 0.33 0.321 0.337 ...
+ $ SLG         : num  0.433 0.423 0.409 0.403 0.444 0.413 0.449 0.408 0.412 0.423 ...
+ $ BA          : num  0.282 0.267 0.26 0.246 0.277 0.246 0.268 0.253 0.249 0.274 ...
+ $ Playoffs    : int  1 1 1 0 0 0 0 0 0 0 ...
+ $ RankSeason  : int  3 4 2 NA NA NA NA NA NA NA ...
+ $ RankPlayoffs: int  1 4 4 NA NA NA NA NA NA NA ...
+ $ G           : int  162 162 161 162 162 162 162 162 162 162 ...
+ $ OOBP        : num  0.314 0.305 0.313 0.336 0.308 0.331 0.33 0.338 0.348 0.349 ...
+ $ OSLG        : num  0.392 0.397 0.364 0.435 0.385 0.407 0.423 0.426 0.423 0.466 ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>League与Team变量应该是Factor变量而非chr变量，下面作数据类型转换</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Trainraw$League = as.factor(Trainraw$League )
+Trainraw$Team = as.factor(Trainraw$Team)
+str(Trainraw)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	932 obs. of  16 variables:
+ $ Id          : int  301 302 303 304 305 306 307 308 309 310 ...
+ $ Team        : Factor w/ 36 levels &quot;ANA&quot;,&quot;ARI&quot;,&quot;ATL&quot;,..: 1 2 3 4 5 7 8 9 10 11 ...
+ $ League      : Factor w/ 2 levels &quot;AL&quot;,&quot;NL&quot;: 1 2 2 1 1 2 1 2 1 2 ...
+ $ Year        : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
+ $ RS          : int  851 819 708 667 859 706 856 709 739 778 ...
+ $ RA          : int  644 674 565 773 665 759 798 774 837 898 ...
+ $ W           : int  99 98 101 67 93 67 81 78 74 73 ...
+ $ OBP         : num  0.341 0.346 0.331 0.309 0.345 0.321 0.338 0.33 0.321 0.337 ...
+ $ SLG         : num  0.433 0.423 0.409 0.403 0.444 0.413 0.449 0.408 0.412 0.423 ...
+ $ BA          : num  0.282 0.267 0.26 0.246 0.277 0.246 0.268 0.253 0.249 0.274 ...
+ $ Playoffs    : int  1 1 1 0 0 0 0 0 0 0 ...
+ $ RankSeason  : int  3 4 2 NA NA NA NA NA NA NA ...
+ $ RankPlayoffs: int  1 4 4 NA NA NA NA NA NA NA ...
+ $ G           : int  162 162 161 162 162 162 162 162 162 162 ...
+ $ OOBP        : num  0.314 0.305 0.313 0.336 0.308 0.331 0.33 0.338 0.348 0.349 ...
+ $ OSLG        : num  0.392 0.397 0.364 0.435 0.385 0.407 0.423 0.426 0.423 0.466 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>对数据变量做可视化分析<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span><span class="o">=</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">with</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span>
+     <span class="n">plot</span><span class="p">(</span><span class="n">RS</span><span class="p">,</span><span class="n">Team</span><span class="p">,</span>
+          <span class="n">main</span><span class="o">=</span><span class="s2">&quot;季后赛与队伍RS关系图&quot;</span><span class="p">,</span>
+          <span class="n">xlab</span><span class="o">=</span><span class="s2">&quot;RS&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span>
+          <span class="n">pch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+          <span class="n">col</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">Playoffs</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+          <span class="n">cex</span><span class="o">=</span><span class="mf">0.20</span>
+          <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_7_0.png" src="../../_images/kaggle_2_via_logis_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span><span class="o">=</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">with</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span>
+     <span class="n">plot</span><span class="p">(</span><span class="n">RA</span><span class="p">,</span><span class="n">Team</span><span class="p">,</span>
+          <span class="n">main</span><span class="o">=</span><span class="s2">&quot;季后赛与队伍RA关系图&quot;</span><span class="p">,</span>
+          <span class="n">xlab</span><span class="o">=</span><span class="s2">&quot;RA&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span>
+          <span class="n">pch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+          <span class="n">col</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">Playoffs</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+          <span class="n">cex</span><span class="o">=</span><span class="mf">0.20</span>
+          <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_8_0.png" src="../../_images/kaggle_2_via_logis_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span><span class="o">=</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">with</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span>
+     <span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">Team</span><span class="p">,</span>
+          <span class="n">main</span><span class="o">=</span><span class="s2">&quot;季后赛与队伍W关系图&quot;</span><span class="p">,</span>
+          <span class="n">xlab</span><span class="o">=</span><span class="s2">&quot;W&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span>
+          <span class="n">pch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+          <span class="n">col</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">Playoffs</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+          <span class="n">cex</span><span class="o">=</span><span class="mf">0.20</span>
+          <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_9_0.png" src="../../_images/kaggle_2_via_logis_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span><span class="o">=</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">with</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span>
+     <span class="n">plot</span><span class="p">(</span><span class="n">OBP</span><span class="p">,</span><span class="n">Team</span><span class="p">,</span>
+          <span class="n">main</span><span class="o">=</span><span class="s2">&quot;季后赛与队伍OBP关系图&quot;</span><span class="p">,</span>
+          <span class="n">xlab</span><span class="o">=</span><span class="s2">&quot;OBP&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span>
+          <span class="n">pch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+          <span class="n">col</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">Playoffs</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+          <span class="n">cex</span><span class="o">=</span><span class="mf">0.20</span>
+          <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_10_0.png" src="../../_images/kaggle_2_via_logis_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par</span><span class="o">=</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">with</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span>
+     <span class="n">plot</span><span class="p">(</span><span class="n">SLG</span><span class="p">,</span><span class="n">Team</span><span class="p">,</span>
+          <span class="n">main</span><span class="o">=</span><span class="s2">&quot;季后赛与队伍SLG关系图&quot;</span><span class="p">,</span>
+          <span class="n">xlab</span><span class="o">=</span><span class="s2">&quot;SLG&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s2">&quot;Team&quot;</span><span class="p">,</span>
+          <span class="n">pch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+          <span class="n">col</span><span class="o">=</span><span class="n">ifelse</span><span class="p">(</span><span class="n">Playoffs</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+          <span class="n">cex</span><span class="o">=</span><span class="mf">0.20</span>
+          <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_11_0.png" src="../../_images/kaggle_2_via_logis_11_0.png" />
+</div>
+</div>
+<p>分割数据集</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set.seed(221)
+split = sample.split(Trainraw$Playoffs, SplitRatio = 0.70)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MyTrain</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="n">MyTest</span> <span class="o">=</span> <span class="n">subset</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">,</span> <span class="n">split</span> <span class="o">==</span> <span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>逻辑回归<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="obp-slg">
+<h3>仅使用 OBP+SLG 双变量<a class="headerlink" href="#obp-slg" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>logis_train &lt;- function(threhold){
+  QualityLog = glm(Playoffs ~ OBP+SLG, data = MyTrain, family = binomial)
+  predictTest = predict(QualityLog, type = &quot;response&quot;, newdata = MyTest)
+  output=table(MyTest$Playoffs, predictTest &gt; threhold)
+  error=(output[1,2]+output[2,1])/sum(output)
+  return(error)
+  }
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logis_train</span><span class="p">(</span><span class="mf">0.43</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.160714285714286</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="n">from</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="mf">0.63</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">c</span><span class="p">()</span>
+<span class="n">k</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">){</span>
+  <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">logis_train</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+  <span class="p">}</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_18_0.png" src="../../_images/kaggle_2_via_logis_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QualityLog</span> <span class="o">=</span> <span class="n">glm</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span><span class="o">+</span><span class="n">SLG</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">MyTrain</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+glm(formula = Playoffs ~ OBP + SLG, family = binomial, data = MyTrain)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.6764  -0.6211  -0.4316  -0.2571   2.7568  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -23.712      2.993  -7.922 2.33e-15 ***
+OBP           59.969     12.778   4.693 2.69e-06 ***
+SLG            5.965      5.418   1.101    0.271    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 601.28  on 651  degrees of freedom
+Residual deviance: 513.48  on 649  degrees of freedom
+AIC: 519.48
+
+Number of Fisher Scoring iterations: 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>训练集验证及阈值筛选</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PatoffTrain_1</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;response&quot;</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">PatoffTrain_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+0.005766 0.065951 0.129505 0.173313 0.234517 0.808772 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tapply(PatoffTrain_1, MyTrain$Playoffs, mean)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>0</dt><dd>0.148218995999727</dd><dt>1</dt><dd>0.293008505815836</dd></dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>conf05=table(MyTrain$Playoffs,PatoffTrain_1 &gt; 0.5)
+conf05
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
+    FALSE TRUE
+  0   526   13
+  1    97   16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="roc">
+<h4>画ROC<a class="headerlink" href="#roc" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ROCRpred = prediction(PatoffTrain_1, MyTrain$Playoffs)
+ROCRperf = performance(ROCRpred, &quot;tpr&quot;, &quot;fpr&quot;)
+plot(ROCRperf, colorize = TRUE, print.cutoffs.at = seq(0,1,0.1), text.adj = c(-0.2,1.7))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_25_0.png" src="../../_images/kaggle_2_via_logis_25_0.png" />
+</div>
+</div>
+<p>计算AUC</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROCRauc</span> <span class="o">=</span> <span class="n">performance</span><span class="p">(</span><span class="n">ROCRpred</span><span class="p">,</span> <span class="s2">&quot;auc&quot;</span><span class="p">)</span>
+<span class="n">ROCRauc</span><span class="nd">@y</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol>
+	<li>0.765995698359796</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>plot.roc(MyTrain$Playoffs, PatoffTrain_1, 
+    auc.polygon = TRUE, 
+    auc.polygon.col=rgb(.35,0.31,0.61, alpha = 0.4), 
+    auc.polygon.border=rgb(.35,0.31,0.61, 0.4))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Setting levels: control = 0, case = 1
+
+Setting direction: controls &lt; cases
+
+</pre>
+</div>
+<img alt="../../_images/kaggle_2_via_logis_28_1.png" src="../../_images/kaggle_2_via_logis_28_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>测试集验证<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictTest = predict(QualityLog, type = &quot;response&quot;, newdata = MyTest)
+conf03out = table(MyTest$Playoffs, predictTest &gt; 0.5)
+conf03out
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>   
+    FALSE TRUE
+  0   224    7
+  1    39   10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ROCRpredTest = prediction(predictTest, MyTest$Playoffs)
+ROCRperfTest = performance(ROCRpredTest, &quot;tpr&quot;, &quot;fpr&quot;)
+plot(ROCRperfTest, colorize = TRUE, print.cutoffs.at = seq(0,1,0.2), text.adj = c(-0.2,1.7))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_31_0.png" src="../../_images/kaggle_2_via_logis_31_0.png" />
+</div>
+</div>
+<div class="section" id="id5">
+<h4>预测<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">predictTest</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">QualityLog</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span> <span class="n">newdata</span> <span class="o">=</span> <span class="n">Testraw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>x &lt;-data.frame(Id=Testraw$Id,Playoffs=predictTest)
+x$Playoffs[which(x$Playoffs&lt;0.43)]=0
+x$Playoffs[which(x$Playoffs&gt;0.43)]=1
+</pre></div>
+</div>
+</div>
+</div>
+<p>输出数据</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot;../../output/O_S_output.csv&quot;</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="svm">
+<h2>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trainraw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A data.frame: 932 × 16</caption>
+<thead>
+	<tr><th scope=col>Id</th><th scope=col>Team</th><th scope=col>League</th><th scope=col>Year</th><th scope=col>RS</th><th scope=col>RA</th><th scope=col>W</th><th scope=col>OBP</th><th scope=col>SLG</th><th scope=col>BA</th><th scope=col>Playoffs</th><th scope=col>RankSeason</th><th scope=col>RankPlayoffs</th><th scope=col>G</th><th scope=col>OOBP</th><th scope=col>OSLG</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>301</td><td>ANA</td><td>AL</td><td>2002</td><td>851</td><td>644</td><td> 99</td><td>0.341</td><td>0.433</td><td>0.282</td><td>1</td><td> 3</td><td> 1</td><td>162</td><td>0.314</td><td>0.392</td></tr>
+	<tr><td>302</td><td>ARI</td><td>NL</td><td>2002</td><td>819</td><td>674</td><td> 98</td><td>0.346</td><td>0.423</td><td>0.267</td><td>1</td><td> 4</td><td> 4</td><td>162</td><td>0.305</td><td>0.397</td></tr>
+	<tr><td>303</td><td>ATL</td><td>NL</td><td>2002</td><td>708</td><td>565</td><td>101</td><td>0.331</td><td>0.409</td><td>0.260</td><td>1</td><td> 2</td><td> 4</td><td>161</td><td>0.313</td><td>0.364</td></tr>
+	<tr><td>304</td><td>BAL</td><td>AL</td><td>2002</td><td>667</td><td>773</td><td> 67</td><td>0.309</td><td>0.403</td><td>0.246</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.336</td><td>0.435</td></tr>
+	<tr><td>305</td><td>BOS</td><td>AL</td><td>2002</td><td>859</td><td>665</td><td> 93</td><td>0.345</td><td>0.444</td><td>0.277</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.308</td><td>0.385</td></tr>
+	<tr><td>306</td><td>CHC</td><td>NL</td><td>2002</td><td>706</td><td>759</td><td> 67</td><td>0.321</td><td>0.413</td><td>0.246</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.331</td><td>0.407</td></tr>
+	<tr><td>307</td><td>CHW</td><td>AL</td><td>2002</td><td>856</td><td>798</td><td> 81</td><td>0.338</td><td>0.449</td><td>0.268</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.330</td><td>0.423</td></tr>
+	<tr><td>308</td><td>CIN</td><td>NL</td><td>2002</td><td>709</td><td>774</td><td> 78</td><td>0.330</td><td>0.408</td><td>0.253</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.338</td><td>0.426</td></tr>
+	<tr><td>309</td><td>CLE</td><td>AL</td><td>2002</td><td>739</td><td>837</td><td> 74</td><td>0.321</td><td>0.412</td><td>0.249</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.348</td><td>0.423</td></tr>
+	<tr><td>310</td><td>COL</td><td>NL</td><td>2002</td><td>778</td><td>898</td><td> 73</td><td>0.337</td><td>0.423</td><td>0.274</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.349</td><td>0.466</td></tr>
+	<tr><td>311</td><td>DET</td><td>AL</td><td>2002</td><td>575</td><td>864</td><td> 55</td><td>0.300</td><td>0.379</td><td>0.248</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>0.343</td><td>0.455</td></tr>
+	<tr><td>312</td><td>FLA</td><td>NL</td><td>2002</td><td>699</td><td>763</td><td> 79</td><td>0.337</td><td>0.403</td><td>0.261</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.341</td><td>0.415</td></tr>
+	<tr><td>313</td><td>HOU</td><td>NL</td><td>2002</td><td>749</td><td>695</td><td> 84</td><td>0.338</td><td>0.417</td><td>0.262</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.330</td><td>0.410</td></tr>
+	<tr><td>314</td><td>KCR</td><td>AL</td><td>2002</td><td>737</td><td>891</td><td> 62</td><td>0.323</td><td>0.398</td><td>0.256</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.349</td><td>0.464</td></tr>
+	<tr><td>315</td><td>LAD</td><td>NL</td><td>2002</td><td>713</td><td>643</td><td> 92</td><td>0.320</td><td>0.409</td><td>0.264</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.315</td><td>0.387</td></tr>
+	<tr><td>316</td><td>MIL</td><td>NL</td><td>2002</td><td>627</td><td>821</td><td> 56</td><td>0.320</td><td>0.390</td><td>0.253</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.352</td><td>0.442</td></tr>
+	<tr><td>317</td><td>MIN</td><td>AL</td><td>2002</td><td>768</td><td>712</td><td> 94</td><td>0.332</td><td>0.437</td><td>0.272</td><td>1</td><td> 7</td><td> 3</td><td>161</td><td>0.318</td><td>0.421</td></tr>
+	<tr><td>318</td><td>MON</td><td>NL</td><td>2002</td><td>735</td><td>718</td><td> 83</td><td>0.334</td><td>0.418</td><td>0.261</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.329</td><td>0.421</td></tr>
+	<tr><td>319</td><td>NYM</td><td>NL</td><td>2002</td><td>690</td><td>703</td><td> 75</td><td>0.322</td><td>0.395</td><td>0.256</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>0.327</td><td>0.403</td></tr>
+	<tr><td>320</td><td>NYY</td><td>AL</td><td>2002</td><td>897</td><td>697</td><td>103</td><td>0.354</td><td>0.455</td><td>0.275</td><td>1</td><td> 1</td><td> 4</td><td>161</td><td>0.309</td><td>0.395</td></tr>
+	<tr><td>321</td><td>OAK</td><td>AL</td><td>2002</td><td>800</td><td>654</td><td>103</td><td>0.339</td><td>0.432</td><td>0.261</td><td>1</td><td> 1</td><td> 4</td><td>162</td><td>0.315</td><td>0.384</td></tr>
+	<tr><td>322</td><td>PHI</td><td>NL</td><td>2002</td><td>710</td><td>724</td><td> 80</td><td>0.339</td><td>0.422</td><td>0.259</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>0.328</td><td>0.401</td></tr>
+	<tr><td>323</td><td>PIT</td><td>NL</td><td>2002</td><td>641</td><td>730</td><td> 72</td><td>0.319</td><td>0.381</td><td>0.244</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>0.342</td><td>0.423</td></tr>
+	<tr><td>324</td><td>SDP</td><td>NL</td><td>2002</td><td>662</td><td>815</td><td> 66</td><td>0.321</td><td>0.381</td><td>0.253</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.346</td><td>0.442</td></tr>
+	<tr><td>325</td><td>SEA</td><td>AL</td><td>2002</td><td>814</td><td>699</td><td> 93</td><td>0.350</td><td>0.419</td><td>0.275</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.315</td><td>0.410</td></tr>
+	<tr><td>326</td><td>SFG</td><td>NL</td><td>2002</td><td>783</td><td>616</td><td> 95</td><td>0.344</td><td>0.442</td><td>0.267</td><td>1</td><td> 6</td><td> 2</td><td>162</td><td>0.319</td><td>0.372</td></tr>
+	<tr><td>327</td><td>STL</td><td>NL</td><td>2002</td><td>787</td><td>648</td><td> 97</td><td>0.338</td><td>0.425</td><td>0.268</td><td>1</td><td> 5</td><td> 3</td><td>162</td><td>0.323</td><td>0.386</td></tr>
+	<tr><td>328</td><td>TBD</td><td>AL</td><td>2002</td><td>673</td><td>918</td><td> 55</td><td>0.314</td><td>0.390</td><td>0.253</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>0.357</td><td>0.463</td></tr>
+	<tr><td>329</td><td>TEX</td><td>AL</td><td>2002</td><td>843</td><td>882</td><td> 72</td><td>0.338</td><td>0.455</td><td>0.269</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.355</td><td>0.451</td></tr>
+	<tr><td>330</td><td>TOR</td><td>AL</td><td>2002</td><td>813</td><td>828</td><td> 78</td><td>0.327</td><td>0.430</td><td>0.261</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>0.344</td><td>0.431</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>1203</td><td>LAD</td><td>NL</td><td>1963</td><td>640</td><td>550</td><td> 99</td><td>0.309</td><td>0.357</td><td>0.251</td><td>1</td><td> 2</td><td> 1</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1204</td><td>MIN</td><td>AL</td><td>1963</td><td>767</td><td>602</td><td> 91</td><td>0.325</td><td>0.430</td><td>0.255</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1205</td><td>MLN</td><td>NL</td><td>1963</td><td>677</td><td>603</td><td> 84</td><td>0.312</td><td>0.370</td><td>0.244</td><td>0</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1206</td><td>NYM</td><td>NL</td><td>1963</td><td>501</td><td>774</td><td> 51</td><td>0.285</td><td>0.315</td><td>0.219</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1207</td><td>NYY</td><td>AL</td><td>1963</td><td>714</td><td>547</td><td>104</td><td>0.309</td><td>0.403</td><td>0.252</td><td>1</td><td> 1</td><td> 2</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1208</td><td>PHI</td><td>NL</td><td>1963</td><td>642</td><td>578</td><td> 87</td><td>0.306</td><td>0.381</td><td>0.252</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1209</td><td>PIT</td><td>NL</td><td>1963</td><td>567</td><td>595</td><td> 74</td><td>0.309</td><td>0.359</td><td>0.250</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1210</td><td>SFG</td><td>NL</td><td>1963</td><td>725</td><td>641</td><td> 88</td><td>0.316</td><td>0.414</td><td>0.258</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1211</td><td>STL</td><td>NL</td><td>1963</td><td>747</td><td>628</td><td> 93</td><td>0.326</td><td>0.403</td><td>0.271</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1212</td><td>WSA</td><td>AL</td><td>1963</td><td>578</td><td>812</td><td> 56</td><td>0.293</td><td>0.351</td><td>0.227</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1213</td><td>BAL</td><td>AL</td><td>1962</td><td>652</td><td>680</td><td> 77</td><td>0.314</td><td>0.387</td><td>0.248</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1214</td><td>BOS</td><td>AL</td><td>1962</td><td>707</td><td>756</td><td> 76</td><td>0.324</td><td>0.403</td><td>0.258</td><td>0</td><td>NA</td><td>NA</td><td>160</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1215</td><td>CHC</td><td>NL</td><td>1962</td><td>632</td><td>827</td><td> 59</td><td>0.317</td><td>0.377</td><td>0.253</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1216</td><td>CHW</td><td>AL</td><td>1962</td><td>707</td><td>658</td><td> 85</td><td>0.334</td><td>0.372</td><td>0.257</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1217</td><td>CIN</td><td>NL</td><td>1962</td><td>802</td><td>685</td><td> 98</td><td>0.332</td><td>0.417</td><td>0.270</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1218</td><td>CLE</td><td>AL</td><td>1962</td><td>682</td><td>745</td><td> 80</td><td>0.312</td><td>0.388</td><td>0.245</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1219</td><td>DET</td><td>AL</td><td>1962</td><td>758</td><td>692</td><td> 85</td><td>0.330</td><td>0.411</td><td>0.248</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1220</td><td>HOU</td><td>NL</td><td>1962</td><td>592</td><td>717</td><td> 64</td><td>0.310</td><td>0.351</td><td>0.246</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1221</td><td>KCA</td><td>AL</td><td>1962</td><td>745</td><td>837</td><td> 72</td><td>0.332</td><td>0.386</td><td>0.263</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1222</td><td>LAA</td><td>AL</td><td>1962</td><td>718</td><td>706</td><td> 86</td><td>0.325</td><td>0.380</td><td>0.250</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1223</td><td>LAD</td><td>NL</td><td>1962</td><td>842</td><td>697</td><td>102</td><td>0.337</td><td>0.400</td><td>0.268</td><td>0</td><td>NA</td><td>NA</td><td>165</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1224</td><td>MIN</td><td>AL</td><td>1962</td><td>798</td><td>713</td><td> 91</td><td>0.338</td><td>0.412</td><td>0.260</td><td>0</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1225</td><td>MLN</td><td>NL</td><td>1962</td><td>730</td><td>665</td><td> 86</td><td>0.326</td><td>0.403</td><td>0.252</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1226</td><td>NYM</td><td>NL</td><td>1962</td><td>617</td><td>948</td><td> 40</td><td>0.318</td><td>0.361</td><td>0.240</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1227</td><td>NYY</td><td>AL</td><td>1962</td><td>817</td><td>680</td><td> 96</td><td>0.337</td><td>0.426</td><td>0.267</td><td>1</td><td> 2</td><td> 1</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1228</td><td>PHI</td><td>NL</td><td>1962</td><td>705</td><td>759</td><td> 81</td><td>0.330</td><td>0.390</td><td>0.260</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1229</td><td>PIT</td><td>NL</td><td>1962</td><td>706</td><td>626</td><td> 93</td><td>0.321</td><td>0.394</td><td>0.268</td><td>0</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1230</td><td>SFG</td><td>NL</td><td>1962</td><td>878</td><td>690</td><td>103</td><td>0.341</td><td>0.441</td><td>0.278</td><td>1</td><td> 1</td><td> 2</td><td>165</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1231</td><td>STL</td><td>NL</td><td>1962</td><td>774</td><td>664</td><td> 84</td><td>0.335</td><td>0.394</td><td>0.271</td><td>0</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><td>1232</td><td>WSA</td><td>AL</td><td>1962</td><td>599</td><td>716</td><td> 60</td><td>0.308</td><td>0.373</td><td>0.250</td><td>0</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MyTrain$Playoffs[which(MyTrain$Playoffs==0)]=-1
+MyTrain$Playoffs=as.factor(MyTrain$Playoffs)
+MyTest$Playoffs[which(MyTest$Playoffs==0)]=-1
+MyTrain
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A data.frame: 652 × 16</caption>
+<thead>
+	<tr><th></th><th scope=col>Id</th><th scope=col>Team</th><th scope=col>League</th><th scope=col>Year</th><th scope=col>RS</th><th scope=col>RA</th><th scope=col>W</th><th scope=col>OBP</th><th scope=col>SLG</th><th scope=col>BA</th><th scope=col>Playoffs</th><th scope=col>RankSeason</th><th scope=col>RankPlayoffs</th><th scope=col>G</th><th scope=col>OOBP</th><th scope=col>OSLG</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>301</td><td>ANA</td><td>AL</td><td>2002</td><td>851</td><td>644</td><td> 99</td><td>0.341</td><td>0.433</td><td>0.282</td><td>1 </td><td> 3</td><td> 1</td><td>162</td><td>0.314</td><td>0.392</td></tr>
+	<tr><th scope=row>2</th><td>302</td><td>ARI</td><td>NL</td><td>2002</td><td>819</td><td>674</td><td> 98</td><td>0.346</td><td>0.423</td><td>0.267</td><td>1 </td><td> 4</td><td> 4</td><td>162</td><td>0.305</td><td>0.397</td></tr>
+	<tr><th scope=row>3</th><td>303</td><td>ATL</td><td>NL</td><td>2002</td><td>708</td><td>565</td><td>101</td><td>0.331</td><td>0.409</td><td>0.260</td><td>1 </td><td> 2</td><td> 4</td><td>161</td><td>0.313</td><td>0.364</td></tr>
+	<tr><th scope=row>4</th><td>304</td><td>BAL</td><td>AL</td><td>2002</td><td>667</td><td>773</td><td> 67</td><td>0.309</td><td>0.403</td><td>0.246</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.336</td><td>0.435</td></tr>
+	<tr><th scope=row>5</th><td>305</td><td>BOS</td><td>AL</td><td>2002</td><td>859</td><td>665</td><td> 93</td><td>0.345</td><td>0.444</td><td>0.277</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.308</td><td>0.385</td></tr>
+	<tr><th scope=row>8</th><td>308</td><td>CIN</td><td>NL</td><td>2002</td><td>709</td><td>774</td><td> 78</td><td>0.330</td><td>0.408</td><td>0.253</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.338</td><td>0.426</td></tr>
+	<tr><th scope=row>9</th><td>309</td><td>CLE</td><td>AL</td><td>2002</td><td>739</td><td>837</td><td> 74</td><td>0.321</td><td>0.412</td><td>0.249</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.348</td><td>0.423</td></tr>
+	<tr><th scope=row>10</th><td>310</td><td>COL</td><td>NL</td><td>2002</td><td>778</td><td>898</td><td> 73</td><td>0.337</td><td>0.423</td><td>0.274</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.349</td><td>0.466</td></tr>
+	<tr><th scope=row>11</th><td>311</td><td>DET</td><td>AL</td><td>2002</td><td>575</td><td>864</td><td> 55</td><td>0.300</td><td>0.379</td><td>0.248</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.343</td><td>0.455</td></tr>
+	<tr><th scope=row>12</th><td>312</td><td>FLA</td><td>NL</td><td>2002</td><td>699</td><td>763</td><td> 79</td><td>0.337</td><td>0.403</td><td>0.261</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.341</td><td>0.415</td></tr>
+	<tr><th scope=row>14</th><td>314</td><td>KCR</td><td>AL</td><td>2002</td><td>737</td><td>891</td><td> 62</td><td>0.323</td><td>0.398</td><td>0.256</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.349</td><td>0.464</td></tr>
+	<tr><th scope=row>15</th><td>315</td><td>LAD</td><td>NL</td><td>2002</td><td>713</td><td>643</td><td> 92</td><td>0.320</td><td>0.409</td><td>0.264</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.315</td><td>0.387</td></tr>
+	<tr><th scope=row>16</th><td>316</td><td>MIL</td><td>NL</td><td>2002</td><td>627</td><td>821</td><td> 56</td><td>0.320</td><td>0.390</td><td>0.253</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.352</td><td>0.442</td></tr>
+	<tr><th scope=row>17</th><td>317</td><td>MIN</td><td>AL</td><td>2002</td><td>768</td><td>712</td><td> 94</td><td>0.332</td><td>0.437</td><td>0.272</td><td>1 </td><td> 7</td><td> 3</td><td>161</td><td>0.318</td><td>0.421</td></tr>
+	<tr><th scope=row>19</th><td>319</td><td>NYM</td><td>NL</td><td>2002</td><td>690</td><td>703</td><td> 75</td><td>0.322</td><td>0.395</td><td>0.256</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.327</td><td>0.403</td></tr>
+	<tr><th scope=row>20</th><td>320</td><td>NYY</td><td>AL</td><td>2002</td><td>897</td><td>697</td><td>103</td><td>0.354</td><td>0.455</td><td>0.275</td><td>1 </td><td> 1</td><td> 4</td><td>161</td><td>0.309</td><td>0.395</td></tr>
+	<tr><th scope=row>21</th><td>321</td><td>OAK</td><td>AL</td><td>2002</td><td>800</td><td>654</td><td>103</td><td>0.339</td><td>0.432</td><td>0.261</td><td>1 </td><td> 1</td><td> 4</td><td>162</td><td>0.315</td><td>0.384</td></tr>
+	<tr><th scope=row>22</th><td>322</td><td>PHI</td><td>NL</td><td>2002</td><td>710</td><td>724</td><td> 80</td><td>0.339</td><td>0.422</td><td>0.259</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.328</td><td>0.401</td></tr>
+	<tr><th scope=row>23</th><td>323</td><td>PIT</td><td>NL</td><td>2002</td><td>641</td><td>730</td><td> 72</td><td>0.319</td><td>0.381</td><td>0.244</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.342</td><td>0.423</td></tr>
+	<tr><th scope=row>26</th><td>326</td><td>SFG</td><td>NL</td><td>2002</td><td>783</td><td>616</td><td> 95</td><td>0.344</td><td>0.442</td><td>0.267</td><td>1 </td><td> 6</td><td> 2</td><td>162</td><td>0.319</td><td>0.372</td></tr>
+	<tr><th scope=row>27</th><td>327</td><td>STL</td><td>NL</td><td>2002</td><td>787</td><td>648</td><td> 97</td><td>0.338</td><td>0.425</td><td>0.268</td><td>1 </td><td> 5</td><td> 3</td><td>162</td><td>0.323</td><td>0.386</td></tr>
+	<tr><th scope=row>28</th><td>328</td><td>TBD</td><td>AL</td><td>2002</td><td>673</td><td>918</td><td> 55</td><td>0.314</td><td>0.390</td><td>0.253</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.357</td><td>0.463</td></tr>
+	<tr><th scope=row>29</th><td>329</td><td>TEX</td><td>AL</td><td>2002</td><td>843</td><td>882</td><td> 72</td><td>0.338</td><td>0.455</td><td>0.269</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.355</td><td>0.451</td></tr>
+	<tr><th scope=row>30</th><td>330</td><td>TOR</td><td>AL</td><td>2002</td><td>813</td><td>828</td><td> 78</td><td>0.327</td><td>0.430</td><td>0.261</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.344</td><td>0.431</td></tr>
+	<tr><th scope=row>31</th><td>331</td><td>ANA</td><td>AL</td><td>2001</td><td>691</td><td>730</td><td> 75</td><td>0.327</td><td>0.405</td><td>0.261</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.331</td><td>0.412</td></tr>
+	<tr><th scope=row>32</th><td>332</td><td>ARI</td><td>NL</td><td>2001</td><td>818</td><td>677</td><td> 92</td><td>0.341</td><td>0.442</td><td>0.267</td><td>1 </td><td> 5</td><td> 1</td><td>162</td><td>0.311</td><td>0.404</td></tr>
+	<tr><th scope=row>33</th><td>333</td><td>ATL</td><td>NL</td><td>2001</td><td>729</td><td>643</td><td> 88</td><td>0.324</td><td>0.412</td><td>0.260</td><td>1 </td><td> 7</td><td> 3</td><td>162</td><td>0.314</td><td>0.384</td></tr>
+	<tr><th scope=row>35</th><td>335</td><td>BOS</td><td>AL</td><td>2001</td><td>772</td><td>745</td><td> 82</td><td>0.334</td><td>0.439</td><td>0.266</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>0.329</td><td>0.393</td></tr>
+	<tr><th scope=row>36</th><td>336</td><td>CHC</td><td>NL</td><td>2001</td><td>777</td><td>701</td><td> 88</td><td>0.336</td><td>0.430</td><td>0.261</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.321</td><td>0.398</td></tr>
+	<tr><th scope=row>39</th><td>339</td><td>CLE</td><td>AL</td><td>2001</td><td>897</td><td>821</td><td> 91</td><td>0.350</td><td>0.458</td><td>0.278</td><td>1 </td><td> 6</td><td> 4</td><td>162</td><td>0.341</td><td>0.417</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>889</th><td>1189</td><td>PIT</td><td>NL</td><td>1964</td><td>663</td><td>636</td><td> 80</td><td>0.315</td><td>0.389</td><td>0.264</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>890</th><td>1190</td><td>SFG</td><td>NL</td><td>1964</td><td>656</td><td>587</td><td> 90</td><td>0.310</td><td>0.382</td><td>0.246</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>892</th><td>1192</td><td>WSA</td><td>AL</td><td>1964</td><td>578</td><td>733</td><td> 62</td><td>0.299</td><td>0.348</td><td>0.231</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>893</th><td>1193</td><td>BAL</td><td>AL</td><td>1963</td><td>644</td><td>621</td><td> 86</td><td>0.310</td><td>0.380</td><td>0.249</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>894</th><td>1194</td><td>BOS</td><td>AL</td><td>1963</td><td>666</td><td>704</td><td> 76</td><td>0.312</td><td>0.400</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>896</th><td>1196</td><td>CHW</td><td>AL</td><td>1963</td><td>683</td><td>544</td><td> 94</td><td>0.323</td><td>0.365</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>897</th><td>1197</td><td>CIN</td><td>NL</td><td>1963</td><td>648</td><td>594</td><td> 86</td><td>0.310</td><td>0.371</td><td>0.246</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>898</th><td>1198</td><td>CLE</td><td>AL</td><td>1963</td><td>635</td><td>702</td><td> 79</td><td>0.301</td><td>0.381</td><td>0.239</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>899</th><td>1199</td><td>DET</td><td>AL</td><td>1963</td><td>700</td><td>703</td><td> 79</td><td>0.327</td><td>0.382</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>900</th><td>1200</td><td>HOU</td><td>NL</td><td>1963</td><td>464</td><td>640</td><td> 66</td><td>0.283</td><td>0.301</td><td>0.220</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>902</th><td>1202</td><td>LAA</td><td>AL</td><td>1963</td><td>597</td><td>660</td><td> 70</td><td>0.309</td><td>0.354</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>905</th><td>1205</td><td>MLN</td><td>NL</td><td>1963</td><td>677</td><td>603</td><td> 84</td><td>0.312</td><td>0.370</td><td>0.244</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>906</th><td>1206</td><td>NYM</td><td>NL</td><td>1963</td><td>501</td><td>774</td><td> 51</td><td>0.285</td><td>0.315</td><td>0.219</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>907</th><td>1207</td><td>NYY</td><td>AL</td><td>1963</td><td>714</td><td>547</td><td>104</td><td>0.309</td><td>0.403</td><td>0.252</td><td>1 </td><td> 1</td><td> 2</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>908</th><td>1208</td><td>PHI</td><td>NL</td><td>1963</td><td>642</td><td>578</td><td> 87</td><td>0.306</td><td>0.381</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>909</th><td>1209</td><td>PIT</td><td>NL</td><td>1963</td><td>567</td><td>595</td><td> 74</td><td>0.309</td><td>0.359</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>911</th><td>1211</td><td>STL</td><td>NL</td><td>1963</td><td>747</td><td>628</td><td> 93</td><td>0.326</td><td>0.403</td><td>0.271</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>912</th><td>1212</td><td>WSA</td><td>AL</td><td>1963</td><td>578</td><td>812</td><td> 56</td><td>0.293</td><td>0.351</td><td>0.227</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>913</th><td>1213</td><td>BAL</td><td>AL</td><td>1962</td><td>652</td><td>680</td><td> 77</td><td>0.314</td><td>0.387</td><td>0.248</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>915</th><td>1215</td><td>CHC</td><td>NL</td><td>1962</td><td>632</td><td>827</td><td> 59</td><td>0.317</td><td>0.377</td><td>0.253</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>916</th><td>1216</td><td>CHW</td><td>AL</td><td>1962</td><td>707</td><td>658</td><td> 85</td><td>0.334</td><td>0.372</td><td>0.257</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>919</th><td>1219</td><td>DET</td><td>AL</td><td>1962</td><td>758</td><td>692</td><td> 85</td><td>0.330</td><td>0.411</td><td>0.248</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>921</th><td>1221</td><td>KCA</td><td>AL</td><td>1962</td><td>745</td><td>837</td><td> 72</td><td>0.332</td><td>0.386</td><td>0.263</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>922</th><td>1222</td><td>LAA</td><td>AL</td><td>1962</td><td>718</td><td>706</td><td> 86</td><td>0.325</td><td>0.380</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>923</th><td>1223</td><td>LAD</td><td>NL</td><td>1962</td><td>842</td><td>697</td><td>102</td><td>0.337</td><td>0.400</td><td>0.268</td><td>-1</td><td>NA</td><td>NA</td><td>165</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>926</th><td>1226</td><td>NYM</td><td>NL</td><td>1962</td><td>617</td><td>948</td><td> 40</td><td>0.318</td><td>0.361</td><td>0.240</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>927</th><td>1227</td><td>NYY</td><td>AL</td><td>1962</td><td>817</td><td>680</td><td> 96</td><td>0.337</td><td>0.426</td><td>0.267</td><td>1 </td><td> 2</td><td> 1</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>928</th><td>1228</td><td>PHI</td><td>NL</td><td>1962</td><td>705</td><td>759</td><td> 81</td><td>0.330</td><td>0.390</td><td>0.260</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>930</th><td>1230</td><td>SFG</td><td>NL</td><td>1962</td><td>878</td><td>690</td><td>103</td><td>0.341</td><td>0.441</td><td>0.278</td><td>1 </td><td> 1</td><td> 2</td><td>165</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>931</th><td>1231</td><td>STL</td><td>NL</td><td>1962</td><td>774</td><td>664</td><td> 84</td><td>0.335</td><td>0.394</td><td>0.271</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SVM_Train_1=MyTrain[,c(8,9,10,11,14)]
+svmfit=svm(Playoffs ~OBP+ SLG+BA+G, data=SVM_Train_1, kernel=&quot;linear&quot;, cost=1)
+svmtest_1=MyTest[,c(8,9,10,11,14)]
+predictTest = predict(svmfit, type = &quot;response&quot;, newdata = svmtest_1)
+conf2=table(svmtest$Playoffs, predictTest)
+conf2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    predictTest
+      -1   1
+  -1 231   0
+  1   49   0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SVM_Train_2=MyTrain[,c(8,9,10,11)]
+svmfit=svm(Playoffs ~OBP+ SLG+BA, data=SVM_Train_1, kernel=&quot;linear&quot;, cost=1)
+svmtest_2=MyTest[,c(8,9,10,11)]
+predictTest = predict(svmfit, type = &quot;response&quot;, newdata = svmtest_2)
+conf2=table(svmtest$Playoffs, predictTest)
+conf2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    predictTest
+      -1   1
+  -1 231   0
+  1   49   0
+</pre></div>
+</div>
+</div>
+</div>
+<p>调参优化</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>set.seed(3214)
+tune.out=tune(svm,Playoffs ~G +OBP +SLG +BA , data=SVM_Train_1, scale=TRUE, ranges=list(kernel=c(&quot;radial&quot;,&quot;polynomial&quot;,&quot;sigmoid&quot;),cost=c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1),gamma=c(0.025,0.05,0.075,0.1,0.2,0.3,0.5,0.6,0.7,0.8,0.9,1,1.2)))
+bestmodSVM=tune.out$best.model
+summary(bestmodSVM)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>
+Call:
+best.tune(method = svm, train.x = Playoffs ~ G + OBP + SLG + BA, 
+    data = SVM_Train_1, ranges = list(kernel = c(&quot;radial&quot;, &quot;polynomial&quot;, 
+        &quot;sigmoid&quot;), cost = c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 
+        0.9, 1), gamma = c(0.025, 0.05, 0.075, 0.1, 0.2, 0.3, 0.5, 
+        0.6, 0.7, 0.8, 0.9, 1, 1.2)), scale = TRUE)
+
+
+Parameters:
+   SVM-Type:  C-classification 
+ SVM-Kernel:  polynomial 
+       cost:  0.8 
+     degree:  3 
+     coef.0:  0 
+
+Number of Support Vectors:  229
+
+ ( 112 117 )
+
+
+Number of Classes:  2 
+
+Levels: 
+ -1 1
+
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>检验最优SVM的预测精度：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PredictSVM2 = predict(bestmodSVM,type=&quot;response&quot;)
+confsvm2 = table(SVM_Train_1$Playoffs,PredictSVM2)
+accuracySvm2= (confsvm2[1,1]+confsvm2[2,2])/sum(confsvm2) *100
+accuracySvm2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">83.4355828220859</div></div>
+</div>
+<p>检测样本外精度</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PredictSVM2 = predict(bestmodSVM,type=&quot;response&quot;,newdata=svmtest_1)
+confsvm2 = table(svmtest_1$Playoffs,PredictSVM2)
+accuracySvm2= (confsvm2[1,1]+confsvm2[2,2])/sum(confsvm2) *100
+accuracySvm2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">83.9285714285714</div></div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Case_1.html" title="previous page">Case 1: 点球成金</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jerrywang<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
