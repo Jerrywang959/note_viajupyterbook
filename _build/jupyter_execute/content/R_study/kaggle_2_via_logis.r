@@ -6,13 +6,17 @@ library(e1071)
 library(caTools)
 library(ROCR)
 library(pROC)
-
+library(rpart)
+library(rpart.plot)
+library(caret)
+library(e1071)
+library(randomForest)
 
 加载数据
 
 Trainraw=read.csv("../../datas/kaggle_2_Train.csv")
 Testraw=read.csv("../../datas/kaggle_2_Test.csv")
-str(Trainraw)
+str(Testraw)
 
 League与Team变量应该是Factor变量而非chr变量，下面作数据类型转换
 
@@ -167,14 +171,14 @@ SVM_Train_1=MyTrain[,c(8,9,10,11,14)]
 svmfit=svm(Playoffs ~OBP+ SLG+BA+G, data=SVM_Train_1, kernel="linear", cost=1)
 svmtest_1=MyTest[,c(8,9,10,11,14)]
 predictTest = predict(svmfit, type = "response", newdata = svmtest_1)
-conf2=table(svmtest$Playoffs, predictTest)
+conf2=table(svmtest_1$Playoffs, predictTest)
 conf2
 
 SVM_Train_2=MyTrain[,c(8,9,10,11)]
 svmfit=svm(Playoffs ~OBP+ SLG+BA, data=SVM_Train_1, kernel="linear", cost=1)
 svmtest_2=MyTest[,c(8,9,10,11)]
 predictTest = predict(svmfit, type = "response", newdata = svmtest_2)
-conf2=table(svmtest$Playoffs, predictTest)
+conf2=table(svmtest_2$Playoffs, predictTest)
 conf2
 
 调参优化
@@ -197,4 +201,70 @@ PredictSVM2 = predict(bestmodSVM,type="response",newdata=svmtest_1)
 confsvm2 = table(svmtest_1$Playoffs,PredictSVM2)
 accuracySvm2= (confsvm2[1,1]+confsvm2[2,2])/sum(confsvm2) *100
 accuracySvm2
+
+## 使用树模型
+### 构建cart模型
+
+tree_train=MyTrain
+tree_test=MyTest
+tree_train$Playoffs=as.factor(tree_train$Playoffs)
+tree_test$Playoffs=as.factor(tree_test$Playoffs)
+tree_test
+
+moneyTree = rpart(Playoffs ~ OBP + SLG + BA + G , data = tree_train, control = rpart.control(minbucket = 10))
+prp(moneyTree)
+
+评估cart模型的准确性
+
+predictCART = predict(moneyTree, newdata = tree_test,type = "class")
+conf = table(tree_test$Playoffs, predictCART)
+conf
+
+### 使用交叉验证选择复杂度参数
+现在，我们将定义我们的交叉验证实验。首先，我们定义所需的折数。
+
+fitControl = trainControl(method = "cv", number = 50)
+
+接下来，我们需要为参数cp选择可能的值。cp通过惩罚每个拆分来控制树的增长。
+
+cp越大（每次拆分的惩罚越高），导致树越小：cp = 1将导致没有拆分的树，即最小的树；相当于设置minbucket =数据大小 ;
+
+较小的cp（每次拆分的惩罚较低）会导致树的增大：cp = 0将导致以每个数据点为叶节点的树，即最大的树；等效于设置minbucket = 1。
+
+通常，我们不需要探究cp值从0到1 的整个范围。在大多数情况下，我们只需要一个小的cp值即可，例如从0.01到0.5，步长为0.01。
+
+cpGrid = expand.grid(.cp = (1:500)*0.001)
+
+set.seed(33)
+cvResults = train(Playoffs ~ OBP + SLG + BA, data = tree_train, method = "rpart", trControl = fitControl, tuneGrid = cpGrid)
+cvResults
+
+moneyTreeCV = rpart(Playoffs ~ OBP + SLG + BA, data = tree_train, control = rpart.control(cp = cvResults["bestTune"]))
+prp(moneyTreeCV)
+
+测试预测集合
+
+predictCV = predict(moneyTreeCV, newdata = tree_test, type = "class")
+confCV = table(tree_test$Playoffs, predictCV)
+confCV
+
+预测数据
+
+predictTest=predict(moneyTreeCV,newdata = Testraw, type = "class")
+x <-data.frame(Id=Testraw$Id,Playoffs=predictTest)
+x$Playoffs=as.numeric(x$Playoffs)
+x$Playoffs[which(x$Playoffs==1)]=0
+x$Playoffs[which(x$Playoffs==2)]=1
+x
+
+write.csv(x,"../../output/Cart_tree_output.csv",row.names=FALSE)
+
+### 建立随机森林模型
+
+set.seed(333)
+moneyForest = randomForest(Playoffs ~ OBP + SLG + BA, data = tree_train, ntree = 3000, nodesize = 50, mtry = 3)
+
+predictForest = predict(moneyForest, newdata = tree_test)
+confRF = table(tree_test$Playoffs,predictForest)
+confRF
 

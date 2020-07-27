@@ -256,6 +256,24 @@
             <a href="#svm" class="nav-link">SVM</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id6" class="nav-link">使用树模型</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#cart" class="nav-link">构建cart模型</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id7" class="nav-link">使用交叉验证选择复杂度参数</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id8" class="nav-link">建立随机森林模型</a>
+        </li>
+    
+            </ul>
+        </li>
+    
     </ul>
 </nav>
 
@@ -285,7 +303,30 @@
 <span class="n">library</span><span class="p">(</span><span class="n">caTools</span><span class="p">)</span>
 <span class="n">library</span><span class="p">(</span><span class="n">ROCR</span><span class="p">)</span>
 <span class="n">library</span><span class="p">(</span><span class="n">pROC</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">rpart</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">rpart</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">e1071</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">randomForest</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">randomForest 4.6-14
+
+Type rfNews() to see new features/changes/bug fixes.
+
+
+Attaching package: ‘randomForest’
+
+
+The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+
+</pre>
 </div>
 </div>
 </div>
@@ -294,28 +335,28 @@
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trainraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Train.csv&quot;</span><span class="p">)</span>
 <span class="n">Testraw</span><span class="o">=</span><span class="n">read</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="s2">&quot;../../datas/kaggle_2_Test.csv&quot;</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">Trainraw</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">Testraw</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	932 obs. of  16 variables:
- $ Id          : int  301 302 303 304 305 306 307 308 309 310 ...
- $ Team        : chr  &quot;ANA&quot; &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; ...
- $ League      : chr  &quot;AL&quot; &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; ...
- $ Year        : int  2002 2002 2002 2002 2002 2002 2002 2002 2002 2002 ...
- $ RS          : int  851 819 708 667 859 706 856 709 739 778 ...
- $ RA          : int  644 674 565 773 665 759 798 774 837 898 ...
- $ W           : int  99 98 101 67 93 67 81 78 74 73 ...
- $ OBP         : num  0.341 0.346 0.331 0.309 0.345 0.321 0.338 0.33 0.321 0.337 ...
- $ SLG         : num  0.433 0.423 0.409 0.403 0.444 0.413 0.449 0.408 0.412 0.423 ...
- $ BA          : num  0.282 0.267 0.26 0.246 0.277 0.246 0.268 0.253 0.249 0.274 ...
- $ Playoffs    : int  1 1 1 0 0 0 0 0 0 0 ...
- $ RankSeason  : int  3 4 2 NA NA NA NA NA NA NA ...
- $ RankPlayoffs: int  1 4 4 NA NA NA NA NA NA NA ...
- $ G           : int  162 162 161 162 162 162 162 162 162 162 ...
- $ OOBP        : num  0.314 0.305 0.313 0.336 0.308 0.331 0.33 0.338 0.348 0.349 ...
- $ OSLG        : num  0.392 0.397 0.364 0.435 0.385 0.407 0.423 0.426 0.423 0.466 ...
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	300 obs. of  16 variables:
+ $ Id          : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Team        : chr  &quot;ARI&quot; &quot;ATL&quot; &quot;BAL&quot; &quot;BOS&quot; ...
+ $ League      : chr  &quot;NL&quot; &quot;NL&quot; &quot;AL&quot; &quot;AL&quot; ...
+ $ Year        : int  2012 2012 2012 2012 2012 2012 2012 2012 2012 2012 ...
+ $ RS          : logi  NA NA NA NA NA NA ...
+ $ RA          : logi  NA NA NA NA NA NA ...
+ $ W           : logi  NA NA NA NA NA NA ...
+ $ OBP         : num  0.328 0.32 0.311 0.315 0.302 0.318 0.315 0.324 0.33 0.335 ...
+ $ SLG         : num  0.418 0.389 0.417 0.415 0.378 0.422 0.411 0.381 0.436 0.422 ...
+ $ BA          : num  0.259 0.247 0.247 0.26 0.24 0.255 0.251 0.251 0.274 0.268 ...
+ $ Playoffs    : logi  NA NA NA NA NA NA ...
+ $ RankSeason  : logi  NA NA NA NA NA NA ...
+ $ RankPlayoffs: logi  NA NA NA NA NA NA ...
+ $ G           : int  162 162 162 162 162 162 162 162 162 162 ...
+ $ OOBP        : num  0.317 0.306 0.315 0.331 0.335 0.319 0.305 0.336 0.357 0.314 ...
+ $ OSLG        : num  0.415 0.378 0.403 0.428 0.424 0.405 0.39 0.43 0.47 0.402 ...
 </pre></div>
 </div>
 </div>
@@ -865,7 +906,7 @@ MyTrain
 svmfit=svm(Playoffs ~OBP+ SLG+BA+G, data=SVM_Train_1, kernel=&quot;linear&quot;, cost=1)
 svmtest_1=MyTest[,c(8,9,10,11,14)]
 predictTest = predict(svmfit, type = &quot;response&quot;, newdata = svmtest_1)
-conf2=table(svmtest$Playoffs, predictTest)
+conf2=table(svmtest_1$Playoffs, predictTest)
 conf2
 </pre></div>
 </div>
@@ -885,7 +926,7 @@ conf2
 svmfit=svm(Playoffs ~OBP+ SLG+BA, data=SVM_Train_1, kernel=&quot;linear&quot;, cost=1)
 svmtest_2=MyTest[,c(8,9,10,11)]
 predictTest = predict(svmfit, type = &quot;response&quot;, newdata = svmtest_2)
-conf2=table(svmtest$Playoffs, predictTest)
+conf2=table(svmtest_2$Playoffs, predictTest)
 conf2
 </pre></div>
 </div>
@@ -966,6 +1007,823 @@ accuracySvm2
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">83.9285714285714</div></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>使用树模型<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cart">
+<h3>构建cart模型<a class="headerlink" href="#cart" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tree_train=MyTrain
+tree_test=MyTest
+tree_train$Playoffs=as.factor(tree_train$Playoffs)
+tree_test$Playoffs=as.factor(tree_test$Playoffs)
+tree_test
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A data.frame: 280 × 16</caption>
+<thead>
+	<tr><th></th><th scope=col>Id</th><th scope=col>Team</th><th scope=col>League</th><th scope=col>Year</th><th scope=col>RS</th><th scope=col>RA</th><th scope=col>W</th><th scope=col>OBP</th><th scope=col>SLG</th><th scope=col>BA</th><th scope=col>Playoffs</th><th scope=col>RankSeason</th><th scope=col>RankPlayoffs</th><th scope=col>G</th><th scope=col>OOBP</th><th scope=col>OSLG</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>6</th><td>306</td><td>CHC</td><td>NL</td><td>2002</td><td>706</td><td>759</td><td> 67</td><td>0.321</td><td>0.413</td><td>0.246</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.331</td><td>0.407</td></tr>
+	<tr><th scope=row>7</th><td>307</td><td>CHW</td><td>AL</td><td>2002</td><td>856</td><td>798</td><td> 81</td><td>0.338</td><td>0.449</td><td>0.268</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.330</td><td>0.423</td></tr>
+	<tr><th scope=row>13</th><td>313</td><td>HOU</td><td>NL</td><td>2002</td><td>749</td><td>695</td><td> 84</td><td>0.338</td><td>0.417</td><td>0.262</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.330</td><td>0.410</td></tr>
+	<tr><th scope=row>18</th><td>318</td><td>MON</td><td>NL</td><td>2002</td><td>735</td><td>718</td><td> 83</td><td>0.334</td><td>0.418</td><td>0.261</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.329</td><td>0.421</td></tr>
+	<tr><th scope=row>24</th><td>324</td><td>SDP</td><td>NL</td><td>2002</td><td>662</td><td>815</td><td> 66</td><td>0.321</td><td>0.381</td><td>0.253</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.346</td><td>0.442</td></tr>
+	<tr><th scope=row>25</th><td>325</td><td>SEA</td><td>AL</td><td>2002</td><td>814</td><td>699</td><td> 93</td><td>0.350</td><td>0.419</td><td>0.275</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.315</td><td>0.410</td></tr>
+	<tr><th scope=row>34</th><td>334</td><td>BAL</td><td>AL</td><td>2001</td><td>687</td><td>829</td><td> 63</td><td>0.319</td><td>0.380</td><td>0.248</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.337</td><td>0.439</td></tr>
+	<tr><th scope=row>37</th><td>337</td><td>CHW</td><td>AL</td><td>2001</td><td>798</td><td>795</td><td> 83</td><td>0.334</td><td>0.451</td><td>0.268</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.334</td><td>0.427</td></tr>
+	<tr><th scope=row>38</th><td>338</td><td>CIN</td><td>NL</td><td>2001</td><td>735</td><td>850</td><td> 66</td><td>0.324</td><td>0.419</td><td>0.262</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.341</td><td>0.455</td></tr>
+	<tr><th scope=row>41</th><td>341</td><td>DET</td><td>AL</td><td>2001</td><td>724</td><td>876</td><td> 66</td><td>0.320</td><td>0.409</td><td>0.260</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.357</td><td>0.461</td></tr>
+	<tr><th scope=row>43</th><td>343</td><td>HOU</td><td>NL</td><td>2001</td><td>847</td><td>769</td><td> 93</td><td>0.347</td><td>0.451</td><td>0.271</td><td>1 </td><td> 4</td><td> 4</td><td>162</td><td>0.325</td><td>0.437</td></tr>
+	<tr><th scope=row>49</th><td>349</td><td>NYM</td><td>NL</td><td>2001</td><td>642</td><td>713</td><td> 82</td><td>0.323</td><td>0.387</td><td>0.249</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.314</td><td>0.419</td></tr>
+	<tr><th scope=row>54</th><td>354</td><td>SDP</td><td>NL</td><td>2001</td><td>789</td><td>812</td><td> 79</td><td>0.336</td><td>0.399</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.330</td><td>0.450</td></tr>
+	<tr><th scope=row>57</th><td>357</td><td>STL</td><td>NL</td><td>2001</td><td>814</td><td>684</td><td> 93</td><td>0.339</td><td>0.441</td><td>0.270</td><td>1 </td><td> 4</td><td> 4</td><td>162</td><td>0.328</td><td>0.428</td></tr>
+	<tr><th scope=row>58</th><td>358</td><td>TBD</td><td>AL</td><td>2001</td><td>672</td><td>887</td><td> 62</td><td>0.320</td><td>0.388</td><td>0.258</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.345</td><td>0.452</td></tr>
+	<tr><th scope=row>66</th><td>366</td><td>CHC</td><td>NL</td><td>2000</td><td>764</td><td>904</td><td> 65</td><td>0.335</td><td>0.411</td><td>0.256</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.348</td><td>0.452</td></tr>
+	<tr><th scope=row>69</th><td>369</td><td>CLE</td><td>AL</td><td>2000</td><td>950</td><td>816</td><td> 90</td><td>0.367</td><td>0.470</td><td>0.288</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.350</td><td>0.425</td></tr>
+	<tr><th scope=row>70</th><td>370</td><td>COL</td><td>NL</td><td>2000</td><td>968</td><td>897</td><td> 82</td><td>0.362</td><td>0.455</td><td>0.294</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.354</td><td>0.471</td></tr>
+	<tr><th scope=row>74</th><td>374</td><td>KCR</td><td>AL</td><td>2000</td><td>879</td><td>930</td><td> 77</td><td>0.348</td><td>0.425</td><td>0.288</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.362</td><td>0.474</td></tr>
+	<tr><th scope=row>78</th><td>378</td><td>MON</td><td>NL</td><td>2000</td><td>738</td><td>902</td><td> 67</td><td>0.326</td><td>0.432</td><td>0.266</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.353</td><td>0.449</td></tr>
+	<tr><th scope=row>82</th><td>382</td><td>PHI</td><td>NL</td><td>2000</td><td>708</td><td>830</td><td> 65</td><td>0.329</td><td>0.400</td><td>0.251</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.343</td><td>0.448</td></tr>
+	<tr><th scope=row>83</th><td>383</td><td>PIT</td><td>NL</td><td>2000</td><td>793</td><td>888</td><td> 69</td><td>0.339</td><td>0.424</td><td>0.267</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.361</td><td>0.432</td></tr>
+	<tr><th scope=row>85</th><td>385</td><td>SEA</td><td>AL</td><td>2000</td><td>907</td><td>780</td><td> 91</td><td>0.361</td><td>0.442</td><td>0.269</td><td>1 </td><td> 4</td><td> 3</td><td>162</td><td>0.339</td><td>0.416</td></tr>
+	<tr><th scope=row>87</th><td>387</td><td>STL</td><td>NL</td><td>2000</td><td>887</td><td>771</td><td> 95</td><td>0.356</td><td>0.455</td><td>0.270</td><td>1 </td><td> 2</td><td> 3</td><td>162</td><td>0.338</td><td>0.434</td></tr>
+	<tr><th scope=row>91</th><td>391</td><td>ANA</td><td>AL</td><td>1999</td><td>711</td><td>826</td><td> 70</td><td>0.322</td><td>0.395</td><td>0.256</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.346</td><td>0.427</td></tr>
+	<tr><th scope=row>92</th><td>392</td><td>ARI</td><td>NL</td><td>1999</td><td>908</td><td>676</td><td>100</td><td>0.347</td><td>0.459</td><td>0.277</td><td>1 </td><td> 2</td><td> 4</td><td>162</td><td>0.320</td><td>0.402</td></tr>
+	<tr><th scope=row>93</th><td>393</td><td>ATL</td><td>NL</td><td>1999</td><td>840</td><td>661</td><td>103</td><td>0.341</td><td>0.436</td><td>0.266</td><td>1 </td><td> 1</td><td> 2</td><td>162</td><td>0.314</td><td>0.377</td></tr>
+	<tr><th scope=row>96</th><td>396</td><td>CHC</td><td>NL</td><td>1999</td><td>747</td><td>920</td><td> 67</td><td>0.329</td><td>0.420</td><td>0.257</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.346</td><td>0.467</td></tr>
+	<tr><th scope=row>97</th><td>397</td><td>CHW</td><td>AL</td><td>1999</td><td>777</td><td>870</td><td> 75</td><td>0.337</td><td>0.429</td><td>0.277</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>0.353</td><td>0.447</td></tr>
+	<tr><th scope=row>98</th><td>398</td><td>CIN</td><td>NL</td><td>1999</td><td>865</td><td>711</td><td> 96</td><td>0.341</td><td>0.451</td><td>0.272</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>0.324</td><td>0.411</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>839</th><td>1139</td><td>CIN</td><td>NL</td><td>1966</td><td>692</td><td>702</td><td>76</td><td>0.309</td><td>0.395</td><td>0.260</td><td>-1</td><td>NA</td><td>NA</td><td>160</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>842</th><td>1142</td><td>HOU</td><td>NL</td><td>1966</td><td>612</td><td>695</td><td>72</td><td>0.318</td><td>0.365</td><td>0.255</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>843</th><td>1143</td><td>KCA</td><td>AL</td><td>1966</td><td>564</td><td>648</td><td>74</td><td>0.294</td><td>0.337</td><td>0.236</td><td>-1</td><td>NA</td><td>NA</td><td>160</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>845</th><td>1145</td><td>MIN</td><td>AL</td><td>1966</td><td>663</td><td>581</td><td>89</td><td>0.316</td><td>0.382</td><td>0.249</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>846</th><td>1146</td><td>NYM</td><td>NL</td><td>1966</td><td>587</td><td>761</td><td>66</td><td>0.301</td><td>0.342</td><td>0.239</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>847</th><td>1147</td><td>NYY</td><td>AL</td><td>1966</td><td>611</td><td>612</td><td>70</td><td>0.299</td><td>0.374</td><td>0.235</td><td>-1</td><td>NA</td><td>NA</td><td>160</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>849</th><td>1149</td><td>PIT</td><td>NL</td><td>1966</td><td>759</td><td>641</td><td>92</td><td>0.329</td><td>0.428</td><td>0.279</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>850</th><td>1150</td><td>SFG</td><td>NL</td><td>1966</td><td>675</td><td>626</td><td>93</td><td>0.303</td><td>0.392</td><td>0.248</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>854</th><td>1154</td><td>BOS</td><td>AL</td><td>1965</td><td>669</td><td>791</td><td>62</td><td>0.327</td><td>0.400</td><td>0.251</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>862</th><td>1162</td><td>KCA</td><td>AL</td><td>1965</td><td>585</td><td>755</td><td>59</td><td>0.309</td><td>0.358</td><td>0.240</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>868</th><td>1168</td><td>PHI</td><td>NL</td><td>1965</td><td>654</td><td>667</td><td>85</td><td>0.313</td><td>0.384</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>870</th><td>1170</td><td>SFG</td><td>NL</td><td>1965</td><td>682</td><td>593</td><td>95</td><td>0.313</td><td>0.385</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>876</th><td>1176</td><td>CHW</td><td>AL</td><td>1964</td><td>642</td><td>501</td><td>98</td><td>0.320</td><td>0.353</td><td>0.247</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>877</th><td>1177</td><td>CIN</td><td>NL</td><td>1964</td><td>660</td><td>566</td><td>92</td><td>0.308</td><td>0.372</td><td>0.249</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>880</th><td>1180</td><td>HOU</td><td>NL</td><td>1964</td><td>495</td><td>628</td><td>66</td><td>0.285</td><td>0.315</td><td>0.229</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>884</th><td>1184</td><td>MIN</td><td>AL</td><td>1964</td><td>737</td><td>678</td><td>79</td><td>0.322</td><td>0.427</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>891</th><td>1191</td><td>STL</td><td>NL</td><td>1964</td><td>715</td><td>652</td><td>93</td><td>0.324</td><td>0.392</td><td>0.272</td><td>1 </td><td> 2</td><td> 1</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>895</th><td>1195</td><td>CHC</td><td>NL</td><td>1963</td><td>570</td><td>578</td><td>82</td><td>0.297</td><td>0.363</td><td>0.238</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>901</th><td>1201</td><td>KCA</td><td>AL</td><td>1963</td><td>615</td><td>704</td><td>73</td><td>0.313</td><td>0.353</td><td>0.247</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>903</th><td>1203</td><td>LAD</td><td>NL</td><td>1963</td><td>640</td><td>550</td><td>99</td><td>0.309</td><td>0.357</td><td>0.251</td><td>1 </td><td> 2</td><td> 1</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>904</th><td>1204</td><td>MIN</td><td>AL</td><td>1963</td><td>767</td><td>602</td><td>91</td><td>0.325</td><td>0.430</td><td>0.255</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>910</th><td>1210</td><td>SFG</td><td>NL</td><td>1963</td><td>725</td><td>641</td><td>88</td><td>0.316</td><td>0.414</td><td>0.258</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>914</th><td>1214</td><td>BOS</td><td>AL</td><td>1962</td><td>707</td><td>756</td><td>76</td><td>0.324</td><td>0.403</td><td>0.258</td><td>-1</td><td>NA</td><td>NA</td><td>160</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>917</th><td>1217</td><td>CIN</td><td>NL</td><td>1962</td><td>802</td><td>685</td><td>98</td><td>0.332</td><td>0.417</td><td>0.270</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>918</th><td>1218</td><td>CLE</td><td>AL</td><td>1962</td><td>682</td><td>745</td><td>80</td><td>0.312</td><td>0.388</td><td>0.245</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>920</th><td>1220</td><td>HOU</td><td>NL</td><td>1962</td><td>592</td><td>717</td><td>64</td><td>0.310</td><td>0.351</td><td>0.246</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>924</th><td>1224</td><td>MIN</td><td>AL</td><td>1962</td><td>798</td><td>713</td><td>91</td><td>0.338</td><td>0.412</td><td>0.260</td><td>-1</td><td>NA</td><td>NA</td><td>163</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>925</th><td>1225</td><td>MLN</td><td>NL</td><td>1962</td><td>730</td><td>665</td><td>86</td><td>0.326</td><td>0.403</td><td>0.252</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>929</th><td>1229</td><td>PIT</td><td>NL</td><td>1962</td><td>706</td><td>626</td><td>93</td><td>0.321</td><td>0.394</td><td>0.268</td><td>-1</td><td>NA</td><td>NA</td><td>161</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>932</th><td>1232</td><td>WSA</td><td>AL</td><td>1962</td><td>599</td><td>716</td><td>60</td><td>0.308</td><td>0.373</td><td>0.250</td><td>-1</td><td>NA</td><td>NA</td><td>162</td><td>NA</td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moneyTree</span> <span class="o">=</span> <span class="n">rpart</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span> <span class="o">+</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">BA</span> <span class="o">+</span> <span class="n">G</span> <span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tree_train</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="n">rpart</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">minbucket</span> <span class="o">=</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">prp</span><span class="p">(</span><span class="n">moneyTree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_50_0.png" src="../../_images/kaggle_2_via_logis_50_0.png" />
+</div>
+</div>
+<p>评估cart模型的准确性</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictCART = predict(moneyTree, newdata = tree_test,type = &quot;class&quot;)
+conf = table(tree_test$Playoffs, predictCART)
+conf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    predictCART
+      -1   1
+  -1 221  10
+  1   34  15
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>使用交叉验证选择复杂度参数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>现在，我们将定义我们的交叉验证实验。首先，我们定义所需的折数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fitControl</span> <span class="o">=</span> <span class="n">trainControl</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;cv&quot;</span><span class="p">,</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>接下来，我们需要为参数cp选择可能的值。cp通过惩罚每个拆分来控制树的增长。</p>
+<p>cp越大（每次拆分的惩罚越高），导致树越小：cp = 1将导致没有拆分的树，即最小的树；相当于设置minbucket =数据大小 ;</p>
+<p>较小的cp（每次拆分的惩罚较低）会导致树的增大：cp = 0将导致以每个数据点为叶节点的树，即最大的树；等效于设置minbucket = 1。</p>
+<p>通常，我们不需要探究cp值从0到1 的整个范围。在大多数情况下，我们只需要一个小的cp值即可，例如从0.01到0.5，步长为0.01。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cpGrid</span> <span class="o">=</span> <span class="n">expand</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="o">.</span><span class="n">cp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">500</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span>
+<span class="n">cvResults</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span> <span class="o">+</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">BA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tree_train</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;rpart&quot;</span><span class="p">,</span> <span class="n">trControl</span> <span class="o">=</span> <span class="n">fitControl</span><span class="p">,</span> <span class="n">tuneGrid</span> <span class="o">=</span> <span class="n">cpGrid</span><span class="p">)</span>
+<span class="n">cvResults</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>CART 
+
+652 samples
+  3 predictor
+  2 classes: &#39;-1&#39;, &#39;1&#39; 
+
+No pre-processing
+Resampling: Cross-Validated (50 fold) 
+Summary of sample sizes: 640, 639, 640, 639, 638, 639, ... 
+Resampling results across tuning parameters:
+
+  cp     Accuracy   Kappa       
+  0.001  0.8257875   0.259757695
+  0.002  0.8257875   0.256718734
+  0.003  0.8305128   0.261084801
+  0.004  0.8320513   0.263370516
+  0.005  0.8410623   0.280864129
+  0.006  0.8459341   0.291262928
+  0.007  0.8459341   0.291262928
+  0.008  0.8459341   0.288740017
+  0.009  0.8459341   0.288740017
+  0.010  0.8426190   0.270172795
+  0.011  0.8426190   0.270172795
+  0.012  0.8426190   0.270172795
+  0.013  0.8426190   0.270172795
+  0.014  0.8410806   0.257601366
+  0.015  0.8410806   0.257601366
+  0.016  0.8427473   0.262101366
+  0.017  0.8427473   0.262101366
+  0.018  0.8427473   0.262101366
+  0.019  0.8337363   0.200684460
+  0.020  0.8337363   0.200684460
+  0.021  0.8337363   0.200684460
+  0.022  0.8337363   0.200684460
+  0.023  0.8337363   0.192684460
+  0.024  0.8337363   0.192684460
+  0.025  0.8337363   0.192684460
+  0.026  0.8337363   0.192684460
+  0.027  0.8337363   0.192684460
+  0.028  0.8382418   0.200824719
+  0.029  0.8382418   0.200824719
+  0.030  0.8382418   0.200824719
+  0.031  0.8382418   0.200824719
+  0.032  0.8441758   0.183269311
+  0.033  0.8441758   0.183269311
+  0.034  0.8441758   0.183269311
+  0.035  0.8413187   0.168096898
+  0.036  0.8413187   0.168096898
+  0.037  0.8246886   0.035347055
+  0.038  0.8246886   0.035347055
+  0.039  0.8246886   0.029829814
+  0.040  0.8246886   0.029829814
+  0.041  0.8262271   0.034767350
+  0.042  0.8262271   0.034767350
+  0.043  0.8262271   0.034767350
+  0.044  0.8262271   0.034767350
+  0.045  0.8262271   0.034767350
+  0.046  0.8233700   0.030629419
+  0.047  0.8233700   0.030629419
+  0.048  0.8233700   0.030629419
+  0.049  0.8184982  -0.003066233
+  0.050  0.8152930  -0.007851947
+  0.051  0.8152930  -0.007851947
+  0.052  0.8152930  -0.015851947
+  0.053  0.8152930  -0.015851947
+  0.054  0.8152930  -0.015851947
+  0.055  0.8199267  -0.008666233
+  0.056  0.8199267  -0.008666233
+  0.057  0.8199267  -0.008666233
+  0.058  0.8199267  -0.008666233
+  0.059  0.8199267  -0.008666233
+  0.060  0.8199267  -0.008666233
+  0.061  0.8199267  -0.008666233
+  0.062  0.8199267  -0.008666233
+  0.063  0.8199267  -0.008666233
+  0.064  0.8227839  -0.004528302
+  0.065  0.8227839  -0.004528302
+  0.066  0.8227839  -0.004528302
+  0.067  0.8227839  -0.004528302
+  0.068  0.8227839  -0.004528302
+  0.069  0.8227839  -0.004528302
+  0.070  0.8227839  -0.004528302
+  0.071  0.8227839  -0.004528302
+  0.072  0.8227839  -0.004528302
+  0.073  0.8273993   0.000000000
+  0.074  0.8273993   0.000000000
+  0.075  0.8273993   0.000000000
+  0.076  0.8273993   0.000000000
+  0.077  0.8273993   0.000000000
+  0.078  0.8273993   0.000000000
+  0.079  0.8273993   0.000000000
+  0.080  0.8273993   0.000000000
+  0.081  0.8273993   0.000000000
+  0.082  0.8273993   0.000000000
+  0.083  0.8273993   0.000000000
+  0.084  0.8273993   0.000000000
+  0.085  0.8273993   0.000000000
+  0.086  0.8273993   0.000000000
+  0.087  0.8273993   0.000000000
+  0.088  0.8273993   0.000000000
+  0.089  0.8273993   0.000000000
+  0.090  0.8273993   0.000000000
+  0.091  0.8273993   0.000000000
+  0.092  0.8273993   0.000000000
+  0.093  0.8273993   0.000000000
+  0.094  0.8273993   0.000000000
+  0.095  0.8273993   0.000000000
+  0.096  0.8273993   0.000000000
+  0.097  0.8273993   0.000000000
+  0.098  0.8273993   0.000000000
+  0.099  0.8273993   0.000000000
+  0.100  0.8273993   0.000000000
+  0.101  0.8273993   0.000000000
+  0.102  0.8273993   0.000000000
+  0.103  0.8273993   0.000000000
+  0.104  0.8273993   0.000000000
+  0.105  0.8273993   0.000000000
+  0.106  0.8273993   0.000000000
+  0.107  0.8273993   0.000000000
+  0.108  0.8273993   0.000000000
+  0.109  0.8273993   0.000000000
+  0.110  0.8273993   0.000000000
+  0.111  0.8273993   0.000000000
+  0.112  0.8273993   0.000000000
+  0.113  0.8273993   0.000000000
+  0.114  0.8273993   0.000000000
+  0.115  0.8273993   0.000000000
+  0.116  0.8273993   0.000000000
+  0.117  0.8273993   0.000000000
+  0.118  0.8273993   0.000000000
+  0.119  0.8273993   0.000000000
+  0.120  0.8273993   0.000000000
+  0.121  0.8273993   0.000000000
+  0.122  0.8273993   0.000000000
+  0.123  0.8273993   0.000000000
+  0.124  0.8273993   0.000000000
+  0.125  0.8273993   0.000000000
+  0.126  0.8273993   0.000000000
+  0.127  0.8273993   0.000000000
+  0.128  0.8273993   0.000000000
+  0.129  0.8273993   0.000000000
+  0.130  0.8273993   0.000000000
+  0.131  0.8273993   0.000000000
+  0.132  0.8273993   0.000000000
+  0.133  0.8273993   0.000000000
+  0.134  0.8273993   0.000000000
+  0.135  0.8273993   0.000000000
+  0.136  0.8273993   0.000000000
+  0.137  0.8273993   0.000000000
+  0.138  0.8273993   0.000000000
+  0.139  0.8273993   0.000000000
+  0.140  0.8273993   0.000000000
+  0.141  0.8273993   0.000000000
+  0.142  0.8273993   0.000000000
+  0.143  0.8273993   0.000000000
+  0.144  0.8273993   0.000000000
+  0.145  0.8273993   0.000000000
+  0.146  0.8273993   0.000000000
+  0.147  0.8273993   0.000000000
+  0.148  0.8273993   0.000000000
+  0.149  0.8273993   0.000000000
+  0.150  0.8273993   0.000000000
+  0.151  0.8273993   0.000000000
+  0.152  0.8273993   0.000000000
+  0.153  0.8273993   0.000000000
+  0.154  0.8273993   0.000000000
+  0.155  0.8273993   0.000000000
+  0.156  0.8273993   0.000000000
+  0.157  0.8273993   0.000000000
+  0.158  0.8273993   0.000000000
+  0.159  0.8273993   0.000000000
+  0.160  0.8273993   0.000000000
+  0.161  0.8273993   0.000000000
+  0.162  0.8273993   0.000000000
+  0.163  0.8273993   0.000000000
+  0.164  0.8273993   0.000000000
+  0.165  0.8273993   0.000000000
+  0.166  0.8273993   0.000000000
+  0.167  0.8273993   0.000000000
+  0.168  0.8273993   0.000000000
+  0.169  0.8273993   0.000000000
+  0.170  0.8273993   0.000000000
+  0.171  0.8273993   0.000000000
+  0.172  0.8273993   0.000000000
+  0.173  0.8273993   0.000000000
+  0.174  0.8273993   0.000000000
+  0.175  0.8273993   0.000000000
+  0.176  0.8273993   0.000000000
+  0.177  0.8273993   0.000000000
+  0.178  0.8273993   0.000000000
+  0.179  0.8273993   0.000000000
+  0.180  0.8273993   0.000000000
+  0.181  0.8273993   0.000000000
+  0.182  0.8273993   0.000000000
+  0.183  0.8273993   0.000000000
+  0.184  0.8273993   0.000000000
+  0.185  0.8273993   0.000000000
+  0.186  0.8273993   0.000000000
+  0.187  0.8273993   0.000000000
+  0.188  0.8273993   0.000000000
+  0.189  0.8273993   0.000000000
+  0.190  0.8273993   0.000000000
+  0.191  0.8273993   0.000000000
+  0.192  0.8273993   0.000000000
+  0.193  0.8273993   0.000000000
+  0.194  0.8273993   0.000000000
+  0.195  0.8273993   0.000000000
+  0.196  0.8273993   0.000000000
+  0.197  0.8273993   0.000000000
+  0.198  0.8273993   0.000000000
+  0.199  0.8273993   0.000000000
+  0.200  0.8273993   0.000000000
+  0.201  0.8273993   0.000000000
+  0.202  0.8273993   0.000000000
+  0.203  0.8273993   0.000000000
+  0.204  0.8273993   0.000000000
+  0.205  0.8273993   0.000000000
+  0.206  0.8273993   0.000000000
+  0.207  0.8273993   0.000000000
+  0.208  0.8273993   0.000000000
+  0.209  0.8273993   0.000000000
+  0.210  0.8273993   0.000000000
+  0.211  0.8273993   0.000000000
+  0.212  0.8273993   0.000000000
+  0.213  0.8273993   0.000000000
+  0.214  0.8273993   0.000000000
+  0.215  0.8273993   0.000000000
+  0.216  0.8273993   0.000000000
+  0.217  0.8273993   0.000000000
+  0.218  0.8273993   0.000000000
+  0.219  0.8273993   0.000000000
+  0.220  0.8273993   0.000000000
+  0.221  0.8273993   0.000000000
+  0.222  0.8273993   0.000000000
+  0.223  0.8273993   0.000000000
+  0.224  0.8273993   0.000000000
+  0.225  0.8273993   0.000000000
+  0.226  0.8273993   0.000000000
+  0.227  0.8273993   0.000000000
+  0.228  0.8273993   0.000000000
+  0.229  0.8273993   0.000000000
+  0.230  0.8273993   0.000000000
+  0.231  0.8273993   0.000000000
+  0.232  0.8273993   0.000000000
+  0.233  0.8273993   0.000000000
+  0.234  0.8273993   0.000000000
+  0.235  0.8273993   0.000000000
+  0.236  0.8273993   0.000000000
+  0.237  0.8273993   0.000000000
+  0.238  0.8273993   0.000000000
+  0.239  0.8273993   0.000000000
+  0.240  0.8273993   0.000000000
+  0.241  0.8273993   0.000000000
+  0.242  0.8273993   0.000000000
+  0.243  0.8273993   0.000000000
+  0.244  0.8273993   0.000000000
+  0.245  0.8273993   0.000000000
+  0.246  0.8273993   0.000000000
+  0.247  0.8273993   0.000000000
+  0.248  0.8273993   0.000000000
+  0.249  0.8273993   0.000000000
+  0.250  0.8273993   0.000000000
+  0.251  0.8273993   0.000000000
+  0.252  0.8273993   0.000000000
+  0.253  0.8273993   0.000000000
+  0.254  0.8273993   0.000000000
+  0.255  0.8273993   0.000000000
+  0.256  0.8273993   0.000000000
+  0.257  0.8273993   0.000000000
+  0.258  0.8273993   0.000000000
+  0.259  0.8273993   0.000000000
+  0.260  0.8273993   0.000000000
+  0.261  0.8273993   0.000000000
+  0.262  0.8273993   0.000000000
+  0.263  0.8273993   0.000000000
+  0.264  0.8273993   0.000000000
+  0.265  0.8273993   0.000000000
+  0.266  0.8273993   0.000000000
+  0.267  0.8273993   0.000000000
+  0.268  0.8273993   0.000000000
+  0.269  0.8273993   0.000000000
+  0.270  0.8273993   0.000000000
+  0.271  0.8273993   0.000000000
+  0.272  0.8273993   0.000000000
+  0.273  0.8273993   0.000000000
+  0.274  0.8273993   0.000000000
+  0.275  0.8273993   0.000000000
+  0.276  0.8273993   0.000000000
+  0.277  0.8273993   0.000000000
+  0.278  0.8273993   0.000000000
+  0.279  0.8273993   0.000000000
+  0.280  0.8273993   0.000000000
+  0.281  0.8273993   0.000000000
+  0.282  0.8273993   0.000000000
+  0.283  0.8273993   0.000000000
+  0.284  0.8273993   0.000000000
+  0.285  0.8273993   0.000000000
+  0.286  0.8273993   0.000000000
+  0.287  0.8273993   0.000000000
+  0.288  0.8273993   0.000000000
+  0.289  0.8273993   0.000000000
+  0.290  0.8273993   0.000000000
+  0.291  0.8273993   0.000000000
+  0.292  0.8273993   0.000000000
+  0.293  0.8273993   0.000000000
+  0.294  0.8273993   0.000000000
+  0.295  0.8273993   0.000000000
+  0.296  0.8273993   0.000000000
+  0.297  0.8273993   0.000000000
+  0.298  0.8273993   0.000000000
+  0.299  0.8273993   0.000000000
+  0.300  0.8273993   0.000000000
+  0.301  0.8273993   0.000000000
+  0.302  0.8273993   0.000000000
+  0.303  0.8273993   0.000000000
+  0.304  0.8273993   0.000000000
+  0.305  0.8273993   0.000000000
+  0.306  0.8273993   0.000000000
+  0.307  0.8273993   0.000000000
+  0.308  0.8273993   0.000000000
+  0.309  0.8273993   0.000000000
+  0.310  0.8273993   0.000000000
+  0.311  0.8273993   0.000000000
+  0.312  0.8273993   0.000000000
+  0.313  0.8273993   0.000000000
+  0.314  0.8273993   0.000000000
+  0.315  0.8273993   0.000000000
+  0.316  0.8273993   0.000000000
+  0.317  0.8273993   0.000000000
+  0.318  0.8273993   0.000000000
+  0.319  0.8273993   0.000000000
+  0.320  0.8273993   0.000000000
+  0.321  0.8273993   0.000000000
+  0.322  0.8273993   0.000000000
+  0.323  0.8273993   0.000000000
+  0.324  0.8273993   0.000000000
+  0.325  0.8273993   0.000000000
+  0.326  0.8273993   0.000000000
+  0.327  0.8273993   0.000000000
+  0.328  0.8273993   0.000000000
+  0.329  0.8273993   0.000000000
+  0.330  0.8273993   0.000000000
+  0.331  0.8273993   0.000000000
+  0.332  0.8273993   0.000000000
+  0.333  0.8273993   0.000000000
+  0.334  0.8273993   0.000000000
+  0.335  0.8273993   0.000000000
+  0.336  0.8273993   0.000000000
+  0.337  0.8273993   0.000000000
+  0.338  0.8273993   0.000000000
+  0.339  0.8273993   0.000000000
+  0.340  0.8273993   0.000000000
+  0.341  0.8273993   0.000000000
+  0.342  0.8273993   0.000000000
+  0.343  0.8273993   0.000000000
+  0.344  0.8273993   0.000000000
+  0.345  0.8273993   0.000000000
+  0.346  0.8273993   0.000000000
+  0.347  0.8273993   0.000000000
+  0.348  0.8273993   0.000000000
+  0.349  0.8273993   0.000000000
+  0.350  0.8273993   0.000000000
+  0.351  0.8273993   0.000000000
+  0.352  0.8273993   0.000000000
+  0.353  0.8273993   0.000000000
+  0.354  0.8273993   0.000000000
+  0.355  0.8273993   0.000000000
+  0.356  0.8273993   0.000000000
+  0.357  0.8273993   0.000000000
+  0.358  0.8273993   0.000000000
+  0.359  0.8273993   0.000000000
+  0.360  0.8273993   0.000000000
+  0.361  0.8273993   0.000000000
+  0.362  0.8273993   0.000000000
+  0.363  0.8273993   0.000000000
+  0.364  0.8273993   0.000000000
+  0.365  0.8273993   0.000000000
+  0.366  0.8273993   0.000000000
+  0.367  0.8273993   0.000000000
+  0.368  0.8273993   0.000000000
+  0.369  0.8273993   0.000000000
+  0.370  0.8273993   0.000000000
+  0.371  0.8273993   0.000000000
+  0.372  0.8273993   0.000000000
+  0.373  0.8273993   0.000000000
+  0.374  0.8273993   0.000000000
+  0.375  0.8273993   0.000000000
+  0.376  0.8273993   0.000000000
+  0.377  0.8273993   0.000000000
+  0.378  0.8273993   0.000000000
+  0.379  0.8273993   0.000000000
+  0.380  0.8273993   0.000000000
+  0.381  0.8273993   0.000000000
+  0.382  0.8273993   0.000000000
+  0.383  0.8273993   0.000000000
+  0.384  0.8273993   0.000000000
+  0.385  0.8273993   0.000000000
+  0.386  0.8273993   0.000000000
+  0.387  0.8273993   0.000000000
+  0.388  0.8273993   0.000000000
+  0.389  0.8273993   0.000000000
+  0.390  0.8273993   0.000000000
+  0.391  0.8273993   0.000000000
+  0.392  0.8273993   0.000000000
+  0.393  0.8273993   0.000000000
+  0.394  0.8273993   0.000000000
+  0.395  0.8273993   0.000000000
+  0.396  0.8273993   0.000000000
+  0.397  0.8273993   0.000000000
+  0.398  0.8273993   0.000000000
+  0.399  0.8273993   0.000000000
+  0.400  0.8273993   0.000000000
+  0.401  0.8273993   0.000000000
+  0.402  0.8273993   0.000000000
+  0.403  0.8273993   0.000000000
+  0.404  0.8273993   0.000000000
+  0.405  0.8273993   0.000000000
+  0.406  0.8273993   0.000000000
+  0.407  0.8273993   0.000000000
+  0.408  0.8273993   0.000000000
+  0.409  0.8273993   0.000000000
+  0.410  0.8273993   0.000000000
+  0.411  0.8273993   0.000000000
+  0.412  0.8273993   0.000000000
+  0.413  0.8273993   0.000000000
+  0.414  0.8273993   0.000000000
+  0.415  0.8273993   0.000000000
+  0.416  0.8273993   0.000000000
+  0.417  0.8273993   0.000000000
+  0.418  0.8273993   0.000000000
+  0.419  0.8273993   0.000000000
+  0.420  0.8273993   0.000000000
+  0.421  0.8273993   0.000000000
+  0.422  0.8273993   0.000000000
+  0.423  0.8273993   0.000000000
+  0.424  0.8273993   0.000000000
+  0.425  0.8273993   0.000000000
+  0.426  0.8273993   0.000000000
+  0.427  0.8273993   0.000000000
+  0.428  0.8273993   0.000000000
+  0.429  0.8273993   0.000000000
+  0.430  0.8273993   0.000000000
+  0.431  0.8273993   0.000000000
+  0.432  0.8273993   0.000000000
+  0.433  0.8273993   0.000000000
+  0.434  0.8273993   0.000000000
+  0.435  0.8273993   0.000000000
+  0.436  0.8273993   0.000000000
+  0.437  0.8273993   0.000000000
+  0.438  0.8273993   0.000000000
+  0.439  0.8273993   0.000000000
+  0.440  0.8273993   0.000000000
+  0.441  0.8273993   0.000000000
+  0.442  0.8273993   0.000000000
+  0.443  0.8273993   0.000000000
+  0.444  0.8273993   0.000000000
+  0.445  0.8273993   0.000000000
+  0.446  0.8273993   0.000000000
+  0.447  0.8273993   0.000000000
+  0.448  0.8273993   0.000000000
+  0.449  0.8273993   0.000000000
+  0.450  0.8273993   0.000000000
+  0.451  0.8273993   0.000000000
+  0.452  0.8273993   0.000000000
+  0.453  0.8273993   0.000000000
+  0.454  0.8273993   0.000000000
+  0.455  0.8273993   0.000000000
+  0.456  0.8273993   0.000000000
+  0.457  0.8273993   0.000000000
+  0.458  0.8273993   0.000000000
+  0.459  0.8273993   0.000000000
+  0.460  0.8273993   0.000000000
+  0.461  0.8273993   0.000000000
+  0.462  0.8273993   0.000000000
+  0.463  0.8273993   0.000000000
+  0.464  0.8273993   0.000000000
+  0.465  0.8273993   0.000000000
+  0.466  0.8273993   0.000000000
+  0.467  0.8273993   0.000000000
+  0.468  0.8273993   0.000000000
+  0.469  0.8273993   0.000000000
+  0.470  0.8273993   0.000000000
+  0.471  0.8273993   0.000000000
+  0.472  0.8273993   0.000000000
+  0.473  0.8273993   0.000000000
+  0.474  0.8273993   0.000000000
+  0.475  0.8273993   0.000000000
+  0.476  0.8273993   0.000000000
+  0.477  0.8273993   0.000000000
+  0.478  0.8273993   0.000000000
+  0.479  0.8273993   0.000000000
+  0.480  0.8273993   0.000000000
+  0.481  0.8273993   0.000000000
+  0.482  0.8273993   0.000000000
+  0.483  0.8273993   0.000000000
+  0.484  0.8273993   0.000000000
+  0.485  0.8273993   0.000000000
+  0.486  0.8273993   0.000000000
+  0.487  0.8273993   0.000000000
+  0.488  0.8273993   0.000000000
+  0.489  0.8273993   0.000000000
+  0.490  0.8273993   0.000000000
+  0.491  0.8273993   0.000000000
+  0.492  0.8273993   0.000000000
+  0.493  0.8273993   0.000000000
+  0.494  0.8273993   0.000000000
+  0.495  0.8273993   0.000000000
+  0.496  0.8273993   0.000000000
+  0.497  0.8273993   0.000000000
+  0.498  0.8273993   0.000000000
+  0.499  0.8273993   0.000000000
+  0.500  0.8273993   0.000000000
+
+Accuracy was used to select the optimal model using the largest value.
+The final value used for the model was cp = 0.009.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moneyTreeCV</span> <span class="o">=</span> <span class="n">rpart</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span> <span class="o">+</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">BA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tree_train</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="n">rpart</span><span class="o">.</span><span class="n">control</span><span class="p">(</span><span class="n">cp</span> <span class="o">=</span> <span class="n">cvResults</span><span class="p">[</span><span class="s2">&quot;bestTune&quot;</span><span class="p">]))</span>
+<span class="n">prp</span><span class="p">(</span><span class="n">moneyTreeCV</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kaggle_2_via_logis_58_0.png" src="../../_images/kaggle_2_via_logis_58_0.png" />
+</div>
+</div>
+<p>测试预测集合</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictCV = predict(moneyTreeCV, newdata = tree_test, type = &quot;class&quot;)
+confCV = table(tree_test$Playoffs, predictCV)
+confCV
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    predictCV
+      -1   1
+  -1 214  17
+  1   33  16
+</pre></div>
+</div>
+</div>
+</div>
+<p>预测数据</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictTest=predict(moneyTreeCV,newdata = Testraw, type = &quot;class&quot;)
+x &lt;-data.frame(Id=Testraw$Id,Playoffs=predictTest)
+x$Playoffs=as.numeric(x$Playoffs)
+x$Playoffs[which(x$Playoffs==1)]=0
+x$Playoffs[which(x$Playoffs==2)]=1
+x
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<caption>A data.frame: 300 × 2</caption>
+<thead>
+	<tr><th></th><th scope=col>Id</th><th scope=col>Playoffs</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td> 1</td><td>0</td></tr>
+	<tr><th scope=row>2</th><td> 2</td><td>0</td></tr>
+	<tr><th scope=row>3</th><td> 3</td><td>0</td></tr>
+	<tr><th scope=row>4</th><td> 4</td><td>0</td></tr>
+	<tr><th scope=row>5</th><td> 5</td><td>0</td></tr>
+	<tr><th scope=row>6</th><td> 6</td><td>0</td></tr>
+	<tr><th scope=row>7</th><td> 7</td><td>0</td></tr>
+	<tr><th scope=row>8</th><td> 8</td><td>0</td></tr>
+	<tr><th scope=row>9</th><td> 9</td><td>0</td></tr>
+	<tr><th scope=row>10</th><td>10</td><td>0</td></tr>
+	<tr><th scope=row>11</th><td>11</td><td>0</td></tr>
+	<tr><th scope=row>12</th><td>12</td><td>0</td></tr>
+	<tr><th scope=row>13</th><td>13</td><td>0</td></tr>
+	<tr><th scope=row>14</th><td>14</td><td>0</td></tr>
+	<tr><th scope=row>15</th><td>15</td><td>0</td></tr>
+	<tr><th scope=row>16</th><td>16</td><td>0</td></tr>
+	<tr><th scope=row>17</th><td>17</td><td>0</td></tr>
+	<tr><th scope=row>18</th><td>18</td><td>0</td></tr>
+	<tr><th scope=row>19</th><td>19</td><td>0</td></tr>
+	<tr><th scope=row>20</th><td>20</td><td>0</td></tr>
+	<tr><th scope=row>21</th><td>21</td><td>0</td></tr>
+	<tr><th scope=row>22</th><td>22</td><td>0</td></tr>
+	<tr><th scope=row>23</th><td>23</td><td>0</td></tr>
+	<tr><th scope=row>24</th><td>24</td><td>0</td></tr>
+	<tr><th scope=row>25</th><td>25</td><td>0</td></tr>
+	<tr><th scope=row>26</th><td>26</td><td>0</td></tr>
+	<tr><th scope=row>27</th><td>27</td><td>0</td></tr>
+	<tr><th scope=row>28</th><td>28</td><td>0</td></tr>
+	<tr><th scope=row>29</th><td>29</td><td>0</td></tr>
+	<tr><th scope=row>30</th><td>30</td><td>0</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>271</th><td>271</td><td>0</td></tr>
+	<tr><th scope=row>272</th><td>272</td><td>0</td></tr>
+	<tr><th scope=row>273</th><td>273</td><td>1</td></tr>
+	<tr><th scope=row>274</th><td>274</td><td>0</td></tr>
+	<tr><th scope=row>275</th><td>275</td><td>1</td></tr>
+	<tr><th scope=row>276</th><td>276</td><td>0</td></tr>
+	<tr><th scope=row>277</th><td>277</td><td>0</td></tr>
+	<tr><th scope=row>278</th><td>278</td><td>0</td></tr>
+	<tr><th scope=row>279</th><td>279</td><td>0</td></tr>
+	<tr><th scope=row>280</th><td>280</td><td>1</td></tr>
+	<tr><th scope=row>281</th><td>281</td><td>0</td></tr>
+	<tr><th scope=row>282</th><td>282</td><td>0</td></tr>
+	<tr><th scope=row>283</th><td>283</td><td>0</td></tr>
+	<tr><th scope=row>284</th><td>284</td><td>0</td></tr>
+	<tr><th scope=row>285</th><td>285</td><td>0</td></tr>
+	<tr><th scope=row>286</th><td>286</td><td>0</td></tr>
+	<tr><th scope=row>287</th><td>287</td><td>0</td></tr>
+	<tr><th scope=row>288</th><td>288</td><td>0</td></tr>
+	<tr><th scope=row>289</th><td>289</td><td>0</td></tr>
+	<tr><th scope=row>290</th><td>290</td><td>1</td></tr>
+	<tr><th scope=row>291</th><td>291</td><td>0</td></tr>
+	<tr><th scope=row>292</th><td>292</td><td>0</td></tr>
+	<tr><th scope=row>293</th><td>293</td><td>0</td></tr>
+	<tr><th scope=row>294</th><td>294</td><td>0</td></tr>
+	<tr><th scope=row>295</th><td>295</td><td>1</td></tr>
+	<tr><th scope=row>296</th><td>296</td><td>1</td></tr>
+	<tr><th scope=row>297</th><td>297</td><td>1</td></tr>
+	<tr><th scope=row>298</th><td>298</td><td>0</td></tr>
+	<tr><th scope=row>299</th><td>299</td><td>0</td></tr>
+	<tr><th scope=row>300</th><td>300</td><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">write</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s2">&quot;../../output/Cart_tree_output.csv&quot;</span><span class="p">,</span><span class="n">row</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>建立随机森林模型<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="n">moneyForest</span> <span class="o">=</span> <span class="n">randomForest</span><span class="p">(</span><span class="n">Playoffs</span> <span class="o">~</span> <span class="n">OBP</span> <span class="o">+</span> <span class="n">SLG</span> <span class="o">+</span> <span class="n">BA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tree_train</span><span class="p">,</span> <span class="n">ntree</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">nodesize</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">mtry</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>predictForest = predict(moneyForest, newdata = tree_test)
+confRF = table(tree_test$Playoffs,predictForest)
+confRF
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>    predictForest
+      -1   1
+  -1 221  10
+  1   34  15
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
